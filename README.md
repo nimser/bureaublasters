@@ -53,14 +53,15 @@ Tu travailles sur les données et les fonctions. L’interface Streamlit prend e
 catalogue_source.txt         Les 16 fiches produits de référence
 catalogue.py                 Les données Python à corriger et compléter
 fonctions.py                 Les quatre fonctions à compléter
-tests_catalogue.py           Les vérifications par étape et tes tests
+tests_catalogue.py           Les vérifications fournies et leur lancement
+tests_perso.py               Tes propres tests
 app.py                       L’interface Streamlit
 apercu_terminal.py           L’aperçu utilisable sans Streamlit
 images/                      Les visuels des produits
 requirements.txt             Les dépendances du projet
 ```
 
-Le catalogue comprend **8 équipements et 8 références de munitions ou recharges**. Tu modifies `catalogue.py`, `fonctions.py` et `tests_catalogue.py`. Lis les autres fichiers autant que tu veux : ils montrent comment tes fonctions sont utilisées.
+Le catalogue comprend **8 équipements et 8 références de munitions ou recharges**. Tu modifies `catalogue.py`, `fonctions.py` et `tests_perso.py`. Lis les autres fichiers autant que tu veux : ils montrent comment tes fonctions sont utilisées.
 
 ## Ouvre ton environnement
 
@@ -250,7 +251,7 @@ L’interface conserve les favoris pendant ta session. Une nouvelle session repa
 
 ## 5. Mets tes fonctions à l’épreuve
 
-Ajoute tes propres tests dans `tests_catalogue.py`, sous le commentaire prévu. Chaque test est une fonction dont le nom commence par `test_perso_`. Inspire-toi des tests fournis : un petit jeu de données indépendant, un appel, des `assert` avec un message utile. Écris au moins **un test personnel par fonction**.
+Écris tes propres tests dans `tests_perso.py`. Chaque test est une fonction sans paramètre dont le nom commence par `test_`, la convention reprise par l’outil de test `pytest`. Inspire-toi des tests fournis dans `tests_catalogue.py` : un petit jeu de données indépendant, un appel, des `assert` avec un message utile. Écris au moins **un test personnel par fonction**.
 
 | Fonction | Cas à couvrir dans l’ensemble des tests |
 | --- | --- |

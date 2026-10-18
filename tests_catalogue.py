@@ -2,8 +2,10 @@
 
 Lance tous les groupes : python tests_catalogue.py
 Lance un groupe : python tests_catalogue.py donnees
+Le groupe perso lance les tests de tests_perso.py.
 """
 
+import importlib
 import sys
 import traceback
 
@@ -191,15 +193,28 @@ def test_favoris_activer_puis_desactiver():
     assert produit["favori"] is False, f"Après désactivation : {produit['favori']!r}"
 
 
-# Tes tests : une fonction par cas, dont le nom commence par test_perso_
-
-
 # Lancement des tests
 
 
+def tests_du_groupe(groupe):
+    if groupe != "perso":
+        return [fonction for nom, fonction in globals().items() if nom.startswith(f"test_{groupe}_")]
+    module = importlib.import_module("tests_perso")
+    return [fonction for nom, fonction in vars(module).items() if nom.startswith("test_") and callable(fonction)]
+
+
 def lancer(groupe):
-    tests = [fonction for nom, fonction in globals().items() if nom.startswith(f"test_{groupe}_")]
     print(f"\n== {groupe} ==")
+    try:
+        tests = tests_du_groupe(groupe)
+    except Exception as erreur:
+        print(f"  ERREUR       import de tests_perso.py : {type(erreur).__name__}: {erreur}")
+        if isinstance(erreur, SyntaxError):
+            print(f"               ligne {erreur.lineno} : {(erreur.text or '').strip()}")
+        else:
+            cadre = traceback.extract_tb(erreur.__traceback__)[-1]
+            print(f"               {cadre.filename.split('/')[-1]}, ligne {cadre.lineno} : {cadre.line}")
+        return {"ok": 0, "echec": 1, "a_completer": 0}
     if not tests:
         print("  Aucun test pour le moment.")
     bilan = {"ok": 0, "echec": 0, "a_completer": 0}
@@ -214,7 +229,7 @@ def lancer(groupe):
             print(f"  ÉCHEC        {test.__name__}")
             print(f"               {erreur}")
             cadres = traceback.extract_tb(erreur.__traceback__)
-            ligne = [cadre for cadre in cadres if cadre.filename == __file__][-1]
+            ligne = [cadre for cadre in cadres if cadre.filename == test.__code__.co_filename][-1]
             print(f"               ligne {ligne.lineno} : {ligne.line}")
         except Exception as erreur:
             bilan["echec"] += 1
