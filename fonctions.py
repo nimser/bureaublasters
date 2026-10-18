@@ -7,7 +7,11 @@ def consommables_disponibles(catalogue):
     catalogue : liste de dictionnaires produits.
     Retour : un set de chaînes, sans doublons.
     """
-    raise NotImplementedError("consommables_disponibles est à compléter.")
+    codes = set()
+    for produit in catalogue:
+        for code in produit["consommables"]:
+            codes.add(code)
+    return codes
 
 
 def filtrer_par_consommable(catalogue, code):
@@ -17,7 +21,11 @@ def filtrer_par_consommable(catalogue, code):
     code : code de consommable recherché, par exemple "flechette-mousse".
     Retour : une nouvelle liste, dans l'ordre du catalogue.
     """
-    raise NotImplementedError("filtrer_par_consommable est à compléter.")
+    compatibles = []
+    for produit in catalogue:
+        if code in produit["consommables"]:
+            compatibles.append(produit)
+    return compatibles
 
 
 def calculer_budget(produit, quantite):
