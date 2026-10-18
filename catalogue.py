@@ -24,7 +24,7 @@ CATALOGUE = [
             "LED orange au départ du tir",
             "bruit de tampon administratif"
         ],
-        "image": "images/rafale-post-it.png",
+        "image": "images/rafale-post-it.jpg",
         "favori": False
     },
     {
@@ -50,7 +50,7 @@ CATALOGUE = [
             "LED violettes",
             "jingle de montée de niveau"
         ],
-        "image": "images/gantelets-sprint.png",
+        "image": "images/gantelets-sprint.jpg",
         "favori": False
     },
     {
@@ -76,7 +76,7 @@ CATALOGUE = [
             "coin-coin au départ du canard",
             "LED jaunes"
         ],
-        "image": "images/coin-coin-crise.png",
+        "image": "images/coin-coin-crise.jpg",
         "favori": False
     },
     {
@@ -102,7 +102,7 @@ CATALOGUE = [
             "LED bleues",
             "ding de fin de réunion"
         ],
-        "image": "images/arbalete-anti-reunionite.png",
+        "image": "images/arbalete-anti-reunionite.jpg",
         "favori": False
     },
     {
@@ -128,7 +128,7 @@ CATALOGUE = [
             "clochette de boulangerie",
             "senteur de croissant chaud"
         ],
-        "image": "images/catapulte-croissants.png",
+        "image": "images/catapulte-croissants.jpg",
         "favori": False
     },
     {
@@ -154,7 +154,7 @@ CATALOGUE = [
             "halo vert pulsé",
             "bourdonnement grave"
         ],
-        "image": "images/orbe-decompression.png",
+        "image": "images/orbe-decompression.jpg",
         "favori": False
     },
     {
@@ -177,7 +177,7 @@ CATALOGUE = [
         },
         "indice_protection": None,
         "effets": [],
-        "image": "images/flechettes-rappel.png",
+        "image": "images/flechettes-rappel.jpg",
         "favori": False
     },
     {
@@ -205,7 +205,7 @@ CATALOGUE = [
             "sifflement aigu",
             "senteur barbe à papa"
         ],
-        "image": "images/mini-requins.png",
+        "image": "images/mini-requins.jpg",
         "favori": False
     },
     {
@@ -228,7 +228,7 @@ CATALOGUE = [
         },
         "indice_protection": None,
         "effets": [],
-        "image": "images/disques-livraison.png",
+        "image": "images/disques-livraison.jpg",
         "favori": "False"
     },
     {
@@ -253,7 +253,7 @@ CATALOGUE = [
         "effets": [
             "coin-coin"
         ],
-        "image": "images/canards-soutien.png",
+        "image": "images/canards-soutien.jpg",
         "favori": False
     },
     {
@@ -278,7 +278,7 @@ CATALOGUE = [
         "effets": [
             "senteur de croissant chaud"
         ],
-        "image": "images/croissants-reserve.png",
+        "image": "images/croissants-reserve.jpg",
         "favori": False
     },
     {
@@ -301,7 +301,7 @@ CATALOGUE = [
         },
         "indice_protection": None,
         "effets": [],
-        "image": "images/balles-decompression.png",
+        "image": "images/balles-decompression.jpg",
         "favori": False
     },
     {
@@ -326,7 +326,7 @@ CATALOGUE = [
         "effets": [
             "brume d’eau"
         ],
-        "image": "images/brume-neutre.png",
+        "image": "images/brume-neutre.jpg",
         "favori": False
     }
 ]

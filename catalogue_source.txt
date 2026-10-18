@@ -17,7 +17,7 @@ Poids du conditionnement (g) : 650
 Dimensions (cm) : 32 × 8 × 18 (longueur × largeur × hauteur)
 Indice de protection : non applicable
 Effets : LED orange au départ du tir ; bruit de tampon administratif
-Image : images/rafale-post-it.png
+Image : images/rafale-post-it.jpg
 Favori : non
 
 Identifiant : BB-02
@@ -33,7 +33,7 @@ Poids du conditionnement (g) : 4800
 Dimensions (cm) : 118 × 30 × 42 (longueur × largeur × hauteur)
 Indice de protection : non applicable
 Effets : trajectoire en zigzag des mini-requins ; traînée de fumée froide rose et bleue ; yeux et gueule à LED roses et bleues ; éclat de rire enregistré au départ du tir ; senteur barbe à papa
-Image : images/requin-aretes.png
+Image : images/requin-aretes.jpg
 Favori : non
 
 Identifiant : BB-03
@@ -49,7 +49,7 @@ Poids du conditionnement (g) : 900
 Dimensions (cm) : 28 × 18 × 16 (longueur × largeur × hauteur)
 Indice de protection : non applicable
 Effets : LED violettes ; jingle de montée de niveau
-Image : images/gantelets-sprint.png
+Image : images/gantelets-sprint.jpg
 Favori : non
 
 Identifiant : BB-04
@@ -65,7 +65,7 @@ Poids du conditionnement (g) : 300
 Dimensions (cm) : 9 × 9 × 14 (longueur × largeur × hauteur)
 Indice de protection : IP68
 Effets : brume d’eau éclairée en rose ; pulsations de LED roses ; jingle de trois notes ; senteur selon la cartouche
-Image : images/brume-bonne-humeur.png
+Image : images/brume-bonne-humeur.jpg
 Favori : non
 
 Identifiant : BB-05
@@ -81,7 +81,7 @@ Poids du conditionnement (g) : 1000
 Dimensions (cm) : 38 × 15 × 22 (longueur × largeur × hauteur)
 Indice de protection : non applicable
 Effets : coin-coin au départ du canard ; LED jaunes
-Image : images/coin-coin-crise.png
+Image : images/coin-coin-crise.jpg
 Favori : non
 
 Identifiant : BB-06
@@ -97,7 +97,7 @@ Poids du conditionnement (g) : 700
 Dimensions (cm) : 40 × 30 × 15 (longueur × largeur × hauteur)
 Indice de protection : non applicable
 Effets : LED bleues ; ding de fin de réunion
-Image : images/arbalete-anti-reunionite.png
+Image : images/arbalete-anti-reunionite.jpg
 Favori : non
 
 Identifiant : BB-07
@@ -113,7 +113,7 @@ Poids du conditionnement (g) : 1400
 Dimensions (cm) : 48 × 20 × 30 (longueur × largeur × hauteur)
 Indice de protection : non applicable
 Effets : clochette de boulangerie ; senteur de croissant chaud
-Image : images/catapulte-croissants.png
+Image : images/catapulte-croissants.jpg
 Favori : non
 
 Identifiant : BB-08
@@ -129,7 +129,7 @@ Poids du conditionnement (g) : 800
 Dimensions (cm) : 24 × 20 × 20 (longueur × largeur × hauteur)
 Indice de protection : non applicable
 Effets : halo vert pulsé ; bourdonnement grave
-Image : images/orbe-decompression.png
+Image : images/orbe-decompression.jpg
 Favori : non
 
 Identifiant : RE-01
@@ -145,7 +145,7 @@ Poids du conditionnement (g) : 100
 Dimensions (cm) : 18 × 12 × 5 (longueur × largeur × hauteur)
 Indice de protection : non applicable
 Effets : aucun
-Image : images/flechettes-rappel.png
+Image : images/flechettes-rappel.jpg
 Favori : non
 
 Identifiant : RE-02
@@ -161,7 +161,7 @@ Poids du conditionnement (g) : 360
 Dimensions (cm) : 30 × 20 × 10 (longueur × largeur × hauteur)
 Indice de protection : non applicable
 Effets : trajectoire en zigzag ; fumée froide rose et bleue ; sifflement aigu ; senteur barbe à papa
-Image : images/mini-requins.png
+Image : images/mini-requins.jpg
 Favori : non
 
 Identifiant : RE-03
@@ -177,7 +177,7 @@ Poids du conditionnement (g) : 180
 Dimensions (cm) : 15 × 15 × 6 (longueur × largeur × hauteur)
 Indice de protection : non applicable
 Effets : aucun
-Image : images/disques-livraison.png
+Image : images/disques-livraison.jpg
 Favori : non
 
 Identifiant : RE-04
@@ -193,7 +193,7 @@ Poids du conditionnement (g) : 210
 Dimensions (cm) : 24 × 16 × 8 (longueur × largeur × hauteur)
 Indice de protection : non applicable
 Effets : coin-coin
-Image : images/canards-soutien.png
+Image : images/canards-soutien.jpg
 Favori : non
 
 Identifiant : RE-05
@@ -209,7 +209,7 @@ Poids du conditionnement (g) : 200
 Dimensions (cm) : 25 × 18 × 8 (longueur × largeur × hauteur)
 Indice de protection : non applicable
 Effets : senteur de croissant chaud
-Image : images/croissants-reserve.png
+Image : images/croissants-reserve.jpg
 Favori : non
 
 Identifiant : RE-06
@@ -225,7 +225,7 @@ Poids du conditionnement (g) : 150
 Dimensions (cm) : 20 × 15 × 8 (longueur × largeur × hauteur)
 Indice de protection : non applicable
 Effets : aucun
-Image : images/balles-decompression.png
+Image : images/balles-decompression.jpg
 Favori : non
 
 Identifiant : RE-07
@@ -241,7 +241,7 @@ Poids du conditionnement (g) : 130
 Dimensions (cm) : 4 × 4 × 12 (longueur × largeur × hauteur)
 Indice de protection : non applicable
 Effets : brume d’eau
-Image : images/brume-neutre.png
+Image : images/brume-neutre.jpg
 Favori : non
 
 Identifiant : RE-08
@@ -257,5 +257,5 @@ Poids du conditionnement (g) : 130
 Dimensions (cm) : 4 × 4 × 12 (longueur × largeur × hauteur)
 Indice de protection : non applicable
 Effets : brume d’eau ; senteur girofle et orange
-Image : images/brume-girofle-agrumes.png
+Image : images/brume-girofle-agrumes.jpg
 Favori : non
