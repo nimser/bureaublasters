@@ -48,4 +48,4 @@ def definir_favori(produit, favori):
     favori : True ou False.
     Retour : None.
     """
-    raise NotImplementedError("definir_favori est à compléter.")
+    produit["favori"] = favori
