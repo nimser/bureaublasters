@@ -1,3 +1,9 @@
-Un canon de bureau trapu sur petit affût à roulettes, plastique jaune et bleu marine, d’où dépasse la tête d’un canard en mousse jaune. LED jaunes autour de la bouche du canon. Vue de profil légèrement en plongée.
+# BB-05 — Coin-Coin de Crise
 
-Style commun : photographie de catalogue produit, image carrée 1024 × 1024, fond uni blanc cassé, éclairage de studio doux, légère ombre portée, netteté sur tout le produit. Matériaux crédibles de jouet haut de gamme : plastique ABS mat, mousse EVA. Aucun texte, aucun logo, aucune marque, aucun filigrane.
+## Sujet et composition
+
+Photographier un canon-jouet à canards en mousse de 38 × 15 × 22 cm. Corps trapu jaune vif et bleu pétrole, bouche large évasée à bords souples, panneaux facettés, rivets captifs surdimensionnés et poignée graphite. Petit affût à roulettes en caoutchouc avec silhouette compacte, pas d’affût militaire. Le canon repose de biais sur le plateau et vise légèrement vers le haut ; un canard en mousse jaune à bec orange dépasse du chargement par l’avant. Texture poreuse et joint de moulage visibles : c’est une munition souple, pas un animal vivant ni un canard de bain creux. LED jaunes allumées autour de la bouche. Quelques boucles cyan, confettis magenta et petites flèches bancales peints sur les panneaux donnent l’impression d’une machine bricolée pour lancer une pause absurde. Les commandes, la bouche et le canard restent dégagés. Aucun autre canard en vol, aucune flamme, fumée ou explosion ; le coin-coin est un effet sonore, pas un mot dans l’image.
+
+## Prise de vue commune BureauBlasters
+
+Photographie publicitaire d’un véritable jouet haut de gamme, pas une illustration ni un rendu d’animation. Carré 1024 × 1024, vue de trois quarts légèrement plongeante, perspective naturelle 50 mm, produit entier occupant 75 à 85 % du cadre. Plateau bleu pétrole mat, fond dégradé bleu nuit vers pétrole avec deux bandes diagonales cyan et magenta discrètes. Grande lumière neutre en haut à gauche, contre-jours cyan et magenta modérés, ombres de contact crédibles, objet net et fond doux. ABS satiné, caoutchouc graphite, mousse EVA : textures tangibles, panneaux assemblés, petits graphismes peints originaux. Même collection ludique et décalée. Aucun bois, osier, fond blanc, texte, logo, filigrane, symbole d’Arcane ni reproduction d’un accessoire existant.

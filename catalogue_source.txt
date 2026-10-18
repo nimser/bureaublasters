@@ -23,7 +23,7 @@ Favori : non
 Identifiant : BB-02
 Nom : Requin Arêtes
 Catégorie : lanceur
-Description : Lance-requins à porter à deux mains. Gueule dentée, yeux lumineux, graffitis roses et bleus. Propulse par air comprimé des mini-requins en mousse qui zigzaguent et laissent une traînée de fumée colorée. Un éclat de rire enregistré accompagne chaque tir. Le modèle phare de la gamme.
+Description : Lance-requins à porter à deux mains. Gueule dentée, yeux lumineux, graffitis roses et bleus. Propulse par air comprimé des mini-requins en mousse qui zigzaguent et diffusent par plusieurs trous une brume d’eau produite par ultrasons, éclairée en rose et bleu par des LED voisines. Un éclat de rire enregistré accompagne chaque tir. Le modèle phare de la gamme.
 Prix du conditionnement (€) : 489,00
 Conditionnement : 1 lanceur, 1 sangle d’épaule, 1 pompe
 Codes de consommables : requin-mousse
@@ -32,7 +32,7 @@ Cadence (tirs/minute) : 4
 Poids du conditionnement (g) : 4800
 Dimensions (cm) : 118 × 30 × 42 (longueur × largeur × hauteur)
 Indice de protection : non applicable
-Effets : trajectoire en zigzag des mini-requins ; traînée de fumée froide rose et bleue ; yeux et gueule à LED roses et bleues ; éclat de rire enregistré au départ du tir ; senteur barbe à papa
+Effets : trajectoire en zigzag des mini-requins ; traînée de brume d’eau ultrasonique éclairée en rose et bleu ; yeux et gueule à LED roses et bleues ; éclat de rire enregistré au départ du tir ; senteur barbe à papa
 Image : images/requin-aretes.jpg
 Favori : non
 
@@ -55,7 +55,7 @@ Favori : non
 Identifiant : BB-04
 Nom : Brume de Bonne Humeur
 Catégorie : accessoire
-Description : Grenade lumineuse étanche qui diffuse une brume d’eau éclairée par ses LED pendant 20 secondes. Fonctionne avec une cartouche de 100 ml, neutre ou parfumée.
+Description : Grenade-jouet fumigène lumineuse et étanche, à réservoir intégré de 100 ml. Pendant 20 secondes, elle diffuse une brume d’eau produite par ultrasons à travers plusieurs trous, chacun accompagné d’une LED rose. Le réservoir se remplit en y versant le liquide d’une petite bouteille de recharge, neutre ou parfumé.
 Prix du conditionnement (€) : 29,90
 Conditionnement : 1 grenade de brume
 Codes de consommables : brume-neutre ; brume-girofle-agrumes
@@ -64,7 +64,7 @@ Cadence (tirs/minute) : non applicable
 Poids du conditionnement (g) : 300
 Dimensions (cm) : 9 × 9 × 14 (longueur × largeur × hauteur)
 Indice de protection : IP68
-Effets : brume d’eau éclairée en rose ; pulsations de LED roses ; jingle de trois notes ; senteur selon la cartouche
+Effets : jets de brume d’eau ultrasonique par plusieurs trous éclairés en rose ; pulsations de LED roses ; jingle de trois notes ; senteur selon le liquide de recharge
 Image : images/brume-bonne-humeur.jpg
 Favori : non
 
@@ -151,7 +151,7 @@ Favori : non
 Identifiant : RE-02
 Nom : Mini-requins fumigènes
 Catégorie : munition
-Description : Mini-requins en mousse pour le Requin Arêtes, avec LED et cartouche de fumée froide rechargeable.
+Description : Mini-requins en mousse pour le Requin Arêtes, avec réservoir de liquide rechargeable et module ultrasonique intégré. La brume d’eau sort par plusieurs trous à l’arrière, avec des LED roses et bleues à proximité de chaque sortie.
 Prix du conditionnement (€) : 59,90
 Conditionnement : lot de 4 mini-requins
 Codes de consommables : requin-mousse
@@ -160,7 +160,7 @@ Cadence (tirs/minute) : non applicable
 Poids du conditionnement (g) : 360
 Dimensions (cm) : 30 × 20 × 10 (longueur × largeur × hauteur)
 Indice de protection : non applicable
-Effets : trajectoire en zigzag ; fumée froide rose et bleue ; sifflement aigu ; senteur barbe à papa
+Effets : trajectoire en zigzag ; brume d’eau ultrasonique éclairée en rose et bleu par les LED voisines des trous ; sifflement aigu ; senteur barbe à papa
 Image : images/mini-requins.jpg
 Favori : non
 
@@ -231,9 +231,9 @@ Favori : non
 Identifiant : RE-07
 Nom : Brume neutre
 Catégorie : recharge
-Description : Cartouche d’eau pour la Brume de Bonne Humeur, sans senteur.
+Description : Petite bouteille de 100 ml de liquide aqueux sans parfum, à verser dans le réservoir vide de la Brume de Bonne Humeur pour le remplir.
 Prix du conditionnement (€) : 5,50
-Conditionnement : 1 cartouche de 100 ml
+Conditionnement : 1 bouteille de 100 ml
 Codes de consommables : brume-neutre
 Portée (m) : non applicable
 Cadence (tirs/minute) : non applicable
@@ -247,9 +247,9 @@ Favori : non
 Identifiant : RE-08
 Nom : Brume girofle-agrumes
 Catégorie : recharge
-Description : Cartouche d’eau parfumée pour la Brume de Bonne Humeur : clou de girofle et zeste d’orange.
+Description : Petite bouteille de 100 ml de liquide aqueux parfumé au clou de girofle et au zeste d’orange, à verser dans le réservoir vide de la Brume de Bonne Humeur pour le remplir.
 Prix du conditionnement (€) : 6,90
-Conditionnement : 1 cartouche de 100 ml
+Conditionnement : 1 bouteille de 100 ml
 Codes de consommables : brume-girofle-agrumes
 Portée (m) : non applicable
 Cadence (tirs/minute) : non applicable

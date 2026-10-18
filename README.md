@@ -21,15 +21,15 @@ Tu récupères le prototype avant la première commande. À toi de rendre le cat
 ### La gamme BureauBlasters
 
 - **Rafale de Post-it** : blaster compact à fléchettes en mousse, chargeur de 12 fléchettes, LED orange et bruit de tampon administratif à chaque tir.
-- **Requin Arêtes** : le modèle phare. Un lance-requins de 1,18 m à porter à deux mains, gueule dentée, yeux lumineux et graffitis roses et bleus. Il propulse à l’air comprimé des mini-requins en mousse qui zigzaguent en laissant une traînée de fumée colorée, dans un éclat de rire enregistré.
+- **Requin Arêtes** : le modèle phare. Un lance-requins de 1,18 m à porter à deux mains, gueule dentée, yeux lumineux et graffitis roses et bleus. Il propulse à l’air comprimé des mini-requins en mousse qui zigzaguent en diffusant une brume ultrasonique par plusieurs trous, éclairée en rose et bleu par des LED voisines, dans un éclat de rire enregistré.
 - **Gantelets du Sprint** : paire de gantelets lance-disques, LED violettes et jingle de montée de niveau.
-- **Brume de Bonne Humeur** : grenade lumineuse étanche, indice **IP68**, qui diffuse pendant 20 secondes une brume d’eau éclairée en rose. Cartouches de 100 ml neutres ou parfumées girofle-orange.
+- **Brume de Bonne Humeur** : grenade-jouet lumineuse étanche, indice **IP68**, qui diffuse pendant 20 secondes une brume d’eau produite par ultrasons à travers plusieurs trous, avec des LED roses à proximité de chaque sortie. Son réservoir intégré de 100 ml se remplit en y versant le liquide d’une petite bouteille de recharge, neutre sans parfum ou parfumé girofle-orange.
 - **Coin-Coin de Crise** : canon à canards en mousse, chaque canard émet un coin-coin au départ.
 - **Arbalète Anti-Réunionite** : arbalète à fléchettes en mousse, armement à levier et « ding » à chaque tir.
 - **Catapulte à Croissants** : catapulte de bureau à bras réglable, clochette de boulangerie, croissants en mousse parfumés. Non comestible.
 - **Orbe de Décompression** : lanceur sphérique de balles en mousse, tenu à une main, halo vert pendant le chargement.
 
-BureauBlasters vend aussi les **munitions de remplacement** et les **cartouches de brume**. La direction souhaite éviter de commander six canons sans canards, ou deux litres de brume sans grenade.
+BureauBlasters vend aussi les **munitions de remplacement** et les **bouteilles de recharge liquide pour la brume**. La direction souhaite éviter de commander six canons sans canards, ou deux litres de brume sans grenade.
 
 ## Ta mission
 
@@ -105,7 +105,7 @@ python -m streamlit run app.py
 | `categorie` | `str` | `lanceur`, `accessoire`, `munition` ou `recharge`. |
 | `description` | `str` | Description commerciale. |
 | `prix_euros` | `int` ou `float` | Prix du conditionnement vendu. |
-| `conditionnement` | `str` | Par exemple : `1 blaster`, `lot de 4 mini-requins`, `1 cartouche de 100 ml`. |
+| `conditionnement` | `str` | Par exemple : `1 blaster`, `lot de 4 mini-requins`, `1 bouteille de 100 ml`. |
 | `consommables` | `list[str]` | Codes des consommables utilisés par un équipement ou fournis par un lot ou une recharge. |
 | `portee_m` | `int` ou `None` | Portée ; `None` si elle ne s’applique pas. |
 | `cadence_tirs_min` | `int` ou `None` | Cadence ; `None` si elle ne s’applique pas. |
@@ -202,7 +202,7 @@ Complète deux fonctions de `fonctions.py` :
 
 Parcours les produits et leurs listes de codes. Conserve les données reçues inchangées et retourne une collection vide si rien ne correspond.
 
-Le filtre porte sur **toutes les catégories** : avec `requin-mousse`, tu retrouves le lanceur et ses mini-requins. Avec `brume-girofle-agrumes`, tu retrouves la grenade et la cartouche parfumée.
+Le filtre porte sur **toutes les catégories** : avec `requin-mousse`, tu retrouves le lanceur et ses mini-requins. Avec `brume-girofle-agrumes`, tu retrouves la grenade et la bouteille de liquide parfumé.
 
 ```sh
 python tests_catalogue.py filtres

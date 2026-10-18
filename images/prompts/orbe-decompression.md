@@ -1,3 +1,9 @@
-Un lanceur sphérique tenu à une main, coque gris anthracite avec une poignée intégrée, halo vert lumineux qui pulse autour de l’ouverture, une balle en mousse verte prête à partir. Vue de trois quarts.
+# BB-08 — Orbe de Décompression
 
-Style commun : photographie de catalogue produit, image carrée 1024 × 1024, fond uni blanc cassé, éclairage de studio doux, légère ombre portée, netteté sur tout le produit. Matériaux crédibles de jouet haut de gamme : plastique ABS mat, mousse EVA. Aucun texte, aucun logo, aucune marque, aucun filigrane.
+## Sujet et composition
+
+Photographier un lanceur-jouet sphérique de 24 × 20 × 20 cm, utilisable à une main, reposant sur un petit support graphite discret. Coque bleu pétrole et anthracite en gros panneaux facettés arrondis, assemblages à rivets captifs, poignée intégrée en caoutchouc et commandes bien accessibles. Une ouverture frontale large est entourée d’un halo LED vert allumé pendant le chargement. Une balle en mousse verte, identique aux Balles de décompression, reste visible dans l’ouverture ; pores et souplesse perceptibles, aucun projectile métallique. Des boucles cyan et des confettis magenta peints en petites touches sur les panneaux donnent à l’orbe l’air d’un gadget de bureau devenu déraisonnable. Orientation diagonale, poignée et balle dégagées, lumière neutre suffisante pour distinguer la coque du fond. Pas de boule magique flottante, de cristal central, de rune, de rayonnement laser, de fumée ni d’étincelles. Le halo provient de LED physiques autour de l’ouverture.
+
+## Prise de vue commune BureauBlasters
+
+Photographie publicitaire d’un véritable jouet haut de gamme, pas une illustration ni un rendu d’animation. Carré 1024 × 1024, vue de trois quarts légèrement plongeante, perspective naturelle 50 mm, produit entier occupant 75 à 85 % du cadre. Plateau bleu pétrole mat, fond dégradé bleu nuit vers pétrole avec deux bandes diagonales cyan et magenta discrètes. Grande lumière neutre en haut à gauche, contre-jours cyan et magenta modérés, ombres de contact crédibles, objet net et fond doux. ABS satiné, caoutchouc graphite, mousse EVA : textures tangibles, panneaux assemblés, petits graphismes peints originaux. Même collection ludique et décalée. Aucun bois, osier, fond blanc, texte, logo, filigrane, symbole d’Arcane ni reproduction d’un accessoire existant.

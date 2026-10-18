@@ -31,7 +31,7 @@ CATALOGUE = [
         "id": "BB-02",
         "nom": "Requin Arêtes",
         "categorie": "lanceur",
-        "description": "Lance-requins à porter à deux mains. Gueule dentée, yeux lumineux, graffitis roses et bleus. Propulse par air comprimé des mini-requins en mousse qui zigzaguent et laissent une traînée de fumée colorée. Un éclat de rire enregistré accompagne chaque tir. Le modèle phare de la gamme.",
+        "description": "Lance-requins à porter à deux mains. Gueule dentée, yeux lumineux, graffitis roses et bleus. Propulse par air comprimé des mini-requins en mousse qui zigzaguent et diffusent par plusieurs trous une brume d’eau produite par ultrasons, éclairée en rose et bleu par des LED voisines. Un éclat de rire enregistré accompagne chaque tir. Le modèle phare de la gamme.",
         "prix_euros": 489.0,
         "conditionnement": "1 lanceur, 1 sangle d’épaule, 1 pompe",
         "consommables": [
@@ -48,7 +48,7 @@ CATALOGUE = [
         "indice_protection": None,
         "effets": [
             "trajectoire en zigzag des mini-requins",
-            "traînée de fumée froide rose et bleue",
+            "traînée de brume d’eau ultrasonique éclairée en rose et bleu",
             "yeux et gueule à LED roses et bleues",
             "éclat de rire enregistré au départ du tir",
             "senteur barbe à papa"
@@ -86,7 +86,7 @@ CATALOGUE = [
         "id": "BB-04",
         "nom": "Brume de Bonne Humeur",
         "categorie": "accessoire",
-        "description": "Grenade lumineuse étanche qui diffuse une brume d’eau éclairée par ses LED pendant 20 secondes. Fonctionne avec une cartouche de 100 ml, neutre ou parfumée.",
+        "description": "Grenade-jouet fumigène lumineuse et étanche, à réservoir intégré de 100 ml. Pendant 20 secondes, elle diffuse une brume d’eau produite par ultrasons à travers plusieurs trous, chacun accompagné d’une LED rose. Le réservoir se remplit en y versant le liquide d’une petite bouteille de recharge, neutre ou parfumé.",
         "prix_euros": 29.9,
         "conditionnement": "1 grenade de brume",
         "consommables": [
@@ -103,10 +103,10 @@ CATALOGUE = [
         },
         "indice_protection": "IP68",
         "effets": [
-            "brume d’eau éclairée en rose",
+            "jets de brume d’eau ultrasonique par plusieurs trous éclairés en rose",
             "pulsations de LED roses",
             "jingle de trois notes",
-            "senteur selon la cartouche"
+            "senteur selon le liquide de recharge"
         ],
         "image": "images/brume-bonne-humeur.jpg",
         "favori": False
@@ -242,7 +242,7 @@ CATALOGUE = [
         "id": "RE-02",
         "nom": "Mini-requins fumigènes",
         "categorie": "munition",
-        "description": "Mini-requins en mousse pour le Requin Arêtes, avec LED et cartouche de fumée froide rechargeable.",
+        "description": "Mini-requins en mousse pour le Requin Arêtes, avec réservoir de liquide rechargeable et module ultrasonique intégré. La brume d’eau sort par plusieurs trous à l’arrière, avec des LED roses et bleues à proximité de chaque sortie.",
         "prix_euros": 59.9,
         "conditionnement": "lot de 4 mini-requins",
         "consommables": [
@@ -259,7 +259,7 @@ CATALOGUE = [
         "indice_protection": None,
         "effets": [
             "trajectoire en zigzag",
-            "fumée froide rose et bleue",
+            "brume d’eau ultrasonique éclairée en rose et bleu par les LED voisines des trous",
             "sifflement aigu",
             "senteur barbe à papa"
         ],
@@ -366,9 +366,9 @@ CATALOGUE = [
         "id": "RE-07",
         "nom": "Brume neutre",
         "categorie": "recharge",
-        "description": "Cartouche d’eau pour la Brume de Bonne Humeur, sans senteur.",
+        "description": "Petite bouteille de 100 ml de liquide aqueux sans parfum, à verser dans le réservoir vide de la Brume de Bonne Humeur pour le remplir.",
         "prix_euros": 5.5,
-        "conditionnement": "1 cartouche de 100 ml",
+        "conditionnement": "1 bouteille de 100 ml",
         "consommables": [
             "brume-neutre"
         ],
@@ -391,9 +391,9 @@ CATALOGUE = [
         "id": "RE-08",
         "nom": "Brume girofle-agrumes",
         "categorie": "recharge",
-        "description": "Cartouche d’eau parfumée pour la Brume de Bonne Humeur : clou de girofle et zeste d’orange.",
+        "description": "Petite bouteille de 100 ml de liquide aqueux parfumé au clou de girofle et au zeste d’orange, à verser dans le réservoir vide de la Brume de Bonne Humeur pour le remplir.",
         "prix_euros": 6.9,
-        "conditionnement": "1 cartouche de 100 ml",
+        "conditionnement": "1 bouteille de 100 ml",
         "consommables": [
             "brume-girofle-agrumes"
         ],

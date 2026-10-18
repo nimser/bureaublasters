@@ -1,3 +1,9 @@
-Une arbalète légère à fléchettes en mousse, branches souples bleu clair, crosse grise, levier d’armement sur le côté, une fléchette en mousse à embout orange en place. LED bleues sur la crosse. Vue de trois quarts.
+# BB-06 — Arbalète Anti-Réunionite
 
-Style commun : photographie de catalogue produit, image carrée 1024 × 1024, fond uni blanc cassé, éclairage de studio doux, légère ombre portée, netteté sur tout le produit. Matériaux crédibles de jouet haut de gamme : plastique ABS mat, mousse EVA. Aucun texte, aucun logo, aucune marque, aucun filigrane.
+## Sujet et composition
+
+Photographier une arbalète-jouet compacte à fléchettes en mousse de 40 × 30 × 15 cm, posée en diagonale sur un support bas graphite discret. Branches souples bleu cyan avec extrémités arrondies, corps bleu pétrole à panneaux facettés, poignée caoutchoutée et gros levier d’armement latéral bien visible. Assemblages à rivets captifs et quelques petites pièces métalliques brossées, sans crosse en bois ni esthétique médiévale. Des boucles magenta et des flèches cyan peintes à la main évoquent des annotations de marge sans texte. LED bleues allumées sur le corps. Une fléchette bleue en mousse à embout orange souple est engagée dans le rail : exactement le même modèle que pour la Rafale de Post-it et les Fléchettes de rappel. Forme douce et franchement ludique, mécanisme et largeur des branches faciles à lire. Aucun carreau métallique, pointe acérée, fumée ou effet magique ; le « ding » de fin de réunion n’est pas représenté par des lettres.
+
+## Prise de vue commune BureauBlasters
+
+Photographie publicitaire d’un véritable jouet haut de gamme, pas une illustration ni un rendu d’animation. Carré 1024 × 1024, vue de trois quarts légèrement plongeante, perspective naturelle 50 mm, produit entier occupant 75 à 85 % du cadre. Plateau bleu pétrole mat, fond dégradé bleu nuit vers pétrole avec deux bandes diagonales cyan et magenta discrètes. Grande lumière neutre en haut à gauche, contre-jours cyan et magenta modérés, ombres de contact crédibles, objet net et fond doux. ABS satiné, caoutchouc graphite, mousse EVA : textures tangibles, panneaux assemblés, petits graphismes peints originaux. Même collection ludique et décalée. Aucun bois, osier, fond blanc, texte, logo, filigrane, symbole d’Arcane ni reproduction d’un accessoire existant.
