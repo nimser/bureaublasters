@@ -6,7 +6,7 @@ CATALOGUE = [
         "nom": "Rafale de Post-it",
         "categorie": "lanceur",
         "description": "Blaster compact à fléchettes en mousse, chargeur de 12 fléchettes. Une main suffit.",
-        "prix_euros": "39,50",
+        "prix_euros": 39.5,
         "conditionnement": "1 blaster",
         "consommables": [
             "flechette-mousse"
@@ -25,6 +25,35 @@ CATALOGUE = [
             "bruit de tampon administratif"
         ],
         "image": "images/rafale-post-it.jpg",
+        "favori": False
+    },
+    {
+        "id": "BB-02",
+        "nom": "Requin Arêtes",
+        "categorie": "lanceur",
+        "description": "Lance-requins à porter à deux mains. Gueule dentée, yeux lumineux, graffitis roses et bleus. Propulse par air comprimé des mini-requins en mousse qui zigzaguent et laissent une traînée de fumée colorée. Un éclat de rire enregistré accompagne chaque tir. Le modèle phare de la gamme.",
+        "prix_euros": 489.0,
+        "conditionnement": "1 lanceur, 1 sangle d’épaule, 1 pompe",
+        "consommables": [
+            "requin-mousse"
+        ],
+        "portee_m": 12,
+        "cadence_tirs_min": 4,
+        "poids_g": 4800,
+        "dimensions_cm": {
+            "longueur": 118,
+            "largeur": 30,
+            "hauteur": 42
+        },
+        "indice_protection": None,
+        "effets": [
+            "trajectoire en zigzag des mini-requins",
+            "traînée de fumée froide rose et bleue",
+            "yeux et gueule à LED roses et bleues",
+            "éclat de rire enregistré au départ du tir",
+            "senteur barbe à papa"
+        ],
+        "image": "images/requin-aretes.jpg",
         "favori": False
     },
     {
@@ -51,6 +80,35 @@ CATALOGUE = [
             "jingle de montée de niveau"
         ],
         "image": "images/gantelets-sprint.jpg",
+        "favori": False
+    },
+    {
+        "id": "BB-04",
+        "nom": "Brume de Bonne Humeur",
+        "categorie": "accessoire",
+        "description": "Grenade lumineuse étanche qui diffuse une brume d’eau éclairée par ses LED pendant 20 secondes. Fonctionne avec une cartouche de 100 ml, neutre ou parfumée.",
+        "prix_euros": 29.9,
+        "conditionnement": "1 grenade de brume",
+        "consommables": [
+            "brume-neutre",
+            "brume-girofle-agrumes"
+        ],
+        "portee_m": None,
+        "cadence_tirs_min": None,
+        "poids_g": 300,
+        "dimensions_cm": {
+            "longueur": 9,
+            "largeur": 9,
+            "hauteur": 14
+        },
+        "indice_protection": "IP68",
+        "effets": [
+            "brume d’eau éclairée en rose",
+            "pulsations de LED roses",
+            "jingle de trois notes",
+            "senteur selon la cartouche"
+        ],
+        "image": "images/brume-bonne-humeur.jpg",
         "favori": False
     },
     {
@@ -119,7 +177,7 @@ CATALOGUE = [
         "cadence_tirs_min": 6,
         "poids_g": 1400,
         "dimensions_cm": {
-            "longueur": 480,
+            "longueur": 48,
             "largeur": 20,
             "hauteur": 30
         },
@@ -188,7 +246,7 @@ CATALOGUE = [
         "prix_euros": 59.9,
         "conditionnement": "lot de 4 mini-requins",
         "consommables": [
-            "requin_mousse"
+            "requin-mousse"
         ],
         "portee_m": None,
         "cadence_tirs_min": None,
@@ -229,7 +287,7 @@ CATALOGUE = [
         "indice_protection": None,
         "effets": [],
         "image": "images/disques-livraison.jpg",
-        "favori": "False"
+        "favori": False
     },
     {
         "id": "RE-04",
@@ -286,7 +344,7 @@ CATALOGUE = [
         "nom": "Balles de décompression",
         "categorie": "munition",
         "description": "Balles en mousse pour l’Orbe de Décompression.",
-        "prix_euros": 890,
+        "prix_euros": 8.9,
         "conditionnement": "lot de 10 balles",
         "consommables": [
             "balle-mousse"
@@ -327,6 +385,32 @@ CATALOGUE = [
             "brume d’eau"
         ],
         "image": "images/brume-neutre.jpg",
+        "favori": False
+    },
+    {
+        "id": "RE-08",
+        "nom": "Brume girofle-agrumes",
+        "categorie": "recharge",
+        "description": "Cartouche d’eau parfumée pour la Brume de Bonne Humeur : clou de girofle et zeste d’orange.",
+        "prix_euros": 6.9,
+        "conditionnement": "1 cartouche de 100 ml",
+        "consommables": [
+            "brume-girofle-agrumes"
+        ],
+        "portee_m": None,
+        "cadence_tirs_min": None,
+        "poids_g": 130,
+        "dimensions_cm": {
+            "longueur": 4,
+            "largeur": 4,
+            "hauteur": 12
+        },
+        "indice_protection": None,
+        "effets": [
+            "brume d’eau",
+            "senteur girofle et orange"
+        ],
+        "image": "images/brume-girofle-agrumes.jpg",
         "favori": False
     }
 ]
