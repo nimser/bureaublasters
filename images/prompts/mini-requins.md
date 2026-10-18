@@ -1,0 +1,3 @@
+Un lot de 4 mini-requins en mousse d’environ 25 cm, corps bleu ciel, ventre blanc, graffitis roses, petites dents en mousse, yeux à LED roses allumés, ailerons souples. Une cartouche de fumée froide visible à l’arrière de chacun. Présentés alignés dans un plateau de mousse découpée. Vue en plongée de trois quarts.
+
+Style commun : photographie de catalogue produit, image carrée 1024 × 1024, fond uni blanc cassé, éclairage de studio doux, légère ombre portée, netteté sur tout le produit. Matériaux crédibles de jouet haut de gamme : plastique ABS mat, mousse EVA ; embout orange vif à la bouche des lanceurs. Aucun texte, aucun logo, aucune marque, aucun filigrane.

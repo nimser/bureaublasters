@@ -1,0 +1,15 @@
+{
+  "name": "BureauBlasters",
+  "image": "mcr.microsoft.com/devcontainers/python:3.13-bookworm",
+  "remoteUser": "vscode",
+  "hostRequirements": { "cpus": 2 },
+  "postCreateCommand": "python -m pip install -r requirements.txt",
+  "forwardPorts": [8501],
+  "portsAttributes": { "8501": { "label": "BureauBlasters" } },
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "ms-python.vscode-pylance"],
+      "settings": { "python.terminal.activateEnvironment": false }
+    }
+  }
+}
