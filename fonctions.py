@@ -36,7 +36,9 @@ def calculer_budget(produit, quantite):
     Retour : un nombre arrondi à deux décimales.
     Lève ValueError si la quantité est négative.
     """
-    raise NotImplementedError("calculer_budget est à compléter.")
+    if quantite < 0:
+        raise ValueError(f"La quantité doit être positive ou nulle, reçu : {quantite}.")
+    return round(produit["prix_euros"] * quantite, 2)
 
 
 def definir_favori(produit, favori):
