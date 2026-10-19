@@ -11,7 +11,7 @@ Maintenance des visuels réservée à l’équipe pédagogique, hors exercice Py
 - **Prompts** : même préambule, même direction artistique extraite de `images/prompts/README.md`, références jointes dans l’ordre déclaré, puis sujet et prise de vue du fichier produit. Aucune réécriture du texte par une étape LLM dans le script.
 - **Sortie** : les carrés natifs d’au moins 1024 pixels sont réduits sans recadrage en JPEG 1024 × 1024, qualité 95. Les images non carrées ou trop petites sont refusées. Le format et les dimensions reçus sont consignés, indépendamment des paramètres demandés.
 
-Astra (`gpt-astra-latest`) est un modèle de langage pouvant piloter l’outil de génération d’images via Responses, pas un modèle pour l’endpoint Images. Le choix de Sunburst privilégie la précision d’édition et le respect des consignes, conformément à la [documentation Vercel AI](https://ai-sdk.dev/providers/ai-sdk-providers/openai#image-models). Le script appelle directement le modèle d’image, sans orchestrateur Astra supplémentaire.
+Astra (`gpt-astra-latest`) est un modèle de langage pouvant piloter l’outil de génération d’images via Responses, pas un modèle pour l’endpoint Images. Sunburst est le modèle de cette recette, pas un gagnant artistique présumé : les spectateurs choisissent les démonstrations les plus séduisantes et proches de la direction visuelle. Le script appelle directement le modèle d’image, sans orchestrateur Astra supplémentaire.
 
 Les générations restent aléatoires : cette recette garantit une procédure commune, pas des pixels identiques à chaque appel. Le modèle ne prend pas en charge une graine dans le SDK ; aucune n’est envoyée. CPA et son fournisseur conservent leur propre routage interne.
 
@@ -42,14 +42,22 @@ env -u CPA_CLIENT_API_KEY bun run images/tools/generate.ts --check
 bun run images/tools/generate.ts --generate brume-bonne-humeur
 ```
 
-Examiner `images/tools/.generation/brume-bonne-humeur.jpg` : plusieurs sorties de brume, LED voisines, bouchon gris sur le flanc droit, géométrie et décor conformes à la charte. Après contrôle visuel seulement :
+Éprouver d’abord la direction sur trois démonstrations : fumigène, Rafale et recharge neutre. Examiner `images/tools/.generation/brume-bonne-humeur.jpg` : collègue adulte tenant le produit, expression malicieuse lisible, véritable bureau accueillant, produit net au premier plan. Vérifier aussi les sorties multiples de brume avec LED voisines et le bouchon gris latéral. Après contrôle visuel seulement :
 
 ```sh
 bun run images/tools/generate.ts --approve brume-bonne-humeur
-bun run images/tools/generate.ts --generate rafale-post-it requin-aretes gantelets-sprint coin-coin-crise catapulte-croissants orbe-decompression
+bun run images/tools/generate.ts --generate rafale-post-it brume-neutre
 ```
 
-Contrôler et valider chaque équipement avant de générer ses consommables. Le graphe complet apparaît dans `--plan` :
+Présenter ces trois images aux spectateurs : envie de jouer, expressions complices, énergie mécanique et graphique inspirée d’Arcane, lumière et mise en scène. Ne pas étendre la série avant validation de cette direction ; les tests automatiques ne mesurent pas le goût artistique. Aucun JPEG du catalogue n’est remplacé à ce stade.
+
+Contrôler et valider chaque équipement avant de générer ses consommables. Après accord sur les essais, poursuivre les équipements :
+
+```sh
+bun run images/tools/generate.ts --generate requin-aretes gantelets-sprint coin-coin-crise catapulte-croissants orbe-decompression
+```
+
+Le graphe complet apparaît dans `--plan` :
 
 1. Le fumigène établit la référence de style de la série.
 2. L’arbalète reçoit aussi la Rafale validée pour partager son modèle de fléchette.
@@ -59,7 +67,9 @@ Contrôler et valider chaque équipement avant de générer ses consommables. Le
 
 Les références proviennent exclusivement de la série en préparation, jamais des anciens JPEG du catalogue. Le script vérifie récursivement leurs validations, leurs empreintes et les prompts dont elles dépendent. Un équipement de référence ne doit pas être ajouté à une photo de lot si son prompt ne le demande pas.
 
-Pour chaque image, contrôler le nombre d’objets, les détails des projectiles, l’origine des effets et les accessoires inclus. Les recharges doivent verser le liquide dans le bouchon latéral ouvert du même fumigène, éteint ; son bouton supérieur ne devient pas un couvercle. Comparer aussi les images en grille pour vérifier le style de collection.
+Pour chaque image, juger d’abord l’attrait visuel, la malice du visage et la crédibilité du geste dans un vrai bureau d’entreprise créative. Le produit entier doit dominer le premier plan sans devenir géant par rapport aux mains ; les doigts et la brume ne doivent cacher aucune fonction. Les références de style ne servent pas à cloner les personnes, les poses ou le mobilier.
+
+Vérifier ensuite le nombre d’objets, les détails des projectiles, l’origine des effets et les accessoires inclus. Un lanceur d’arrière-plan demandé dans un prompt de lot doit rester vide, secondaire et distinct du produit vendu. Les recharges versent le liquide dans l’orifice latéral ouvert du même fumigène, éteint ; son bouton supérieur ne devient pas un couvercle. Comparer aussi les images en grille pour vérifier la cohérence de l’entreprise et de la collection.
 
 ```sh
 bun run images/tools/generate.ts --approve rafale-post-it

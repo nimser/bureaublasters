@@ -19,8 +19,8 @@ export const RECIPE = {
   delivery: { width: 1024, height: 1024, format: "jpeg", quality: 95, kernel: "lanczos3" },
 };
 
-const STYLE = "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié";
-const OBJECT = "identité physique de l’objet ou des projectiles compatibles ; respecter exactement leurs formes, proportions, couleurs et détails";
+const STYLE = "palette, matériaux, atmosphère de bureau, énergie espiègle et lumière uniquement ; ne recopier ni personne, ni visage, ni pose, ni mobilier exact ; ne pas ajouter cet objet au produit photographié";
+const OBJECT = "identité physique de l’objet ou des projectiles compatibles uniquement ; respecter exactement leurs formes, proportions, couleurs et détails, sans recopier la personne ni son visage";
 export type Reference = { name: string; role: string };
 export type Product = { name: string; references: Reference[] };
 const style = { name: "brume-bonne-humeur", role: STYLE };
@@ -57,7 +57,7 @@ export function buildPrompt(root: string, product: Product): string {
   }
   const references = product.references.map((ref, i) => `Image jointe ${i + 1} (${ref.name}) : ${ref.role}.`).join("\n");
   return [
-    "Produis exactement une photographie produit, sans texte ni planche de variantes. Le sujet demandé prime sur les objets des références de style. Les références d’objet ne doivent apparaître que si le sujet les demande.",
+    "Produis exactement une photographie de démonstration au bureau : une personne adulte photoréaliste, visage visible et expression espiègle, tient, porte ou manipule le produit au premier plan avec ses fonctions clairement dégagées. Sans texte lisible ni planche de variantes. Le sujet demandé prime sur les objets des références de style. Les références d’objet ne doivent apparaître que si le sujet les demande.",
     `DIRECTION ARTISTIQUE COMMUNE\n${art.trim()}`,
     `IMAGES DE RÉFÉRENCE\n${references || "Aucune. Cette photographie établit la référence de style de la collection."}`,
     `SUJET ET PRISE DE VUE\n${subject.trim()}`,

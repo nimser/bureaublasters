@@ -53,6 +53,65 @@ describe("recette et prompts", () => {
     }
   });
 
+  test("les 16 scènes montrent une démonstration humaine au bureau avec le même bloc de prise de vue", () => {
+    const commonBlocks = new Set<string>();
+    for (const product of PRODUCTS) {
+      const file = readFileSync(resolve(ROOT, "images/prompts", `${product.name}.md`), "utf8");
+      const [scene, common] = file.split("## Sujet et composition\n")[1]!.split("## Prise de vue commune BureauBlasters\n");
+      expect(scene).toContain("adulte");
+      expect(scene!.toLowerCase()).toContain("visage");
+      expect(scene!.toLowerCase()).toMatch(/sourire|rictus/);
+      expect(scene!.toLowerCase()).toMatch(/bureau|open space|de travail/);
+      expect(scene).toContain("premier plan");
+      commonBlocks.add(common!.trim());
+      const prompt = buildPrompt(ROOT, product);
+      expect(prompt).toContain("personne adulte photoréaliste");
+      expect(prompt).toContain("fonctions clairement dégagées");
+      expect(prompt).toContain("petit air diabolique mais bienveillant");
+      expect(prompt).toContain("Bureau d’entreprise créative reconnaissable");
+      expect(prompt).toContain("pas une image de film d’animation");
+      expect(prompt).toContain("Aucun humain dessiné");
+      for (const obsolete of ["Plateau bleu pétrole mat, fond dégradé", "75 à 85 %", "Aucun personnage ni main", "sans porteur ni main artificielle", "Une main adulte sobrement cadrée"]) {
+        expect(prompt).not.toContain(obsolete);
+      }
+    }
+    expect(commonBlocks.size).toBe(1);
+  });
+
+  test("les gestes de démonstration préservent les fonctions et les conditionnements", () => {
+    const prompt = (name: string) => buildPrompt(ROOT, selectProducts([name])[0]!);
+    expect(prompt("rafale-post-it")).toContain("sans masquer le chargeur, la LED ni la bouche");
+    expect(prompt("requin-aretes")).toContain("à deux mains par ses poignées inférieures");
+    expect(prompt("gantelets-sprint")).toContain("sur ses avant-bras");
+    expect(prompt("coin-coin-crise")).toContain("stabilise l’arrière de l’affût");
+    expect(prompt("catapulte-croissants")).toContain("hors de sa trajectoire");
+    expect(prompt("orbe-decompression")).toContain("ouverture, la balle et les commandes entièrement visibles");
+    expect(prompt("brume-bonne-humeur")).toContain("au moins quatre sorties visibles");
+    expect(prompt("brume-bonne-humeur")).toContain("une petite LED rose immédiatement à côté de chacune");
+    for (const [name, quantity] of Object.entries({
+      "flechettes-rappel": "vingt fléchettes", "mini-requins": "quatre mini-requins",
+      "disques-livraison": "douze disques", "canards-soutien": "six canards",
+      "croissants-reserve": "huit croissants", "balles-decompression": "dix balles",
+    })) {
+      expect(prompt(name)).toContain(quantity);
+      expect(prompt(name)).toContain("plateau");
+    }
+    for (const name of ["brume-neutre", "brume-girofle-agrumes"]) {
+      expect(prompt(name)).toContain("100 ml");
+      expect(prompt(name)).toContain("versant un mince filet de liquide");
+      expect(prompt(name)).toContain("flanc droit du Fumigène à ultrason");
+      expect(prompt(name)).toContain("LED éteintes");
+      expect(prompt(name)).toContain("il n’est pas un bouchon et ne s’ouvre jamais");
+    }
+    for (const product of PRODUCTS) {
+      for (const ref of product.references) {
+        expect(ref.role).toContain("personne");
+        expect(ref.role).toContain("visage");
+        expect(ref.role).not.toContain("plateau");
+      }
+    }
+  });
+
   test("les références sont antérieures et les deux lanceurs partagent leurs fléchettes", () => {
     const seen = new Set<string>();
     for (const product of PRODUCTS) {
@@ -135,6 +194,16 @@ describe("continuité et publication", () => {
     approve(root, [PRODUCTS[0]!]);
     const path = resolve(root, "images/prompts/brume-bonne-humeur.md");
     writeFileSync(path, `${readFileSync(path, "utf8")}\nConsigne supplémentaire.\n`);
+    expect(() => prepare(root, PRODUCTS[1]!, loadManifest(root))).toThrow("Référence périmée");
+  });
+
+  test("une nouvelle direction commune invalide la référence de style et ses descendants", () => {
+    const root = fixture();
+    seed(root, "brume-bonne-humeur");
+    approve(root, [PRODUCTS[0]!]);
+    const path = resolve(root, "images/prompts/README.md");
+    writeFileSync(path, readFileSync(path, "utf8").replace("Des démonstrations de jouets", "Des démonstrations expressives de jouets"));
+    expect(() => approve(root, [PRODUCTS[0]!])).toThrow("périmée ou modifiée");
     expect(() => prepare(root, PRODUCTS[1]!, loadManifest(root))).toThrow("Référence périmée");
   });
 
