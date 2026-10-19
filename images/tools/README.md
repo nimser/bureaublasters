@@ -42,11 +42,11 @@ env -u CPA_CLIENT_API_KEY bun run images/tools/generate.ts --check
 bun run images/tools/generate.ts --generate brume-bonne-humeur
 ```
 
-Éprouver d’abord la direction sur trois démonstrations : fumigène, Rafale et recharge neutre. Examiner `images/tools/.generation/brume-bonne-humeur.jpg` : collègue adulte tenant le produit, expression malicieuse lisible, véritable bureau accueillant, produit net au premier plan. Vérifier aussi les sorties multiples de brume avec LED voisines et le bouchon gris latéral. Après contrôle visuel seulement :
+Éprouver d’abord la direction sur trois démonstrations : fumigène, Requin Arêtes et recharge neutre. Examiner `images/tools/.generation/brume-bonne-humeur.jpg` : collègue adulte tenant le produit, expression malicieuse lisible, véritable bureau accueillant, produit net au premier plan. Vérifier aussi le format de poche permettant d’en tenir trois dans une main, un seul exemplaire visible, le silicone mat amortissant, les sorties multiples avec LED voisines et le clapet bleu pétrole fermé sur l’épaule droite. Après contrôle visuel seulement :
 
 ```sh
 bun run images/tools/generate.ts --approve brume-bonne-humeur
-bun run images/tools/generate.ts --generate rafale-post-it brume-neutre
+bun run images/tools/generate.ts --generate requin-aretes brume-neutre
 ```
 
 Présenter ces trois images aux spectateurs : envie de jouer, expressions complices, énergie mécanique et graphique inspirée d’Arcane, lumière et mise en scène. Ne pas étendre la série avant validation de cette direction ; les tests automatiques ne mesurent pas le goût artistique. Aucun JPEG du catalogue n’est remplacé à ce stade.
@@ -54,13 +54,13 @@ Présenter ces trois images aux spectateurs : envie de jouer, expressions compli
 Contrôler et valider chaque équipement avant de générer ses consommables. Après accord sur les essais, poursuivre les équipements :
 
 ```sh
-bun run images/tools/generate.ts --generate requin-aretes gantelets-sprint coin-coin-crise catapulte-croissants orbe-decompression
+bun run images/tools/generate.ts --generate gantelets-sprint coin-coin-crise catapulte-croissants orbe-decompression
 ```
 
 Le graphe complet apparaît dans `--plan` :
 
 1. Le fumigène établit la référence de style de la série.
-2. L’arbalète reçoit aussi la Rafale validée pour partager son modèle de fléchette.
+2. La Rafale est en attente de refonte de son nom et de son concept. Suspendre sa génération et celle de l’arbalète et des fléchettes, qui dépendent de son modèle de munition.
 3. Les munitions reçoivent le style commun et leur lanceur validé ; les fléchettes reçoivent les deux lanceurs.
 4. La recharge neutre reçoit le fumigène comme référence d’objet.
 5. La recharge parfumée reçoit le fumigène et la recharge neutre validée.
@@ -69,11 +69,11 @@ Les références proviennent exclusivement de la série en préparation, jamais 
 
 Pour chaque image, juger d’abord l’attrait visuel, la malice du visage et la crédibilité du geste dans un vrai bureau d’entreprise créative. Le produit entier doit dominer le premier plan sans devenir géant par rapport aux mains ; les doigts et la brume ne doivent cacher aucune fonction. Les références de style ne servent pas à cloner les personnes, les poses ou le mobilier.
 
-Vérifier ensuite le nombre d’objets, les détails des projectiles, l’origine des effets et les accessoires inclus. Un lanceur d’arrière-plan demandé dans un prompt de lot doit rester vide, secondaire et distinct du produit vendu. Les recharges versent le liquide dans l’orifice latéral ouvert du même fumigène, éteint ; son bouton supérieur ne devient pas un couvercle. Comparer aussi les images en grille pour vérifier la cohérence de l’entreprise et de la collection.
+Vérifier ensuite le nombre d’objets, les détails des projectiles, l’origine des effets et les accessoires inclus. Un lanceur d’arrière-plan demandé dans un prompt de lot doit rester vide, secondaire et distinct du produit vendu. Les recharges versent le liquide exactement au centre de l’orifice du même petit fumigène éteint, sous son clapet ouvert et toujours attaché sur l’épaule droite ; le filet franchit le rebord sans mouiller la coque. Son bouton ne devient pas un couvercle. La bouteille de 100 ml reste plus grande que l’appareil et permet plusieurs remplissages. Comparer aussi les images en grille pour vérifier la cohérence de l’entreprise et de la collection.
 
 ```sh
-bun run images/tools/generate.ts --approve rafale-post-it
-bun run images/tools/generate.ts --generate arbalete-anti-reunionite
+bun run images/tools/generate.ts --approve requin-aretes
+bun run images/tools/generate.ts --generate mini-requins
 ```
 
 `--approve` enregistre une décision de contrôle visuel ; il ne réalise pas ce contrôle automatiquement. Ne jamais valider aveuglément une liste d’images.

@@ -99,7 +99,7 @@ describe("recette et prompts", () => {
     for (const name of ["brume-neutre", "brume-girofle-agrumes"]) {
       expect(prompt(name)).toContain("100 ml");
       expect(prompt(name)).toContain("versant un mince filet de liquide");
-      expect(prompt(name)).toContain("flanc droit du Fumigène à ultrason");
+      expect(prompt(name)).toContain("clapet bleu pétrole est ouvert");
       expect(prompt(name)).toContain("LED éteintes");
       expect(prompt(name)).toContain("il n’est pas un bouchon et ne s’ouvre jamais");
     }
@@ -109,6 +109,29 @@ describe("recette et prompts", () => {
         expect(ref.role).toContain("visage");
         expect(ref.role).not.toContain("plateau");
       }
+    }
+  });
+
+  test("le fumigène tient en poche et ses recharges versent dans son clapet", () => {
+    const prompt = (name: string) => buildPrompt(ROOT, selectProducts([name])[0]!);
+    const device = prompt("brume-bonne-humeur");
+    expect(device).toContain("4 × 4 × 6 cm");
+    expect(device).toContain("Trois exemplaires pourraient tenir dans une seule main, mais un seul");
+    expect(device).toContain("silicone mat épais et amortissant");
+    expect(device).toContain("clapet de remplissage");
+    expect(device).toContain("charnière souple intégrée");
+    for (const name of ["brume-neutre", "brume-girofle-agrumes"]) {
+      const refill = prompt(name);
+      expect(refill).toContain("4 × 4 × 6 cm");
+      expect(refill).toContain("nettement plus petit que la bouteille de 100 ml");
+      expect(refill).toContain("charnière souple toujours attachée");
+      expect(refill).toContain("franchit le rebord et disparaît à l’intérieur du trou");
+      expect(refill).toContain("plusieurs remplissages");
+      expect(refill).not.toContain("disque-bouchon");
+    }
+    for (const name of ["brume-bonne-humeur", "brume-neutre", "brume-girofle-agrumes"]) {
+      expect(prompt(name)).not.toContain("9 × 9 × 14");
+      expect(prompt(name)).not.toContain("réservoir de 100 ml");
     }
   });
 
