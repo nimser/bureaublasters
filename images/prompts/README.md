@@ -49,3 +49,7 @@ Chaque prompt produit contient le même bloc de prise de vue pour rester utilisa
 4. Contrôler chaque image en grille avec ses voisines : même cadrage, même exposition, même échelle de détails, produit reconnaissable en vignette. Vérifier les quantités des lots, les accessoires réellement inclus et la fidélité aux données de `../../catalogue_source.txt`.
 
 **Exclusions communes** : bois, osier, rotin, fond blanc ou beige, rendu dessiné ou cel-shading, esthétique militaire réaliste, métal tranchant, feu, explosion, décor sombre qui masque le produit, brouillard ajouté sur les produits sans brume, texte, logo, filigrane ou marque tierce.
+
+## Outil de génération
+
+[`tools/images/`](../../tools/images/README.md) fixe la recette Vercel AI → CPA → `gpt-image-2.5-sunburst` pour les seize images. Le script assemble les prompts de manière identique, joint les références validées dans l’ordre déclaré, normalise les sorties en JPEG 1024 × 1024 et conserve leur provenance. Les JPEG du catalogue ne sont remplacés qu’après validation de toute la série.

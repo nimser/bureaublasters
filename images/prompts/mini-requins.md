@@ -2,7 +2,7 @@
 
 ## Référence à joindre
 
-Joindre la photo validée du Requin Arêtes pour conserver exactement le modèle de mini-requin montré dans sa gueule : même tête courte, ailerons souples, couleurs, dents et module arrière. Ne pas recopier Fishbones ni un projectile d’Arcane.
+Joindre la photo validée du Requin Arêtes pour conserver exactement le modèle de mini-requin posé devant sa gueule : même tête courte, ailerons souples, couleurs, dents et module arrière. Ne pas recopier Fishbones ni un projectile d’Arcane.
 
 ## Sujet et composition
 
