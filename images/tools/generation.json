@@ -19,363 +19,383 @@
   "lockSha256": "857a866c1f25dc9e3ccd7df92dae9813465ec5ad6b0e4ef0c20432c85d5b1a60",
   "images": {
     "brume-bonne-humeur": {
-      "key": "4c6c40edf1ce2dc526b0e607b8d3e40af3aa7e8aeb0887899e5a09edb9e276a5",
-      "promptSha256": "0e909db79fd43fda40cd3d6e867a9cb43430147a76295b465d5f8e2d5f8c977f",
+      "key": "f16dc3a55a4bb58e6dfe1422d106e8095136b8c1c114ecbf90aae3c98c1e184c",
+      "promptSha256": "027f496d6141cfe7323e4e6a3aeaa44e2648205d1ae0014b8e18fd42ab2dd3c7",
       "references": [],
-      "imageSha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e",
-      "generatedAt": "2026-10-19T21:03:18.834Z",
+      "imageSha256": "ee5f3d83a1bc3f2235a9e61ed1410452f3a23740db62d8f7368cb811ad7190f1",
+      "generatedAt": "2026-10-19T22:58:09.501Z",
       "native": {
         "width": 1254,
         "height": 1254,
         "format": "png",
-        "sha256": "85621f7c00cc6a66a5752a3539c3044f77a95d6102fff2265605bff594b0e4e1"
+        "sha256": "26d7f89069f45b66aae437a1a105cfa86f302f5e64e3b93dfee74119c136c440"
       },
-      "approvedAt": "2026-10-19T21:03:18.886Z"
-    },
-    "rafale-post-it": {
-      "key": "9edcd0c63c8ca6dbab54ab14ed661a8dd9fdde9867fa04e66744c03a4012e34e",
-      "promptSha256": "77dc1491f53f4452d6bfcfdda8dd5c10ce19c62ba92061dc5725b892bf29bb56",
-      "references": [
-        {
-          "name": "brume-bonne-humeur",
-          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
-          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
-        }
-      ],
-      "imageSha256": "591b0e742777c6312bc2dab0ed564711dc3560c9689a243e4fc7cac562fa58f8",
-      "generatedAt": "2026-10-19T21:04:57.928Z",
-      "native": {
-        "width": 1254,
-        "height": 1254,
-        "format": "png",
-        "sha256": "dc11a57ee05013c1409fa40913fba5ab4142fed1b92e8bc023be4dc03a528d3c"
-      },
-      "approvedAt": "2026-10-19T21:05:23.669Z"
+      "approvedAt": "2026-10-19T22:58:26.739Z"
     },
     "requin-aretes": {
-      "key": "45105f048c26472e3014396d59cbafff958af5b53217835266c421bfeb8811ec",
-      "promptSha256": "b2252e1e11a95a31b9aac4a8b64483a239196f3d22e33c1f9baec0d9c139fcba",
+      "key": "2daac3ae80e21cd48c9ee8c714feb92a0f5178d289dda43933872202bbe16c96",
+      "promptSha256": "164565a7ad0907de2e7e8f7613abd58843376923c4ae4bd134b0f1f4f5d56148",
       "references": [
         {
           "name": "brume-bonne-humeur",
-          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
-          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
+          "role": "palette, matériaux, atmosphère de bureau, énergie espiègle et lumière uniquement ; ne recopier ni personne, ni visage, ni pose, ni mobilier exact ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "ee5f3d83a1bc3f2235a9e61ed1410452f3a23740db62d8f7368cb811ad7190f1"
         }
       ],
-      "imageSha256": "4a09089052ba1de7d5c967c31390606438ce587d37510c070aa32fa459226fc9",
-      "generatedAt": "2026-10-19T21:10:55.131Z",
+      "imageSha256": "6f60b680a8c3ab12f2fee4dc9f39c34ab5ee3001a317eaec9c8670317b8ead57",
+      "generatedAt": "2026-10-19T22:58:54.309Z",
       "native": {
         "width": 1254,
         "height": 1254,
         "format": "png",
-        "sha256": "dbdd76e18664899d50c6d48ca8b97f2a817b4d0f8216191586e6164b31461009"
+        "sha256": "8e0c98f45a1e1b09541b609f3d7ceac3635c50854bbd30f3647c94e4a1830a90"
       },
-      "approvedAt": "2026-10-19T21:11:08.738Z"
+      "approvedAt": "2026-10-20T21:05:10.075Z"
     },
-    "gantelets-sprint": {
-      "key": "0a6d494da51186bf92535fa97b301f8fd50f082021a75c6bc5794830265c8b1a",
-      "promptSha256": "e4088b0b9d14fc93c5b201b2af0c242d90ff05d3720aeb0c6ee13820cfb62f73",
+    "brume-neutre": {
+      "key": "9a582f92ae63e73874667fb0eadfa95fd22782529df6771b67fe7461e442410d",
+      "promptSha256": "dce82799013d60faf0f6f8d3c5727b0791a7c043b49ce8a9407431453e959630",
       "references": [
         {
           "name": "brume-bonne-humeur",
-          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
-          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
-        }
-      ],
-      "imageSha256": "70d75d2a13cc9565aaa706ece01271f82ab1246c26e896e189eb15b9ef8b31f8",
-      "generatedAt": "2026-10-19T21:06:42.701Z",
-      "native": {
-        "width": 1254,
-        "height": 1254,
-        "format": "png",
-        "sha256": "57368b3fa685d6fc64717dc5aa70eec765af3ca9e7336399af0dc5207075dfaa"
-      },
-      "approvedAt": "2026-10-19T21:11:08.739Z"
-    },
-    "coin-coin-crise": {
-      "key": "b9f0bd71ea5bfc665a5ed817df33a6a1ad5574865293456c86445ae7b8432e18",
-      "promptSha256": "32c105672c3696b48914df3527949a72747c9319a487dd0ba8d25f8c2fd550d9",
-      "references": [
-        {
-          "name": "brume-bonne-humeur",
-          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
-          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
-        }
-      ],
-      "imageSha256": "3aefb70df99fc872e0bbe07c136327bd638db9848aa724716dacef4ad005eed0",
-      "generatedAt": "2026-10-19T21:07:22.425Z",
-      "native": {
-        "width": 1254,
-        "height": 1254,
-        "format": "png",
-        "sha256": "f973094249bffeacc0ddb2235e91575fe0bd93b317dbcaa919363396bee966f7"
-      },
-      "approvedAt": "2026-10-19T21:11:08.740Z"
-    },
-    "arbalete-anti-reunionite": {
-      "key": "66ae7d235fbe307a624d2a2de0101e53b524f5f56d3fa2b6c4be8c014f0873d9",
-      "promptSha256": "7ac254fdcbc3a7f21db73dbc41cd6ac5ec8ba58fd18498fbf384c9a12900cb02",
-      "references": [
-        {
-          "name": "brume-bonne-humeur",
-          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
-          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
-        },
-        {
-          "name": "rafale-post-it",
-          "role": "identité physique de l’objet ou des projectiles compatibles ; respecter exactement leurs formes, proportions, couleurs et détails",
-          "sha256": "591b0e742777c6312bc2dab0ed564711dc3560c9689a243e4fc7cac562fa58f8"
-        }
-      ],
-      "imageSha256": "2fce6b9974407d90d8f572cf90d61e3b7cd4945aeb6aa88baf978d038f11908b",
-      "generatedAt": "2026-10-19T21:07:56.886Z",
-      "native": {
-        "width": 1254,
-        "height": 1254,
-        "format": "png",
-        "sha256": "d4fd16335ce7c730063aeb9d2aede97cb78683e0956713b2ccbdc4c3c460c718"
-      },
-      "approvedAt": "2026-10-19T21:11:08.741Z"
-    },
-    "catapulte-croissants": {
-      "key": "45ffbe6baaeed79e5753f6f378382382241f108e3605fed91cc1e9000f02c482",
-      "promptSha256": "cf0ba5a64fca291683ac23c90fbbe21fc0fb4cae43eec9358ed032c33aac61b3",
-      "references": [
-        {
-          "name": "brume-bonne-humeur",
-          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
-          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
-        }
-      ],
-      "imageSha256": "e77be0c37ed87c68eb9071ecc0270fafc4295a7caa8a8d29c7fd7967df1326d5",
-      "generatedAt": "2026-10-19T21:08:30.749Z",
-      "native": {
-        "width": 1254,
-        "height": 1254,
-        "format": "png",
-        "sha256": "454d89cc64179a27274d98fc80978b4f90af25d0e4a4d202913ce3a92a003a09"
-      },
-      "approvedAt": "2026-10-19T21:11:08.742Z"
-    },
-    "orbe-decompression": {
-      "key": "c789293cf795854669496644135d950d6a3d1ef975d96a150782e4120abcc6bc",
-      "promptSha256": "c1ffd6c9147d83c4ba82525c5776b776a8e5fce9637a0826a1e1f613deb10fba",
-      "references": [
-        {
-          "name": "brume-bonne-humeur",
-          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
-          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
-        }
-      ],
-      "imageSha256": "519472c0ee2d9ee048a013e51c05b075ad0fe35fb6e6184597f70b96948ecdda",
-      "generatedAt": "2026-10-19T21:09:03.324Z",
-      "native": {
-        "width": 1254,
-        "height": 1254,
-        "format": "png",
-        "sha256": "f54c580da98c8b4a9e88251fff30b627fd1cf8a54324dd3e2688ef6f23fe0659"
-      },
-      "approvedAt": "2026-10-19T21:11:08.742Z"
-    },
-    "flechettes-rappel": {
-      "key": "e1a4c8c6d83fc6bb7be3b4da2a4775a776c8c2bca24960e96bcdb002ec62a71e",
-      "promptSha256": "e84086c2605c6158b4bc03c47f659460137c0d3577bc2c47dcb667605465722a",
-      "references": [
-        {
-          "name": "brume-bonne-humeur",
-          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
-          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
-        },
-        {
-          "name": "rafale-post-it",
-          "role": "identité physique de l’objet ou des projectiles compatibles ; respecter exactement leurs formes, proportions, couleurs et détails",
-          "sha256": "591b0e742777c6312bc2dab0ed564711dc3560c9689a243e4fc7cac562fa58f8"
-        },
-        {
-          "name": "arbalete-anti-reunionite",
-          "role": "identité physique de l’objet ou des projectiles compatibles ; respecter exactement leurs formes, proportions, couleurs et détails",
-          "sha256": "2fce6b9974407d90d8f572cf90d61e3b7cd4945aeb6aa88baf978d038f11908b"
-        }
-      ],
-      "imageSha256": "9a3e16754c19f35f5596b9ac330b38cf13e31904913486b3f5075784a55469f4",
-      "generatedAt": "2026-10-19T21:19:53.878Z",
-      "native": {
-        "width": 1254,
-        "height": 1254,
-        "format": "png",
-        "sha256": "76628ee030ebd385d6f3cc479e3061d185b2dfd029aec59c0bf80b3934943b74"
-      },
-      "approvedAt": "2026-10-19T21:23:49.365Z"
-    },
-    "mini-requins": {
-      "key": "d321b6ddf15663271339858b844c42fb9a5fad64cf350e1f509f59fd6c9d9689",
-      "promptSha256": "8666fd019cac6c2773995a695f3876715cc84d08e87510daeb99289b48cecf52",
-      "references": [
-        {
-          "name": "brume-bonne-humeur",
-          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
-          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
+          "role": "identité physique de l’objet ou des projectiles compatibles uniquement ; respecter exactement leurs formes, proportions, couleurs et détails, sans recopier la personne ni son visage",
+          "sha256": "ee5f3d83a1bc3f2235a9e61ed1410452f3a23740db62d8f7368cb811ad7190f1"
         },
         {
           "name": "requin-aretes",
-          "role": "identité physique de l’objet ou des projectiles compatibles ; respecter exactement leurs formes, proportions, couleurs et détails",
-          "sha256": "4a09089052ba1de7d5c967c31390606438ce587d37510c070aa32fa459226fc9"
+          "role": "personne uniquement ; reprendre exactement le même visage, la même coiffure et la même tenue, avec une nouvelle pose ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "6f60b680a8c3ab12f2fee4dc9f39c34ab5ee3001a317eaec9c8670317b8ead57"
         }
       ],
-      "imageSha256": "a92dd9d79b1308bd1e277c5e3e9fe183e8183c81a12f9e3a47c9c2bf26b28f25",
-      "generatedAt": "2026-10-19T21:12:28.011Z",
+      "imageSha256": "94cb7a4c52f076aedc690e1cf9a2aaa1c4e5ab88c4dfa4cf35ff0fc74962f80a",
+      "generatedAt": "2026-10-20T22:09:59.937Z",
       "native": {
         "width": 1254,
         "height": 1254,
         "format": "png",
-        "sha256": "44f251eb726a8d66152659efa1b36d2a70920707c5278239207603d386b24108"
+        "sha256": "42634b81d4da729395fff866b4dea4f8fce7ad2ac4581287ed75b6925264e337"
       },
-      "approvedAt": "2026-10-19T21:19:21.289Z"
+      "approvedAt": "2026-10-20T22:10:38.594Z"
     },
-    "disques-livraison": {
-      "key": "06ffdfe685a6c781bb6f6750debe3cacc6b502e882986a6efa68f747ffef3a3a",
-      "promptSha256": "7b66c35c5080bc0101ff2d0d2cf4736416e0f303b8d108094a8acab9563b7687",
+    "gantelets-sprint": {
+      "key": "6d947d0a422b158fb56d41e54f974369ecf972d9ff9955d19bde2693e4feb870",
+      "promptSha256": "a99163c29bbe3bd2d5e67faef3a50dad667135bf30193e7b405c4094662fd9ad",
       "references": [
         {
           "name": "brume-bonne-humeur",
-          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
-          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
-        },
-        {
-          "name": "gantelets-sprint",
-          "role": "identité physique de l’objet ou des projectiles compatibles ; respecter exactement leurs formes, proportions, couleurs et détails",
-          "sha256": "70d75d2a13cc9565aaa706ece01271f82ab1246c26e896e189eb15b9ef8b31f8"
+          "role": "palette, matériaux, atmosphère de bureau, énergie espiègle et lumière uniquement ; ne recopier ni personne, ni visage, ni pose, ni mobilier exact ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "ee5f3d83a1bc3f2235a9e61ed1410452f3a23740db62d8f7368cb811ad7190f1"
         }
       ],
-      "imageSha256": "cc47c5a7b9a1b3399b75f32e529908e2bed81b020609662ad362537a0790f178",
-      "generatedAt": "2026-10-19T21:17:54.716Z",
+      "imageSha256": "03e78892badf94fa1d37ed0796675d3eb51ab4c106158ea0f52b825332c67bf7",
+      "generatedAt": "2026-10-20T22:34:43.674Z",
       "native": {
         "width": 1254,
         "height": 1254,
         "format": "png",
-        "sha256": "3799f4a86a78a8e9c7065b7199c429d37c45cd0fe32f081257535e627783a37a"
+        "sha256": "4f24dab5fd4899fc80c2cc4b3b165b9de2a423512258c2926385547c0a675296"
       },
-      "approvedAt": "2026-10-19T21:19:21.290Z"
+      "approvedAt": "2026-10-20T22:37:41.566Z"
     },
-    "canards-soutien": {
-      "key": "efafa8a71be89ea99402e671645c885d63d84c052bdd0ea625ee9babd0c4e84c",
-      "promptSha256": "13d9ff8aef2aa3650204a014064a2d56529d21d8cf958c4a30afa8cac3be16cb",
+    "coin-coin-crise": {
+      "key": "4b881f3869a2e436eef698b6a19d425a6ac423c68d381278cff7f51f3a4c82c0",
+      "promptSha256": "9764a280d0d95986b4c14b32a1551373c4a881c6348846b76b73fb60203f17a7",
       "references": [
         {
           "name": "brume-bonne-humeur",
-          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
-          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
-        },
-        {
-          "name": "coin-coin-crise",
-          "role": "identité physique de l’objet ou des projectiles compatibles ; respecter exactement leurs formes, proportions, couleurs et détails",
-          "sha256": "3aefb70df99fc872e0bbe07c136327bd638db9848aa724716dacef4ad005eed0"
-        }
-      ],
-      "imageSha256": "70927ed425e525d2c7a3570aaee00b42e3e88ecc1fef6d161e39d9649ce2308c",
-      "generatedAt": "2026-10-19T21:13:29.128Z",
-      "native": {
-        "width": 1254,
-        "height": 1254,
-        "format": "png",
-        "sha256": "6cd87505a155e1aac3da9c33014645df7881f48c6e6c3192445b744e275094bb"
-      },
-      "approvedAt": "2026-10-19T21:19:21.291Z"
-    },
-    "croissants-reserve": {
-      "key": "a69873ca7f1d1bf30592285bd9b49551047bbac0a7ccc45082f275b8fc1eae8b",
-      "promptSha256": "8a689e9f87e3183eb038c03572737bfa49673c990d1062af9260e4e43789d786",
-      "references": [
-        {
-          "name": "brume-bonne-humeur",
-          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
-          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
+          "role": "palette, matériaux, atmosphère de bureau, énergie espiègle et lumière uniquement ; ne recopier ni personne, ni visage, ni pose, ni mobilier exact ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "ee5f3d83a1bc3f2235a9e61ed1410452f3a23740db62d8f7368cb811ad7190f1"
         },
         {
           "name": "catapulte-croissants",
-          "role": "identité physique de l’objet ou des projectiles compatibles ; respecter exactement leurs formes, proportions, couleurs et détails",
-          "sha256": "e77be0c37ed87c68eb9071ecc0270fafc4295a7caa8a8d29c7fd7967df1326d5"
+          "role": "personne uniquement ; reprendre exactement le même visage, la même coiffure et la même tenue, avec une nouvelle pose ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "0e2cbf057c5570193b9eb5ae06c9896bf001392fe905271ba97d2a07c50aec50"
         }
       ],
-      "imageSha256": "0d9eb8f30a64cf6c08d78a4ca81eef4f9984c4f92a1936b5545c5ae99d5b266a",
-      "generatedAt": "2026-10-19T21:13:58.289Z",
+      "imageSha256": "3f497426229aab7a3d433646e533082afff92f554df1217a301f1d223ccc81f7",
+      "generatedAt": "2026-10-20T23:06:39.624Z",
       "native": {
         "width": 1254,
         "height": 1254,
         "format": "png",
-        "sha256": "bb1e55e9ddb21eed3942852c04134e0e7fe3107563e8e30beae593a548ed0365"
+        "sha256": "cebd3a75123fc3ac551cde9f03831e6e04e1b148b573b7fde006bc502cb7276f"
       },
-      "approvedAt": "2026-10-19T21:19:21.292Z"
+      "approvedAt": "2026-10-20T23:07:40.300Z"
     },
-    "balles-decompression": {
-      "key": "4863514536a0cc919903fb77c7ad653626262f3414aca77bf88015e2532bbe44",
-      "promptSha256": "75ac486656b8c0135c5f8d22a85a2caddf660e72051dc9a41e24b3102025a6aa",
+    "catapulte-croissants": {
+      "key": "7c1d9ae8ada20b34d4c30bfeaf45463628f34e377a2cf7440bac01f7e5792877",
+      "promptSha256": "ff329ef8feb3e1f54adbefc230e7d843a98a9a5ae500234a7bcdfdbfa5121db0",
       "references": [
         {
           "name": "brume-bonne-humeur",
-          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
-          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
+          "role": "palette, matériaux, atmosphère de bureau, énergie espiègle et lumière uniquement ; ne recopier ni personne, ni visage, ni pose, ni mobilier exact ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "ee5f3d83a1bc3f2235a9e61ed1410452f3a23740db62d8f7368cb811ad7190f1"
+        }
+      ],
+      "imageSha256": "0e2cbf057c5570193b9eb5ae06c9896bf001392fe905271ba97d2a07c50aec50",
+      "generatedAt": "2026-10-20T22:59:50.286Z",
+      "native": {
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "sha256": "1b6b39e7c2e66fbae1eac0ab5c3d8cb568e29e473e41315399d72dc2052118d2"
+      },
+      "approvedAt": "2026-10-20T23:06:11.121Z"
+    },
+    "orbe-decompression": {
+      "key": "067ea4b41d0da8830cab5611b3ba89d2d25d3df3c9e1e208566b2966d257547f",
+      "promptSha256": "046176cba1fc50ad9b7754b69c0bd66bd8f5d8d844ee4a4e48ce130d07338f3f",
+      "references": [
+        {
+          "name": "brume-bonne-humeur",
+          "role": "palette, matériaux, atmosphère de bureau, énergie espiègle et lumière uniquement ; ne recopier ni personne, ni visage, ni pose, ni mobilier exact ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "ee5f3d83a1bc3f2235a9e61ed1410452f3a23740db62d8f7368cb811ad7190f1"
         },
         {
-          "name": "orbe-decompression",
-          "role": "identité physique de l’objet ou des projectiles compatibles ; respecter exactement leurs formes, proportions, couleurs et détails",
-          "sha256": "519472c0ee2d9ee048a013e51c05b075ad0fe35fb6e6184597f70b96948ecdda"
+          "name": "gantelets-sprint",
+          "role": "personne uniquement ; reprendre exactement le même visage, la même coiffure et la même tenue, avec une nouvelle pose ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "03e78892badf94fa1d37ed0796675d3eb51ab4c106158ea0f52b825332c67bf7"
         }
       ],
-      "imageSha256": "b4751d1f7fd88c17980f1c2728474164ab82e1695ec28e25ea1ebbbda986da73",
-      "generatedAt": "2026-10-19T21:14:32.547Z",
+      "imageSha256": "842ff6b0e0208dbba2778e4f6c998ddf5813e750ce6dbaab8e111d9431bcb0fd",
+      "generatedAt": "2026-10-20T22:39:03.086Z",
       "native": {
         "width": 1254,
         "height": 1254,
         "format": "png",
-        "sha256": "ff3e926907d0f093624e23d92c80379f4442b9e8c50d48077bdfc310b3e29f4a"
+        "sha256": "c99fd074714763f92c8236ba1d4486e7976075635adc6c393fafd574f74b7b07"
       },
-      "approvedAt": "2026-10-19T21:19:21.293Z"
+      "approvedAt": "2026-10-20T22:41:02.013Z"
     },
-    "brume-neutre": {
-      "key": "7a3897d697088ad266b32b263a419e206a4899999c6f72bd11fc6ac9b4fc1916",
-      "promptSha256": "435ad98130a0e15332db63a83fc74fa24ddf0eff9a10be6e47c8d527c9ae9d71",
+    "mini-requins": {
+      "key": "3c1729e59d24c0fc1f2930dafdd2db745dc5036542db8a5f01a67cefc64dafad",
+      "promptSha256": "a447e35054f1525e3622a2d54a44aca8464ac62299feb32217f97a39bfaf0cba",
       "references": [
         {
           "name": "brume-bonne-humeur",
-          "role": "identité physique de l’objet ou des projectiles compatibles ; respecter exactement leurs formes, proportions, couleurs et détails",
-          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
+          "role": "palette, matériaux, atmosphère de bureau, énergie espiègle et lumière uniquement ; ne recopier ni personne, ni visage, ni pose, ni mobilier exact ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "ee5f3d83a1bc3f2235a9e61ed1410452f3a23740db62d8f7368cb811ad7190f1"
+        },
+        {
+          "name": "requin-aretes",
+          "role": "identité physique de l’objet ou des projectiles compatibles uniquement ; respecter exactement leurs formes, proportions, couleurs et détails, sans recopier la personne ni son visage",
+          "sha256": "6f60b680a8c3ab12f2fee4dc9f39c34ab5ee3001a317eaec9c8670317b8ead57"
         }
       ],
-      "imageSha256": "16913a5099084113f17469f98cf8d1001b2c25ca5f15ce5cbbb9f4da6af2cbaa",
-      "generatedAt": "2026-10-19T21:18:29.895Z",
+      "imageSha256": "447166d7950b0fb2c3f2763c30f6cc7528ac96e3e847d39f043b83dc29921f98",
+      "generatedAt": "2026-10-20T21:07:10.717Z",
       "native": {
         "width": 1254,
         "height": 1254,
         "format": "png",
-        "sha256": "dd52c0f8a0e65af9c6cd7e4f87d31df2c524a43956c70a8af7e5034bde66b553"
+        "sha256": "ec3faa644b2d368bf9fe0a89c36257abb8a0ec6fb83ca318fdd5211ace95cf58"
       },
-      "approvedAt": "2026-10-19T21:19:21.294Z"
+      "approvedAt": "2026-10-20T21:14:10.871Z"
+    },
+    "disques-livraison": {
+      "key": "1ae16dfd3ed8dcf8f155b01fa1eec9d6c9e8adb60ce14491d2060ea611194c88",
+      "promptSha256": "436ad9f4794323a2ac61f33c1a3666ec43334f5b449c3e5c9d274d86d1f6ebe0",
+      "references": [
+        {
+          "name": "brume-bonne-humeur",
+          "role": "palette, matériaux, atmosphère de bureau, énergie espiègle et lumière uniquement ; ne recopier ni personne, ni visage, ni pose, ni mobilier exact ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "ee5f3d83a1bc3f2235a9e61ed1410452f3a23740db62d8f7368cb811ad7190f1"
+        },
+        {
+          "name": "gantelets-sprint",
+          "role": "personne uniquement ; reprendre exactement le même visage, la même coiffure et la même tenue, avec une nouvelle pose ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "03e78892badf94fa1d37ed0796675d3eb51ab4c106158ea0f52b825332c67bf7"
+        }
+      ],
+      "imageSha256": "40a35fc8ad451393599f0f7bdfa0b36d5a115a511386595dffd57e7fbf57813d",
+      "generatedAt": "2026-10-20T22:39:57.227Z",
+      "native": {
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "sha256": "e1f77b3970a1babe32b6fb3a9ed51b7e5ce6f9a7a8d8de8dbddd5b250b0aac27"
+      },
+      "approvedAt": "2026-10-20T22:58:55.038Z"
     },
     "brume-girofle-agrumes": {
-      "key": "363bbabf884753540e9c8929466eb08f6cfdb7a3fda01e9d6ea7523da03787c6",
-      "promptSha256": "bc2ddbb968d10f0a4e8bb68cf12622e18b4ebde84d02e7141abaef0958c52dc7",
+      "key": "52ea6361de254b121ebb6994c57e094d481e6c501e447ccfec213f120dfdbdcf",
+      "promptSha256": "021cde98eaa0a010ac1bf8941655aa40cbb0cf119a643a8b5500fd482f845df2",
       "references": [
         {
-          "name": "brume-bonne-humeur",
-          "role": "identité physique de l’objet ou des projectiles compatibles ; respecter exactement leurs formes, proportions, couleurs et détails",
-          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
+          "name": "mini-requins",
+          "role": "identité physique de l’objet ou des projectiles compatibles uniquement ; respecter exactement leurs formes, proportions, couleurs et détails, sans recopier la personne ni son visage",
+          "sha256": "447166d7950b0fb2c3f2763c30f6cc7528ac96e3e847d39f043b83dc29921f98"
         },
         {
           "name": "brume-neutre",
-          "role": "identité physique de l’objet ou des projectiles compatibles ; respecter exactement leurs formes, proportions, couleurs et détails",
-          "sha256": "16913a5099084113f17469f98cf8d1001b2c25ca5f15ce5cbbb9f4da6af2cbaa"
+          "role": "identité physique de l’objet ou des projectiles compatibles uniquement ; respecter exactement leurs formes, proportions, couleurs et détails, sans recopier la personne ni son visage",
+          "sha256": "94cb7a4c52f076aedc690e1cf9a2aaa1c4e5ab88c4dfa4cf35ff0fc74962f80a"
+        },
+        {
+          "name": "requin-aretes",
+          "role": "personne uniquement ; reprendre exactement le même visage, la même coiffure et la même tenue, avec une nouvelle pose ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "6f60b680a8c3ab12f2fee4dc9f39c34ab5ee3001a317eaec9c8670317b8ead57"
         }
       ],
-      "imageSha256": "25fe9a89f525f9ac95ddbe69064cbed29c97eed6e5583a8f2e301c4ac48f8441",
-      "generatedAt": "2026-10-19T21:20:25.282Z",
+      "imageSha256": "c415662f00b9b9b762eae5cb9ff4999f3eba84b6e64290c584d14708ca75ed52",
+      "generatedAt": "2026-10-20T22:36:26.321Z",
       "native": {
         "width": 1254,
         "height": 1254,
         "format": "png",
-        "sha256": "c6f3899a0d67c52dcc547cdf376de28c2ca30c8388e850b17c357555bde1aad1"
+        "sha256": "0c7bafe5fd1ee8c08529d1d254ecd19fa2a82f0f9663c0edef2ba66d594420e4"
       },
-      "approvedAt": "2026-10-19T21:23:49.368Z"
+      "approvedAt": "2026-10-20T22:58:55.048Z"
+    },
+    "sulfateuse-relances": {
+      "key": "4b2ab8ec69f92f29d6bede628b37f43e361dae01592350dab1fe4c3dd13e5746",
+      "promptSha256": "31dd7354e4a3ca034406fdaa4c364602dbc99b1ae222c551972d178319f591c1",
+      "references": [
+        {
+          "name": "brume-bonne-humeur",
+          "role": "palette, matériaux, atmosphère de bureau, énergie espiègle et lumière uniquement ; ne recopier ni personne, ni visage, ni pose, ni mobilier exact ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "ee5f3d83a1bc3f2235a9e61ed1410452f3a23740db62d8f7368cb811ad7190f1"
+        }
+      ],
+      "imageSha256": "0ecb8d1b8bd8b990fb2c021b993cb4a98c0167de8e4637657d3f73ddb79c2cce",
+      "generatedAt": "2026-10-20T22:34:17.137Z",
+      "native": {
+        "width": 1024,
+        "height": 1024,
+        "format": "png",
+        "sha256": "47c1961c2c18903463b1076506db34d01f542de70c96ea0a50cfbf9c5084e299"
+      },
+      "approvedAt": "2026-10-20T22:34:17.139Z"
+    },
+    "arbalete-anti-reunionite": {
+      "key": "6579ac6d827124b57ff4036ddc2644cc2ed69b2ffffeb6d8092dd64687238778",
+      "promptSha256": "7e4bf701ac24e6cf5941999a2eb8164e744e5498386de831bfe857a3d2fd0f7d",
+      "references": [
+        {
+          "name": "brume-bonne-humeur",
+          "role": "palette, matériaux, atmosphère de bureau, énergie espiègle et lumière uniquement ; ne recopier ni personne, ni visage, ni pose, ni mobilier exact ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "ee5f3d83a1bc3f2235a9e61ed1410452f3a23740db62d8f7368cb811ad7190f1"
+        },
+        {
+          "name": "sulfateuse-relances",
+          "role": "identité physique de l’objet ou des projectiles compatibles, et la même personne ; respecter exactement leurs formes, proportions, couleurs et détails, ainsi que son visage, sa coiffure et sa tenue, avec une nouvelle pose",
+          "sha256": "0ecb8d1b8bd8b990fb2c021b993cb4a98c0167de8e4637657d3f73ddb79c2cce"
+        }
+      ],
+      "imageSha256": "47a70bfeda4a26ae5cf2e9e34b4a0a975c2b96a06b238b8007aff6a00611f125",
+      "generatedAt": "2026-10-20T23:00:36.586Z",
+      "native": {
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "sha256": "5bf7a19408a38453aaec78bc523e17f07beb9c2b23bed16abe475aab3f433571"
+      },
+      "approvedAt": "2026-10-20T23:00:36.588Z"
+    },
+    "canards-soutien": {
+      "key": "c82f92300ffee789a19d97c3d459ad5edc2abbceaac718d469bea0dc817232f5",
+      "promptSha256": "9da96482382fe5ac5ad0199cb6a062313bc2ec84a2e6f1ae282a157ad344535d",
+      "references": [
+        {
+          "name": "brume-bonne-humeur",
+          "role": "palette, matériaux, atmosphère de bureau, énergie espiègle et lumière uniquement ; ne recopier ni personne, ni visage, ni pose, ni mobilier exact ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "ee5f3d83a1bc3f2235a9e61ed1410452f3a23740db62d8f7368cb811ad7190f1"
+        },
+        {
+          "name": "coin-coin-crise",
+          "role": "identité physique de l’objet ou des projectiles compatibles, et la même personne ; respecter exactement leurs formes, proportions, couleurs et détails, ainsi que son visage, sa coiffure et sa tenue, avec une nouvelle pose",
+          "sha256": "3f497426229aab7a3d433646e533082afff92f554df1217a301f1d223ccc81f7"
+        }
+      ],
+      "imageSha256": "483d49b573c5d42fe026a453353b281a2b603290165b888188fa66115394a2c5",
+      "generatedAt": "2026-10-20T23:28:41.016Z",
+      "native": {
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "sha256": "cbe966ec75462e728cb93704e8fbc8bdb51cc9d4718be1e916049ca25a689abe"
+      },
+      "approvedAt": "2026-10-20T23:29:15.949Z"
+    },
+    "croissants-reserve": {
+      "key": "1f155c9fc19f5dd9c86556a1bb15670322f0c9ac1d409cf91ee0f7f3c6b2244d",
+      "promptSha256": "3c442501239578b316675555fc4aaf8feb1dfc41eafbfae9b03d7c10013144d9",
+      "references": [
+        {
+          "name": "brume-bonne-humeur",
+          "role": "palette, matériaux, atmosphère de bureau, énergie espiègle et lumière uniquement ; ne recopier ni personne, ni visage, ni pose, ni mobilier exact ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "ee5f3d83a1bc3f2235a9e61ed1410452f3a23740db62d8f7368cb811ad7190f1"
+        },
+        {
+          "name": "catapulte-croissants",
+          "role": "identité physique de l’objet ou des projectiles compatibles, et la même personne ; respecter exactement leurs formes, proportions, couleurs et détails, ainsi que son visage, sa coiffure et sa tenue, avec une nouvelle pose",
+          "sha256": "0e2cbf057c5570193b9eb5ae06c9896bf001392fe905271ba97d2a07c50aec50"
+        }
+      ],
+      "imageSha256": "47b8fa6a3f06857f359dc2dfb3d8543bb6b21cc01e82c2e510a0f179b8e54d6d",
+      "generatedAt": "2026-10-20T23:26:47.582Z",
+      "native": {
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "sha256": "5331fb94efd8fa30c664465a37e1160ff621c46b3a1d514bc7de5c27db46824a"
+      },
+      "approvedAt": "2026-10-20T23:28:10.948Z"
+    },
+    "balles-decompression": {
+      "key": "3d868c4cef12aa44d616121c7b6096e613345e31c99daaf7d5c27af17f871fe5",
+      "promptSha256": "e1e8961d4c8b88585aa61729a2c2d8b6d9e35f8730542daf4200bdbb4a65e6d2",
+      "references": [
+        {
+          "name": "brume-bonne-humeur",
+          "role": "palette, matériaux, atmosphère de bureau, énergie espiègle et lumière uniquement ; ne recopier ni personne, ni visage, ni pose, ni mobilier exact ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "ee5f3d83a1bc3f2235a9e61ed1410452f3a23740db62d8f7368cb811ad7190f1"
+        },
+        {
+          "name": "orbe-decompression",
+          "role": "identité physique de l’objet ou des projectiles compatibles, et la même personne ; respecter exactement leurs formes, proportions, couleurs et détails, ainsi que son visage, sa coiffure et sa tenue, avec une nouvelle pose",
+          "sha256": "842ff6b0e0208dbba2778e4f6c998ddf5813e750ce6dbaab8e111d9431bcb0fd"
+        }
+      ],
+      "imageSha256": "3710c0c3ddaa8b2a36e3fa1e8549447fd9aefb34719f59dc61064ca4f3dd8bba",
+      "generatedAt": "2026-10-20T22:41:28.443Z",
+      "native": {
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "sha256": "a10b987dc0948577efc05530e0b792e4f0b32dad47b1e9a48efa8308231c5ee7"
+      },
+      "approvedAt": "2026-10-20T22:58:55.041Z"
+    },
+    "flechettes-rappel": {
+      "key": "22812bb6b918f78b2764853cfd7b8a96a6dd31474ff488a10472f402e29dbab3",
+      "promptSha256": "7fbabdba6083a24ba6f703a1ebfff1b32d5a47b847eb8449b6b824336efb6f25",
+      "references": [
+        {
+          "name": "brume-bonne-humeur",
+          "role": "palette, matériaux, atmosphère de bureau, énergie espiègle et lumière uniquement ; ne recopier ni personne, ni visage, ni pose, ni mobilier exact ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "ee5f3d83a1bc3f2235a9e61ed1410452f3a23740db62d8f7368cb811ad7190f1"
+        },
+        {
+          "name": "sulfateuse-relances",
+          "role": "identité physique de l’objet ou des projectiles compatibles, et la même personne ; respecter exactement leurs formes, proportions, couleurs et détails, ainsi que son visage, sa coiffure et sa tenue, avec une nouvelle pose",
+          "sha256": "0ecb8d1b8bd8b990fb2c021b993cb4a98c0167de8e4637657d3f73ddb79c2cce"
+        },
+        {
+          "name": "arbalete-anti-reunionite",
+          "role": "identité physique de l’objet ou des projectiles compatibles uniquement ; respecter exactement leurs formes, proportions, couleurs et détails, sans recopier la personne ni son visage",
+          "sha256": "47a70bfeda4a26ae5cf2e9e34b4a0a975c2b96a06b238b8007aff6a00611f125"
+        }
+      ],
+      "imageSha256": "774288b1041d190c704ed4f435e99d349546eb5ad7be86a53c600a024d697670",
+      "generatedAt": "2026-10-20T23:08:26.343Z",
+      "native": {
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "sha256": "5ba16f7f3a9045ba2464f567b9ed38587d63794ac3d24a51f737768047f3e39d"
+      },
+      "approvedAt": "2026-10-20T23:24:55.294Z"
     }
   }
 }
