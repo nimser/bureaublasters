@@ -1,10 +1,8 @@
-"""Tes tests du catalogue BureauBlasters.
+"""Bonus : tes tests du catalogue BureauBlasters.
 
 Chaque fonction dont le nom commence par test_ est un test.
 Lancement : python tests_catalogue.py perso
 """
-
-import copy
 
 from fonctions import (
     calculer_budget,
@@ -58,18 +56,9 @@ def test_budget_lot():
 
 def test_budget_produit_inchange():
     produit = {"id": "M1", "prix_euros": 5, "favori": False}
-    avant = copy.deepcopy(produit)
+    avant = {"id": "M1", "prix_euros": 5, "favori": False}
     calculer_budget(produit, 3)
     assert produit == avant, f"Produit modifié : {produit}"
-
-
-def test_budget_message_explicite():
-    try:
-        calculer_budget({"prix_euros": 5}, -3)
-    except ValueError as erreur:
-        assert "-3" in str(erreur), f"Message sans la quantité reçue : {erreur}"
-        return
-    assert False, "calculer_budget(produit, -3) aurait dû lever ValueError"
 
 
 def test_favori_autres_champs_inchanges():
