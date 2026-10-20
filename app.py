@@ -49,7 +49,8 @@ def afficher_produit(produit, cle):
         with st.expander("Caractéristiques"):
             dimensions = produit["dimensions_cm"]
             st.markdown(
-                f"- Codes de consommables : {', '.join(produit['consommables'])}\n"
+                f"- Consommables utilisés : {', '.join(produit['consommables_utilises']) or 'aucun'}\n"
+                f"- Consommables fournis : {', '.join(produit['consommables_fournis']) or 'aucun'}\n"
                 f"- Portée : {format_mesure(produit['portee_m'], 'm')}\n"
                 f"- Cadence : {format_mesure(produit['cadence_tirs_min'], 'tirs/minute')}\n"
                 f"- Poids : {produit['poids_g']} g\n"
