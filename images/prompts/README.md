@@ -30,9 +30,22 @@ Des démonstrations de jouets haut de gamme par des collègues adultes photoréa
 
 ## Distance avec les accessoires d’Arcane
 
-Retenir l’énergie des graphismes de Jinx et les volumes mécaniques des gantelets de Vi, sans transférer leurs formes identifiables. Le Requin Arêtes reçoit une gueule courte et large, un corps ventru à panneaux décalés et deux poignées inférieures ; les Gantelets du Sprint sont des manchettes lance-disques ouvertes, sans gros poing fermé ni joyau central. Les motifs sont inventés pour BureauBlasters, pas recopiés ou décalqués.
+Retenir l’énergie des graphismes de Jinx et les volumes mécaniques des gantelets de Vi, sans transférer leurs formes identifiables. Le Requin Arêtes reçoit une gueule courte et large, un corps ventru à panneaux décalés et deux poignées inférieures ; les Gantelets du Sprint reprennent des gantelets de Vi les gros poings fermés, les pistons latéraux et les jointures massives, mais en ABS violet et bleu pétrole avec jointures en mousse, une fente lance-disques sur le dos du poing, sans laiton, cristal, joyau central ni ornement Hextech. Les motifs sont inventés pour BureauBlasters, pas recopiés ou décalqués.
 
 Ne pas demander « une réplique de Fishbones », « les gantelets de Vi » ou une reproduction d’un photogramme. Ne pas transférer de personnage, de tatouage, d’emblème, de rune Hextech, de silhouette exacte ou de disposition d’ornements. Une simple recoloration ne suffit pas à créer un objet distinct. Ces consignes de conception ne constituent pas une validation juridique.
+
+## Casting récurrent
+
+Quatre personnes reviennent dans le catalogue, chacune ancrée sur une photo validée transmise comme référence de personne : même visage, même coiffure, même tenue, pose nouvelle. Le prompt du produit nomme la personne et la décrit en accord avec cette photo.
+
+| Personne | Photo d’ancrage | Produits |
+| --- | --- | --- |
+| Camille : trentaine, cheveux bruns bouclés en chignon lâche, pull bleu marine | Requin Arêtes | BB-04, BB-02, RE-07, RE-08 |
+| Hélène : cinquantaine, cheveux argentés très courts, lunettes fines, chemise bleu marine | Gantelets du Sprint | BB-03, RE-03, BB-08, RE-06 |
+| Inès : métisse, cheveux bouclés aux épaules, t-shirt rayé et salopette en jean | Sulfateuse à Relances | BB-01, BB-06, RE-01 |
+| Ravi : soixantaine, d’origine indienne, cheveux mi-longs et moustache blancs, sans lunettes, cardigan beige | Catapulte à Croissants | BB-07, BB-05, RE-04, RE-05 |
+
+Les Mini-requins fumigènes (RE-02) montrent un autre collègue. Une personne non nommée dans un prompt reprend sinon le visage de la référence de style.
 
 ## Fumigènes et bouteilles de recharge
 
@@ -40,17 +53,17 @@ La « fumée » est une **brume d’eau produite par ultrasons**, blanche et tra
 
 Le Fumigène à ultrason est une grenade-jouet rose de poche : corps ovoïde d’environ 4 × 4 × 6 cm, assez petit pour en tenir trois dans une main, mais un seul montré. Enveloppe opaque en silicone mat épais, doux et amortissant, base souple stable, bouton gris souple décentré ; ni panneaux translucides, ni verre, ni rivets, ni collier métallique. L’extérieur arrondi évoque un objet à lancer qui amortit les chocs. Les sorties sont réparties sur les épaules et les flancs supérieurs, pas réunies en une cheminée centrale. Un clapet bleu pétrole affleurant, retenu par une charnière souple, ferme un orifice de remplissage sur l’épaule droite orientée vers le haut, distinct du bouton et des sorties. Ni humidificateur de salon, ni vase, ni vaporisateur à gâchette, ni grenade militaire réaliste.
 
-Les recharges RE-07 et RE-08 sont **des petites bouteilles de liquide de 100 ml à verser dans le petit réservoir intégré**, pas des cartouches à insérer. Les 100 ml désignent la bouteille, qui permet plusieurs remplissages, pas la capacité du fumigène. La neutre est sans parfum ; la girofle-agrumes est parfumée. La bouteille n’émet aucune brume. La photo de recharge montre le fumigène éteint, son clapet relevé et toujours attaché : un mince filet franchit le rebord et disparaît au centre de l’orifice ouvert, sans couler sur la coque. Distinguer clairement la bouteille vendue du dispositif de démonstration, plus petit qu’elle.
+Les recharges RE-07 et RE-08 sont **des petites bouteilles de liquide de 100 ml à verser dans le petit réservoir intégré**, pas des cartouches à insérer. Les 100 ml désignent la bouteille, qui permet plusieurs remplissages, pas la capacité du fumigène. La neutre est sans parfum ; la girofle-agrumes est parfumée. La bouteille n’émet aucune brume. La photo de la recharge neutre montre le fumigène éteint, son clapet relevé et toujours attaché : un mince filet franchit le rebord et disparaît au centre de l’orifice ouvert, sans couler sur la coque. Distinguer clairement la bouteille vendue du dispositif de démonstration, plus petit qu’elle.
 
-Les mêmes liquides RE-07 ou RE-08 remplissent les Mini-requins fumigènes RE-02, appareil éteint, par leur petit bouchon de réservoir. La brume est sans parfum avec RE-07 ou parfumée girofle-agrumes avec RE-08. Le liquide ne se verse jamais dans le Requin Arêtes BB-02. Les photos de RE-07 et RE-08 montrent seulement le remplissage du fumigène ; ne pas ajouter de mini-requin ni de bouteille supplémentaire pour illustrer les autres compatibilités.
+Les mêmes liquides RE-07 ou RE-08 remplissent les Mini-requins fumigènes RE-02, appareil éteint, par leur petit bouchon de réservoir. La brume est sans parfum avec RE-07 ou parfumée girofle-agrumes avec RE-08. Le liquide ne se verse jamais dans le Requin Arêtes BB-02. La photo de RE-07 montre le remplissage du fumigène, celle de RE-08 le remplissage d’un mini-requin : les deux appareils à brume de la gamme sont ainsi illustrés. Chaque photo montre un seul appareil et une seule bouteille.
 
 ## Références de génération et continuité
 
 Chaque prompt produit contient le même bloc de prise de vue pour rester utilisable seul. Le lire avec cette charte ; le texte d’un chemin de fichier ne remplace jamais une image jointe.
 
-1. Éprouver la direction sur trois démonstrations : Fumigène à ultrason, Requin Arêtes et Brume neutre. La Rafale de Post-it est en attente de refonte de son nom et de son concept ; ne pas en générer de nouvelle image ni figer ses munitions communes avec l’arbalète avant cette décision. Faire choisir aux spectateurs les images les plus séduisantes, espiègles et proches de l’énergie recherchée avant d’étendre la série. La conformité technique ne remplace pas ce jugement artistique.
+1. Éprouver la direction sur trois démonstrations : Fumigène à ultrason, Requin Arêtes et Brume neutre. Faire choisir aux spectateurs les images les plus séduisantes, espiègles et proches de l’énergie recherchée avant d’étendre la série. La conformité technique ne remplace pas ce jugement artistique.
 2. Utiliser ensuite une photo BureauBlasters validée comme référence de palette, de matériaux, d’atmosphère de bureau et de lumière. Ne pas recopier le visage, la personne, la pose ou le mobilier exact d’une référence de style, ni son produit si le sujet ne le demande pas. Les images Arcane restent des références d’analyse, pas des images à transformer en répliques.
-3. Générer `brume-bonne-humeur.jpg` avant les deux recharges. Pour chaque recharge, **joindre cette image validée** comme référence d’objet obligatoire et conserver exactement sa géométrie, ses joints, ses trous, son bouton, ses couleurs et son clapet. Changer seulement la pose, l’état allumé/éteint et l’ouverture du clapet. Ne pas générer les recharges sans cette référence.
+3. Générer `brume-bonne-humeur.jpg` avant la Brume neutre et `mini-requins.jpg` avant la Brume girofle-agrumes. Pour chaque recharge, **joindre l’image validée de l’appareil rempli** comme référence d’objet obligatoire et conserver exactement sa géométrie, ses trous, ses couleurs et son orifice de remplissage. Changer seulement la pose, l’état allumé/éteint et l’ouverture du clapet ou du bouchon. Ne pas générer les recharges sans cette référence.
 4. Générer les munitions avec une image validée de leur lanceur : mêmes formes, couleurs et proportions des projectiles visibles. Pour les fléchettes communes à deux lanceurs, valider le même modèle sur les deux. Un lanceur de démonstration peut apparaître au fond si le prompt le demande, vide et secondaire, sans ajouter de projectile au lot vendu.
 5. Comparer les images en grille : envie de jouer, complicité des expressions, caractère mécanique, lumière et cohérence de l’entreprise. Vérifier aussi la lecture du produit en vignette, sa taille par rapport aux mains, la visibilité des gestes et des fonctions, les quantités et la fidélité aux données de `../../catalogue_source.txt`.
 
