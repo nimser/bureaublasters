@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "effects": [
+    {
+      "name": "tampon-administratif",
+      "products": ["BB-01"],
+      "durationSeconds": 1.5,
+      "loop": false,
+      "promptInfluence": 0.5,
+      "source": {
+        "kind": "file",
+        "path": "tampon-administratif.wav",
+        "license": "Création interne BureauBlasters, synthèse procédurale sans échantillon tiers",
+        "url": "sounds/sources/synthese.md",
+        "attribution": "BureauBlasters — synthèse interne (sounds/tools/synth.ts)"
+      }
+    },
+    {
+      "name": "rire-requin",
+      "products": ["BB-02"],
+      "durationSeconds": 3,
+      "loop": false,
+      "promptInfluence": 0.5,
+      "source": {
+        "kind": "file",
+        "path": "rire-requin.wav",
+        "license": "Création interne BureauBlasters, synthèse procédurale sans échantillon tiers",
+        "url": "sounds/sources/synthese.md",
+        "attribution": "BureauBlasters — synthèse interne (sounds/tools/synth.ts)"
+      }
+    },
+    {
+      "name": "montee-niveau",
+      "products": ["BB-03"],
+      "durationSeconds": 2,
+      "loop": false,
+      "promptInfluence": 0.5,
+      "source": {
+        "kind": "file",
+        "path": "montee-niveau.wav",
+        "license": "Création interne BureauBlasters, synthèse procédurale sans échantillon tiers",
+        "url": "sounds/sources/synthese.md",
+        "attribution": "BureauBlasters — synthèse interne (sounds/tools/synth.ts)"
+      }
+    },
+    {
+      "name": "jingle-brume",
+      "products": ["BB-04"],
+      "durationSeconds": 2,
+      "loop": false,
+      "promptInfluence": 0.7,
+      "source": {
+        "kind": "file",
+        "path": "jingle-brume.wav",
+        "license": "Création interne BureauBlasters, synthèse procédurale sans échantillon tiers",
+        "url": "sounds/sources/synthese.md",
+        "attribution": "BureauBlasters — synthèse interne (sounds/tools/synth.ts)"
+      }
+    },
+    {
+      "name": "coin-coin",
+      "products": ["BB-05", "RE-04"],
+      "durationSeconds": 1.5,
+      "loop": false,
+      "promptInfluence": 0.5,
+      "source": {
+        "kind": "file",
+        "path": "coin-coin.wav",
+        "license": "Création interne BureauBlasters, synthèse procédurale sans échantillon tiers",
+        "url": "sounds/sources/synthese.md",
+        "attribution": "BureauBlasters — synthèse interne (sounds/tools/synth.ts)"
+      }
+    },
+    {
+      "name": "ding-reunion",
+      "products": ["BB-06"],
+      "durationSeconds": 1.5,
+      "loop": false,
+      "promptInfluence": 0.5,
+      "source": {
+        "kind": "file",
+        "path": "ding-reunion.wav",
+        "license": "Création interne BureauBlasters, synthèse procédurale sans échantillon tiers",
+        "url": "sounds/sources/synthese.md",
+        "attribution": "BureauBlasters — synthèse interne (sounds/tools/synth.ts)"
+      }
+    },
+    {
+      "name": "clochette-boulangerie",
+      "products": ["BB-07"],
+      "durationSeconds": 2,
+      "loop": false,
+      "promptInfluence": 0.5,
+      "source": {
+        "kind": "file",
+        "path": "clochette-boulangerie.wav",
+        "license": "Création interne BureauBlasters, synthèse procédurale sans échantillon tiers",
+        "url": "sounds/sources/synthese.md",
+        "attribution": "BureauBlasters — synthèse interne (sounds/tools/synth.ts)"
+      }
+    },
+    {
+      "name": "bourdonnement-orbe",
+      "products": ["BB-08"],
+      "durationSeconds": 4,
+      "loop": true,
+      "promptInfluence": 0.5,
+      "source": {
+        "kind": "file",
+        "path": "bourdonnement-orbe.wav",
+        "license": "Création interne BureauBlasters, synthèse procédurale sans échantillon tiers",
+        "url": "sounds/sources/synthese.md",
+        "attribution": "BureauBlasters — synthèse interne (sounds/tools/synth.ts)"
+      }
+    },
+    {
+      "name": "sifflement-mini-requin",
+      "products": ["RE-02"],
+      "durationSeconds": 2,
+      "loop": false,
+      "promptInfluence": 0.5,
+      "source": {
+        "kind": "file",
+        "path": "sifflement-mini-requin.wav",
+        "license": "Création interne BureauBlasters, synthèse procédurale sans échantillon tiers",
+        "url": "sounds/sources/synthese.md",
+        "attribution": "BureauBlasters — synthèse interne (sounds/tools/synth.ts)"
+      }
+    }
+  ]
+}

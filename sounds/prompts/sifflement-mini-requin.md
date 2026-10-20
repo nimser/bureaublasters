@@ -1,0 +1,1 @@
+A brief light high-pitched whistle made by a tiny playful foam shark zigzagging through the air. A smooth cartoon pitch glide suggesting a small swerving object, clearly audible but gentle, never piercing. No laugh, explosion, scream, realistic projectile crack, background ambience or intelligible speech. One pass with a soft ending.

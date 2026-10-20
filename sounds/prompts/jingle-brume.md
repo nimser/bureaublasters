@@ -1,0 +1,1 @@
+A tiny original three-note jingle for a pocket-sized ultrasonic mist toy. Exactly three distinct rounded bell-like notes rising gently, evenly spaced, with a soft final decay. Friendly and delicate. No hiss, explosion, dramatic smoke effect or extra notes. This is only the activation jingle, not the full twenty-second mist cycle; do not sonify inaudible ultrasound.
