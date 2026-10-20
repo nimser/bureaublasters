@@ -151,6 +151,20 @@ describe("recette et prompts", () => {
     }
   });
 
+  test("le casting récurrent reprend quatre personnes ancrées sur des photos", () => {
+    const anchors = new Map<string, string[]>();
+    for (const product of PRODUCTS) {
+      for (const ref of product.references.filter(ref => ref.role.includes("même personne") || ref.role.startsWith("personne"))) {
+        anchors.set(ref.name, [...(anchors.get(ref.name) ?? []), product.name]);
+      }
+    }
+    expect([...anchors.keys()].sort()).toEqual(["catapulte-croissants", "gantelets-sprint", "orbe-decompression", "coin-coin-crise", "requin-aretes", "sulfateuse-relances"].sort());
+    for (const [name, users] of anchors) {
+      for (const user of users) expect(buildPrompt(ROOT, selectProducts([user])[0]!)).toMatch(/(Camille|Hélène|Inès|Ravi), l[ae] même collègue/);
+      expect(name).not.toBe("brume-bonne-humeur");
+    }
+  });
+
   test("produits inconnus, listes vides et prompts malformés refusés", () => {
     expect(() => selectProducts([])).toThrow("au moins un produit");
     expect(() => selectProducts(["README"])).toThrow("inconnu");

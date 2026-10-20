@@ -61,6 +61,7 @@ Le graphe complet apparaît dans `--plan` :
 
 1. Le fumigène établit la référence de style de la série.
 2. La Sulfateuse établit le modèle de fléchette repris par l’arbalète.
+   Les photos d’ancrage du casting récurrent (`../prompts/README.md`) sont transmises comme références de personne aux produits qui reprennent la même personne.
 3. Les munitions reçoivent le style commun et leur lanceur validé ; les fléchettes reçoivent les deux lanceurs.
 4. La recharge neutre reçoit le fumigène comme référence d’objet.
 5. La recharge parfumée reçoit le fumigène et la recharge neutre validée.

@@ -34,6 +34,19 @@ Retenir l’énergie des graphismes de Jinx et les volumes mécaniques des gante
 
 Ne pas demander « une réplique de Fishbones », « les gantelets de Vi » ou une reproduction d’un photogramme. Ne pas transférer de personnage, de tatouage, d’emblème, de rune Hextech, de silhouette exacte ou de disposition d’ornements. Une simple recoloration ne suffit pas à créer un objet distinct. Ces consignes de conception ne constituent pas une validation juridique.
 
+## Casting récurrent
+
+Quatre personnes reviennent dans le catalogue, chacune ancrée sur une photo validée transmise comme référence de personne : même visage, même coiffure, même tenue, pose nouvelle. Le prompt du produit nomme la personne et la décrit en accord avec cette photo.
+
+| Personne | Photo d’ancrage | Produits |
+| --- | --- | --- |
+| Camille : trentaine, cheveux bruns bouclés en chignon lâche, pull bleu marine | Requin Arêtes | BB-04, BB-02, RE-07, RE-08 |
+| Hélène : cinquantaine, cheveux argentés très courts, lunettes fines, chemise bleu marine | Gantelets du Sprint | BB-03, RE-03, BB-08, RE-06 |
+| Inès : métisse, cheveux bouclés aux épaules, t-shirt rayé et salopette en jean | Sulfateuse à Relances | BB-01, BB-06, RE-01 |
+| Ravi : soixantaine, d’origine indienne, cheveux et moustache blancs, lunettes, cardigan beige | Catapulte à Croissants | BB-07, BB-05, RE-04, RE-05 |
+
+Les Mini-requins fumigènes (RE-02) montrent un autre collègue. Une personne non nommée dans un prompt reprend sinon le visage de la référence de style.
+
 ## Fumigènes et bouteilles de recharge
 
 La « fumée » est une **brume d’eau produite par ultrasons**, blanche et translucide, qui prend localement la couleur des LED. Plusieurs petits jets sortent d’orifices distincts et se rejoignent en volutes. Chaque sortie visible est accompagnée d’une LED proche : l’éclairage de la brume vient bien du produit, pas seulement de l’éclairage du bureau. Aucun feu, échauffement, combustion, fumée teintée dans la masse ou dispositif pyrotechnique.
@@ -49,7 +62,7 @@ Les mêmes liquides RE-07 ou RE-08 remplissent les Mini-requins fumigènes RE-02
 Chaque prompt produit contient le même bloc de prise de vue pour rester utilisable seul. Le lire avec cette charte ; le texte d’un chemin de fichier ne remplace jamais une image jointe.
 
 1. Éprouver la direction sur trois démonstrations : Fumigène à ultrason, Requin Arêtes et Brume neutre. Faire choisir aux spectateurs les images les plus séduisantes, espiègles et proches de l’énergie recherchée avant d’étendre la série. La conformité technique ne remplace pas ce jugement artistique.
-2. Utiliser ensuite une photo BureauBlasters validée comme référence de palette, de matériaux, d’atmosphère de bureau et de lumière. Ne pas recopier le visage, la personne, la pose ou le mobilier exact d’une référence de style, ni son produit si le sujet ne le demande pas. Chaque prompt produit décrit sa personne : âge, origine, cheveux et tenue, différents d’une image à l’autre ; une personne générique reprend sinon le visage de la référence de style. Les images Arcane restent des références d’analyse, pas des images à transformer en répliques.
+2. Utiliser ensuite une photo BureauBlasters validée comme référence de palette, de matériaux, d’atmosphère de bureau et de lumière. Ne pas recopier le visage, la personne, la pose ou le mobilier exact d’une référence de style, ni son produit si le sujet ne le demande pas. Les images Arcane restent des références d’analyse, pas des images à transformer en répliques.
 3. Générer `brume-bonne-humeur.jpg` avant les deux recharges. Pour chaque recharge, **joindre cette image validée** comme référence d’objet obligatoire et conserver exactement sa géométrie, ses joints, ses trous, son bouton, ses couleurs et son clapet. Changer seulement la pose, l’état allumé/éteint et l’ouverture du clapet. Ne pas générer les recharges sans cette référence.
 4. Générer les munitions avec une image validée de leur lanceur : mêmes formes, couleurs et proportions des projectiles visibles. Pour les fléchettes communes à deux lanceurs, valider le même modèle sur les deux. Un lanceur de démonstration peut apparaître au fond si le prompt le demande, vide et secondaire, sans ajouter de projectile au lot vendu.
 5. Comparer les images en grille : envie de jouer, complicité des expressions, caractère mécanique, lumière et cohérence de l’entreprise. Vérifier aussi la lecture du produit en vignette, sa taille par rapport aux mains, la visibilité des gestes et des fonctions, les quantités et la fidélité aux données de `../../catalogue_source.txt`.
