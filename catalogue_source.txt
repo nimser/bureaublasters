@@ -7,9 +7,9 @@ Les munitions et les liquides se commandent séparément des équipements. Les r
 RE-07 et RE-08 sont deux liquides alternatifs pour BB-04 et RE-02, pas deux achats obligatoires. Les 100 ml désignent chaque bouteille, pas les réservoirs ; leur capacité et la consommation par utilisation ne sont pas chiffrées.
 
 Identifiant : BB-01
-Nom : Rafale de Post-it
+Nom : Sulfateuse à Relances
 Catégorie : lanceur
-Description : Blaster compact à fléchettes en mousse, chargeur de 12 fléchettes. Une main suffit. Munitions compatibles : Fléchettes de rappel (RE-01).
+Description : Sulfateuse compacte à fléchettes en mousse : barillet rotatif à six canons, chargeur de 12 fléchettes. Une main suffit. Munitions compatibles : Fléchettes de rappel (RE-01).
 Prix du conditionnement (€) : 39,50
 Conditionnement : 1 blaster
 Codes de consommables : flechette-mousse
@@ -18,8 +18,8 @@ Cadence (tirs/minute) : 90
 Poids du conditionnement (g) : 650
 Dimensions (cm) : 32 × 8 × 18 (longueur × largeur × hauteur)
 Indice de protection : non applicable
-Effets : LED orange au départ du tir ; bruit de tampon administratif
-Image : images/rafale-post-it.jpg
+Effets : LED orange au départ du tir ; crépitement de notifications de relance
+Image : images/sulfateuse-relances.jpg
 Favori : non
 
 Identifiant : BB-02
@@ -137,7 +137,7 @@ Favori : non
 Identifiant : RE-01
 Nom : Fléchettes de rappel
 Catégorie : munition
-Description : Fléchettes en mousse à embout souple, compatibles avec la Rafale de Post-it et l’Arbalète Anti-Réunionite.
+Description : Fléchettes en mousse à embout souple, compatibles avec la Sulfateuse à Relances et l’Arbalète Anti-Réunionite.
 Prix du conditionnement (€) : 9,50
 Conditionnement : lot de 20 fléchettes
 Codes de consommables : flechette-mousse

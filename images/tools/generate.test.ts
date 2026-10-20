@@ -80,7 +80,7 @@ describe("recette et prompts", () => {
 
   test("les gestes de démonstration préservent les fonctions et les conditionnements", () => {
     const prompt = (name: string) => buildPrompt(ROOT, selectProducts([name])[0]!);
-    expect(prompt("rafale-post-it")).toContain("sans masquer le chargeur, la LED ni la bouche");
+    expect(prompt("sulfateuse-relances")).toContain("sans masquer le chargeur, la LED ni le barillet");
     expect(prompt("requin-aretes")).toContain("à deux mains par ses poignées inférieures");
     expect(prompt("gantelets-sprint")).toContain("sur ses avant-bras");
     expect(prompt("gantelets-sprint")).toContain("jamais un bouton posé à plat");
@@ -144,8 +144,8 @@ describe("recette et prompts", () => {
       seen.add(product.name);
     }
     expect(selectProducts(["flechettes-rappel"])[0]!.references.map(ref => ref.name))
-      .toEqual(["brume-bonne-humeur", "rafale-post-it", "arbalete-anti-reunionite"]);
-    expect(selectProducts(["arbalete-anti-reunionite"])[0]!.references.map(ref => ref.name)).toContain("rafale-post-it");
+      .toEqual(["brume-bonne-humeur", "sulfateuse-relances", "arbalete-anti-reunionite"]);
+    expect(selectProducts(["arbalete-anti-reunionite"])[0]!.references.map(ref => ref.name)).toContain("sulfateuse-relances");
     for (const name of ["brume-neutre", "brume-girofle-agrumes"]) {
       expect(selectProducts([name])[0]!.references[0]!.name).toBe("brume-bonne-humeur");
     }

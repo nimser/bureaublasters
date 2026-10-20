@@ -27,14 +27,14 @@ const style = { name: "brume-bonne-humeur", role: STYLE };
 const object = (name: string): Reference => ({ name, role: OBJECT });
 export const PRODUCTS: Product[] = [
   { name: "brume-bonne-humeur", references: [] },
-  { name: "rafale-post-it", references: [style] },
+  { name: "sulfateuse-relances", references: [style] },
   { name: "requin-aretes", references: [style] },
   { name: "gantelets-sprint", references: [style] },
   { name: "coin-coin-crise", references: [style] },
-  { name: "arbalete-anti-reunionite", references: [style, object("rafale-post-it")] },
+  { name: "arbalete-anti-reunionite", references: [style, object("sulfateuse-relances")] },
   { name: "catapulte-croissants", references: [style] },
   { name: "orbe-decompression", references: [style] },
-  { name: "flechettes-rappel", references: [style, object("rafale-post-it"), object("arbalete-anti-reunionite")] },
+  { name: "flechettes-rappel", references: [style, object("sulfateuse-relances"), object("arbalete-anti-reunionite")] },
   { name: "mini-requins", references: [style, object("requin-aretes")] },
   { name: "disques-livraison", references: [style, object("gantelets-sprint")] },
   { name: "canards-soutien", references: [style, object("coin-coin-crise")] },
