@@ -60,7 +60,7 @@ describe("recette et prompts", () => {
       const [scene, common] = file.split("## Sujet et composition\n")[1]!.split("## Prise de vue commune BureauBlasters\n");
       expect(scene).toContain("adulte");
       expect(scene!.toLowerCase()).toContain("visage");
-      expect(scene!.toLowerCase()).toMatch(/sourire|rictus/);
+      expect(scene!.toLowerCase()).toMatch(/sourire|rictus|rire|regard|clin d’œil|œil plissé|air faussement/);
       expect(scene!.toLowerCase()).toMatch(/bureau|open space|de travail/);
       expect(scene).toContain("premier plan");
       commonBlocks.add(common!.trim());

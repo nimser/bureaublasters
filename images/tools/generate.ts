@@ -41,7 +41,7 @@ export const PRODUCTS: Product[] = [
   { name: "orbe-decompression", references: [style, person("gantelets-sprint")] },
   { name: "flechettes-rappel", references: [style, objectPerson("sulfateuse-relances"), object("arbalete-anti-reunionite")] },
   { name: "mini-requins", references: [style, object("requin-aretes")] },
-  { name: "disques-livraison", references: [style, objectPerson("gantelets-sprint")] },
+  { name: "disques-livraison", references: [style, person("gantelets-sprint")] },
   { name: "canards-soutien", references: [style, objectPerson("coin-coin-crise")] },
   { name: "croissants-reserve", references: [style, objectPerson("catapulte-croissants")] },
   { name: "balles-decompression", references: [style, objectPerson("orbe-decompression")] },
