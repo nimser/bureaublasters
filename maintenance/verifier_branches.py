@@ -76,7 +76,7 @@ def catalogue_depart(corrige):
     index = {p["id"]: p for p in produits}
     index["BB-01"]["prix_euros"] = "39,50"
     index["BB-07"]["dimensions_cm"]["longueur"] = 480
-    index["RE-02"]["consommables"][0] = "requin_mousse"
+    index["RE-02"]["consommables_fournis"][0] = "requin_mousse"
     index["RE-03"]["favori"] = "False"
     index["RE-06"]["prix_euros"] = 890
     return produits

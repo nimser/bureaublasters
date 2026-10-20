@@ -17,6 +17,8 @@ Le socle réinvestit les acquis de semaine 1 et du lundi/mardi de semaine 2 : do
 | `etape/05-tests` | Complet et corrigé. | Aucune. | Bonus à écrire. |
 | `correction` | Complet et corrigé. | Aucune. | Exemples fournis. |
 
+Les commentaires `À compléter` signalent uniquement les fiches manquantes et les fonctions à écrire dans chaque branche. Les erreurs intentionnelles du catalogue restent à identifier à partir des consignes et des fiches ; ne pas les marquer une par une.
+
 Ne pas fusionner `correction` dans les branches pédagogiques : cela distribuerait les réponses. Ne pas remplacer leurs fichiers `fonctions.py` ou `tests_perso.py` par ceux du corrigé.
 
 ## Mettre à jour une spécification
@@ -54,4 +56,4 @@ python -m unittest discover -s maintenance -v
 
 Les vérifications de transcription couvrent les noms, descriptions, conditionnements, effets et codes. Elles ne comparent pas tous les prix aux fiches : une valeur numérique positive mais commercialement incorrecte doit encore être trouvée par lecture et comparaison. Ne pas supprimer cette limite sans revoir les consignes de l’étape 1.
 
-Les codes regroupent des produits sans indiquer qui fournit ou consomme quoi. Les liquides RE-07 et RE-08 sont des alternatives pour BB-04 et RE-02. BB-02 utilise les mini-requins, mais ne reçoit aucun liquide : le filtre ne doit pas suivre cette relation indirecte. Une recommandation de commande exige un modèle plus explicite des usages et des alternatives ; elle reste une extension.
+Les champs `consommables_utilises` et `consommables_fournis` distinguent les deux rôles ; une liste vide signifie qu’aucun code ne s’applique à ce rôle. Le filtre examine les deux listes, sans ajouter deux fois un produit. Les liquides RE-07 et RE-08 sont des alternatives pour BB-04 et RE-02. BB-02 utilise les mini-requins, mais ne reçoit aucun liquide : le filtre ne doit pas suivre cette relation indirecte. Une recommandation de commande doit aussi tenir compte des alternatives ; elle reste une extension.

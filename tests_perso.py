@@ -10,3 +10,5 @@ from fonctions import (
     definir_favori,
     filtrer_par_consommable,
 )
+
+# Bonus : écrire les fonctions test_... ci-dessous, puis lancer python tests_catalogue.py perso.
