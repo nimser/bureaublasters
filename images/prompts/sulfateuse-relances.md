@@ -1,0 +1,13 @@
+# BB-01 — Sulfateuse à Relances
+
+## Sujet et composition
+
+Dans un open space créatif, une collègue adulte métisse aux cheveux bouclés volumineux coupés aux épaules, salopette graphite sur t-shirt rayé blanc et bleu, tient d’une seule main une sulfateuse-jouet compacte de 32 × 8 × 18 cm, au premier plan, de trois quarts. Sa main enveloppe la poignée-pistolet sans masquer le chargeur, la LED ni le barillet ; son autre main, ouverte à côté, fait un petit geste théâtral de « c’est parti ». Son visage reste visible au-dessus du jouet, avec un sourire de conspiratrice et un sourcil levé, la jubilation d’une démonstration et pas une menace. La sulfateuse pointe vers une petite cible en mousse sans inscription posée sur un bureau voisin, sans personne dans la ligne de tir.
+
+Silhouette exubérante de mini-mitrailleuse de bricoleuse : à l’avant, un barillet rotatif court de six canons ronds en ABS orange mandarine, serrés autour d’un axe central dans un étroit collier bleu pétrole ; derrière, un corps ramassé à panneaux facettés et gros rivets captifs, un petit capot moteur bombé à ailettes et une poignée arrondie en caoutchouc graphite avec gâchette orange. Sous le corps, un chargeur courbe translucide contient 12 fléchettes en mousse bleue à embout orange souple, alignées et lisibles ; une fléchette dépasse de la bouche d’un canon pour montrer le matériau et la compatibilité. Une seule LED orange allumée sur le collier du barillet. Quelques boucles, flèches bancales et confettis peints à la main cyan et magenta, sans lettres. Proportions d’un jouet à une main, pas d’une arme lourde ; pas de bande de munitions, pas de manivelle, pas de crosse d’épaule.
+
+Conception BureauBlasters originale : ni tête de requin, ni oreilles ou visage peints sur le barillet, ni cartouches ou grenades, ni silhouette reconnaissable d’une arme de Jinx. Aucune fléchette en vol, aucun texte, logo, flamme, fumée ou douille.
+
+## Prise de vue commune BureauBlasters
+
+Photographie réaliste de démonstration, carré 1024 × 1024. Une personne adulte tient, porte ou manipule le produit entier au premier plan, fonctions nettes et doigts hors des détails importants ; son visage visible exprime une complicité espiègle, un petit air diabolique mais bienveillant. Bureau d’entreprise créative reconnaissable derrière : postes de travail, plantes, cloisons vitrées et touches colorées. Perspective naturelle 40 à 50 mm, proportions crédibles entre produit et mains, visage lisible, décor adouci. Lumière de fenêtre cinématographique, accents cyan et magenta, matières tangibles. Pas de packshot de studio, humain dessiné, texte lisible, logo, filigrane ajouté ou accessoire copié d’Arcane.
