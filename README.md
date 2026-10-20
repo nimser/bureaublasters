@@ -183,7 +183,7 @@ Affiche `consommables_utilises` du lanceur et `consommables_fournis` du lot de m
 
 ### Trouve les erreurs restantes
 
-Le catalogue contient encore **au moins trois erreurs** à repérer dans les données déjà migrées. Certaines font échouer un test ; une au moins passe tous les tests. Observe ce qu’affichent l’interface ou `python apercu_terminal.py`, les types attendus et cette note laissée par tes collègues :
+Le catalogue contient encore **trois erreurs** à repérer dans les données déjà migrées. **Deux sont détectées par les tests ; une seule ne l’est pas.** Observe ce qu’affichent l’interface ou `python apercu_terminal.py`, les types attendus et cette note laissée par tes collègues :
 
 > **Note de relecture :** une longueur a été copiée en millimètres alors que `dimensions_cm` attend des centimètres. La comptabilité confirme aussi que le lot de 10 Balles de décompression coûte **8,90 €**.
 
