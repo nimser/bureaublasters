@@ -126,12 +126,26 @@ def test_donnees_compatibilites():
                 if autre["categorie"] in familles_recherchees and code in autre["consommables"]
             ]
             assert partenaires, f"{produit['id']} : aucun produit compatible avec le code {code!r}"
+            for partenaire in CATALOGUE:
+                if partenaire["id"] not in partenaires:
+                    continue
+                assert partenaire["nom"] in produit["description"], (
+                    f"{produit['id']} : produit compatible {partenaire['nom']!r} absent de la description"
+                )
+                if produit["categorie"] in EQUIPEMENTS:
+                    assert partenaire["id"] in produit["description"], (
+                        f"{produit['id']} : référence {partenaire['id']} absente de la description"
+                    )
 
 
 def test_donnees_brume():
     brumes = [produit for produit in CATALOGUE if produit["id"] == "BB-04"]
     assert brumes, "BB-04 est absent du catalogue"
+    assert brumes[0]["nom"] == "Fumigène à ultrason"
     assert brumes[0]["indice_protection"] == "IP68", f"BB-04 : indice_protection vaut {brumes[0]['indice_protection']!r}"
+    description = brumes[0]["description"]
+    for mention in ["produite par ultrasons", "se recharge", "liquide à base d’eau", "parfumé", "vendu séparément"]:
+        assert mention in description, f"BB-04 : mention {mention!r} absente"
 
 
 def test_donnees_fumigenes_ultrasoniques():
@@ -145,29 +159,35 @@ def test_donnees_fumigenes_ultrasoniques():
 
 def test_donnees_recharges_liquides():
     produits = {produit["id"]: produit for produit in CATALOGUE}
-    assert "réservoir intégré de 100 ml" in produits["BB-04"]["description"]
+    fumigene = produits["BB-04"]
+    assert fumigene["dimensions_cm"] == {"longueur": 4, "largeur": 4, "hauteur": 6}
+    for mention in ["silicone mat amortissant", "Trois exemplaires", "petit réservoir intégré", "clapet"]:
+        assert mention in fumigene["description"], f"BB-04 : mention {mention!r} absente"
+    assert "réservoir intégré de 100 ml" not in fumigene["description"]
     for identifiant in ["RE-07", "RE-08"]:
         produit = produits[identifiant]
         assert produit["conditionnement"] == "1 bouteille de 100 ml", f"{identifiant} : bouteille attendue"
         assert "à verser dans le réservoir" in produit["description"], f"{identifiant} : remplissage absent"
+        assert produits["BB-04"]["nom"] in produit["description"], f"{identifiant} : nom du fumigène absent"
+        for mention in ["éteint", "clapet ouvert", "plusieurs remplissages"]:
+            assert mention in produit["description"], f"{identifiant} : mention {mention!r} absente"
     assert "sans parfum" in produits["RE-07"]["description"]
     assert "clou de girofle" in produits["RE-08"]["description"]
     assert "zeste d’orange" in produits["RE-08"]["description"]
 
 
-def test_donnees_fiches_fumigenes_synchronisees():
+def test_donnees_fiches_synchronisees():
     source = Path(__file__).with_name("catalogue_source.txt").read_text(encoding="utf-8")
     fiches = {}
     for bloc in source.split("Identifiant : ")[1:]:
         identifiant, *lignes = bloc.splitlines()
         fiches[identifiant] = dict(ligne.split(" : ", 1) for ligne in lignes if " : " in ligne)
     for produit in CATALOGUE:
-        if produit["id"] not in {"BB-02", "BB-04", "RE-02", "RE-07", "RE-08"}:
-            continue
         fiche = fiches[produit["id"]]
-        for cle, libelle in [("description", "Description"), ("conditionnement", "Conditionnement")]:
+        for cle, libelle in [("nom", "Nom"), ("description", "Description"), ("conditionnement", "Conditionnement")]:
             assert produit[cle] == fiche[libelle], f"{produit['id']} : {cle} diffère de la fiche source"
-        assert produit["effets"] == fiche["Effets"].split(" ; "), (
+        effets = [] if fiche["Effets"] == "aucun" else fiche["Effets"].split(" ; ")
+        assert produit["effets"] == effets, (
             f"{produit['id']} : effets différents de la fiche source"
         )
 

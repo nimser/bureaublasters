@@ -23,7 +23,7 @@ Tu récupères le prototype avant la première commande. À toi de rendre le cat
 - **Rafale de Post-it** : blaster compact à fléchettes en mousse, chargeur de 12 fléchettes, LED orange et bruit de tampon administratif à chaque tir.
 - **Requin Arêtes** : le modèle phare. Un lance-requins de 1,18 m à porter à deux mains, gueule dentée, yeux lumineux et graffitis roses et bleus. Il propulse à l’air comprimé des mini-requins en mousse qui zigzaguent en diffusant une brume ultrasonique par plusieurs trous, éclairée en rose et bleu par des LED voisines, dans un éclat de rire enregistré.
 - **Gantelets du Sprint** : paire de gantelets lance-disques, LED violettes et jingle de montée de niveau.
-- **Brume de Bonne Humeur** : grenade-jouet lumineuse étanche, indice **IP68**, qui diffuse pendant 20 secondes une brume d’eau produite par ultrasons à travers plusieurs trous, avec des LED roses à proximité de chaque sortie. Son réservoir intégré de 100 ml se remplit en y versant le liquide d’une petite bouteille de recharge, neutre sans parfum ou parfumé girofle-orange.
+- **Fumigène à ultrason** : grenade-jouet de poche de **4 × 4 × 6 cm**, à enveloppe en **silicone mat amortissant** ; trois exemplaires tiennent dans une main. Étanche, indice **IP68**, elle diffuse pendant 20 secondes une brume d’eau produite par ultrasons à travers plusieurs trous, avec des LED roses à proximité de chaque sortie. Son petit réservoir intégré se recharge par un **clapet à charnière souple**, appareil éteint, en y versant un liquide à base d’eau : **Brume neutre (RE-07)** sans parfum ou **Brume girofle-agrumes (RE-08)** parfumé. Ces liquides sont vendus séparément en petites bouteilles de **100 ml**, pour plusieurs remplissages.
 - **Coin-Coin de Crise** : canon à canards en mousse, chaque canard émet un coin-coin au départ.
 - **Arbalète Anti-Réunionite** : arbalète à fléchettes en mousse, armement à levier et « ding » à chaque tir.
 - **Catapulte à Croissants** : catapulte de bureau à bras réglable, clochette de boulangerie, croissants en mousse parfumés. Non comestible.
@@ -118,7 +118,7 @@ python -m streamlit run app.py
 
 ### Complète les fiches manquantes
 
-Ajoute **BB-02 Requin Arêtes**, **BB-04 Brume de Bonne Humeur** et **RE-08 Brume girofle-agrumes** à partir de leurs fiches. Conserve l’ordre des références : équipements BB-01 à BB-08, puis munitions et recharges RE-01 à RE-08.
+Ajoute **BB-02 Requin Arêtes**, **BB-04 Fumigène à ultrason** et **RE-08 Brume girofle-agrumes** à partir de leurs fiches. Conserve l’ordre des références : équipements BB-01 à BB-08, puis munitions et recharges RE-01 à RE-08.
 
 Utilise `None` pour une caractéristique non applicable et une liste vide pour l’absence d’effets.
 

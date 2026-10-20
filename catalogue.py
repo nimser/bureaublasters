@@ -5,7 +5,7 @@ CATALOGUE = [
         "id": "BB-01",
         "nom": "Rafale de Post-it",
         "categorie": "lanceur",
-        "description": "Blaster compact à fléchettes en mousse, chargeur de 12 fléchettes. Une main suffit.",
+        "description": "Blaster compact à fléchettes en mousse, chargeur de 12 fléchettes. Une main suffit. Munitions compatibles : Fléchettes de rappel (RE-01).",
         "prix_euros": 39.5,
         "conditionnement": "1 blaster",
         "consommables": [
@@ -31,7 +31,7 @@ CATALOGUE = [
         "id": "BB-02",
         "nom": "Requin Arêtes",
         "categorie": "lanceur",
-        "description": "Lance-requins à porter à deux mains. Gueule dentée, yeux lumineux, graffitis roses et bleus. Propulse par air comprimé des mini-requins en mousse qui zigzaguent et diffusent par plusieurs trous une brume d’eau produite par ultrasons, éclairée en rose et bleu par des LED voisines. Un éclat de rire enregistré accompagne chaque tir. Le modèle phare de la gamme.",
+        "description": "Lance-requins à porter à deux mains. Gueule dentée, yeux lumineux, graffitis roses et bleus. Propulse par air comprimé des mini-requins en mousse qui zigzaguent et diffusent par plusieurs trous une brume d’eau produite par ultrasons, éclairée en rose et bleu par des LED voisines. Un éclat de rire enregistré accompagne chaque tir. Le modèle phare de la gamme. Munitions compatibles : Mini-requins fumigènes (RE-02).",
         "prix_euros": 489.0,
         "conditionnement": "1 lanceur, 1 sangle d’épaule, 1 pompe",
         "consommables": [
@@ -60,7 +60,7 @@ CATALOGUE = [
         "id": "BB-03",
         "nom": "Gantelets du Sprint",
         "categorie": "lanceur",
-        "description": "Paire de gantelets lance-disques, un disque par gantelet et par tir. Réglage de taille par sangle.",
+        "description": "Paire de gantelets lance-disques, un disque par gantelet et par tir. Réglage de taille par sangle. Munitions compatibles : Disques de livraison (RE-03).",
         "prix_euros": 79.9,
         "conditionnement": "1 paire de gantelets",
         "consommables": [
@@ -84,9 +84,9 @@ CATALOGUE = [
     },
     {
         "id": "BB-04",
-        "nom": "Brume de Bonne Humeur",
+        "nom": "Fumigène à ultrason",
         "categorie": "accessoire",
-        "description": "Grenade-jouet fumigène lumineuse et étanche, à réservoir intégré de 100 ml. Pendant 20 secondes, elle diffuse une brume d’eau produite par ultrasons à travers plusieurs trous, chacun accompagné d’une LED rose. Le réservoir se remplit en y versant le liquide d’une petite bouteille de recharge, neutre ou parfumé.",
+        "description": "Grenade-jouet fumigène de poche, lumineuse et étanche, à enveloppe en silicone mat amortissant et petit réservoir intégré. Trois exemplaires tiennent dans une main. Pendant 20 secondes, elle diffuse une brume d’eau produite par ultrasons à travers plusieurs trous, chacun accompagné d’une LED rose. Le réservoir se recharge par un clapet à charnière souple en y versant un liquide à base d’eau : Brume neutre (RE-07, sans parfum) ou Brume girofle-agrumes (RE-08, parfumé), vendu séparément en petites bouteilles de 100 ml pour plusieurs remplissages.",
         "prix_euros": 29.9,
         "conditionnement": "1 grenade de brume",
         "consommables": [
@@ -97,9 +97,9 @@ CATALOGUE = [
         "cadence_tirs_min": None,
         "poids_g": 300,
         "dimensions_cm": {
-            "longueur": 9,
-            "largeur": 9,
-            "hauteur": 14
+            "longueur": 4,
+            "largeur": 4,
+            "hauteur": 6
         },
         "indice_protection": "IP68",
         "effets": [
@@ -115,7 +115,7 @@ CATALOGUE = [
         "id": "BB-05",
         "nom": "Coin-Coin de Crise",
         "categorie": "lanceur",
-        "description": "Canon à canards en mousse, chargement par l’avant. Chaque canard émet un coin-coin au départ.",
+        "description": "Canon à canards en mousse, chargement par l’avant. Chaque canard émet un coin-coin au départ. Munitions compatibles : Canards de soutien (RE-04).",
         "prix_euros": 54.5,
         "conditionnement": "1 canon",
         "consommables": [
@@ -141,7 +141,7 @@ CATALOGUE = [
         "id": "BB-06",
         "nom": "Arbalète Anti-Réunionite",
         "categorie": "lanceur",
-        "description": "Arbalète à fléchettes en mousse, armement à levier. Un « ding » signale chaque tir.",
+        "description": "Arbalète à fléchettes en mousse, armement à levier. Un « ding » signale chaque tir. Munitions compatibles : Fléchettes de rappel (RE-01).",
         "prix_euros": 44.9,
         "conditionnement": "1 arbalète",
         "consommables": [
@@ -167,7 +167,7 @@ CATALOGUE = [
         "id": "BB-07",
         "nom": "Catapulte à Croissants",
         "categorie": "lanceur",
-        "description": "Catapulte de bureau à bras réglable pour croissants en mousse. Non comestible.",
+        "description": "Catapulte de bureau à bras réglable pour croissants en mousse. Non comestible. Munitions compatibles : Croissants de réserve (RE-05).",
         "prix_euros": 59.5,
         "conditionnement": "1 catapulte de bureau",
         "consommables": [
@@ -193,7 +193,7 @@ CATALOGUE = [
         "id": "BB-08",
         "nom": "Orbe de Décompression",
         "categorie": "lanceur",
-        "description": "Lanceur sphérique de balles en mousse, tenu à une main. Halo vert pendant le chargement.",
+        "description": "Lanceur sphérique de balles en mousse, tenu à une main. Halo vert pendant le chargement. Munitions compatibles : Balles de décompression (RE-06).",
         "prix_euros": 49.9,
         "conditionnement": "1 lanceur",
         "consommables": [
@@ -366,7 +366,7 @@ CATALOGUE = [
         "id": "RE-07",
         "nom": "Brume neutre",
         "categorie": "recharge",
-        "description": "Petite bouteille de 100 ml de liquide aqueux sans parfum, à verser dans le réservoir vide de la Brume de Bonne Humeur pour le remplir.",
+        "description": "Petite bouteille de 100 ml de liquide aqueux sans parfum, à verser dans le réservoir vide du Fumigène à ultrason éteint, par son clapet ouvert. Une bouteille permet plusieurs remplissages.",
         "prix_euros": 5.5,
         "conditionnement": "1 bouteille de 100 ml",
         "consommables": [
@@ -391,7 +391,7 @@ CATALOGUE = [
         "id": "RE-08",
         "nom": "Brume girofle-agrumes",
         "categorie": "recharge",
-        "description": "Petite bouteille de 100 ml de liquide aqueux parfumé au clou de girofle et au zeste d’orange, à verser dans le réservoir vide de la Brume de Bonne Humeur pour le remplir.",
+        "description": "Petite bouteille de 100 ml de liquide aqueux parfumé au clou de girofle et au zeste d’orange, à verser dans le réservoir vide du Fumigène à ultrason éteint, par son clapet ouvert. Une bouteille permet plusieurs remplissages.",
         "prix_euros": 6.9,
         "conditionnement": "1 bouteille de 100 ml",
         "consommables": [

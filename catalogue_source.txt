@@ -7,7 +7,7 @@ Un code de consommable relie un équipement à ses munitions ou recharges : les 
 Identifiant : BB-01
 Nom : Rafale de Post-it
 Catégorie : lanceur
-Description : Blaster compact à fléchettes en mousse, chargeur de 12 fléchettes. Une main suffit.
+Description : Blaster compact à fléchettes en mousse, chargeur de 12 fléchettes. Une main suffit. Munitions compatibles : Fléchettes de rappel (RE-01).
 Prix du conditionnement (€) : 39,50
 Conditionnement : 1 blaster
 Codes de consommables : flechette-mousse
@@ -23,7 +23,7 @@ Favori : non
 Identifiant : BB-02
 Nom : Requin Arêtes
 Catégorie : lanceur
-Description : Lance-requins à porter à deux mains. Gueule dentée, yeux lumineux, graffitis roses et bleus. Propulse par air comprimé des mini-requins en mousse qui zigzaguent et diffusent par plusieurs trous une brume d’eau produite par ultrasons, éclairée en rose et bleu par des LED voisines. Un éclat de rire enregistré accompagne chaque tir. Le modèle phare de la gamme.
+Description : Lance-requins à porter à deux mains. Gueule dentée, yeux lumineux, graffitis roses et bleus. Propulse par air comprimé des mini-requins en mousse qui zigzaguent et diffusent par plusieurs trous une brume d’eau produite par ultrasons, éclairée en rose et bleu par des LED voisines. Un éclat de rire enregistré accompagne chaque tir. Le modèle phare de la gamme. Munitions compatibles : Mini-requins fumigènes (RE-02).
 Prix du conditionnement (€) : 489,00
 Conditionnement : 1 lanceur, 1 sangle d’épaule, 1 pompe
 Codes de consommables : requin-mousse
@@ -39,7 +39,7 @@ Favori : non
 Identifiant : BB-03
 Nom : Gantelets du Sprint
 Catégorie : lanceur
-Description : Paire de gantelets lance-disques, un disque par gantelet et par tir. Réglage de taille par sangle.
+Description : Paire de gantelets lance-disques, un disque par gantelet et par tir. Réglage de taille par sangle. Munitions compatibles : Disques de livraison (RE-03).
 Prix du conditionnement (€) : 79,90
 Conditionnement : 1 paire de gantelets
 Codes de consommables : disque-mousse
@@ -53,16 +53,16 @@ Image : images/gantelets-sprint.jpg
 Favori : non
 
 Identifiant : BB-04
-Nom : Brume de Bonne Humeur
+Nom : Fumigène à ultrason
 Catégorie : accessoire
-Description : Grenade-jouet fumigène lumineuse et étanche, à réservoir intégré de 100 ml. Pendant 20 secondes, elle diffuse une brume d’eau produite par ultrasons à travers plusieurs trous, chacun accompagné d’une LED rose. Le réservoir se remplit en y versant le liquide d’une petite bouteille de recharge, neutre ou parfumé.
+Description : Grenade-jouet fumigène de poche, lumineuse et étanche, à enveloppe en silicone mat amortissant et petit réservoir intégré. Trois exemplaires tiennent dans une main. Pendant 20 secondes, elle diffuse une brume d’eau produite par ultrasons à travers plusieurs trous, chacun accompagné d’une LED rose. Le réservoir se recharge par un clapet à charnière souple en y versant un liquide à base d’eau : Brume neutre (RE-07, sans parfum) ou Brume girofle-agrumes (RE-08, parfumé), vendu séparément en petites bouteilles de 100 ml pour plusieurs remplissages.
 Prix du conditionnement (€) : 29,90
 Conditionnement : 1 grenade de brume
 Codes de consommables : brume-neutre ; brume-girofle-agrumes
 Portée (m) : non applicable
 Cadence (tirs/minute) : non applicable
 Poids du conditionnement (g) : 300
-Dimensions (cm) : 9 × 9 × 14 (longueur × largeur × hauteur)
+Dimensions (cm) : 4 × 4 × 6 (longueur × largeur × hauteur)
 Indice de protection : IP68
 Effets : jets de brume d’eau ultrasonique par plusieurs trous éclairés en rose ; pulsations de LED roses ; jingle de trois notes ; senteur selon le liquide de recharge
 Image : images/brume-bonne-humeur.jpg
@@ -71,7 +71,7 @@ Favori : non
 Identifiant : BB-05
 Nom : Coin-Coin de Crise
 Catégorie : lanceur
-Description : Canon à canards en mousse, chargement par l’avant. Chaque canard émet un coin-coin au départ.
+Description : Canon à canards en mousse, chargement par l’avant. Chaque canard émet un coin-coin au départ. Munitions compatibles : Canards de soutien (RE-04).
 Prix du conditionnement (€) : 54,50
 Conditionnement : 1 canon
 Codes de consommables : canard-mousse
@@ -87,7 +87,7 @@ Favori : non
 Identifiant : BB-06
 Nom : Arbalète Anti-Réunionite
 Catégorie : lanceur
-Description : Arbalète à fléchettes en mousse, armement à levier. Un « ding » signale chaque tir.
+Description : Arbalète à fléchettes en mousse, armement à levier. Un « ding » signale chaque tir. Munitions compatibles : Fléchettes de rappel (RE-01).
 Prix du conditionnement (€) : 44,90
 Conditionnement : 1 arbalète
 Codes de consommables : flechette-mousse
@@ -103,7 +103,7 @@ Favori : non
 Identifiant : BB-07
 Nom : Catapulte à Croissants
 Catégorie : lanceur
-Description : Catapulte de bureau à bras réglable pour croissants en mousse. Non comestible.
+Description : Catapulte de bureau à bras réglable pour croissants en mousse. Non comestible. Munitions compatibles : Croissants de réserve (RE-05).
 Prix du conditionnement (€) : 59,50
 Conditionnement : 1 catapulte de bureau
 Codes de consommables : croissant-mousse
@@ -119,7 +119,7 @@ Favori : non
 Identifiant : BB-08
 Nom : Orbe de Décompression
 Catégorie : lanceur
-Description : Lanceur sphérique de balles en mousse, tenu à une main. Halo vert pendant le chargement.
+Description : Lanceur sphérique de balles en mousse, tenu à une main. Halo vert pendant le chargement. Munitions compatibles : Balles de décompression (RE-06).
 Prix du conditionnement (€) : 49,90
 Conditionnement : 1 lanceur
 Codes de consommables : balle-mousse
@@ -231,7 +231,7 @@ Favori : non
 Identifiant : RE-07
 Nom : Brume neutre
 Catégorie : recharge
-Description : Petite bouteille de 100 ml de liquide aqueux sans parfum, à verser dans le réservoir vide de la Brume de Bonne Humeur pour le remplir.
+Description : Petite bouteille de 100 ml de liquide aqueux sans parfum, à verser dans le réservoir vide du Fumigène à ultrason éteint, par son clapet ouvert. Une bouteille permet plusieurs remplissages.
 Prix du conditionnement (€) : 5,50
 Conditionnement : 1 bouteille de 100 ml
 Codes de consommables : brume-neutre
@@ -247,7 +247,7 @@ Favori : non
 Identifiant : RE-08
 Nom : Brume girofle-agrumes
 Catégorie : recharge
-Description : Petite bouteille de 100 ml de liquide aqueux parfumé au clou de girofle et au zeste d’orange, à verser dans le réservoir vide de la Brume de Bonne Humeur pour le remplir.
+Description : Petite bouteille de 100 ml de liquide aqueux parfumé au clou de girofle et au zeste d’orange, à verser dans le réservoir vide du Fumigène à ultrason éteint, par son clapet ouvert. Une bouteille permet plusieurs remplissages.
 Prix du conditionnement (€) : 6,90
 Conditionnement : 1 bouteille de 100 ml
 Codes de consommables : brume-girofle-agrumes
