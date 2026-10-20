@@ -12,12 +12,17 @@ from fonctions import (
 )
 
 
+# Bonus : ajouter des tests test_... sur de petits catalogues indépendants.
 def mini_catalogue():
     return [
-        {"id": "L1", "categorie": "lanceur", "consommables": ["bille"], "prix_euros": 20, "favori": False},
-        {"id": "A1", "categorie": "accessoire", "consommables": ["brume"], "prix_euros": 15, "favori": False},
-        {"id": "M1", "categorie": "munition", "consommables": ["bille"], "prix_euros": 5, "favori": False},
-        {"id": "R1", "categorie": "recharge", "consommables": ["brume"], "prix_euros": 3, "favori": False},
+        {"id": "L1", "categorie": "lanceur", "consommables_utilises": ["bille"],
+         "consommables_fournis": [], "prix_euros": 20, "favori": False},
+        {"id": "A1", "categorie": "accessoire", "consommables_utilises": ["brume"],
+         "consommables_fournis": [], "prix_euros": 15, "favori": False},
+        {"id": "M1", "categorie": "munition", "consommables_utilises": [],
+         "consommables_fournis": ["bille"], "prix_euros": 5, "favori": False},
+        {"id": "R1", "categorie": "recharge", "consommables_utilises": [],
+         "consommables_fournis": ["brume"], "prix_euros": 3, "favori": False},
     ]
 
 
