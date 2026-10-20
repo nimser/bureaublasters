@@ -1,0 +1,1 @@
+A continuous low rounded electronic hum for a handheld decompression orb while charging. Gently warm and softly pulsing, with an audible low-mid body rather than sub-bass alone, no sharp high frequencies and no threatening energy. Uniform texture throughout, no distinct start, ending or impact. Create a seamless loop with a smooth unobtrusive join.

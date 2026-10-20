@@ -1,0 +1,14 @@
+{
+  "name": "bureaublasters-sounds",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "bun run generate.ts",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/bun": "1.4.3",
+    "typescript": "7.0.2"
+  }
+}
