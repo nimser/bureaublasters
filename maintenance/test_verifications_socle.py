@@ -48,5 +48,42 @@ class VerificationSocleTests(unittest.TestCase):
         lancer.assert_not_called()
 
 
+class VerificationTranscriptionTests(unittest.TestCase):
+    def setUp(self):
+        self.catalogue = [{"id": "BB-01", "description": "Fiche déjà migrée."}]
+        self.extrait = ""
+        for identifiant in ["BB-02", "BB-04", "RE-08"]:
+            self.catalogue.append({
+                "id": identifiant, "nom": "Produit", "description": "Description",
+                "conditionnement": "1 unité", "consommables_utilises": [],
+                "consommables_fournis": ["code"], "effets": [],
+            })
+            self.extrait += (
+                f"Identifiant : {identifiant}\nNom : Produit\nDescription : Description\n"
+                "Conditionnement : 1 unité\nConsommables utilisés : aucun\n"
+                "Consommables fournis : code\nEffets : aucun\n\n"
+            )
+
+    def verifier(self):
+        with (
+            patch.object(verifications, "CATALOGUE", self.catalogue),
+            patch.object(verifications.Path, "read_text", return_value=self.extrait),
+        ):
+            verifications.test_donnees_fiches_synchronisees()
+
+    def test_transcription_limitee_aux_fiches_non_migrees(self):
+        self.verifier()
+
+    def test_transcription_detecte_erreur_dans_ajout(self):
+        self.catalogue[1]["description"] = "Description incomplète."
+        with self.assertRaisesRegex(AssertionError, "BB-02 : description"):
+            self.verifier()
+
+    def test_extrait_refuse_fiche_deja_migree(self):
+        self.extrait += "Identifiant : BB-01\n"
+        with self.assertRaisesRegex(AssertionError, "seulement les trois fiches"):
+            self.verifier()
+
+
 if __name__ == "__main__":
     unittest.main()
