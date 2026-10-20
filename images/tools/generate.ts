@@ -21,27 +21,32 @@ export const RECIPE = {
 
 const STYLE = "palette, matériaux, atmosphère de bureau, énergie espiègle et lumière uniquement ; ne recopier ni personne, ni visage, ni pose, ni mobilier exact ; ne pas ajouter cet objet au produit photographié";
 const OBJECT = "identité physique de l’objet ou des projectiles compatibles uniquement ; respecter exactement leurs formes, proportions, couleurs et détails, sans recopier la personne ni son visage";
+const PERSON = "personne uniquement ; reprendre exactement le même visage, la même coiffure et la même tenue, avec une nouvelle pose ; ne pas ajouter cet objet au produit photographié";
+const OBJECT_PERSON = "identité physique de l’objet ou des projectiles compatibles, et la même personne ; respecter exactement leurs formes, proportions, couleurs et détails, ainsi que son visage, sa coiffure et sa tenue, avec une nouvelle pose";
 export type Reference = { name: string; role: string };
 export type Product = { name: string; references: Reference[] };
 const style = { name: "brume-bonne-humeur", role: STYLE };
 const object = (name: string): Reference => ({ name, role: OBJECT });
+// Casting : chaque personne récurrente est ancrée sur une photo validée.
+const person = (name: string): Reference => ({ name, role: PERSON });
+const objectPerson = (name: string): Reference => ({ name, role: OBJECT_PERSON });
 export const PRODUCTS: Product[] = [
   { name: "brume-bonne-humeur", references: [] },
-  { name: "rafale-post-it", references: [style] },
+  { name: "sulfateuse-relances", references: [style] },
   { name: "requin-aretes", references: [style] },
   { name: "gantelets-sprint", references: [style] },
-  { name: "coin-coin-crise", references: [style] },
-  { name: "arbalete-anti-reunionite", references: [style, object("rafale-post-it")] },
   { name: "catapulte-croissants", references: [style] },
-  { name: "orbe-decompression", references: [style] },
-  { name: "flechettes-rappel", references: [style, object("rafale-post-it"), object("arbalete-anti-reunionite")] },
+  { name: "coin-coin-crise", references: [style, person("catapulte-croissants")] },
+  { name: "arbalete-anti-reunionite", references: [style, objectPerson("sulfateuse-relances")] },
+  { name: "orbe-decompression", references: [style, person("gantelets-sprint")] },
+  { name: "flechettes-rappel", references: [style, objectPerson("sulfateuse-relances"), object("arbalete-anti-reunionite")] },
   { name: "mini-requins", references: [style, object("requin-aretes")] },
-  { name: "disques-livraison", references: [style, object("gantelets-sprint")] },
-  { name: "canards-soutien", references: [style, object("coin-coin-crise")] },
-  { name: "croissants-reserve", references: [style, object("catapulte-croissants")] },
-  { name: "balles-decompression", references: [style, object("orbe-decompression")] },
-  { name: "brume-neutre", references: [object("brume-bonne-humeur")] },
-  { name: "brume-girofle-agrumes", references: [object("brume-bonne-humeur"), object("brume-neutre")] },
+  { name: "disques-livraison", references: [style, person("gantelets-sprint")] },
+  { name: "canards-soutien", references: [style, objectPerson("coin-coin-crise")] },
+  { name: "croissants-reserve", references: [style, objectPerson("catapulte-croissants")] },
+  { name: "balles-decompression", references: [style, objectPerson("orbe-decompression")] },
+  { name: "brume-neutre", references: [object("brume-bonne-humeur"), person("requin-aretes")] },
+  { name: "brume-girofle-agrumes", references: [object("mini-requins"), object("brume-neutre"), person("requin-aretes")] },
 ];
 
 export const sha256 = (data: string | Uint8Array): string => createHash("sha256").update(data).digest("hex");
