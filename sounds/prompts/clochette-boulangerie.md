@@ -1,0 +1,1 @@
+One small traditional bakery counter bell rung once, bright and warm, with a delicate metallic ring that decays naturally. A charming short cue for a tabletop foam-croissant catapult. No door movement, shop ambience, voices or repeated ringing.
