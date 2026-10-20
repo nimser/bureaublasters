@@ -95,3 +95,19 @@ bun run images/tools/generate.ts --publish
 ```
 
 Cette commande vérifie toute la série avant de remplacer `images/*.jpg` et de publier `images/tools/generation.json`. Ce journal versionné conserve le modèle, les paramètres, l’empreinte du verrou de dépendances, les formats natifs, les empreintes des prompts/références/images et les dates de génération et validation. Il ne contient aucune clé.
+
+## Affiche du brief
+
+`affiche.ts` produit l’illustration 16:9 du brief Simplonline : plusieurs collègues en pleine bataille de jouets. Il réutilise le modèle, l’authentification CPA et le transport de `generate.ts`, mais tient sa propre recette et ne lit ni ne modifie la série du catalogue.
+
+- **Prompt** : `images/tools/affiche.md`, précédé de la consigne de cadrage et de la liste des images jointes.
+- **Références** : choisies à chaque appel, dans l’ordre des options. `requin-aretes` désigne `images/requin-aretes.jpg` (catalogue publié), `generation:requin-aretes` la dernière version de `images/tools/.generation/` ; un chemin `.jpg`, `.png` ou `.webp` désigne tout autre fichier, relatif à la racine du dépôt ou absolu. `--ref` reprend la personne et son jouet, `--produit` le jouet seul, `--personnage` la personne seule. Chaque personne reprise reste un collègue distinct ; le modèle complète le groupe.
+- **Format** : paysage `1536x1024` demandé, qualité `high`, zéro relance. La sortie est recadrée au centre en 16:9 à sa largeur native, sans agrandissement ; les sorties carrées, portrait ou de moins de 1536 pixels de large sont refusées.
+
+```sh
+bun run images/tools/affiche.ts --list
+bun run images/tools/affiche.ts --plan --ref requin-aretes --produit generation:gantelets-sprint --personnage generation:brume-neutre
+bun run images/tools/affiche.ts --generate --ref requin-aretes --produit generation:gantelets-sprint --personnage generation:brume-neutre
+```
+
+`--list` et `--plan` n’appellent pas CPA. Chaque `--generate` crée un nouveau répertoire horodaté dans `images/tools/.affiche/`, exclu de Git : `affiche.jpg` à téléverser, sortie native, prompt envoyé et `manifest.json` (recette, empreintes du prompt, des références et des images). Relancer avec d’autres références à mesure que les produits et les personnages évoluent ; les essais précédents restent disponibles pour comparaison.

@@ -137,7 +137,7 @@ export const cpaFetch: typeof fetch = Object.assign(async (input: Parameters<typ
   return fetch(input, { ...init, body });
 }, { preconnect: fetch.preconnect });
 
-async function connectCpa() {
+export async function connectCpa() {
   const { apiKey, source } = await resolveCpaCredential();
   const baseURL = process.env.CPA_BASE_URL || "https://cpa.tn.nwo.pm/v1";
   const catalog = await fetch(`${baseURL.replace(/\/$/, "")}/models`, {
