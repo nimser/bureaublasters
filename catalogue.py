@@ -31,7 +31,7 @@ CATALOGUE = [
         "id": "BB-02",
         "nom": "Requin Arêtes",
         "categorie": "lanceur",
-        "description": "Lance-requins à porter à deux mains. Gueule dentée, yeux lumineux, graffitis roses et bleus. Propulse par air comprimé des mini-requins en mousse qui zigzaguent et diffusent par plusieurs trous une brume d’eau produite par ultrasons, éclairée en rose et bleu par des LED voisines. Un éclat de rire enregistré accompagne chaque tir. Le modèle phare de la gamme. Munitions compatibles : Mini-requins fumigènes (RE-02).",
+        "description": "Lance-requins à porter à deux mains. Gueule dentée, yeux lumineux, graffitis roses et bleus. Propulse par air comprimé des mini-requins en mousse qui zigzaguent et diffusent par plusieurs trous une brume d’eau produite par ultrasons, éclairée en rose et bleu par des LED voisines. Un éclat de rire enregistré accompagne chaque tir. Le modèle phare de la gamme. Munitions compatibles : Mini-requins fumigènes (RE-02). Le liquide se verse dans les mini-requins, jamais dans le lanceur ; leur brume est sans parfum avec Brume neutre (RE-07) ou parfumée avec Brume girofle-agrumes (RE-08).",
         "prix_euros": 489.0,
         "conditionnement": "1 lanceur, 1 sangle d’épaule, 1 pompe",
         "consommables": [
@@ -51,7 +51,7 @@ CATALOGUE = [
             "traînée de brume d’eau ultrasonique éclairée en rose et bleu",
             "yeux et gueule à LED roses et bleues",
             "éclat de rire enregistré au départ du tir",
-            "senteur barbe à papa"
+            "senteur selon le liquide de recharge"
         ],
         "image": "images/requin-aretes.jpg",
         "favori": False
@@ -242,11 +242,13 @@ CATALOGUE = [
         "id": "RE-02",
         "nom": "Mini-requins fumigènes",
         "categorie": "munition",
-        "description": "Mini-requins en mousse pour le Requin Arêtes, avec réservoir de liquide rechargeable et module ultrasonique intégré. La brume d’eau sort par plusieurs trous à l’arrière, avec des LED roses et bleues à proximité de chaque sortie.",
+        "description": "Mini-requins en mousse pour le Requin Arêtes, avec réservoir de liquide rechargeable et module ultrasonique intégré. La brume d’eau sort par plusieurs trous à l’arrière, avec des LED roses et bleues à proximité de chaque sortie. Appareils éteints, ouvrir leur bouchon et verser Brume neutre (RE-07, sans parfum) ou Brume girofle-agrumes (RE-08, parfumé), liquides vendus séparément en bouteilles de 100 ml. La senteur dépend du liquide choisi.",
         "prix_euros": 59.9,
         "conditionnement": "lot de 4 mini-requins",
         "consommables": [
-            "requin-mousse"
+            "requin-mousse",
+            "brume-neutre",
+            "brume-girofle-agrumes"
         ],
         "portee_m": None,
         "cadence_tirs_min": None,
@@ -261,7 +263,7 @@ CATALOGUE = [
             "trajectoire en zigzag",
             "brume d’eau ultrasonique éclairée en rose et bleu par les LED voisines des trous",
             "sifflement aigu",
-            "senteur barbe à papa"
+            "senteur selon le liquide de recharge"
         ],
         "image": "images/mini-requins.jpg",
         "favori": False
@@ -366,7 +368,7 @@ CATALOGUE = [
         "id": "RE-07",
         "nom": "Brume neutre",
         "categorie": "recharge",
-        "description": "Petite bouteille de 100 ml de liquide aqueux sans parfum, à verser dans le réservoir vide du Fumigène à ultrason éteint, par son clapet ouvert. Une bouteille permet plusieurs remplissages.",
+        "description": "Petite bouteille de 100 ml de liquide aqueux sans parfum, à verser dans les réservoirs vides du Fumigène à ultrason (BB-04) ou des Mini-requins fumigènes (RE-02), appareils éteints. Ouvrir le clapet du fumigène ou le bouchon du mini-requin. Une bouteille permet plusieurs remplissages.",
         "prix_euros": 5.5,
         "conditionnement": "1 bouteille de 100 ml",
         "consommables": [
@@ -391,7 +393,7 @@ CATALOGUE = [
         "id": "RE-08",
         "nom": "Brume girofle-agrumes",
         "categorie": "recharge",
-        "description": "Petite bouteille de 100 ml de liquide aqueux parfumé au clou de girofle et au zeste d’orange, à verser dans le réservoir vide du Fumigène à ultrason éteint, par son clapet ouvert. Une bouteille permet plusieurs remplissages.",
+        "description": "Petite bouteille de 100 ml de liquide aqueux parfumé au clou de girofle et au zeste d’orange, à verser dans les réservoirs vides du Fumigène à ultrason (BB-04) ou des Mini-requins fumigènes (RE-02), appareils éteints. Ouvrir le clapet du fumigène ou le bouchon du mini-requin. Une bouteille permet plusieurs remplissages.",
         "prix_euros": 6.9,
         "conditionnement": "1 bouteille de 100 ml",
         "consommables": [

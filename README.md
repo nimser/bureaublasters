@@ -21,7 +21,7 @@ Tu récupères le prototype avant la première commande. À toi de rendre le cat
 ### La gamme BureauBlasters
 
 - **Rafale de Post-it** : blaster compact à fléchettes en mousse, chargeur de 12 fléchettes, LED orange et bruit de tampon administratif à chaque tir.
-- **Requin Arêtes** : le modèle phare. Un lance-requins de 1,18 m à porter à deux mains, gueule dentée, yeux lumineux et graffitis roses et bleus. Il propulse à l’air comprimé des mini-requins en mousse qui zigzaguent en diffusant une brume ultrasonique par plusieurs trous, éclairée en rose et bleu par des LED voisines, dans un éclat de rire enregistré.
+- **Requin Arêtes** : le modèle phare. Un lance-requins de 1,18 m à porter à deux mains, gueule dentée, yeux lumineux et graffitis roses et bleus. Il propulse à l’air comprimé les **Mini-requins fumigènes (RE-02)**, qui zigzaguent en diffusant une brume ultrasonique par plusieurs trous, éclairée en rose et bleu par des LED voisines, dans un éclat de rire enregistré. Les liquides **RE-07 ou RE-08** remplissent les mini-requins, jamais le lanceur ; la senteur dépend du liquide choisi.
 - **Gantelets du Sprint** : paire de gantelets lance-disques, LED violettes et jingle de montée de niveau.
 - **Fumigène à ultrason** : grenade-jouet de poche de **4 × 4 × 6 cm**, à enveloppe en **silicone mat amortissant** ; trois exemplaires tiennent dans une main. Étanche, indice **IP68**, elle diffuse pendant 20 secondes une brume d’eau produite par ultrasons à travers plusieurs trous, avec des LED roses à proximité de chaque sortie. Son petit réservoir intégré se recharge par un **clapet à charnière souple**, appareil éteint, en y versant un liquide à base d’eau : **Brume neutre (RE-07)** sans parfum ou **Brume girofle-agrumes (RE-08)** parfumé. Ces liquides sont vendus séparément en petites bouteilles de **100 ml**, pour plusieurs remplissages.
 - **Coin-Coin de Crise** : canon à canards en mousse, chaque canard émet un coin-coin au départ.
@@ -29,7 +29,7 @@ Tu récupères le prototype avant la première commande. À toi de rendre le cat
 - **Catapulte à Croissants** : catapulte de bureau à bras réglable, clochette de boulangerie, croissants en mousse parfumés. Non comestible.
 - **Orbe de Décompression** : lanceur sphérique de balles en mousse, tenu à une main, halo vert pendant le chargement.
 
-BureauBlasters vend aussi les **munitions de remplacement** et les **bouteilles de recharge liquide pour la brume**. La direction souhaite éviter de commander six canons sans canards, ou deux litres de brume sans grenade.
+BureauBlasters vend aussi les **munitions de remplacement** et les **bouteilles de recharge liquide pour la brume**. Munitions et liquides se commandent séparément des équipements ; les réservoirs sont livrés vides. Seul le conditionnement décrit ce qui est inclus, pas les objets visibles sur les photos de démonstration. La direction souhaite éviter de commander six canons sans canards, ou deux litres de liquide sans appareil à remplir.
 
 ## Ta mission
 
@@ -106,7 +106,7 @@ python -m streamlit run app.py
 | `description` | `str` | Description commerciale. |
 | `prix_euros` | `int` ou `float` | Prix du conditionnement vendu. |
 | `conditionnement` | `str` | Par exemple : `1 blaster`, `lot de 4 mini-requins`, `1 bouteille de 100 ml`. |
-| `consommables` | `list[str]` | Codes des consommables utilisés par un équipement ou fournis par un lot ou une recharge. |
+| `consommables` | `list[str]` | Codes des munitions ou liquides utilisés ou fournis par ce produit, quelle que soit sa catégorie. |
 | `portee_m` | `int` ou `None` | Portée ; `None` si elle ne s’applique pas. |
 | `cadence_tirs_min` | `int` ou `None` | Cadence ; `None` si elle ne s’applique pas. |
 | `poids_g` | `int` | Poids du conditionnement vendu. |
@@ -115,6 +115,10 @@ python -m streamlit run app.py
 | `effets` | `list[str]` | Lumières, sons, senteurs ou mouvements. |
 | `image` | `str` | Chemin du visuel. |
 | `favori` | `bool` | Valeur initiale du favori. |
+
+Un **identifiant produit**, comme `RE-07`, désigne une référence vendue. Un **code de consommable**, comme `brume-neutre`, regroupe les produits associés au même liquide ou à la même munition. Le nom commercial et la description servent à la lecture ; tes fonctions sélectionnent les produits à partir des codes, sans analyser ces textes.
+
+Une munition peut elle-même utiliser une recharge : les Mini-requins fumigènes sont fournis sous le code `requin-mousse` et utilisent les liquides `brume-neutre` ou `brume-girofle-agrumes`. Leur liste contient donc trois codes. Leur catégorie reste `munition`.
 
 ### Complète les fiches manquantes
 
@@ -189,7 +193,7 @@ Regarde `prix_euros` de BB-01 et de RE-06, ainsi que `dimensions_cm` de BB-07.
 
 </details>
 
-**Résultat attendu :** 16 produits dans l’ordre, des types et des unités conformes, des codes de consommables cohérents entre équipements et recharges, des valeurs fidèles aux fiches. Tous les tests du groupe `donnees` passent.
+**Résultat attendu :** 16 produits dans l’ordre, des types et des unités conformes, des codes de consommables fidèles aux fiches pour toutes les catégories, des valeurs fidèles à la source. Tous les tests du groupe `donnees` passent. Un test de type ou de cohérence ne prouve pas que toutes les valeurs commerciales sont justes : conserve la comparaison avec les fiches.
 
 ## 2. Retrouve les consommables compatibles
 
@@ -202,7 +206,33 @@ Complète deux fonctions de `fonctions.py` :
 
 Parcours les produits et leurs listes de codes. Conserve les données reçues inchangées et retourne une collection vide si rien ne correspond.
 
-Le filtre porte sur **toutes les catégories** : avec `requin-mousse`, tu retrouves le lanceur et ses mini-requins. Avec `brume-girofle-agrumes`, tu retrouves la grenade et la bouteille de liquide parfumé.
+### Prédis une sélection, puis vérifie-la
+
+Avant de coder, relève dans les fiches les identifiants que doit retourner chaque code, dans l’ordre du catalogue :
+
+| Code | Situation à observer |
+| --- | --- |
+| `requin-mousse` | Un lanceur et ses munitions. |
+| `flechette-mousse` | Deux lanceurs partagent les mêmes fléchettes. |
+| `brume-girofle-agrumes` | Un accessoire et une munition utilisent le même liquide vendu en recharge. |
+
+Le filtre porte sur **toutes les catégories** et examine seulement la présence du code demandé. Il ne suit pas les liens de proche en proche : le Requin Arêtes utilise les mini-requins, mais ne reçoit pas de liquide. Il ne doit donc pas apparaître dans la sélection `brume-girofle-agrumes`.
+
+<details>
+<summary>Vérifie tes prévisions après avoir cherché</summary>
+
+- `requin-mousse` : `BB-02`, `RE-02`.
+- `flechette-mousse` : `BB-01`, `BB-06`, `RE-01`.
+- `brume-girofle-agrumes` : `BB-04`, `RE-02`, `RE-08`.
+- `brume-neutre` : `BB-04`, `RE-02`, `RE-07`.
+
+</details>
+
+### Compatibilité et commande complète ne sont pas synonymes
+
+Le filtre regroupe les produits associés à un code ; il ne dit pas lesquels acheter ensemble. Deux lanceurs partageant les mêmes fléchettes ne s’utilisent pas l’un dans l’autre. RE-07 et RE-08 sont deux liquides **alternatifs**, pas deux achats obligatoires. Les codes ne précisent pas si un produit fournit une munition ou consomme un liquide ; les descriptions expliquent ces rôles.
+
+Le filtre ne remplit pas un panier et n’ajoute aucune recharge au budget. Dans le socle de l’atelier, tu retrouves les produits ; la préparation d’une commande complète est une extension.
 
 ```sh
 python tests_catalogue.py filtres
@@ -222,13 +252,15 @@ Complète `calculer_budget(produit, quantite)` :
 - accepte zéro pour un budget nul ;
 - lève `ValueError` avec un message explicite si la quantité est négative.
 
-La quantité désigne des **conditionnements** : deux lots de quatre mini-requins représentent huit mini-requins, facturés au prix de deux lots.
+La quantité désigne des **conditionnements** : deux lots de quatre mini-requins représentent huit mini-requins, facturés au prix de deux lots. Trois bouteilles de 100 ml représentent 300 ml de liquide, pas trois utilisations. La capacité des réservoirs et la consommation par utilisation ne sont pas chiffrées : ne déduis pas un nombre d’utilisations.
+
+Ce calcul porte sur **une seule référence**. Le budget d’un lanceur n’inclut ni les munitions ni les liquides vendus séparément.
 
 ```sh
 python tests_catalogue.py budget
 ```
 
-**Points de contrôle :** deux Rafales de Post-it à 39,50 € coûtent 79 €. Deux lots de mini-requins à 59,90 € coûtent 119,80 €. Trois cartouches girofle-agrumes à 6,90 € coûtent 20,70 €, sans décimales parasites. Une quantité nulle donne zéro ; `-1` provoque `ValueError`.
+**Points de contrôle :** deux Rafales de Post-it à 39,50 € coûtent 79 €. Deux lots de mini-requins à 59,90 € coûtent 119,80 €. Trois bouteilles de Brume girofle-agrumes à 6,90 € coûtent 20,70 €, sans décimales parasites. Une quantité nulle donne zéro ; `-1` provoque `ValueError`.
 
 Retourne le montant et laisse l’interface le présenter. Conserve le produit inchangé. L’interface intercepte l’exception pour afficher son message : saisis une quantité négative pour le vérifier.
 
@@ -262,6 +294,8 @@ L’interface conserve les favoris pendant ta session. Une nouvelle session repa
 
 Pour vérifier des données inchangées ou une mutation, compare avec une valeur attendue indépendante, plutôt qu’avec un deuxième nom vers le même dictionnaire.
 
+Pour le filtre, construis aussi un petit exemple où une munition utilise un liquide et où un appareil accepte deux liquides alternatifs. Vérifie qu’un produit sans le code demandé n’est pas ajouté par association indirecte. Les résultats doivent dépendre des codes, pas des noms ni des descriptions.
+
 ```sh
 python tests_catalogue.py perso
 python tests_catalogue.py
@@ -269,9 +303,11 @@ python tests_catalogue.py
 
 **Point de contrôle :** provoque temporairement une erreur dans une fonction, constate qu’un de tes tests la détecte, puis rétablis le comportement attendu.
 
+**Explique la portée de tes tests :** quelle différence y a-t-il entre vérifier un type, retrouver les bonnes références, recopier fidèlement une fiche et disposer de toutes les informations pour préparer une commande ? Cite une règle testée et une information que tes tests ne permettent pas de déduire.
+
 ## Reprends à une autre étape si tu bloques
 
-Choisis un point de reprise avec le formateur. Chaque branche fournit les étapes précédentes terminées.
+Choisis un point de reprise avec le formateur. Chaque branche fournit les étapes précédentes terminées. Toutes les branches utilisent les mêmes fiches de référence et les mêmes consignes ; seules les erreurs à corriger, les fonctions à compléter et les tests personnels fournis diffèrent.
 
 | Branche | Contenu fourni | Étape à pratiquer |
 | --- | --- | --- |
@@ -339,7 +375,8 @@ Prépare une démonstration courte : un comportement réussi, un test pertinent 
 
 - Tes données respectent la source, les types, les unités et le conditionnement vendu.
 - Tes fonctions utilisent leurs paramètres, sans dépendre d’un catalogue global ni coder les réponses en dur.
-- Ton set élimine les doublons et ton filtre conserve l’ordre des produits.
+- Ton set élimine les doublons et ton filtre conserve l’ordre des produits, dans toutes les catégories et sans ajouter de correspondance indirecte.
+- Tu distingues une référence produit, un code de consommable, une alternative de recharge et une commande complète.
 - Ton budget est correct ; une quantité négative provoque l’exception attendue.
 - Ta fonction de favoris modifie l’objet reçu ; tes autres fonctions conservent leurs entrées inchangées.
 - Tes tests contrôlent des valeurs, des limites et l’exception.
@@ -352,9 +389,10 @@ Après vérification du socle, choisis une extension :
 
 1. **Bureaux minuscules :** filtre par poids et longueur maximaux. Vérifie le cas exactement à la limite.
 2. **Comptabilité exigeante :** trie une sélection par prix sans modifier le catalogue initial.
-3. **Commande collective :** calcule un panier de plusieurs références et quantités en réutilisant le calcul existant.
+3. **Commande collective :** calcule un panier de plusieurs références et quantités en réutilisant le calcul existant. Puis propose les munitions ou liquides adaptés à un produit et laisse la personne choisir lesquels ajouter : ne commande pas automatiquement les deux liquides alternatifs. Teste un panier vide et un panier associant un équipement, un lot de munitions et un liquide. Ne calcule pas les quantités de liquide nécessaires sans capacité de réservoir ni consommation documentées.
 4. **Favoris durables :** découvre le format JSON, puis ajoute chargement et sauvegarde. Réutilise les fonctions de sélection et traite un fichier absent ou un JSON invalide.
-5. **Service qualité :** ajoute des tests qui détectent plusieurs erreurs plausibles et démontre leur utilité.
+5. **Service qualité :** ajoute des tests qui détectent plusieurs erreurs plausibles et démontre leur utilité. Distingue validation des types, cohérence des codes et fidélité aux fiches. Garde un exemple de valeur incorrecte qui passe un test de type, puis ajoute une vérification adaptée.
+6. **Références lisibles :** affiche les noms et identifiants des produits associés à un code en les retrouvant dans le catalogue, sans recopier ces noms dans une table de correspondance. Distingue cet affichage d’une recommandation d’achat. Pour automatiser ensuite une commande, propose des champs séparant ce qu’un produit fournit de ce qu’il utilise et représentant les alternatives, puis justifie ce modèle avant de coder.
 
 ## Consulte les ressources utiles
 

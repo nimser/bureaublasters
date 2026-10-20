@@ -2,7 +2,9 @@ BUREAUBLASTERS : FICHES PRODUITS
 
 Le prix et le poids portent sur le conditionnement vendu : 2 lots de 4 mini-requins représentent 8 mini-requins, facturés au prix de 2 lots.
 Les dimensions sont exprimées en centimètres. Tous les produits sont expédiés dans des colis de 150 × 60 × 60 cm maximum (longueur × largeur × hauteur).
-Un code de consommable relie un équipement à ses munitions ou recharges : les deux portent exactement le même code.
+Les codes de consommables regroupent les produits associés à une même munition ou à un même liquide, quelle que soit leur catégorie. Un produit peut fournir une munition et utiliser un liquide : les Mini-requins fumigènes portent les trois codes correspondants. Les codes ne décrivent ni le sens des dépendances ni une commande complète ; les descriptions précisent les usages et les alternatives.
+Les munitions et les liquides se commandent séparément des équipements. Les réservoirs sont livrés vides. Seuls les éléments du conditionnement sont inclus ; la présence d’un objet sur une photo de démonstration ne prouve pas son inclusion.
+RE-07 et RE-08 sont deux liquides alternatifs pour BB-04 et RE-02, pas deux achats obligatoires. Les 100 ml désignent chaque bouteille, pas les réservoirs ; leur capacité et la consommation par utilisation ne sont pas chiffrées.
 
 Identifiant : BB-01
 Nom : Rafale de Post-it
@@ -23,7 +25,7 @@ Favori : non
 Identifiant : BB-02
 Nom : Requin Arêtes
 Catégorie : lanceur
-Description : Lance-requins à porter à deux mains. Gueule dentée, yeux lumineux, graffitis roses et bleus. Propulse par air comprimé des mini-requins en mousse qui zigzaguent et diffusent par plusieurs trous une brume d’eau produite par ultrasons, éclairée en rose et bleu par des LED voisines. Un éclat de rire enregistré accompagne chaque tir. Le modèle phare de la gamme. Munitions compatibles : Mini-requins fumigènes (RE-02).
+Description : Lance-requins à porter à deux mains. Gueule dentée, yeux lumineux, graffitis roses et bleus. Propulse par air comprimé des mini-requins en mousse qui zigzaguent et diffusent par plusieurs trous une brume d’eau produite par ultrasons, éclairée en rose et bleu par des LED voisines. Un éclat de rire enregistré accompagne chaque tir. Le modèle phare de la gamme. Munitions compatibles : Mini-requins fumigènes (RE-02). Le liquide se verse dans les mini-requins, jamais dans le lanceur ; leur brume est sans parfum avec Brume neutre (RE-07) ou parfumée avec Brume girofle-agrumes (RE-08).
 Prix du conditionnement (€) : 489,00
 Conditionnement : 1 lanceur, 1 sangle d’épaule, 1 pompe
 Codes de consommables : requin-mousse
@@ -32,7 +34,7 @@ Cadence (tirs/minute) : 4
 Poids du conditionnement (g) : 4800
 Dimensions (cm) : 118 × 30 × 42 (longueur × largeur × hauteur)
 Indice de protection : non applicable
-Effets : trajectoire en zigzag des mini-requins ; traînée de brume d’eau ultrasonique éclairée en rose et bleu ; yeux et gueule à LED roses et bleues ; éclat de rire enregistré au départ du tir ; senteur barbe à papa
+Effets : trajectoire en zigzag des mini-requins ; traînée de brume d’eau ultrasonique éclairée en rose et bleu ; yeux et gueule à LED roses et bleues ; éclat de rire enregistré au départ du tir ; senteur selon le liquide de recharge
 Image : images/requin-aretes.jpg
 Favori : non
 
@@ -151,16 +153,16 @@ Favori : non
 Identifiant : RE-02
 Nom : Mini-requins fumigènes
 Catégorie : munition
-Description : Mini-requins en mousse pour le Requin Arêtes, avec réservoir de liquide rechargeable et module ultrasonique intégré. La brume d’eau sort par plusieurs trous à l’arrière, avec des LED roses et bleues à proximité de chaque sortie.
+Description : Mini-requins en mousse pour le Requin Arêtes, avec réservoir de liquide rechargeable et module ultrasonique intégré. La brume d’eau sort par plusieurs trous à l’arrière, avec des LED roses et bleues à proximité de chaque sortie. Appareils éteints, ouvrir leur bouchon et verser Brume neutre (RE-07, sans parfum) ou Brume girofle-agrumes (RE-08, parfumé), liquides vendus séparément en bouteilles de 100 ml. La senteur dépend du liquide choisi.
 Prix du conditionnement (€) : 59,90
 Conditionnement : lot de 4 mini-requins
-Codes de consommables : requin-mousse
+Codes de consommables : requin-mousse ; brume-neutre ; brume-girofle-agrumes
 Portée (m) : non applicable
 Cadence (tirs/minute) : non applicable
 Poids du conditionnement (g) : 360
 Dimensions (cm) : 30 × 20 × 10 (longueur × largeur × hauteur)
 Indice de protection : non applicable
-Effets : trajectoire en zigzag ; brume d’eau ultrasonique éclairée en rose et bleu par les LED voisines des trous ; sifflement aigu ; senteur barbe à papa
+Effets : trajectoire en zigzag ; brume d’eau ultrasonique éclairée en rose et bleu par les LED voisines des trous ; sifflement aigu ; senteur selon le liquide de recharge
 Image : images/mini-requins.jpg
 Favori : non
 
@@ -231,7 +233,7 @@ Favori : non
 Identifiant : RE-07
 Nom : Brume neutre
 Catégorie : recharge
-Description : Petite bouteille de 100 ml de liquide aqueux sans parfum, à verser dans le réservoir vide du Fumigène à ultrason éteint, par son clapet ouvert. Une bouteille permet plusieurs remplissages.
+Description : Petite bouteille de 100 ml de liquide aqueux sans parfum, à verser dans les réservoirs vides du Fumigène à ultrason (BB-04) ou des Mini-requins fumigènes (RE-02), appareils éteints. Ouvrir le clapet du fumigène ou le bouchon du mini-requin. Une bouteille permet plusieurs remplissages.
 Prix du conditionnement (€) : 5,50
 Conditionnement : 1 bouteille de 100 ml
 Codes de consommables : brume-neutre
@@ -247,7 +249,7 @@ Favori : non
 Identifiant : RE-08
 Nom : Brume girofle-agrumes
 Catégorie : recharge
-Description : Petite bouteille de 100 ml de liquide aqueux parfumé au clou de girofle et au zeste d’orange, à verser dans le réservoir vide du Fumigène à ultrason éteint, par son clapet ouvert. Une bouteille permet plusieurs remplissages.
+Description : Petite bouteille de 100 ml de liquide aqueux parfumé au clou de girofle et au zeste d’orange, à verser dans les réservoirs vides du Fumigène à ultrason (BB-04) ou des Mini-requins fumigènes (RE-02), appareils éteints. Ouvrir le clapet du fumigène ou le bouchon du mini-requin. Une bouteille permet plusieurs remplissages.
 Prix du conditionnement (€) : 6,90
 Conditionnement : 1 bouteille de 100 ml
 Codes de consommables : brume-girofle-agrumes

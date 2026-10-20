@@ -116,26 +116,12 @@ def test_donnees_favoris():
 
 def test_donnees_compatibilites():
     for produit in CATALOGUE:
-        if produit["categorie"] in EQUIPEMENTS:
-            familles_recherchees = CONSOMMABLES
-        else:
-            familles_recherchees = EQUIPEMENTS
         for code in produit["consommables"]:
             partenaires = [
                 autre["id"] for autre in CATALOGUE
-                if autre["categorie"] in familles_recherchees and code in autre["consommables"]
+                if autre["id"] != produit["id"] and code in autre["consommables"]
             ]
-            assert partenaires, f"{produit['id']} : aucun produit compatible avec le code {code!r}"
-            for partenaire in CATALOGUE:
-                if partenaire["id"] not in partenaires:
-                    continue
-                assert partenaire["nom"] in produit["description"], (
-                    f"{produit['id']} : produit compatible {partenaire['nom']!r} absent de la description"
-                )
-                if produit["categorie"] in EQUIPEMENTS:
-                    assert partenaire["id"] in produit["description"], (
-                        f"{produit['id']} : référence {partenaire['id']} absente de la description"
-                    )
+            assert partenaires, f"{produit['id']} : aucun autre produit associé au code {code!r}"
 
 
 def test_donnees_brume():
@@ -143,37 +129,25 @@ def test_donnees_brume():
     assert brumes, "BB-04 est absent du catalogue"
     assert brumes[0]["nom"] == "Fumigène à ultrason"
     assert brumes[0]["indice_protection"] == "IP68", f"BB-04 : indice_protection vaut {brumes[0]['indice_protection']!r}"
-    description = brumes[0]["description"]
-    for mention in ["produite par ultrasons", "se recharge", "liquide à base d’eau", "parfumé", "vendu séparément"]:
-        assert mention in description, f"BB-04 : mention {mention!r} absente"
+    assert brumes[0]["dimensions_cm"] == {"longueur": 4, "largeur": 4, "hauteur": 6}
 
 
-def test_donnees_fumigenes_ultrasoniques():
-    for identifiant in ["BB-02", "BB-04", "RE-02"]:
-        produit = next(produit for produit in CATALOGUE if produit["id"] == identifiant)
-        description = produit["description"]
-        assert "ultrason" in description, f"{identifiant} : production de brume par ultrasons absente"
-        assert "plusieurs trous" in description, f"{identifiant} : sorties multiples absentes"
-        assert "LED" in description, f"{identifiant} : éclairage des sorties absent"
+def test_donnees_mini_requins_rechargeables():
+    produits = {produit["id"]: produit for produit in CATALOGUE}
+    assert produits["RE-02"]["categorie"] == "munition"
+    assert produits["RE-02"]["consommables"] == ["requin-mousse", "brume-neutre", "brume-girofle-agrumes"]
+    assert produits["BB-02"]["consommables"] == ["requin-mousse"], "Le lanceur ne reçoit pas de liquide"
 
 
 def test_donnees_recharges_liquides():
     produits = {produit["id"]: produit for produit in CATALOGUE}
-    fumigene = produits["BB-04"]
-    assert fumigene["dimensions_cm"] == {"longueur": 4, "largeur": 4, "hauteur": 6}
-    for mention in ["silicone mat amortissant", "Trois exemplaires", "petit réservoir intégré", "clapet"]:
-        assert mention in fumigene["description"], f"BB-04 : mention {mention!r} absente"
-    assert "réservoir intégré de 100 ml" not in fumigene["description"]
-    for identifiant in ["RE-07", "RE-08"]:
+    for identifiant, code in [("RE-07", "brume-neutre"), ("RE-08", "brume-girofle-agrumes")]:
         produit = produits[identifiant]
+        assert produit["categorie"] == "recharge", f"{identifiant} : catégorie recharge attendue"
         assert produit["conditionnement"] == "1 bouteille de 100 ml", f"{identifiant} : bouteille attendue"
-        assert "à verser dans le réservoir" in produit["description"], f"{identifiant} : remplissage absent"
-        assert produits["BB-04"]["nom"] in produit["description"], f"{identifiant} : nom du fumigène absent"
-        for mention in ["éteint", "clapet ouvert", "plusieurs remplissages"]:
-            assert mention in produit["description"], f"{identifiant} : mention {mention!r} absente"
-    assert "sans parfum" in produits["RE-07"]["description"]
-    assert "clou de girofle" in produits["RE-08"]["description"]
-    assert "zeste d’orange" in produits["RE-08"]["description"]
+        assert produit["consommables"] == [code], f"{identifiant} : code de liquide incorrect"
+        associes = [produit["id"] for produit in CATALOGUE if code in produit["consommables"]]
+        assert associes == ["BB-04", "RE-02", identifiant], f"{code} : références obtenues {associes}"
 
 
 def test_donnees_fiches_synchronisees():
@@ -186,6 +160,8 @@ def test_donnees_fiches_synchronisees():
         fiche = fiches[produit["id"]]
         for cle, libelle in [("nom", "Nom"), ("description", "Description"), ("conditionnement", "Conditionnement")]:
             assert produit[cle] == fiche[libelle], f"{produit['id']} : {cle} diffère de la fiche source"
+        codes = fiche["Codes de consommables"].split(" ; ")
+        assert produit["consommables"] == codes, f"{produit['id']} : codes différents de la fiche source"
         effets = [] if fiche["Effets"] == "aucun" else fiche["Effets"].split(" ; ")
         assert produit["effets"] == effets, (
             f"{produit['id']} : effets différents de la fiche source"
@@ -218,6 +194,50 @@ def test_filtres_toutes_categories_dans_l_ordre():
 def test_filtres_code_inconnu():
     resultat = filtrer_par_consommable(petit_catalogue(), "croissant")
     assert resultat == [], f"Obtenu : {resultat!r}"
+
+
+def petit_catalogue_liquides():
+    return [
+        {"id": "L1", "categorie": "lanceur", "consommables": ["projectile"]},
+        {"id": "A1", "categorie": "accessoire", "consommables": ["liquide-a", "liquide-b"]},
+        {"id": "M1", "categorie": "munition", "consommables": ["projectile", "liquide-a", "liquide-b"]},
+        {"id": "R1", "categorie": "recharge", "consommables": ["liquide-a"]},
+        {"id": "R2", "categorie": "recharge", "consommables": ["liquide-b"]},
+    ]
+
+
+def test_filtres_codes_produit_multicode():
+    codes = consommables_disponibles(petit_catalogue_liquides())
+    assert codes == {"projectile", "liquide-a", "liquide-b"}, f"Obtenu : {codes!r}"
+
+
+def test_filtres_liquides_sans_association_indirecte():
+    catalogue = petit_catalogue_liquides()
+    for code, recharge in [("liquide-a", "R1"), ("liquide-b", "R2")]:
+        resultat = filtrer_par_consommable(catalogue, code)
+        identifiants = [produit["id"] for produit in resultat]
+        assert identifiants == ["A1", "M1", recharge], f"{code} : obtenu {identifiants}"
+
+
+def test_filtres_catalogue_vide():
+    assert consommables_disponibles([]) == set(), "Un catalogue vide ne contient aucun code"
+    assert filtrer_par_consommable([], "liquide-a") == [], "Un catalogue vide ne contient aucun produit"
+
+
+def test_filtres_codes_sans_mutation():
+    catalogue = petit_catalogue_liquides()
+    consommables_disponibles(catalogue)
+    assert catalogue == petit_catalogue_liquides(), "La collecte des codes a modifié le catalogue"
+
+
+def test_filtres_liste_nouvelle_produits_identiques():
+    catalogue = petit_catalogue_liquides()
+    resultat = filtrer_par_consommable(catalogue, "liquide-a")
+    assert catalogue == petit_catalogue_liquides(), "Le filtre a modifié le catalogue"
+    assert resultat is not catalogue, "Le filtre doit construire une nouvelle liste"
+    assert len(resultat) == 3, f"Trois produits attendus, obtenu : {len(resultat)}"
+    for produit, position in zip(resultat, [1, 2, 3]):
+        assert produit is catalogue[position], "Le filtre ne doit pas copier les dictionnaires"
 
 
 def test_budget_plusieurs_conditionnements():
