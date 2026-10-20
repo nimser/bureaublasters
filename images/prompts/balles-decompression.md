@@ -1,3 +1,13 @@
-Dix balles en mousse vertes de la taille d’une balle de golf, regroupées dans un filet. Vue de trois quarts.
+# RE-06 — Balles de décompression
 
-Style commun : photographie de catalogue produit, image carrée 1024 × 1024, fond uni blanc cassé, éclairage de studio doux, légère ombre portée, netteté sur tout le produit. Matériaux crédibles de jouet haut de gamme : plastique ABS mat, mousse EVA. Aucun texte, aucun logo, aucune marque, aucun filigrane.
+## Référence à joindre
+
+Joindre la photo validée de l’Orbe de Décompression pour reprendre exactement le modèle de balle verte visible dans son ouverture. Le lanceur vide et éteint peut apparaître au fond sur un bureau, secondaire et non inclus dans le lot ; aucune balle supplémentaire n’est visible dans son ouverture.
+
+## Sujet et composition
+
+Dans un bureau créatif avec écran et plantes, une collègue adulte tient au premier plan un plateau bas graphite contenant exactement dix balles en mousse verte, réparties dans dix petits logements en deux rangées décalées de cinq. Une main soutient le plateau légèrement incliné vers l’objectif ; de l’autre, elle comprime doucement le dessus d’une balle sans la retirer de son logement ni cacher les autres, pour démontrer sa souplesse. Son visage visible au-dessus du lot affiche un sourire espiègle et un regard complice ; le geste et la texture poreuse ont la priorité. Toutes les balles sont visibles et dénombrables ; le plateau est un support de démonstration, pas un accessoire supplémentaire vendu. Texture poreuse mate, légères irrégularités de mousse, fines lignes de moulage, bords doux. Petites boucles cyan et traits magenta non lumineux sur les balles, avec les mêmes proportions et le même graphisme que la balle de l’Orbe de Décompression. Disposition en diagonale, deux balles tournées pour montrer les détails et donner une sensation de jeu prêt à commencer. Pas de balle de golf dure ou alvéolée, de sphère métallique, de filet masquant le lot, d’objet flottant, de halo ou de LED dans les balles. La lumière verte appartient au lanceur, pas à ces munitions. Aucune fumée.
+
+## Prise de vue commune BureauBlasters
+
+Photographie réaliste de démonstration, carré 1024 × 1024. Une personne adulte tient, porte ou manipule le produit entier au premier plan, fonctions nettes et doigts hors des détails importants ; son visage visible exprime une complicité espiègle, un petit air diabolique mais bienveillant. Bureau d’entreprise créative reconnaissable derrière : postes de travail, plantes, cloisons vitrées et touches colorées. Perspective naturelle 40 à 50 mm, proportions crédibles entre produit et mains, visage lisible, décor adouci. Lumière de fenêtre cinématographique, accents cyan et magenta, matières tangibles. Pas de packshot de studio, humain dessiné, texte lisible, logo, filigrane ajouté ou accessoire copié d’Arcane.
