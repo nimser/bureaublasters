@@ -5,9 +5,9 @@
 CATALOGUE = [
     {
         "id": "BB-01",
-        "nom": "Rafale de Post-it",
+        "nom": "Sulfateuse à Relances",
         "categorie": "lanceur",
-        "description": "Blaster compact à fléchettes en mousse, chargeur de 12 fléchettes. Une main suffit. Munitions compatibles : Fléchettes de rappel (RE-01).",
+        "description": "Sulfateuse compacte à fléchettes en mousse : barillet rotatif à six canons, chargeur de 12 fléchettes. Une main suffit. Munitions compatibles : Fléchettes de rappel (RE-01).",
         "prix_euros": "39,50",
         "conditionnement": "1 blaster",
         "consommables_utilises": [
@@ -25,9 +25,9 @@ CATALOGUE = [
         "indice_protection": None,
         "effets": [
             "LED orange au départ du tir",
-            "bruit de tampon administratif"
+            "crépitement de notifications de relance"
         ],
-        "image": "images/rafale-post-it.jpg",
+        "image": "images/sulfateuse-relances.jpg",
         "favori": False
     },
     # À compléter : insérer la fiche BB-02 — Requin Arêtes.
@@ -171,7 +171,7 @@ CATALOGUE = [
         "id": "RE-01",
         "nom": "Fléchettes de rappel",
         "categorie": "munition",
-        "description": "Fléchettes en mousse à embout souple, compatibles avec la Rafale de Post-it et l’Arbalète Anti-Réunionite.",
+        "description": "Fléchettes en mousse à embout souple, compatibles avec la Sulfateuse à Relances et l’Arbalète Anti-Réunionite.",
         "prix_euros": 9.5,
         "conditionnement": "lot de 20 fléchettes",
         "consommables_utilises": [],
