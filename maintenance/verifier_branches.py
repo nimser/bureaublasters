@@ -8,10 +8,10 @@ import sys
 
 BRANCHES = [
     "main",
-    "reprise/02-filtres",
-    "reprise/03-budget",
-    "reprise/04-favoris",
-    "reprise/05-tests",
+    "etape/02-filtres",
+    "etape/03-budget",
+    "etape/04-favoris",
+    "etape/05-tests",
     "correction",
 ]
 FONCTIONS = [
@@ -21,6 +21,7 @@ FONCTIONS = [
     "definir_favori",
 ]
 A_COMPLETER = [4, 4, 2, 1, 0, 0]
+VARIANTES = {"catalogue.py", "fonctions.py", "tests_perso.py"}
 COMMUNS = {
     "README.md",
     "catalogue_source.txt",
@@ -40,11 +41,7 @@ def git(*arguments):
 
 def fichiers_communs(reference):
     chemins = git("ls-tree", "-r", "--name-only", reference).decode().splitlines()
-    return COMMUNS | {
-        chemin for chemin in chemins
-        if chemin.startswith(("images/prompts/", "maintenance/"))
-        or (chemin.startswith("images/") and chemin.count("/") == 1 and chemin.endswith(".jpg"))
-    }
+    return COMMUNS | (set(chemins) - VARIANTES)
 
 
 def lire(reference, chemin):
