@@ -1,4 +1,4 @@
-"""Tes tests du catalogue BureauBlasters.
+"""Bonus : tes tests du catalogue BureauBlasters.
 
 Chaque fonction dont le nom commence par test_ est un test.
 Lancement : python tests_catalogue.py perso
