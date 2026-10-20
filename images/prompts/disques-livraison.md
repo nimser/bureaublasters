@@ -1,3 +1,13 @@
-Une pile de 12 disques en mousse violets, épais et souples, légèrement décalés pour montrer leur tranche. Vue de trois quarts.
+# RE-03 — Disques de livraison
 
-Style commun : photographie de catalogue produit, image carrée 1024 × 1024, fond uni blanc cassé, éclairage de studio doux, légère ombre portée, netteté sur tout le produit. Matériaux crédibles de jouet haut de gamme : plastique ABS mat, mousse EVA. Aucun texte, aucun logo, aucune marque, aucun filigrane.
+## Référence à joindre
+
+Joindre la photo validée des Gantelets du Sprint pour reprendre exactement la forme, l’épaisseur et le violet des disques visibles dans leurs fentes. Les gantelets vides peuvent être posés sur un bureau au fond, secondaires et non inclus dans le lot, sans disque supplémentaire visible.
+
+## Sujet et composition
+
+Dans un espace de travail avec panneaux acoustiques colorés, une collègue adulte avance vers l’objectif un lot de douze disques épais et souples en mousse violette, répartis dans un plateau bas à douze logements distincts : deux rangées de six, soit 6 + 6 = 12. Elle tient le plateau par-dessous à hauteur de poitrine, légèrement incliné pour présenter les faces et les tranches sans faire glisser les disques. Son visage visible au-dessus affiche un sourire narquois et joyeux, les yeux pétillants d’une farce imminente. Les doigts restent sous les rebords ; le lot entier domine le premier plan. Le plateau est un support de démonstration, pas un accessoire vendu. Chaque logement contient exactement un disque entier, tous sont dénombrables et aucun ne se chevauche. Dans chaque rangée, cinq disques reposent à plat et le sixième est légèrement incliné sur un petit appui discret pour montrer sa tranche arrondie et sa texture poreuse ; ces deux disques inclinés font partie des douze, ils ne s’ajoutent pas au lot. Orienter le plateau vers l’objectif pour voir les douze logements sans perdre le visage derrière. Petites flèches bancales cyan et confettis magenta imprimés sans lettres sur quelques faces ; conserver la même famille graphique que les gantelets. Bords doux, aspect de munition-jouet légère, dimensions relatives compatibles avec les fentes des lanceurs. Disposition rythmée et ludique plutôt qu’une pile anonyme. Pas de disque métallique, de lame, d’objet flottant, de LED ou de halo sur les munitions : les éventuels gantelets de démonstration au fond sont éteints. Aucune fumée.
+
+## Prise de vue commune BureauBlasters
+
+Photographie réaliste de démonstration, carré 1024 × 1024. Une personne adulte tient, porte ou manipule le produit entier au premier plan, fonctions nettes et doigts hors des détails importants ; son visage visible exprime une complicité espiègle, un petit air diabolique mais bienveillant. Bureau d’entreprise créative reconnaissable derrière : postes de travail, plantes, cloisons vitrées et touches colorées. Perspective naturelle 40 à 50 mm, proportions crédibles entre produit et mains, visage lisible, décor adouci. Lumière de fenêtre cinématographique, accents cyan et magenta, matières tangibles. Pas de packshot de studio, humain dessiné, texte lisible, logo, filigrane ajouté ou accessoire copié d’Arcane.
