@@ -1,3 +1,13 @@
-Huit croissants en mousse dorée très réalistes, rangés dans une corbeille de boulangerie en osier. Vue en plongée de trois quarts.
+# RE-05 — Croissants de réserve
 
-Style commun : photographie de catalogue produit, image carrée 1024 × 1024, fond uni blanc cassé, éclairage de studio doux, légère ombre portée, netteté sur tout le produit. Matériaux crédibles de jouet haut de gamme : plastique ABS mat, mousse EVA. Aucun texte, aucun logo, aucune marque, aucun filigrane.
+## Référence à joindre
+
+Joindre la photo validée de la Catapulte à Croissants pour reprendre exactement le croissant en mousse de sa cuillère. La catapulte vide peut apparaître sur un bureau au fond, secondaire et non incluse dans le lot ; sa cuillère ne contient aucun croissant supplémentaire.
+
+## Sujet et composition
+
+Dans un bureau créatif lumineux, une collègue adulte offre vers l’objectif exactement huit croissants-jouets dorés en mousse, en deux rangées décalées de quatre sur un plateau bas bleu pétrole à bords facettés et petits logements de maintien. Elle tient le plateau des deux mains par-dessous, à hauteur de poitrine et légèrement incliné, dans un geste de service exagérément fier. Son visage visible au-dessus du lot affiche un sourire diaboliquement amusé et un sourcil levé : elle sait parfaitement que ces croissants ne se mangent pas. Le lot entier est net au premier plan, doigts hors des projectiles ; les postes de travail et les plantes au fond donnent le contexte de pause. Tous sont entiers, dénombrables, légèrement tournés pour donner du rythme. Relief de feuilletage moulé, texture finement poreuse, joint de moulage et bords souples bien visibles : ce sont des projectiles non comestibles, pas des viennoiseries véritables. Deux petites touches graphiques cyan et magenta sur le flanc de chaque croissant rattachent le lot à la gamme sans le rendre lumineux. Éclairage chaud neutre sur le doré, avec les accents cyan et magenta discrets du bureau ; garder la mousse tangible et le visage lisible. Humour de boulangerie transformée en arsenal de pause café ; aucune scénographie rustique. Pas de bois, osier, rotin, corbeille, farine, café, aliments réels, vapeur de cuisson, fumée, LED ou parfum rendu visible. Le plateau sert uniquement à la présentation.
+
+## Prise de vue commune BureauBlasters
+
+Photographie réaliste de démonstration, carré 1024 × 1024. Une personne adulte tient, porte ou manipule le produit entier au premier plan, fonctions nettes et doigts hors des détails importants ; son visage visible exprime une complicité espiègle, un petit air diabolique mais bienveillant. Bureau d’entreprise créative reconnaissable derrière : postes de travail, plantes, cloisons vitrées et touches colorées. Perspective naturelle 40 à 50 mm, proportions crédibles entre produit et mains, visage lisible, décor adouci. Lumière de fenêtre cinématographique, accents cyan et magenta, matières tangibles. Pas de packshot de studio, humain dessiné, texte lisible, logo, filigrane ajouté ou accessoire copié d’Arcane.
