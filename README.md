@@ -71,7 +71,7 @@ Le catalogue comprend **8 équipements et 8 références de munitions ou recharg
 
 Sur la page du dépôt [SIMPLON-DIST-DEVIA-P1-199833/bureaublasters](https://github.com/SIMPLON-DIST-DEVIA-P1-199833/bureaublasters), clique sur **Fork**. Choisis ton compte comme **Owner**, **décoche « Copy the main branch only »**, puis clique sur **Create fork**. Ta copie contient ainsi les branches de reprise.
 
-Tu travailles et publies dans ce fork, sur ton compte GitHub.
+Tu développes et publies tes commits dans ce fork, sur ton compte GitHub. **Le rendu final doit impérativement se faire par une pull request vers le dépôt `SIMPLON-DIST-DEVIA-P1-199833/bureaublasters`, dans la branche existante `rendu/<mon-prenom>`.** Publier dans ton fork ne suffit pas à rendre le travail. Remplace `<mon-prenom>` par ton prénom tel qu’il apparaît dans le nom de la branche de rendu. **Sollicite l’aide du formateur si tu as besoin d’aide pour effectuer cette pull request.**
 
 ### Dans Codespaces
 
@@ -387,10 +387,12 @@ Enregistrer un fichier dans Codespaces ne le publie pas.
 
 ## Remets ton travail
 
-Le formateur crée pour toi une branche de rendu `rendu/<ton-pseudo-github>` dans le dépôt d’origine. Tu y proposes ton travail par une **pull request** depuis ton fork :
+**Le rendu final se fait obligatoirement par une pull request** depuis ton fork vers le dépôt [SIMPLON-DIST-DEVIA-P1-199833/bureaublasters](https://github.com/SIMPLON-DIST-DEVIA-P1-199833/bureaublasters), dans ta branche **déjà existante** `rendu/<mon-prenom>`. Utilise le nom exact de cette branche, pas `main`, et ne crée pas une nouvelle branche de rendu.
+
+**Sollicite l’aide du formateur** si tu ne retrouves pas ta branche ou si tu as besoin d’aide pour ouvrir la pull request :
 
 1. Sur ton fork, ouvre **Pull requests → New pull request**.
-2. Choisis comme **base repository** `SIMPLON-DIST-DEVIA-P1-199833/bureaublasters` et comme **base** ta branche `rendu/<ton-pseudo-github>`.
+2. Choisis comme **base repository** `SIMPLON-DIST-DEVIA-P1-199833/bureaublasters` et comme **base** ta branche existante `rendu/<mon-prenom>`.
 3. Choisis comme **head repository** ton fork et comme **compare** la branche sur laquelle tu as terminé.
 4. Clique sur **Create pull request**, puis complète la description proposée : branche de départ, parties réalisées personnellement, vérifications effectuées, bonus réalisés et blocage résolu ou restant. Glisse dans la description une capture de l’interface montrant une sélection compatible et un budget.
 5. Transmets le lien de la pull request au formateur par Discord en MP.
