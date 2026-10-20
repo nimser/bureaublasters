@@ -12,7 +12,9 @@ L’objectif officiel : proposer des pauses de jeu entre volontaires pour déten
 
 Un super deal. Avec un petit astérisque.
 
-BureauBlasters a consacré tout son budget au design des produits. Les fiches sont prêtes, mais le catalogue Python est incomplet et contient des erreurs. L’interface sait afficher des cartes et des boutons ; les fonctions derrière restent à écrire. Quant au bouton « Calculer le budget », il répond pour le moment « Faites confiance à votre intuition ».
+Un de tes collègues a déjà migré une bonne partie du catalogue BureauBlasters en Python : **13 références sur 16** sont dans `catalogue.py`. Il n’a pas terminé et quelques erreurs se sont glissées dans la saisie. Il t’a laissé un **extrait du catalogue papier** avec uniquement les trois fiches qui restent à intégrer, dans `catalogue_source.txt`.
+
+L’interface sait afficher des cartes et des boutons ; les fonctions derrière restent à écrire. Quant au bouton « Calculer le budget », il répond pour le moment « Faites confiance à votre intuition ».
 
 La direction de Ludiverse apprécie l’audace. La comptabilité, un peu moins.
 
@@ -50,7 +52,7 @@ Tu travailles sur les données et les quatre fonctions du catalogue. L’interfa
 ## Tes fichiers de travail
 
 ```text
-catalogue_source.txt         Les 16 fiches produits de référence
+catalogue_source.txt         L’extrait des 3 fiches non migrées
 catalogue.py                 Les données Python à corriger et compléter
 fonctions.py                 Les quatre fonctions à compléter
 tests_catalogue.py           Les vérifications fournies et leur lancement
@@ -61,7 +63,7 @@ images/                      Les visuels des produits
 requirements.txt             Les dépendances du projet
 ```
 
-Le catalogue comprend **8 équipements et 8 références de munitions ou recharges**. Tu modifies `catalogue.py` et `fonctions.py`, puis `tests_perso.py` si tu choisis le bonus tests. Lis les autres fichiers autant que tu veux : ils montrent comment tes fonctions sont utilisées.
+Le catalogue comprend **8 équipements et 8 références de munitions ou recharges**. Tu modifies `catalogue.py` et `fonctions.py`, puis `tests_perso.py` si tu choisis le bonus tests. Les commentaires `Étape` repèrent les parties du code ; `À compléter` indique les fiches à insérer et les corps de fonctions à écrire selon ta branche. Le commentaire `Bonus` indique où ajouter tes tests. Lis les autres fichiers autant que tu veux : ils montrent comment tes fonctions sont utilisées.
 
 ## Ouvre ton environnement
 
@@ -96,7 +98,9 @@ python -m streamlit run app.py
 
 ## 1. Remets le catalogue d’aplomb
 
-`catalogue_source.txt` fait référence. Chaque produit de la liste `CATALOGUE`, dans `catalogue.py`, suit la même structure :
+Pars du travail de ton collègue dans `catalogue.py` : ne ressaisis pas les produits déjà présents. Utilise `catalogue_source.txt` uniquement pour ajouter les trois fiches non migrées et vérifier leurs liens avec les autres produits. Les règles ci-dessous et les signalements de la Happiness Team servent à relire les données existantes.
+
+Chaque produit de la liste `CATALOGUE` suit la même structure :
 
 | Clé | Type attendu | Signification |
 | --- | --- | --- |
@@ -106,7 +110,8 @@ python -m streamlit run app.py
 | `description` | `str` | Description commerciale. |
 | `prix_euros` | `int` ou `float` | Prix du conditionnement vendu. |
 | `conditionnement` | `str` | Par exemple : `1 blaster`, `lot de 4 mini-requins`, `1 bouteille de 100 ml`. |
-| `consommables` | `list[str]` | Codes des munitions ou liquides utilisés ou fournis par ce produit, quelle que soit sa catégorie. |
+| `consommables_utilises` | `list[str]` | Codes des munitions ou liquides que ce produit utilise ; `[]` s’il n’en utilise aucun. |
+| `consommables_fournis` | `list[str]` | Codes des munitions ou liquides que cette référence fournit à d’autres produits ; `[]` si elle n’en fournit aucun. |
 | `portee_m` | `int` ou `None` | Portée ; `None` si elle ne s’applique pas. |
 | `cadence_tirs_min` | `int` ou `None` | Cadence ; `None` si elle ne s’applique pas. |
 | `poids_g` | `int` | Poids du conditionnement vendu. |
@@ -118,13 +123,21 @@ python -m streamlit run app.py
 
 Un **identifiant produit**, comme `RE-07`, désigne une référence vendue. Un **code de consommable**, comme `brume-neutre`, regroupe les produits associés au même liquide ou à la même munition. Le nom commercial et la description servent à la lecture ; tes fonctions sélectionnent les produits à partir des codes, sans analyser ces textes.
 
-Une munition peut elle-même utiliser une recharge : les Mini-requins fumigènes sont fournis sous le code `requin-mousse` et utilisent les liquides `brume-neutre` ou `brume-girofle-agrumes`. Leur liste contient donc trois codes. Leur catégorie reste `munition`.
+Une munition peut elle-même utiliser une recharge. Les deux listes distinguent ce qu’un produit utilise de ce qu’il fournit :
+
+| Produit | `consommables_utilises` | `consommables_fournis` |
+| --- | --- | --- |
+| Requin Arêtes (BB-02) | `["requin-mousse"]` | `[]` |
+| Mini-requins fumigènes (RE-02) | `["brume-neutre", "brume-girofle-agrumes"]` | `["requin-mousse"]` |
+| Brume neutre (RE-07) | `[]` | `["brume-neutre"]` |
+
+Les mini-requins utilisent l’un des deux liquides, pas d’autres mini-requins. Leur catégorie reste `munition`. Un code dans `consommables_fournis` décrit la munition ou le liquide vendu sous cette référence, pas un cadeau inclus avec un équipement.
 
 ### Complète les fiches manquantes
 
 Ajoute **BB-02 Requin Arêtes**, **BB-04 Fumigène à ultrason** et **RE-08 Brume girofle-agrumes** à partir de leurs fiches. Conserve l’ordre des références : équipements BB-01 à BB-08, puis munitions et recharges RE-01 à RE-08.
 
-Utilise `None` pour une caractéristique non applicable et une liste vide pour l’absence d’effets.
+Utilise `None` pour une caractéristique non applicable et une liste vide pour l’absence d’effets ou de consommables utilisés ou fournis.
 
 ### Lance les vérifications des données
 
@@ -132,7 +145,7 @@ Utilise `None` pour une caractéristique non applicable et une liste vide pour l
 python tests_catalogue.py donnees
 ```
 
-Chaque vérification affiche `OK`, `ÉCHEC`, `ERREUR` ou `À COMPLÉTER`. En cas d’échec, utilise le produit, le champ et la valeur indiqués dans le message pour comparer avec la fiche source. Corrige, puis relance le groupe. `À COMPLÉTER` désigne une fonction que tu dois encore écrire.
+Chaque vérification affiche `OK`, `ÉCHEC`, `ERREUR` ou `À COMPLÉTER`. En cas d’échec, utilise le produit, le champ et la valeur indiqués dans le message : compare avec la structure attendue, les signalements ci-dessous ou l’extrait si la fiche en fait partie. Corrige, puis relance le groupe. `À COMPLÉTER` désigne une fonction que tu dois encore écrire.
 
 ### Résous les problèmes signalés par la Happiness Team
 
@@ -164,13 +177,15 @@ Le code de consommable relie un équipement à ses munitions. Python compare les
 <details>
 <summary>Indice 2</summary>
 
-Affiche les codes du lanceur et du lot de mini-requins avec `print(repr(...))` et compare leurs séparateurs.
+Affiche `consommables_utilises` du lanceur et `consommables_fournis` du lot de mini-requins avec `print(repr(...))` et compare leurs séparateurs.
 
 </details>
 
 ### Trouve les erreurs restantes
 
-Le catalogue contient encore **au moins trois erreurs** que personne n’a signalées. Certaines font échouer un test ; une au moins passe tous les tests. Pour celle-là, compare ce qu’affichent l’interface ou `python apercu_terminal.py` avec les fiches source.
+Le catalogue contient encore **au moins trois erreurs** à repérer dans les données déjà migrées. Certaines font échouer un test ; une au moins passe tous les tests. Observe ce qu’affichent l’interface ou `python apercu_terminal.py`, les types attendus et cette note laissée par tes collègues :
+
+> **Note de relecture :** une longueur a été copiée en millimètres alors que `dimensions_cm` attend des centimètres. La comptabilité confirme aussi que le lot de 10 Balles de décompression coûte **8,90 €**.
 
 <details>
 <summary>Indice 1</summary>
@@ -182,7 +197,7 @@ Une erreur porte sur un type, une sur une unité, une sur un ordre de grandeur. 
 <details>
 <summary>Indice 2</summary>
 
-Une valeur peut s’afficher exactement comme dans la fiche et rester du mauvais type. Parcours la colonne des prix de l’aperçu terminal : un lot de munitions coûte-t-il vraiment plus cher que le Requin Arêtes ?
+Une valeur peut s’afficher comme un prix et rester du mauvais type. Parcours la colonne des prix de l’aperçu terminal : un lot de munitions coûte-t-il vraiment plus cher que le Requin Arêtes ?
 
 </details>
 
@@ -193,7 +208,7 @@ Regarde `prix_euros` de BB-01 et de RE-06, ainsi que `dimensions_cm` de BB-07.
 
 </details>
 
-**Résultat attendu :** 16 produits dans l’ordre, des types et des unités conformes, des codes de consommables fidèles aux fiches pour toutes les catégories, des valeurs fidèles à la source. Tous les tests du groupe `donnees` passent. Un test de type ou de cohérence ne prouve pas que toutes les valeurs commerciales sont justes : conserve la comparaison avec les fiches.
+**Résultat attendu :** 16 produits dans l’ordre, des types et des unités conformes, des codes cohérents entre produits, trois fiches ajoutées fidèles à l’extrait et des erreurs de saisie corrigées selon les signalements. Tous les tests du groupe `donnees` passent. Un test de type ou de cohérence ne prouve pas qu’un prix est juste : vérifie aussi la note de la comptabilité.
 
 ## 2. Retrouve les consommables compatibles
 
@@ -201,14 +216,14 @@ Complète deux fonctions de `fonctions.py` :
 
 | Fonction | Résultat attendu |
 | --- | --- |
-| `consommables_disponibles(catalogue)` | Un `set` des codes de consommables présents, sans doublons. |
-| `filtrer_par_consommable(catalogue, code)` | Une nouvelle liste de tous les produits contenant ce code dans `consommables`, dans l’ordre du catalogue. |
+| `consommables_disponibles(catalogue)` | Un `set` des codes présents dans `consommables_utilises` ou `consommables_fournis`, sans doublons. |
+| `filtrer_par_consommable(catalogue, code)` | Une nouvelle liste de tous les produits qui utilisent ou fournissent ce code, dans l’ordre du catalogue. |
 
-Parcours les produits et leurs listes de codes. Conserve les données reçues inchangées et retourne une collection vide si rien ne correspond.
+Parcours les produits et leurs deux listes de codes. Un produit ne doit apparaître qu’une fois, même si le code figure dans les deux listes. Conserve les données reçues inchangées et retourne une collection vide si rien ne correspond.
 
 ### Prédis une sélection, puis vérifie-la
 
-Avant de coder, relève dans les fiches les identifiants que doit retourner chaque code, dans l’ordre du catalogue :
+Avant de coder, relève dans `catalogue.py` les identifiants que doit retourner chaque code, dans l’ordre du catalogue :
 
 | Code | Situation à observer |
 | --- | --- |
@@ -216,7 +231,7 @@ Avant de coder, relève dans les fiches les identifiants que doit retourner chaq
 | `flechette-mousse` | Deux lanceurs partagent les mêmes fléchettes. |
 | `brume-girofle-agrumes` | Un accessoire et une munition utilisent le même liquide vendu en recharge. |
 
-Le filtre porte sur **toutes les catégories** et examine seulement la présence du code demandé. Il ne suit pas les liens de proche en proche : le Requin Arêtes utilise les mini-requins, mais ne reçoit pas de liquide. Il ne doit donc pas apparaître dans la sélection `brume-girofle-agrumes`.
+Le filtre porte sur **toutes les catégories** et examine seulement la présence du code demandé dans l’une des deux listes. Il ne suit pas les liens de proche en proche : le Requin Arêtes utilise les mini-requins, mais ne reçoit pas de liquide. Il ne doit donc pas apparaître dans la sélection `brume-girofle-agrumes`.
 
 <details>
 <summary>Vérifie tes prévisions après avoir cherché</summary>
@@ -230,7 +245,7 @@ Le filtre porte sur **toutes les catégories** et examine seulement la présence
 
 ### Compatibilité et commande complète ne sont pas synonymes
 
-Le filtre regroupe les produits associés à un code ; il ne dit pas lesquels acheter ensemble. Deux lanceurs partageant les mêmes fléchettes ne s’utilisent pas l’un dans l’autre. RE-07 et RE-08 sont deux liquides **alternatifs**, pas deux achats obligatoires. Les codes ne précisent pas si un produit fournit une munition ou consomme un liquide ; les descriptions expliquent ces rôles.
+Le filtre regroupe les produits associés à un code ; il ne dit pas lesquels acheter ensemble. Deux lanceurs partageant les mêmes fléchettes ne s’utilisent pas l’un dans l’autre. RE-07 et RE-08 sont deux liquides **alternatifs**, pas deux achats obligatoires. Les deux champs précisent qui utilise ou fournit chaque consommable, mais ne disent pas si plusieurs codes utilisés sont des alternatives ou des besoins cumulés ; les descriptions précisent ce choix.
 
 Le filtre ne remplit pas un panier et n’ajoute aucune recharge au budget. Dans le socle de l’atelier, tu retrouves les produits ; la préparation d’une commande complète est une extension.
 
@@ -386,13 +401,13 @@ Prépare une démonstration courte : un comportement réussi et une modification
 
 ## Vérifie les critères de réussite
 
-- Tes données respectent la source, les types, les unités et le conditionnement vendu.
+- Tes ajouts respectent l’extrait ; les données déjà migrées respectent les types, les unités, les signalements et le conditionnement vendu.
 - Tes fonctions utilisent leurs paramètres, sans dépendre d’un catalogue global ni coder les réponses en dur.
 - Ton set élimine les doublons et ton filtre conserve l’ordre des produits, dans toutes les catégories et sans ajouter de correspondance indirecte.
-- Tu distingues une référence produit, un code de consommable, une alternative de recharge et une commande complète.
+- Tu distingues une référence produit, un consommable utilisé ou fourni, une alternative de recharge et une commande complète.
 - Ton budget est correct pour une quantité positive ou nulle, avec un montant arrondi à deux décimales.
 - Ta fonction de favoris modifie l’objet reçu ; tes autres fonctions conservent leurs entrées inchangées.
-- Tu vérifies les résultats avec les fiches source, l’interface et les vérifications fournies.
+- Tu vérifies les ajouts avec l’extrait et les données existantes avec les signalements, l’interface et les vérifications fournies.
 - Tes noms rendent le code lisible et tes commentaires éclairent les choix qui en ont besoin.
 - Tu peux expliquer une fonction et adapter son comportement.
 

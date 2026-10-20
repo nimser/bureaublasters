@@ -1,26 +1,10 @@
-BUREAUBLASTERS : FICHES PRODUITS
+BUREAUBLASTERS : EXTRAIT DU CATALOGUE À MIGRER
 
-Le prix et le poids portent sur le conditionnement vendu : 2 lots de 4 mini-requins représentent 8 mini-requins, facturés au prix de 2 lots.
-Les dimensions sont exprimées en centimètres. Tous les produits sont expédiés dans des colis de 150 × 60 × 60 cm maximum (longueur × largeur × hauteur).
-Les codes de consommables regroupent les produits associés à une même munition ou à un même liquide, quelle que soit leur catégorie. Un produit peut fournir une munition et utiliser un liquide : les Mini-requins fumigènes portent les trois codes correspondants. Les codes ne décrivent ni le sens des dépendances ni une commande complète ; les descriptions précisent les usages et les alternatives.
+Cet extrait contient uniquement les trois fiches que le collègue n’a pas encore ajoutées à catalogue.py : BB-02, BB-04 et RE-08. Les autres références sont déjà dans le fichier Python.
+Le prix et le poids portent sur le conditionnement vendu. Les dimensions sont exprimées en centimètres ; tous les produits sont expédiés dans des colis de 150 × 60 × 60 cm maximum (longueur × largeur × hauteur).
+Les codes identifient une munition ou un liquide. Chaque fiche distingue les consommables utilisés par le produit et ceux qu’il fournit à d’autres produits ; « aucun » signifie une liste vide.
 Les munitions et les liquides se commandent séparément des équipements. Les réservoirs sont livrés vides. Seuls les éléments du conditionnement sont inclus ; la présence d’un objet sur une photo de démonstration ne prouve pas son inclusion.
 RE-07 et RE-08 sont deux liquides alternatifs pour BB-04 et RE-02, pas deux achats obligatoires. Les 100 ml désignent chaque bouteille, pas les réservoirs ; leur capacité et la consommation par utilisation ne sont pas chiffrées.
-
-Identifiant : BB-01
-Nom : Rafale de Post-it
-Catégorie : lanceur
-Description : Blaster compact à fléchettes en mousse, chargeur de 12 fléchettes. Une main suffit. Munitions compatibles : Fléchettes de rappel (RE-01).
-Prix du conditionnement (€) : 39,50
-Conditionnement : 1 blaster
-Codes de consommables : flechette-mousse
-Portée (m) : 8
-Cadence (tirs/minute) : 90
-Poids du conditionnement (g) : 650
-Dimensions (cm) : 32 × 8 × 18 (longueur × largeur × hauteur)
-Indice de protection : non applicable
-Effets : LED orange au départ du tir ; bruit de tampon administratif
-Image : images/rafale-post-it.jpg
-Favori : non
 
 Identifiant : BB-02
 Nom : Requin Arêtes
@@ -28,7 +12,8 @@ Catégorie : lanceur
 Description : Lance-requins à porter à deux mains. Gueule dentée, yeux lumineux, graffitis roses et bleus. Propulse par air comprimé des mini-requins en mousse qui zigzaguent et diffusent par plusieurs trous une brume d’eau produite par ultrasons, éclairée en rose et bleu par des LED voisines. Un éclat de rire enregistré accompagne chaque tir. Le modèle phare de la gamme. Munitions compatibles : Mini-requins fumigènes (RE-02). Le liquide se verse dans les mini-requins, jamais dans le lanceur ; leur brume est sans parfum avec Brume neutre (RE-07) ou parfumée avec Brume girofle-agrumes (RE-08).
 Prix du conditionnement (€) : 489,00
 Conditionnement : 1 lanceur, 1 sangle d’épaule, 1 pompe
-Codes de consommables : requin-mousse
+Consommables utilisés : requin-mousse
+Consommables fournis : aucun
 Portée (m) : 12
 Cadence (tirs/minute) : 4
 Poids du conditionnement (g) : 4800
@@ -38,29 +23,14 @@ Effets : trajectoire en zigzag des mini-requins ; traînée de brume d’eau ult
 Image : images/requin-aretes.jpg
 Favori : non
 
-Identifiant : BB-03
-Nom : Gantelets du Sprint
-Catégorie : lanceur
-Description : Paire de gantelets lance-disques, un disque par gantelet et par tir. Réglage de taille par sangle. Munitions compatibles : Disques de livraison (RE-03).
-Prix du conditionnement (€) : 79,90
-Conditionnement : 1 paire de gantelets
-Codes de consommables : disque-mousse
-Portée (m) : 5
-Cadence (tirs/minute) : 30
-Poids du conditionnement (g) : 900
-Dimensions (cm) : 28 × 18 × 16 (longueur × largeur × hauteur)
-Indice de protection : non applicable
-Effets : LED violettes ; jingle de montée de niveau
-Image : images/gantelets-sprint.jpg
-Favori : non
-
 Identifiant : BB-04
 Nom : Fumigène à ultrason
 Catégorie : accessoire
 Description : Grenade-jouet fumigène de poche, lumineuse et étanche, à enveloppe en silicone mat amortissant et petit réservoir intégré. Trois exemplaires tiennent dans une main. Pendant 20 secondes, elle diffuse une brume d’eau produite par ultrasons à travers plusieurs trous, chacun accompagné d’une LED rose. Le réservoir se recharge par un clapet à charnière souple en y versant un liquide à base d’eau : Brume neutre (RE-07, sans parfum) ou Brume girofle-agrumes (RE-08, parfumé), vendu séparément en petites bouteilles de 100 ml pour plusieurs remplissages.
 Prix du conditionnement (€) : 29,90
 Conditionnement : 1 grenade de brume
-Codes de consommables : brume-neutre ; brume-girofle-agrumes
+Consommables utilisés : brume-neutre ; brume-girofle-agrumes
+Consommables fournis : aucun
 Portée (m) : non applicable
 Cadence (tirs/minute) : non applicable
 Poids du conditionnement (g) : 300
@@ -70,189 +40,14 @@ Effets : jets de brume d’eau ultrasonique par plusieurs trous éclairés en ro
 Image : images/brume-bonne-humeur.jpg
 Favori : non
 
-Identifiant : BB-05
-Nom : Coin-Coin de Crise
-Catégorie : lanceur
-Description : Canon à canards en mousse, chargement par l’avant. Chaque canard émet un coin-coin au départ. Munitions compatibles : Canards de soutien (RE-04).
-Prix du conditionnement (€) : 54,50
-Conditionnement : 1 canon
-Codes de consommables : canard-mousse
-Portée (m) : 5
-Cadence (tirs/minute) : 18
-Poids du conditionnement (g) : 1000
-Dimensions (cm) : 38 × 15 × 22 (longueur × largeur × hauteur)
-Indice de protection : non applicable
-Effets : coin-coin au départ du canard ; LED jaunes
-Image : images/coin-coin-crise.jpg
-Favori : non
-
-Identifiant : BB-06
-Nom : Arbalète Anti-Réunionite
-Catégorie : lanceur
-Description : Arbalète à fléchettes en mousse, armement à levier. Un « ding » signale chaque tir. Munitions compatibles : Fléchettes de rappel (RE-01).
-Prix du conditionnement (€) : 44,90
-Conditionnement : 1 arbalète
-Codes de consommables : flechette-mousse
-Portée (m) : 7
-Cadence (tirs/minute) : 15
-Poids du conditionnement (g) : 700
-Dimensions (cm) : 40 × 30 × 15 (longueur × largeur × hauteur)
-Indice de protection : non applicable
-Effets : LED bleues ; ding de fin de réunion
-Image : images/arbalete-anti-reunionite.jpg
-Favori : non
-
-Identifiant : BB-07
-Nom : Catapulte à Croissants
-Catégorie : lanceur
-Description : Catapulte de bureau à bras réglable pour croissants en mousse. Non comestible. Munitions compatibles : Croissants de réserve (RE-05).
-Prix du conditionnement (€) : 59,50
-Conditionnement : 1 catapulte de bureau
-Codes de consommables : croissant-mousse
-Portée (m) : 4
-Cadence (tirs/minute) : 6
-Poids du conditionnement (g) : 1400
-Dimensions (cm) : 48 × 20 × 30 (longueur × largeur × hauteur)
-Indice de protection : non applicable
-Effets : clochette de boulangerie ; senteur de croissant chaud
-Image : images/catapulte-croissants.jpg
-Favori : non
-
-Identifiant : BB-08
-Nom : Orbe de Décompression
-Catégorie : lanceur
-Description : Lanceur sphérique de balles en mousse, tenu à une main. Halo vert pendant le chargement. Munitions compatibles : Balles de décompression (RE-06).
-Prix du conditionnement (€) : 49,90
-Conditionnement : 1 lanceur
-Codes de consommables : balle-mousse
-Portée (m) : 6
-Cadence (tirs/minute) : 24
-Poids du conditionnement (g) : 800
-Dimensions (cm) : 24 × 20 × 20 (longueur × largeur × hauteur)
-Indice de protection : non applicable
-Effets : halo vert pulsé ; bourdonnement grave
-Image : images/orbe-decompression.jpg
-Favori : non
-
-Identifiant : RE-01
-Nom : Fléchettes de rappel
-Catégorie : munition
-Description : Fléchettes en mousse à embout souple, compatibles avec la Rafale de Post-it et l’Arbalète Anti-Réunionite.
-Prix du conditionnement (€) : 9,50
-Conditionnement : lot de 20 fléchettes
-Codes de consommables : flechette-mousse
-Portée (m) : non applicable
-Cadence (tirs/minute) : non applicable
-Poids du conditionnement (g) : 100
-Dimensions (cm) : 18 × 12 × 5 (longueur × largeur × hauteur)
-Indice de protection : non applicable
-Effets : aucun
-Image : images/flechettes-rappel.jpg
-Favori : non
-
-Identifiant : RE-02
-Nom : Mini-requins fumigènes
-Catégorie : munition
-Description : Mini-requins en mousse pour le Requin Arêtes, avec réservoir de liquide rechargeable et module ultrasonique intégré. La brume d’eau sort par plusieurs trous à l’arrière, avec des LED roses et bleues à proximité de chaque sortie. Appareils éteints, ouvrir leur bouchon et verser Brume neutre (RE-07, sans parfum) ou Brume girofle-agrumes (RE-08, parfumé), liquides vendus séparément en bouteilles de 100 ml. La senteur dépend du liquide choisi.
-Prix du conditionnement (€) : 59,90
-Conditionnement : lot de 4 mini-requins
-Codes de consommables : requin-mousse ; brume-neutre ; brume-girofle-agrumes
-Portée (m) : non applicable
-Cadence (tirs/minute) : non applicable
-Poids du conditionnement (g) : 360
-Dimensions (cm) : 30 × 20 × 10 (longueur × largeur × hauteur)
-Indice de protection : non applicable
-Effets : trajectoire en zigzag ; brume d’eau ultrasonique éclairée en rose et bleu par les LED voisines des trous ; sifflement aigu ; senteur selon le liquide de recharge
-Image : images/mini-requins.jpg
-Favori : non
-
-Identifiant : RE-03
-Nom : Disques de livraison
-Catégorie : munition
-Description : Disques en mousse pour les Gantelets du Sprint.
-Prix du conditionnement (€) : 11,50
-Conditionnement : lot de 12 disques
-Codes de consommables : disque-mousse
-Portée (m) : non applicable
-Cadence (tirs/minute) : non applicable
-Poids du conditionnement (g) : 180
-Dimensions (cm) : 15 × 15 × 6 (longueur × largeur × hauteur)
-Indice de protection : non applicable
-Effets : aucun
-Image : images/disques-livraison.jpg
-Favori : non
-
-Identifiant : RE-04
-Nom : Canards de soutien
-Catégorie : munition
-Description : Canards en mousse pour le Coin-Coin de Crise, avec puce sonore.
-Prix du conditionnement (€) : 12,90
-Conditionnement : lot de 6 canards
-Codes de consommables : canard-mousse
-Portée (m) : non applicable
-Cadence (tirs/minute) : non applicable
-Poids du conditionnement (g) : 210
-Dimensions (cm) : 24 × 16 × 8 (longueur × largeur × hauteur)
-Indice de protection : non applicable
-Effets : coin-coin
-Image : images/canards-soutien.jpg
-Favori : non
-
-Identifiant : RE-05
-Nom : Croissants de réserve
-Catégorie : munition
-Description : Croissants en mousse parfumés pour la Catapulte à Croissants. Non comestible.
-Prix du conditionnement (€) : 13,50
-Conditionnement : lot de 8 croissants
-Codes de consommables : croissant-mousse
-Portée (m) : non applicable
-Cadence (tirs/minute) : non applicable
-Poids du conditionnement (g) : 200
-Dimensions (cm) : 25 × 18 × 8 (longueur × largeur × hauteur)
-Indice de protection : non applicable
-Effets : senteur de croissant chaud
-Image : images/croissants-reserve.jpg
-Favori : non
-
-Identifiant : RE-06
-Nom : Balles de décompression
-Catégorie : munition
-Description : Balles en mousse pour l’Orbe de Décompression.
-Prix du conditionnement (€) : 8,90
-Conditionnement : lot de 10 balles
-Codes de consommables : balle-mousse
-Portée (m) : non applicable
-Cadence (tirs/minute) : non applicable
-Poids du conditionnement (g) : 150
-Dimensions (cm) : 20 × 15 × 8 (longueur × largeur × hauteur)
-Indice de protection : non applicable
-Effets : aucun
-Image : images/balles-decompression.jpg
-Favori : non
-
-Identifiant : RE-07
-Nom : Brume neutre
-Catégorie : recharge
-Description : Petite bouteille de 100 ml de liquide aqueux sans parfum, à verser dans les réservoirs vides du Fumigène à ultrason (BB-04) ou des Mini-requins fumigènes (RE-02), appareils éteints. Ouvrir le clapet du fumigène ou le bouchon du mini-requin. Une bouteille permet plusieurs remplissages.
-Prix du conditionnement (€) : 5,50
-Conditionnement : 1 bouteille de 100 ml
-Codes de consommables : brume-neutre
-Portée (m) : non applicable
-Cadence (tirs/minute) : non applicable
-Poids du conditionnement (g) : 130
-Dimensions (cm) : 4 × 4 × 12 (longueur × largeur × hauteur)
-Indice de protection : non applicable
-Effets : brume d’eau
-Image : images/brume-neutre.jpg
-Favori : non
-
 Identifiant : RE-08
 Nom : Brume girofle-agrumes
 Catégorie : recharge
 Description : Petite bouteille de 100 ml de liquide aqueux parfumé au clou de girofle et au zeste d’orange, à verser dans les réservoirs vides du Fumigène à ultrason (BB-04) ou des Mini-requins fumigènes (RE-02), appareils éteints. Ouvrir le clapet du fumigène ou le bouchon du mini-requin. Une bouteille permet plusieurs remplissages.
 Prix du conditionnement (€) : 6,90
 Conditionnement : 1 bouteille de 100 ml
-Codes de consommables : brume-girofle-agrumes
+Consommables utilisés : aucun
+Consommables fournis : brume-girofle-agrumes
 Portée (m) : non applicable
 Cadence (tirs/minute) : non applicable
 Poids du conditionnement (g) : 130
