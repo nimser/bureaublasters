@@ -83,6 +83,8 @@ describe("recette et prompts", () => {
     expect(prompt("rafale-post-it")).toContain("sans masquer le chargeur, la LED ni la bouche");
     expect(prompt("requin-aretes")).toContain("à deux mains par ses poignées inférieures");
     expect(prompt("gantelets-sprint")).toContain("sur ses avant-bras");
+    expect(prompt("gantelets-sprint")).toContain("jamais un bouton posé à plat");
+    expect(prompt("gantelets-sprint")).toContain("sans trou central");
     expect(prompt("coin-coin-crise")).toContain("stabilise l’arrière de l’affût");
     expect(prompt("catapulte-croissants")).toContain("hors de sa trajectoire");
     expect(prompt("orbe-decompression")).toContain("ouverture, la balle et les commandes entièrement visibles");
