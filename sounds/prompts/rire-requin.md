@@ -1,0 +1,1 @@
+One short mischievous cartoonish burst of recorded laughter from a generic fictional toy, introduced by a small compressed-air puff. Bright, cheeky and inviting, not sinister. This is the Requin Arêtes launch cue. No words, no recognizable person's voice, no imitation of a specific performer, no crowd laughter. Let the laugh finish naturally.

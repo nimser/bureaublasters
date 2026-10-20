@@ -1,0 +1,1 @@
+One clean cheerful desk-notification ding, signalling the end of a meeting when a harmless toy crossbow fires. A soft rounded attack and a clear, short metallic decay. Calm relief rather than an urgent alert. No arrow impact, no realistic weapon mechanism, no melody and no repeated dings.
