@@ -60,7 +60,7 @@ describe("recette et prompts", () => {
       const [scene, common] = file.split("## Sujet et composition\n")[1]!.split("## Prise de vue commune BureauBlasters\n");
       expect(scene).toContain("adulte");
       expect(scene!.toLowerCase()).toContain("visage");
-      expect(scene!.toLowerCase()).toMatch(/sourire|rictus/);
+      expect(scene!.toLowerCase()).toMatch(/sourire|rictus|rire|regard|clin d’œil|œil plissé|air faussement/);
       expect(scene!.toLowerCase()).toMatch(/bureau|open space|de travail/);
       expect(scene).toContain("premier plan");
       commonBlocks.add(common!.trim());
@@ -80,9 +80,11 @@ describe("recette et prompts", () => {
 
   test("les gestes de démonstration préservent les fonctions et les conditionnements", () => {
     const prompt = (name: string) => buildPrompt(ROOT, selectProducts([name])[0]!);
-    expect(prompt("rafale-post-it")).toContain("sans masquer le chargeur, la LED ni la bouche");
+    expect(prompt("sulfateuse-relances")).toContain("sans masquer le chargeur, la LED ni le barillet");
     expect(prompt("requin-aretes")).toContain("à deux mains par ses poignées inférieures");
     expect(prompt("gantelets-sprint")).toContain("sur ses avant-bras");
+    expect(prompt("gantelets-sprint")).toContain("jamais un bouton posé à plat");
+    expect(prompt("gantelets-sprint")).toContain("sans trou central");
     expect(prompt("coin-coin-crise")).toContain("stabilise l’arrière de l’affût");
     expect(prompt("catapulte-croissants")).toContain("hors de sa trajectoire");
     expect(prompt("orbe-decompression")).toContain("ouverture, la balle et les commandes entièrement visibles");
@@ -99,10 +101,10 @@ describe("recette et prompts", () => {
     for (const name of ["brume-neutre", "brume-girofle-agrumes"]) {
       expect(prompt(name)).toContain("100 ml");
       expect(prompt(name)).toContain("versant un mince filet de liquide");
-      expect(prompt(name)).toContain("clapet bleu pétrole est ouvert");
       expect(prompt(name)).toContain("LED éteintes");
-      expect(prompt(name)).toContain("il n’est pas un bouchon et ne s’ouvre jamais");
     }
+    expect(prompt("brume-neutre")).toContain("clapet bleu pétrole est ouvert");
+    expect(prompt("brume-neutre")).toContain("il n’est pas un bouchon et ne s’ouvre jamais");
     for (const product of PRODUCTS) {
       for (const ref of product.references) {
         expect(ref.role).toContain("personne");
@@ -120,14 +122,18 @@ describe("recette et prompts", () => {
     expect(device).toContain("silicone mat épais et amortissant");
     expect(device).toContain("clapet de remplissage");
     expect(device).toContain("charnière souple intégrée");
-    for (const name of ["brume-neutre", "brume-girofle-agrumes"]) {
-      const refill = prompt(name);
-      expect(refill).toContain("4 × 4 × 6 cm");
-      expect(refill).toContain("nettement plus petit que la bouteille de 100 ml");
-      expect(refill).toContain("charnière souple toujours attachée");
-      expect(refill).toContain("franchit le rebord et disparaît à l’intérieur du trou");
-      expect(refill).toContain("plusieurs remplissages");
-      expect(refill).not.toContain("disque-bouchon");
+    const refill = prompt("brume-neutre");
+    expect(refill).toContain("4 × 4 × 6 cm");
+    expect(refill).toContain("nettement plus petit que la bouteille de 100 ml");
+    expect(refill).toContain("charnière souple toujours attachée");
+    expect(refill).not.toContain("disque-bouchon");
+    const shark = prompt("brume-girofle-agrumes");
+    expect(shark).toContain("orifice de remplissage d’un mini-requin fumigène");
+    expect(shark).toContain("le liquide ne se verse jamais dans le lanceur");
+    expect(shark).toContain("jamais par les trous de brume");
+    for (const text of [refill, shark]) {
+      expect(text).toContain("franchit le rebord et disparaît à l’intérieur du trou");
+      expect(text).toContain("plusieurs remplissages");
     }
     for (const name of ["brume-bonne-humeur", "brume-neutre", "brume-girofle-agrumes"]) {
       expect(prompt(name)).not.toContain("9 × 9 × 14");
@@ -142,10 +148,23 @@ describe("recette et prompts", () => {
       seen.add(product.name);
     }
     expect(selectProducts(["flechettes-rappel"])[0]!.references.map(ref => ref.name))
-      .toEqual(["brume-bonne-humeur", "rafale-post-it", "arbalete-anti-reunionite"]);
-    expect(selectProducts(["arbalete-anti-reunionite"])[0]!.references.map(ref => ref.name)).toContain("rafale-post-it");
-    for (const name of ["brume-neutre", "brume-girofle-agrumes"]) {
-      expect(selectProducts([name])[0]!.references[0]!.name).toBe("brume-bonne-humeur");
+      .toEqual(["brume-bonne-humeur", "sulfateuse-relances", "arbalete-anti-reunionite"]);
+    expect(selectProducts(["arbalete-anti-reunionite"])[0]!.references.map(ref => ref.name)).toContain("sulfateuse-relances");
+    expect(selectProducts(["brume-neutre"])[0]!.references[0]!.name).toBe("brume-bonne-humeur");
+    expect(selectProducts(["brume-girofle-agrumes"])[0]!.references[0]!.name).toBe("mini-requins");
+  });
+
+  test("le casting récurrent reprend quatre personnes ancrées sur des photos", () => {
+    const anchors = new Map<string, string[]>();
+    for (const product of PRODUCTS) {
+      for (const ref of product.references.filter(ref => ref.role.includes("même personne") || ref.role.startsWith("personne"))) {
+        anchors.set(ref.name, [...(anchors.get(ref.name) ?? []), product.name]);
+      }
+    }
+    expect([...anchors.keys()].sort()).toEqual(["catapulte-croissants", "gantelets-sprint", "orbe-decompression", "coin-coin-crise", "requin-aretes", "sulfateuse-relances"].sort());
+    for (const [name, users] of anchors) {
+      for (const user of users) expect(buildPrompt(ROOT, selectProducts([user])[0]!)).toMatch(/(Camille|Hélène|Inès|Ravi), l[ae] même collègue/);
+      expect(name).not.toBe("brume-bonne-humeur");
     }
   });
 
