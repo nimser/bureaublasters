@@ -21,6 +21,7 @@ FONCTIONS = [
     "definir_favori",
 ]
 A_COMPLETER = [4, 4, 2, 1, 0, 0]
+FICHIERS_TRANSITIONS = ["catalogue.py", "fonctions.py", "fonctions.py", "fonctions.py", "tests_perso.py"]
 VARIANTES = {"catalogue.py", "fonctions.py", "tests_perso.py"}
 COMMUNS = {
     "README.md",
@@ -82,6 +83,25 @@ def catalogue_depart(corrige):
     return produits
 
 
+def verifier_comparaisons(references):
+    erreurs = []
+    for avant, apres, chemin in zip(BRANCHES, BRANCHES[1:], FICHIERS_TRANSITIONS):
+        base, suite = references[avant], references[apres]
+        transition = f"{avant} → {apres}"
+        try:
+            attendu = git("rev-parse", base).decode().strip()
+            ancetre = git("merge-base", base, suite).decode().strip()
+            if ancetre != attendu:
+                erreurs.append(f"{transition} : la branche précédente doit être un ancêtre de la suivante")
+                continue
+            fichiers = git("diff", "--name-only", f"{base}...{suite}").decode().splitlines()
+            if fichiers != [chemin]:
+                erreurs.append(f"{transition} : comparaison attendue sur {chemin} seul, obtenu {fichiers}")
+        except ValueError as erreur:
+            erreurs.append(f"{transition} : {erreur}")
+    return erreurs
+
+
 def verifier(remote):
     prefixe = f"refs/remotes/{remote}" if remote else "refs/heads"
     references = {branche: f"{prefixe}/{branche}" for branche in BRANCHES}
@@ -97,7 +117,7 @@ def verifier(remote):
         est_a_completer(fonction) for fonction in fonctions_corrigees.values()
     ):
         raise ValueError("correction : les quatre fonctions doivent être implémentées")
-    erreurs = []
+    erreurs = verifier_comparaisons(references)
     for branche, nombre in zip(BRANCHES, A_COMPLETER):
         reference = references[branche]
         try:
@@ -144,6 +164,7 @@ def main():
         return 1
     print("OK : six branches cohérentes, cinq erreurs et trois fiches manquantes conservées sur main.")
     print("OK : progression des fonctions et tests personnels à écrire préservés sur les reprises.")
+    print("OK : comparaisons GitHub limitées au travail attendu entre étapes consécutives.")
     return 0
 
 
