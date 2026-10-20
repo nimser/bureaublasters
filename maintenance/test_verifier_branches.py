@@ -15,7 +15,8 @@ class VerificationBranchesTests(unittest.TestCase):
                 "id": f"{prefixe}-0{n}",
                 "prix_euros": 10,
                 "dimensions_cm": {"longueur": 4},
-                "consommables": ["requin-mousse", "brume-neutre", "brume-girofle-agrumes"],
+                "consommables_utilises": ["brume-neutre", "brume-girofle-agrumes"],
+                "consommables_fournis": ["requin-mousse"],
                 "favori": False,
             }
             for prefixe in ["BB", "RE"] for n in range(1, 9)
@@ -69,8 +70,9 @@ class VerificationBranchesTests(unittest.TestCase):
 
     def test_nouveaux_codes_conserves_avec_erreur_intentionnelle(self):
         requins = next(p for p in self.catalogues["main"] if p["id"] == "RE-02")
-        self.assertEqual(requins["consommables"], ["requin_mousse", "brume-neutre", "brume-girofle-agrumes"])
-        requins["consommables"].pop()
+        self.assertEqual(requins["consommables_fournis"], ["requin_mousse"])
+        self.assertEqual(requins["consommables_utilises"], ["brume-neutre", "brume-girofle-agrumes"])
+        requins["consommables_utilises"].pop()
         self.assertTrue(any("main : catalogue" in e for e in self.verifier()))
 
     def test_reponse_distribuee_trop_tot(self):

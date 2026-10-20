@@ -6,7 +6,9 @@ Ces opérations sont réservées à l’équipe pédagogique. Elles ne font pas 
 
 Le socle réinvestit les acquis de semaine 1 et du lundi/mardi de semaine 2 : données, collections, fonctions, budget et mutation des favoris. Les tests personnels et les exceptions sont des bonus indépendants. Traceback et JSON relèvent de la séance du jeudi.
 
-`correction` contient les données et les quatre fonctions corrigées, ainsi que des exemples de tests personnels facultatifs. `main` et les branches `etape/*` conservent les mêmes consignes, fiches source, tests fournis, interface et visuels. Leur catalogue Python et leurs fonctions reflètent l’étape à pratiquer.
+`correction` contient les données et les quatre fonctions corrigées, ainsi que des exemples de tests personnels facultatifs. `main` et les branches `etape/*` conservent les mêmes consignes, extrait source, tests fournis, interface et visuels. Leur catalogue Python et leurs fonctions reflètent l’étape à pratiquer.
+
+`catalogue_source.txt` contient uniquement BB-02, BB-04 et RE-08, les trois fiches non migrées au départ. Les treize autres références se lisent directement dans `catalogue.py` ; ne pas dupliquer leurs fiches dans l’extrait. La note de relecture de l’énoncé donne les informations nécessaires aux erreurs d’unité et de prix.
 
 | Branche | Catalogue Python | Fonctions à compléter | Tests personnels |
 | --- | --- | --- | --- |
@@ -16,6 +18,8 @@ Le socle réinvestit les acquis de semaine 1 et du lundi/mardi de semaine 2 : do
 | `etape/04-favoris` | Complet et corrigé. | Favoris. | À écrire. |
 | `etape/05-tests` | Complet et corrigé. | Aucune. | Bonus à écrire. |
 | `correction` | Complet et corrigé. | Aucune. | Exemples fournis. |
+
+Les commentaires `À compléter` signalent uniquement les fiches manquantes et les fonctions à écrire dans chaque branche. Les erreurs intentionnelles du catalogue restent à identifier à partir des consignes et des fiches ; ne pas les marquer une par une.
 
 Ne pas fusionner `correction` dans les branches pédagogiques : cela distribuerait les réponses. Ne pas remplacer leurs fichiers `fonctions.py` ou `tests_perso.py` par ceux du corrigé.
 
@@ -52,6 +56,6 @@ python -m unittest discover -s maintenance -v
 
 `python tests_catalogue.py` vérifie le socle et les tests personnels présents. Le groupe `exceptions` est lancé uniquement sur demande explicite ; il échoue tant que le bonus n’est pas réalisé, y compris sur le corrigé du socle. Le champ quantité de l’interface est limité aux entiers positifs ou nuls. Vérifier le bonus par appel de fonction, sans modifier l’interface.
 
-Les vérifications de transcription couvrent les noms, descriptions, conditionnements, effets et codes. Elles ne comparent pas tous les prix aux fiches : une valeur numérique positive mais commercialement incorrecte doit encore être trouvée par lecture et comparaison. Ne pas supprimer cette limite sans revoir les consignes de l’étape 1.
+Les vérifications de transcription couvrent les noms, descriptions, conditionnements, effets et codes des trois fiches de l’extrait uniquement. Les autres références sont contrôlées par les tests de structure et de cohérence, pas par une deuxième copie du catalogue. Le prix incorrect de RE-06 doit encore être trouvé en comparant l’affichage à la note de la comptabilité dans l’énoncé. Ne pas supprimer cette limite sans revoir les consignes de l’étape 1.
 
-Les codes regroupent des produits sans indiquer qui fournit ou consomme quoi. Les liquides RE-07 et RE-08 sont des alternatives pour BB-04 et RE-02. BB-02 utilise les mini-requins, mais ne reçoit aucun liquide : le filtre ne doit pas suivre cette relation indirecte. Une recommandation de commande exige un modèle plus explicite des usages et des alternatives ; elle reste une extension.
+Les champs `consommables_utilises` et `consommables_fournis` distinguent les deux rôles ; une liste vide signifie qu’aucun code ne s’applique à ce rôle. Le filtre examine les deux listes, sans ajouter deux fois un produit. Les liquides RE-07 et RE-08 sont des alternatives pour BB-04 et RE-02. BB-02 utilise les mini-requins, mais ne reçoit aucun liquide : le filtre ne doit pas suivre cette relation indirecte. Une recommandation de commande doit aussi tenir compte des alternatives ; elle reste une extension.
