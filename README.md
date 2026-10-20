@@ -37,7 +37,7 @@ BureauBlasters vend aussi les **munitions de remplacement** et les **bouteilles 
 
 La Happiness Team doit pouvoir consulter les produits, retrouver les équipements et recharges compatibles, estimer une commande et conserver ses favoris pendant sa session.
 
-Tu travailles sur les données et les fonctions. L’interface Streamlit prend en charge l’affichage et l’état de la session. Vérifie tes résultats dans l’interface, avec l’aperçu terminal ou avec les vérifications fournies.
+Tu travailles sur les données et les quatre fonctions du catalogue. L’interface Streamlit affiche les fiches produits, propose les filtres de compatibilité, présente le budget et conserve les favoris pendant la session. Vérifie ces quatre usages dans l’interface, avec l’aperçu terminal ou avec les vérifications fournies.
 
 **Couverture :** types et conversions, conditions, boucles, listes, dictionnaires, sets, fonctions avec paramètres et retours, mutation et partage des objets.
 
@@ -325,10 +325,10 @@ Choisis un point de reprise avec le formateur. Chaque branche fournit les étape
 | Branche | Contenu fourni | Étape à pratiquer |
 | --- | --- | --- |
 | `main` | Catalogue à corriger, interface, signatures et tests fournis. | 1 : données. |
-| `reprise/02-filtres` | Catalogue corrigé et complet. | 2 : sets et filtres. |
-| `reprise/03-budget` | Catalogue et fonctions de sélection. | 3 : budget. |
-| `reprise/04-favoris` | Étapes précédentes et budget. | 4 : mutation. |
-| `reprise/05-tests` | Catalogue et quatre fonctions complètes. | Bonus : tests personnels. |
+| `etape/02-filtres` | Catalogue corrigé et complet. | 2 : sets et filtres. |
+| `etape/03-budget` | Catalogue et fonctions de sélection. | 3 : budget. |
+| `etape/04-favoris` | Étapes précédentes et budget. | 4 : mutation. |
+| `etape/05-tests` | Catalogue et quatre fonctions complètes. | Bonus : tests personnels. |
 
 Enregistre tes fichiers, publie ton travail en cours (voir [Publie ton travail](#publie-ton-travail)) et arrête Streamlit avec **Ctrl+C**. Pour reprendre à l’étape 2, exécute les commandes une par une :
 
@@ -336,11 +336,11 @@ Enregistre tes fichiers, publie ton travail en cours (voir [Publie ton travail](
 git remote set-branches origin '*'
 git fetch origin
 git stash push --include-untracked -m "Sauvegarde avant reprise"
-git switch reprise/02-filtres
+git switch etape/02-filtres
 git branch --show-current
 ```
 
-Les deux premières commandes rendent les reprises disponibles, même si une seule branche a été téléchargée. `git stash` met de côté tes modifications non publiées ; si Git indique qu’il n’y a rien à sauvegarder, poursuis. La dernière commande doit afficher `reprise/02-filtres`.
+Les deux premières commandes rendent les reprises disponibles, même si une seule branche a été téléchargée. `git stash` met de côté tes modifications non publiées ; si Git indique qu’il n’y a rien à sauvegarder, poursuis. La dernière commande doit afficher `etape/02-filtres`.
 
 <details>
 <summary>Git indique que la branche de reprise n’existe pas</summary>
@@ -350,7 +350,7 @@ Ton fork contient seulement `main`. Récupère les branches depuis le dépôt d�
 ```sh
 git remote add upstream https://github.com/SIMPLON-DIST-DEVIA-P1-199833/bureaublasters.git
 git fetch upstream
-git switch -c reprise/02-filtres upstream/reprise/02-filtres
+git switch -c etape/02-filtres upstream/etape/02-filtres
 ```
 
 </details>
