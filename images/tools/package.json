@@ -1,0 +1,19 @@
+{
+  "name": "bureaublasters-images",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "bun run generate.ts",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "4.0.97",
+    "ai": "7.0.145",
+    "sharp": "0.35.5"
+  },
+  "devDependencies": {
+    "@types/bun": "1.4.3",
+    "typescript": "7.0.2"
+  }
+}

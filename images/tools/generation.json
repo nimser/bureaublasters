@@ -1,0 +1,381 @@
+{
+  "recipe": {
+    "version": 1,
+    "model": "gpt-image-2.5-sunburst",
+    "size": "1024x1024",
+    "n": 1,
+    "quality": "high",
+    "outputFormat": "jpeg",
+    "outputCompression": 95,
+    "maxRetries": 0,
+    "delivery": {
+      "width": 1024,
+      "height": 1024,
+      "format": "jpeg",
+      "quality": 95,
+      "kernel": "lanczos3"
+    }
+  },
+  "lockSha256": "857a866c1f25dc9e3ccd7df92dae9813465ec5ad6b0e4ef0c20432c85d5b1a60",
+  "images": {
+    "brume-bonne-humeur": {
+      "key": "4c6c40edf1ce2dc526b0e607b8d3e40af3aa7e8aeb0887899e5a09edb9e276a5",
+      "promptSha256": "0e909db79fd43fda40cd3d6e867a9cb43430147a76295b465d5f8e2d5f8c977f",
+      "references": [],
+      "imageSha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e",
+      "generatedAt": "2026-10-19T21:03:18.834Z",
+      "native": {
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "sha256": "85621f7c00cc6a66a5752a3539c3044f77a95d6102fff2265605bff594b0e4e1"
+      },
+      "approvedAt": "2026-10-19T21:03:18.886Z"
+    },
+    "rafale-post-it": {
+      "key": "9edcd0c63c8ca6dbab54ab14ed661a8dd9fdde9867fa04e66744c03a4012e34e",
+      "promptSha256": "77dc1491f53f4452d6bfcfdda8dd5c10ce19c62ba92061dc5725b892bf29bb56",
+      "references": [
+        {
+          "name": "brume-bonne-humeur",
+          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
+        }
+      ],
+      "imageSha256": "591b0e742777c6312bc2dab0ed564711dc3560c9689a243e4fc7cac562fa58f8",
+      "generatedAt": "2026-10-19T21:04:57.928Z",
+      "native": {
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "sha256": "dc11a57ee05013c1409fa40913fba5ab4142fed1b92e8bc023be4dc03a528d3c"
+      },
+      "approvedAt": "2026-10-19T21:05:23.669Z"
+    },
+    "requin-aretes": {
+      "key": "45105f048c26472e3014396d59cbafff958af5b53217835266c421bfeb8811ec",
+      "promptSha256": "b2252e1e11a95a31b9aac4a8b64483a239196f3d22e33c1f9baec0d9c139fcba",
+      "references": [
+        {
+          "name": "brume-bonne-humeur",
+          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
+        }
+      ],
+      "imageSha256": "4a09089052ba1de7d5c967c31390606438ce587d37510c070aa32fa459226fc9",
+      "generatedAt": "2026-10-19T21:10:55.131Z",
+      "native": {
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "sha256": "dbdd76e18664899d50c6d48ca8b97f2a817b4d0f8216191586e6164b31461009"
+      },
+      "approvedAt": "2026-10-19T21:11:08.738Z"
+    },
+    "gantelets-sprint": {
+      "key": "0a6d494da51186bf92535fa97b301f8fd50f082021a75c6bc5794830265c8b1a",
+      "promptSha256": "e4088b0b9d14fc93c5b201b2af0c242d90ff05d3720aeb0c6ee13820cfb62f73",
+      "references": [
+        {
+          "name": "brume-bonne-humeur",
+          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
+        }
+      ],
+      "imageSha256": "70d75d2a13cc9565aaa706ece01271f82ab1246c26e896e189eb15b9ef8b31f8",
+      "generatedAt": "2026-10-19T21:06:42.701Z",
+      "native": {
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "sha256": "57368b3fa685d6fc64717dc5aa70eec765af3ca9e7336399af0dc5207075dfaa"
+      },
+      "approvedAt": "2026-10-19T21:11:08.739Z"
+    },
+    "coin-coin-crise": {
+      "key": "b9f0bd71ea5bfc665a5ed817df33a6a1ad5574865293456c86445ae7b8432e18",
+      "promptSha256": "32c105672c3696b48914df3527949a72747c9319a487dd0ba8d25f8c2fd550d9",
+      "references": [
+        {
+          "name": "brume-bonne-humeur",
+          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
+        }
+      ],
+      "imageSha256": "3aefb70df99fc872e0bbe07c136327bd638db9848aa724716dacef4ad005eed0",
+      "generatedAt": "2026-10-19T21:07:22.425Z",
+      "native": {
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "sha256": "f973094249bffeacc0ddb2235e91575fe0bd93b317dbcaa919363396bee966f7"
+      },
+      "approvedAt": "2026-10-19T21:11:08.740Z"
+    },
+    "arbalete-anti-reunionite": {
+      "key": "66ae7d235fbe307a624d2a2de0101e53b524f5f56d3fa2b6c4be8c014f0873d9",
+      "promptSha256": "7ac254fdcbc3a7f21db73dbc41cd6ac5ec8ba58fd18498fbf384c9a12900cb02",
+      "references": [
+        {
+          "name": "brume-bonne-humeur",
+          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
+        },
+        {
+          "name": "rafale-post-it",
+          "role": "identité physique de l’objet ou des projectiles compatibles ; respecter exactement leurs formes, proportions, couleurs et détails",
+          "sha256": "591b0e742777c6312bc2dab0ed564711dc3560c9689a243e4fc7cac562fa58f8"
+        }
+      ],
+      "imageSha256": "2fce6b9974407d90d8f572cf90d61e3b7cd4945aeb6aa88baf978d038f11908b",
+      "generatedAt": "2026-10-19T21:07:56.886Z",
+      "native": {
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "sha256": "d4fd16335ce7c730063aeb9d2aede97cb78683e0956713b2ccbdc4c3c460c718"
+      },
+      "approvedAt": "2026-10-19T21:11:08.741Z"
+    },
+    "catapulte-croissants": {
+      "key": "45ffbe6baaeed79e5753f6f378382382241f108e3605fed91cc1e9000f02c482",
+      "promptSha256": "cf0ba5a64fca291683ac23c90fbbe21fc0fb4cae43eec9358ed032c33aac61b3",
+      "references": [
+        {
+          "name": "brume-bonne-humeur",
+          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
+        }
+      ],
+      "imageSha256": "e77be0c37ed87c68eb9071ecc0270fafc4295a7caa8a8d29c7fd7967df1326d5",
+      "generatedAt": "2026-10-19T21:08:30.749Z",
+      "native": {
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "sha256": "454d89cc64179a27274d98fc80978b4f90af25d0e4a4d202913ce3a92a003a09"
+      },
+      "approvedAt": "2026-10-19T21:11:08.742Z"
+    },
+    "orbe-decompression": {
+      "key": "c789293cf795854669496644135d950d6a3d1ef975d96a150782e4120abcc6bc",
+      "promptSha256": "c1ffd6c9147d83c4ba82525c5776b776a8e5fce9637a0826a1e1f613deb10fba",
+      "references": [
+        {
+          "name": "brume-bonne-humeur",
+          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
+        }
+      ],
+      "imageSha256": "519472c0ee2d9ee048a013e51c05b075ad0fe35fb6e6184597f70b96948ecdda",
+      "generatedAt": "2026-10-19T21:09:03.324Z",
+      "native": {
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "sha256": "f54c580da98c8b4a9e88251fff30b627fd1cf8a54324dd3e2688ef6f23fe0659"
+      },
+      "approvedAt": "2026-10-19T21:11:08.742Z"
+    },
+    "flechettes-rappel": {
+      "key": "e1a4c8c6d83fc6bb7be3b4da2a4775a776c8c2bca24960e96bcdb002ec62a71e",
+      "promptSha256": "e84086c2605c6158b4bc03c47f659460137c0d3577bc2c47dcb667605465722a",
+      "references": [
+        {
+          "name": "brume-bonne-humeur",
+          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
+        },
+        {
+          "name": "rafale-post-it",
+          "role": "identité physique de l’objet ou des projectiles compatibles ; respecter exactement leurs formes, proportions, couleurs et détails",
+          "sha256": "591b0e742777c6312bc2dab0ed564711dc3560c9689a243e4fc7cac562fa58f8"
+        },
+        {
+          "name": "arbalete-anti-reunionite",
+          "role": "identité physique de l’objet ou des projectiles compatibles ; respecter exactement leurs formes, proportions, couleurs et détails",
+          "sha256": "2fce6b9974407d90d8f572cf90d61e3b7cd4945aeb6aa88baf978d038f11908b"
+        }
+      ],
+      "imageSha256": "9a3e16754c19f35f5596b9ac330b38cf13e31904913486b3f5075784a55469f4",
+      "generatedAt": "2026-10-19T21:19:53.878Z",
+      "native": {
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "sha256": "76628ee030ebd385d6f3cc479e3061d185b2dfd029aec59c0bf80b3934943b74"
+      },
+      "approvedAt": "2026-10-19T21:23:49.365Z"
+    },
+    "mini-requins": {
+      "key": "d321b6ddf15663271339858b844c42fb9a5fad64cf350e1f509f59fd6c9d9689",
+      "promptSha256": "8666fd019cac6c2773995a695f3876715cc84d08e87510daeb99289b48cecf52",
+      "references": [
+        {
+          "name": "brume-bonne-humeur",
+          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
+        },
+        {
+          "name": "requin-aretes",
+          "role": "identité physique de l’objet ou des projectiles compatibles ; respecter exactement leurs formes, proportions, couleurs et détails",
+          "sha256": "4a09089052ba1de7d5c967c31390606438ce587d37510c070aa32fa459226fc9"
+        }
+      ],
+      "imageSha256": "a92dd9d79b1308bd1e277c5e3e9fe183e8183c81a12f9e3a47c9c2bf26b28f25",
+      "generatedAt": "2026-10-19T21:12:28.011Z",
+      "native": {
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "sha256": "44f251eb726a8d66152659efa1b36d2a70920707c5278239207603d386b24108"
+      },
+      "approvedAt": "2026-10-19T21:19:21.289Z"
+    },
+    "disques-livraison": {
+      "key": "06ffdfe685a6c781bb6f6750debe3cacc6b502e882986a6efa68f747ffef3a3a",
+      "promptSha256": "7b66c35c5080bc0101ff2d0d2cf4736416e0f303b8d108094a8acab9563b7687",
+      "references": [
+        {
+          "name": "brume-bonne-humeur",
+          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
+        },
+        {
+          "name": "gantelets-sprint",
+          "role": "identité physique de l’objet ou des projectiles compatibles ; respecter exactement leurs formes, proportions, couleurs et détails",
+          "sha256": "70d75d2a13cc9565aaa706ece01271f82ab1246c26e896e189eb15b9ef8b31f8"
+        }
+      ],
+      "imageSha256": "cc47c5a7b9a1b3399b75f32e529908e2bed81b020609662ad362537a0790f178",
+      "generatedAt": "2026-10-19T21:17:54.716Z",
+      "native": {
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "sha256": "3799f4a86a78a8e9c7065b7199c429d37c45cd0fe32f081257535e627783a37a"
+      },
+      "approvedAt": "2026-10-19T21:19:21.290Z"
+    },
+    "canards-soutien": {
+      "key": "efafa8a71be89ea99402e671645c885d63d84c052bdd0ea625ee9babd0c4e84c",
+      "promptSha256": "13d9ff8aef2aa3650204a014064a2d56529d21d8cf958c4a30afa8cac3be16cb",
+      "references": [
+        {
+          "name": "brume-bonne-humeur",
+          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
+        },
+        {
+          "name": "coin-coin-crise",
+          "role": "identité physique de l’objet ou des projectiles compatibles ; respecter exactement leurs formes, proportions, couleurs et détails",
+          "sha256": "3aefb70df99fc872e0bbe07c136327bd638db9848aa724716dacef4ad005eed0"
+        }
+      ],
+      "imageSha256": "70927ed425e525d2c7a3570aaee00b42e3e88ecc1fef6d161e39d9649ce2308c",
+      "generatedAt": "2026-10-19T21:13:29.128Z",
+      "native": {
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "sha256": "6cd87505a155e1aac3da9c33014645df7881f48c6e6c3192445b744e275094bb"
+      },
+      "approvedAt": "2026-10-19T21:19:21.291Z"
+    },
+    "croissants-reserve": {
+      "key": "a69873ca7f1d1bf30592285bd9b49551047bbac0a7ccc45082f275b8fc1eae8b",
+      "promptSha256": "8a689e9f87e3183eb038c03572737bfa49673c990d1062af9260e4e43789d786",
+      "references": [
+        {
+          "name": "brume-bonne-humeur",
+          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
+        },
+        {
+          "name": "catapulte-croissants",
+          "role": "identité physique de l’objet ou des projectiles compatibles ; respecter exactement leurs formes, proportions, couleurs et détails",
+          "sha256": "e77be0c37ed87c68eb9071ecc0270fafc4295a7caa8a8d29c7fd7967df1326d5"
+        }
+      ],
+      "imageSha256": "0d9eb8f30a64cf6c08d78a4ca81eef4f9984c4f92a1936b5545c5ae99d5b266a",
+      "generatedAt": "2026-10-19T21:13:58.289Z",
+      "native": {
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "sha256": "bb1e55e9ddb21eed3942852c04134e0e7fe3107563e8e30beae593a548ed0365"
+      },
+      "approvedAt": "2026-10-19T21:19:21.292Z"
+    },
+    "balles-decompression": {
+      "key": "4863514536a0cc919903fb77c7ad653626262f3414aca77bf88015e2532bbe44",
+      "promptSha256": "75ac486656b8c0135c5f8d22a85a2caddf660e72051dc9a41e24b3102025a6aa",
+      "references": [
+        {
+          "name": "brume-bonne-humeur",
+          "role": "palette, matériaux, plateau, fond, cadrage et lumière uniquement ; ne pas ajouter cet objet au produit photographié",
+          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
+        },
+        {
+          "name": "orbe-decompression",
+          "role": "identité physique de l’objet ou des projectiles compatibles ; respecter exactement leurs formes, proportions, couleurs et détails",
+          "sha256": "519472c0ee2d9ee048a013e51c05b075ad0fe35fb6e6184597f70b96948ecdda"
+        }
+      ],
+      "imageSha256": "b4751d1f7fd88c17980f1c2728474164ab82e1695ec28e25ea1ebbbda986da73",
+      "generatedAt": "2026-10-19T21:14:32.547Z",
+      "native": {
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "sha256": "ff3e926907d0f093624e23d92c80379f4442b9e8c50d48077bdfc310b3e29f4a"
+      },
+      "approvedAt": "2026-10-19T21:19:21.293Z"
+    },
+    "brume-neutre": {
+      "key": "7a3897d697088ad266b32b263a419e206a4899999c6f72bd11fc6ac9b4fc1916",
+      "promptSha256": "435ad98130a0e15332db63a83fc74fa24ddf0eff9a10be6e47c8d527c9ae9d71",
+      "references": [
+        {
+          "name": "brume-bonne-humeur",
+          "role": "identité physique de l’objet ou des projectiles compatibles ; respecter exactement leurs formes, proportions, couleurs et détails",
+          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
+        }
+      ],
+      "imageSha256": "16913a5099084113f17469f98cf8d1001b2c25ca5f15ce5cbbb9f4da6af2cbaa",
+      "generatedAt": "2026-10-19T21:18:29.895Z",
+      "native": {
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "sha256": "dd52c0f8a0e65af9c6cd7e4f87d31df2c524a43956c70a8af7e5034bde66b553"
+      },
+      "approvedAt": "2026-10-19T21:19:21.294Z"
+    },
+    "brume-girofle-agrumes": {
+      "key": "363bbabf884753540e9c8929466eb08f6cfdb7a3fda01e9d6ea7523da03787c6",
+      "promptSha256": "bc2ddbb968d10f0a4e8bb68cf12622e18b4ebde84d02e7141abaef0958c52dc7",
+      "references": [
+        {
+          "name": "brume-bonne-humeur",
+          "role": "identité physique de l’objet ou des projectiles compatibles ; respecter exactement leurs formes, proportions, couleurs et détails",
+          "sha256": "34fa61898798fceb585c6f5babdb8f3b8ee4708202f10468f5e426ceabf29e0e"
+        },
+        {
+          "name": "brume-neutre",
+          "role": "identité physique de l’objet ou des projectiles compatibles ; respecter exactement leurs formes, proportions, couleurs et détails",
+          "sha256": "16913a5099084113f17469f98cf8d1001b2c25ca5f15ce5cbbb9f4da6af2cbaa"
+        }
+      ],
+      "imageSha256": "25fe9a89f525f9ac95ddbe69064cbed29c97eed6e5583a8f2e301c4ac48f8441",
+      "generatedAt": "2026-10-19T21:20:25.282Z",
+      "native": {
+        "width": 1254,
+        "height": 1254,
+        "format": "png",
+        "sha256": "c6f3899a0d67c52dcc547cdf376de28c2ca30c8388e850b17c357555bde1aad1"
+      },
+      "approvedAt": "2026-10-19T21:23:49.368Z"
+    }
+  }
+}
