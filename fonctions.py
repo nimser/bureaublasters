@@ -32,12 +32,9 @@ def calculer_budget(produit, quantite):
     """Retourne le prix de « quantite » conditionnements du produit.
 
     produit : dictionnaire produit.
-    quantite : nombre entier de conditionnements.
+    quantite : nombre entier positif ou nul de conditionnements.
     Retour : un nombre arrondi à deux décimales.
-    Lève ValueError si la quantité est négative.
     """
-    if quantite < 0:
-        raise ValueError(f"La quantité doit être positive ou nulle, reçu : {quantite}.")
     return round(produit["prix_euros"] * quantite, 2)
 
 
