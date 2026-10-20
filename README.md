@@ -12,7 +12,9 @@ L’objectif officiel : proposer des pauses de jeu entre volontaires pour déten
 
 Un super deal. Avec un petit astérisque.
 
-BureauBlasters a consacré tout son budget au design des produits. Les fiches sont prêtes, mais le catalogue Python est incomplet et contient des erreurs. L’interface sait afficher des cartes et des boutons ; les fonctions derrière restent à écrire. Quant au bouton « Calculer le budget », il répond pour le moment « Faites confiance à votre intuition ».
+Un de tes collègues a déjà migré une bonne partie du catalogue BureauBlasters en Python : **13 références sur 16** sont dans `catalogue.py`. Il n’a pas terminé et quelques erreurs se sont glissées dans la saisie. Il t’a laissé un **extrait du catalogue papier** avec uniquement les trois fiches qui restent à intégrer, dans `catalogue_source.txt`.
+
+L’interface sait afficher des cartes et des boutons ; les fonctions derrière restent à écrire. Quant au bouton « Calculer le budget », il répond pour le moment « Faites confiance à votre intuition ».
 
 La direction de Ludiverse apprécie l’audace. La comptabilité, un peu moins.
 
@@ -50,7 +52,7 @@ Tu travailles sur les données et les quatre fonctions du catalogue. L’interfa
 ## Tes fichiers de travail
 
 ```text
-catalogue_source.txt         Les 16 fiches produits de référence
+catalogue_source.txt         L’extrait des 3 fiches non migrées
 catalogue.py                 Les données Python à corriger et compléter
 fonctions.py                 Les quatre fonctions à compléter
 tests_catalogue.py           Les vérifications fournies et leur lancement
@@ -96,7 +98,9 @@ python -m streamlit run app.py
 
 ## 1. Remets le catalogue d’aplomb
 
-`catalogue_source.txt` fait référence. Chaque produit de la liste `CATALOGUE`, dans `catalogue.py`, suit la même structure :
+Pars du travail de ton collègue dans `catalogue.py` : ne ressaisis pas les produits déjà présents. Utilise `catalogue_source.txt` uniquement pour ajouter les trois fiches non migrées et vérifier leurs liens avec les autres produits. Les règles ci-dessous et les signalements de la Happiness Team servent à relire les données existantes.
+
+Chaque produit de la liste `CATALOGUE` suit la même structure :
 
 | Clé | Type attendu | Signification |
 | --- | --- | --- |
@@ -141,7 +145,7 @@ Utilise `None` pour une caractéristique non applicable et une liste vide pour l
 python tests_catalogue.py donnees
 ```
 
-Chaque vérification affiche `OK`, `ÉCHEC`, `ERREUR` ou `À COMPLÉTER`. En cas d’échec, utilise le produit, le champ et la valeur indiqués dans le message pour comparer avec la fiche source. Corrige, puis relance le groupe. `À COMPLÉTER` désigne une fonction que tu dois encore écrire.
+Chaque vérification affiche `OK`, `ÉCHEC`, `ERREUR` ou `À COMPLÉTER`. En cas d’échec, utilise le produit, le champ et la valeur indiqués dans le message : compare avec la structure attendue, les signalements ci-dessous ou l’extrait si la fiche en fait partie. Corrige, puis relance le groupe. `À COMPLÉTER` désigne une fonction que tu dois encore écrire.
 
 ### Résous les problèmes signalés par la Happiness Team
 
@@ -179,7 +183,9 @@ Affiche `consommables_utilises` du lanceur et `consommables_fournis` du lot de m
 
 ### Trouve les erreurs restantes
 
-Le catalogue contient encore **au moins trois erreurs** que personne n’a signalées. Certaines font échouer un test ; une au moins passe tous les tests. Pour celle-là, compare ce qu’affichent l’interface ou `python apercu_terminal.py` avec les fiches source.
+Le catalogue contient encore **au moins trois erreurs** à repérer dans les données déjà migrées. Certaines font échouer un test ; une au moins passe tous les tests. Observe ce qu’affichent l’interface ou `python apercu_terminal.py`, les types attendus et cette note laissée par tes collègues :
+
+> **Note de relecture :** une longueur a été copiée en millimètres alors que `dimensions_cm` attend des centimètres. La comptabilité confirme aussi que le lot de 10 Balles de décompression coûte **8,90 €**.
 
 <details>
 <summary>Indice 1</summary>
@@ -191,7 +197,7 @@ Une erreur porte sur un type, une sur une unité, une sur un ordre de grandeur. 
 <details>
 <summary>Indice 2</summary>
 
-Une valeur peut s’afficher exactement comme dans la fiche et rester du mauvais type. Parcours la colonne des prix de l’aperçu terminal : un lot de munitions coûte-t-il vraiment plus cher que le Requin Arêtes ?
+Une valeur peut s’afficher comme un prix et rester du mauvais type. Parcours la colonne des prix de l’aperçu terminal : un lot de munitions coûte-t-il vraiment plus cher que le Requin Arêtes ?
 
 </details>
 
@@ -202,7 +208,7 @@ Regarde `prix_euros` de BB-01 et de RE-06, ainsi que `dimensions_cm` de BB-07.
 
 </details>
 
-**Résultat attendu :** 16 produits dans l’ordre, des types et des unités conformes, des codes de consommables fidèles aux fiches pour toutes les catégories, des valeurs fidèles à la source. Tous les tests du groupe `donnees` passent. Un test de type ou de cohérence ne prouve pas que toutes les valeurs commerciales sont justes : conserve la comparaison avec les fiches.
+**Résultat attendu :** 16 produits dans l’ordre, des types et des unités conformes, des codes cohérents entre produits, trois fiches ajoutées fidèles à l’extrait et des erreurs de saisie corrigées selon les signalements. Tous les tests du groupe `donnees` passent. Un test de type ou de cohérence ne prouve pas qu’un prix est juste : vérifie aussi la note de la comptabilité.
 
 ## 2. Retrouve les consommables compatibles
 
@@ -217,7 +223,7 @@ Parcours les produits et leurs deux listes de codes. Un produit ne doit apparaî
 
 ### Prédis une sélection, puis vérifie-la
 
-Avant de coder, relève dans les fiches les identifiants que doit retourner chaque code, dans l’ordre du catalogue :
+Avant de coder, relève dans `catalogue.py` les identifiants que doit retourner chaque code, dans l’ordre du catalogue :
 
 | Code | Situation à observer |
 | --- | --- |
@@ -395,13 +401,13 @@ Prépare une démonstration courte : un comportement réussi et une modification
 
 ## Vérifie les critères de réussite
 
-- Tes données respectent la source, les types, les unités et le conditionnement vendu.
+- Tes ajouts respectent l’extrait ; les données déjà migrées respectent les types, les unités, les signalements et le conditionnement vendu.
 - Tes fonctions utilisent leurs paramètres, sans dépendre d’un catalogue global ni coder les réponses en dur.
 - Ton set élimine les doublons et ton filtre conserve l’ordre des produits, dans toutes les catégories et sans ajouter de correspondance indirecte.
 - Tu distingues une référence produit, un consommable utilisé ou fourni, une alternative de recharge et une commande complète.
 - Ton budget est correct pour une quantité positive ou nulle, avec un montant arrondi à deux décimales.
 - Ta fonction de favoris modifie l’objet reçu ; tes autres fonctions conservent leurs entrées inchangées.
-- Tu vérifies les résultats avec les fiches source, l’interface et les vérifications fournies.
+- Tu vérifies les ajouts avec l’extrait et les données existantes avec les signalements, l’interface et les vérifications fournies.
 - Tes noms rendent le code lisible et tes commentaires éclairent les choix qui en ont besoin.
 - Tu peux expliquer une fonction et adapter son comportement.
 

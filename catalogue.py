@@ -1,6 +1,6 @@
 """Catalogue des produits BureauBlasters."""
 
-# Étape 1 : vérifier les valeurs et les types à partir de catalogue_source.txt.
+# Étape 1 : relire les données ; catalogue_source.txt contient les trois fiches à migrer.
 CATALOGUE = [
     {
         "id": "BB-01",

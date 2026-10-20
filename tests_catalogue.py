@@ -177,8 +177,11 @@ def test_donnees_fiches_synchronisees():
     for bloc in source.split("Identifiant : ")[1:]:
         identifiant, *lignes = bloc.splitlines()
         fiches[identifiant] = dict(ligne.split(" : ", 1) for ligne in lignes if " : " in ligne)
-    for produit in CATALOGUE:
-        fiche = fiches[produit["id"]]
+    assert list(fiches) == ["BB-02", "BB-04", "RE-08"], "L’extrait doit contenir seulement les trois fiches à migrer"
+    produits = {produit["id"]: produit for produit in CATALOGUE}
+    for identifiant, fiche in fiches.items():
+        assert identifiant in produits, f"{identifiant} : fiche de l’extrait absente du catalogue Python"
+        produit = produits[identifiant]
         for cle, libelle in [("nom", "Nom"), ("description", "Description"), ("conditionnement", "Conditionnement")]:
             assert produit[cle] == fiche[libelle], f"{produit['id']} : {cle} diffère de la fiche source"
         for cle, libelle in [
