@@ -1,0 +1,1 @@
+One short comical squeaky rubber-duck quack from a small toy sound chip, warm and immediately recognizable. Slight rubbery body to the sound, followed by a quick natural tail. This same sound belongs to a Canard de soutien and is heard when the Coin-Coin de Crise launches it. No pond ambience, flock, repeated quacks, launch blast or speech.

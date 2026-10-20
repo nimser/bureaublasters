@@ -1,0 +1,1 @@
+A short original ascending level-up jingle for the Gantelets du Sprint: playful rounded electronic tones, a quick upward progression ending on a bright satisfying note. Small toy speaker character, clean and charming, not harsh. No recognizable video-game melody and no musical accompaniment beyond this brief jingle.

@@ -1,0 +1,1 @@
+One exaggerated but friendly administrative rubber stamp hitting a thick stack of paper on a wooden desk: a compact mechanical click, a soft rubbery thump and a tiny paper rustle. A single satisfying action, close and dry. This is the Rafale de Post-it's firing cue, not realistic weapon audio. No repeated stamping and no speech.
