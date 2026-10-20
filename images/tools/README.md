@@ -98,16 +98,17 @@ Cette commande vérifie toute la série avant de remplacer `images/*.jpg` et de 
 
 ## Affiche du brief
 
-`affiche.ts` produit l’illustration 16:9 du brief Simplonline : plusieurs collègues en pleine bataille de jouets. Il réutilise le modèle, l’authentification CPA et le transport de `generate.ts`, mais tient sa propre recette et ne lit ni ne modifie la série du catalogue.
+`affiche.ts` produit l’illustration 16:9 du brief Simplonline : plusieurs collègues du catalogue en pleine bataille de jouets. Il réutilise le modèle d’image, l’authentification CPA et le transport de `generate.ts`, tient sa propre recette et ne modifie ni la série ni le catalogue.
 
-- **Prompt** : `images/tools/affiche.md`, précédé de la consigne de cadrage et de la liste des images jointes.
-- **Références** : choisies à chaque appel, dans l’ordre des options. `requin-aretes` désigne `images/requin-aretes.jpg` (catalogue publié), `generation:requin-aretes` la dernière version de `images/tools/.generation/` ; un chemin `.jpg`, `.png` ou `.webp` désigne tout autre fichier, relatif à la racine du dépôt ou absolu. `--ref` reprend la personne et son jouet, `--produit` le jouet seul, `--personnage` la personne seule. Chaque personne reprise reste un collègue distinct ; le modèle complète le groupe.
-- **Format** : paysage `1536x1024` demandé, qualité `high`, zéro relance. La sortie est recadrée au centre en 16:9 à sa largeur native, sans agrandissement ; les sorties carrées, portrait ou de moins de 1536 pixels de large sont refusées.
+- **Catalogue** : pour chaque produit, la dernière image validée et intacte : celle de `images/tools/.generation/` si elle est validée, sinon celle du catalogue publié (`images/*.jpg`, `generation.json`). Le sujet associé est le prompt réellement envoyé pour la série, ou la fiche de `images/prompts/` pour le catalogue publié. Aucun produit n’est codé en dur : l’affiche suit l’évolution des images et des personnages.
+- **Planification** : `gpt-astra-latest` reçoit `images/tools/affiche.md`, puis chaque sujet suivi de sa photo réduite. Il choisit 3 à 6 références et un rôle pour chacune : `tout` (la personne et son jouet), `produit` (le jouet confié à un autre collègue) ou `personnage` (la personne seule). Il résume les traits de fidélité de chaque référence et rédige la scène. Le plan doit reprendre au moins deux personnes et deux jouets ; un plan refusé est renvoyé une fois au planificateur avec le motif.
+- **Image** : les références choisies sont jointes en pleine résolution, dans l’ordre du plan, à un prompt qui reprend leurs rôles, la scène, la direction artistique et les exclusions de `affiche.md`. Paysage `1536x1024` demandé, qualité `high`, zéro relance ; la sortie est recadrée au centre en 16:9 à sa largeur native. Les sorties carrées, portrait ou de moins de 1536 pixels de large sont refusées.
 
 ```sh
-bun run images/tools/affiche.ts --list
-bun run images/tools/affiche.ts --plan --ref requin-aretes --produit generation:gantelets-sprint --personnage generation:brume-neutre
-bun run images/tools/affiche.ts --generate --ref requin-aretes --produit generation:gantelets-sprint --personnage generation:brume-neutre
+bun run images/tools/affiche.ts --catalogue
+bun run images/tools/affiche.ts --plan
+bun run images/tools/affiche.ts --generate
+bun run images/tools/affiche.ts --generate images/tools/.affiche/<essai>
 ```
 
-`--list` et `--plan` n’appellent pas CPA. Chaque `--generate` crée un nouveau répertoire horodaté dans `images/tools/.affiche/`, exclu de Git : `affiche.jpg` à téléverser, sortie native, prompt envoyé et `manifest.json` (recette, empreintes du prompt, des références et des images). Relancer avec d’autres références à mesure que les produits et les personnages évoluent ; les essais précédents restent disponibles pour comparaison.
+`--catalogue` affiche les références disponibles sans appel CPA. `--plan` enregistre un plan et le prompt d’image sans générer d’image. `--generate` planifie puis génère ; avec le répertoire d’un essai, il réutilise son plan, revérifié contre le catalogue courant. Chaque appel crée un répertoire horodaté dans `images/tools/.affiche/`, exclu de Git : `plan.json`, `prompt.txt`, `affiche.jpg` à téléverser, sortie native et `manifest.json` (recette, empreintes du prompt, des références et des images). Contrôler visuellement chaque affiche avant de la téléverser.

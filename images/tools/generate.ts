@@ -137,7 +137,7 @@ export const cpaFetch: typeof fetch = Object.assign(async (input: Parameters<typ
   return fetch(input, { ...init, body });
 }, { preconnect: fetch.preconnect });
 
-export async function connectCpa() {
+export async function connectCpa(required: string[] = [RECIPE.model]) {
   const { apiKey, source } = await resolveCpaCredential();
   const baseURL = process.env.CPA_BASE_URL || "https://cpa.tn.nwo.pm/v1";
   const catalog = await fetch(`${baseURL.replace(/\/$/, "")}/models`, {
@@ -145,7 +145,9 @@ export async function connectCpa() {
   });
   if (!catalog.ok) throw new Error(`Catalogue CPA : HTTP ${catalog.status}`);
   const models = await catalog.json() as { data: { id: string }[] };
-  if (!models.data.some(m => m.id === RECIPE.model)) throw new Error(`Modèle absent de CPA : ${RECIPE.model}`);
+  for (const model of required) {
+    if (!models.data.some(m => m.id === model)) throw new Error(`Modèle absent de CPA : ${model}`);
+  }
   return { provider: createOpenAI({ apiKey, baseURL, fetch: cpaFetch }), source };
 }
 

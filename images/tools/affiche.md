@@ -1,12 +1,18 @@
 # Affiche du brief BureauBlasters
 
-## Scène
+## Intention
 
-Affiche publicitaire colorée en photographie réaliste : quatre à six collègues adultes s’affrontent dans une bataille de jouets joyeuse au cœur de l’open space d’une entreprise créative. Projectiles en mousse en plein vol, collègues accroupis derrière des bureaux et des fauteuils retournés en barricades, une personne bondit entre deux îlots, une autre riposte en riant depuis une cloison vitrée. Rires francs, sourires en coin, sourcils levés : une complicité espiègle entre collègues consentants, jamais menaçante.
+Affiche publicitaire colorée en photographie réaliste : quatre à six collègues adultes s’affrontent dans une bataille de jouets joyeuse au cœur de l’open space d’une entreprise créative. Projectiles en mousse en plein vol, collègues accroupis derrière des bureaux et des fauteuils retournés en barricades, ripostes depuis les cloisons vitrées, fournitures qui volent. Rires francs, sourires en coin, sourcils levés : une complicité espiègle entre collègues consentants, jamais menaçante.
 
-Composition dynamique en diagonale et profondeur sur trois plans : un groupe héros net au premier plan, l’échange de tirs au milieu, le bureau reconnaissable au fond avec postes de travail, écrans sans texte, plantes, panneaux acoustiques colorés et fournitures qui volent. Chaque visage et chaque jouet restent lisibles en vignette ; aucun personnage n’est coupé au niveau du visage par le bord du cadre.
+Composition dynamique en diagonale et profondeur sur trois plans : un groupe héros net au premier plan, l’échange de tirs au milieu, le bureau reconnaissable au fond avec postes de travail, écrans sans texte, plantes et panneaux acoustiques colorés. Chaque visage et chaque jouet restent lisibles en vignette ; aucun visage n’est coupé par le bord du cadre.
 
-Les jouets tenus et les projectiles viennent des images jointes. Sans référence de produit, inventer des lanceurs en mousse dodus et facettés, sans ressemblance avec une arme réelle. N’ajouter à un jouet aucun effet absent de sa référence : la brume ultrasonique ne sort que des produits qui en émettent.
+## Choix des références
+
+- Choisir les photos du catalogue qui composent ensemble la bataille la plus spectaculaire et la plus lisible : variété de jouets (lanceurs, gantelets, machines, gadgets), de couleurs et de collègues, rôles complémentaires dans l’action.
+- Préférer les équipements aux recharges et aux lots ; retenir un lot seulement si ses projectiles enrichissent l’échange de tirs avec le lanceur choisi.
+- Préférer les personnes les plus expressives ; varier les apparences du groupe.
+- `tout` reprend la personne et son jouet ; `produit` confie le jouet à un autre collègue ; `personnage` reprend la personne seule, équipée d’un jouet d’une autre référence ou d’aucun. Réserver `tout` et `personnage` aux photos qui montrent le visage d’une personne ; reprendre de préférence plusieurs collègues du catalogue plutôt que d’en inventer.
+- Pour chaque référence, résumer les traits indispensables à la fidélité : formes, couleurs, tailles par rapport au corps, projectiles, effets autorisés. Un effet n’apparaît que sur le produit dont la fiche le prévoit.
 
 ## Direction artistique
 
