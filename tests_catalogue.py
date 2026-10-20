@@ -1,8 +1,9 @@
 """Vérifications du catalogue BureauBlasters.
 
-Lance tous les groupes : python tests_catalogue.py
+Lance les vérifications du socle et les tests personnels : python tests_catalogue.py
 Lance un groupe : python tests_catalogue.py donnees
-Le groupe perso lance les tests de tests_perso.py.
+Le groupe perso lance les tests facultatifs de tests_perso.py.
+Le bonus exceptions se lance séparément : python tests_catalogue.py exceptions
 """
 
 import importlib
@@ -19,6 +20,7 @@ from fonctions import (
 )
 
 GROUPES = ["donnees", "filtres", "budget", "favoris", "perso"]
+BONUS = ["exceptions"]
 
 CLES = {
     "id", "nom", "categorie", "description", "prix_euros", "conditionnement",
@@ -259,10 +261,11 @@ def test_budget_quantite_nulle():
     assert montant == 0, f"Obtenu : {montant!r}"
 
 
-def test_budget_quantite_negative():
+def test_exceptions_quantite_negative():
     try:
         calculer_budget({"prix_euros": 10}, -1)
-    except ValueError:
+    except ValueError as erreur:
+        assert "-1" in str(erreur), f"Le message doit indiquer la quantité reçue : {erreur}"
         return
     assert False, "calculer_budget(produit, -1) aurait dû lever ValueError"
 
@@ -326,9 +329,10 @@ def lancer(groupe):
 
 
 def main(arguments):
-    inconnus = [groupe for groupe in arguments if groupe not in GROUPES]
+    disponibles = GROUPES + BONUS
+    inconnus = [groupe for groupe in arguments if groupe not in disponibles]
     if inconnus:
-        print(f"Groupe inconnu : {', '.join(inconnus)}. Groupes disponibles : {', '.join(GROUPES)}.")
+        print(f"Groupe inconnu : {', '.join(inconnus)}. Groupes disponibles : {', '.join(disponibles)}.")
         return 2
     total = {"ok": 0, "echec": 0, "a_completer": 0}
     for groupe in arguments or GROUPES:

@@ -108,7 +108,7 @@ with colonne_produit:
         format_func=lambda i: f"{selection[i]['nom']} ({selection[i]['conditionnement']})",
     )
 with colonne_quantite:
-    quantite = st.number_input("Quantité", value=1, step=1)
+    quantite = st.number_input("Quantité", min_value=0, value=1, step=1)
 if st.button("Calculer le budget") and index_produit is not None:
     try:
         montant = calculer_budget(selection[index_produit], int(quantite))
