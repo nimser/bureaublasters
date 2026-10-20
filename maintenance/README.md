@@ -29,13 +29,14 @@ Ne pas fusionner `correction` dans les branches pédagogiques : cela distribuera
 2. Reporter tous les fichiers suivis communs sur `main` et les branches `etape/*`, y compris les outils de maintenance, les dépendances et les médias. Seuls `catalogue.py`, `fonctions.py` et `tests_perso.py` varient selon l’étape. Les catalogues des reprises sont identiques au corrigé. Dans `main`, actualiser seulement les informations de référence sans résoudre les fiches manquantes et les erreurs intentionnelles. Préserver les fonctions et les tests personnels de chaque étape.
 3. Synchroniser aussi les images et leurs prompts, sans confondre les références de génération d’images avec les dépendances des produits vendus. Le répertoire `images/tools/` est un outil de maintenance indépendant, pas un prérequis de l’atelier.
 4. Vérifier les tests sur chaque branche avant de créer ses commits. Les échecs de données de `main` et les `NotImplementedError` des fonctions à écrire sont attendus ; les autres groupes déjà fournis doivent passer.
-5. Une fois les commits préparés sur les six branches, vérifier les références locales avec la commande ci-dessous, puis publier toutes les branches. Ne pas annoncer une mise à jour terminée si une publication est bloquée.
+5. Finaliser les commits et les fusions dans l’ordre `main → etape/02-filtres → etape/03-budget → etape/04-favoris → etape/05-tests → correction`. Chaque branche doit contenir le dernier commit de la précédente dans son historique, tout en conservant sa propre variante pédagogique. Répercuter les fichiers communs à l’identique ; une fusion ne doit pas remplacer les exercices par les réponses d’une étape ultérieure. Ne pas réécrire les branches publiées.
+6. Une fois les six branches finalisées, vérifier les références locales avec la commande ci-dessous, puis publier toutes les branches. Ne pas annoncer une mise à jour terminée si une publication est bloquée.
 
 ```sh
 python maintenance/verifier_branches.py
 ```
 
-Le script utilise uniquement la bibliothèque standard Python. Il lit les versions **commitées** des six branches, pas les modifications non commitées. Il ne change aucune branche, ne crée aucun commit et ne publie rien. Il compare les fichiers communs, les catalogues attendus et la progression des fonctions et des tests personnels. Une évolution délibérée des exercices exige d’adapter aussi ses attentes.
+Le script utilise uniquement la bibliothèque standard Python. Il lit les versions **commitées** des six branches, pas les modifications non commitées. Il ne change aucune branche, ne crée aucun commit et ne publie rien. Il compare les fichiers communs, les catalogues attendus et la progression des fonctions et des tests personnels. Il vérifie aussi l’ascendance des branches et les fichiers affichés dans les comparaisons GitHub à trois points. Une évolution délibérée des exercices exige d’adapter aussi ses attentes.
 
 Pour contrôler les références publiées après récupération depuis le dépôt concerné :
 
@@ -50,6 +51,25 @@ Les tests du contrôleur n’utilisent ni accès réseau ni branches réelles :
 
 ```sh
 python -m unittest discover -s maintenance -v
+```
+
+## Des comparaisons limitées au travail d’une étape
+
+GitHub compare une branche à l’ancêtre commun avec sa base, pas seulement les deux contenus finaux. Des fichiers communs identiques ne suffisent donc pas : chaque point de reprise doit descendre du précédent.
+
+| Base | Comparaison | Seul fichier modifié | Travail montré |
+| --- | --- | --- | --- |
+| `main` | `etape/02-filtres` | `catalogue.py` | Trois fiches ajoutées et cinq erreurs corrigées. |
+| `etape/02-filtres` | `etape/03-budget` | `fonctions.py` | Collecte des codes et filtre de compatibilité. |
+| `etape/03-budget` | `etape/04-favoris` | `fonctions.py` | Calcul du budget. |
+| `etape/04-favoris` | `etape/05-tests` | `fonctions.py` | Modification des favoris. |
+| `etape/05-tests` | `correction` | `tests_perso.py` | Exemples de tests personnels. |
+
+Vérifier le même diff que GitHub, sans inclure les consignes, tests fournis ou médias :
+
+```sh
+git diff main...etape/02-filtres
+git diff etape/02-filtres...etape/03-budget
 ```
 
 ## Garder la portée pédagogique des tests
