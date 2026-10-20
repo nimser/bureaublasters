@@ -2,7 +2,8 @@
 
 - **Branche de départ utilisée :** main / reprise/…
 - **Parties réalisées personnellement :**
-- **Tests ajoutés :**
+- **Vérifications effectuées :**
+- **Bonus réalisés (tests personnels, extensions) :**
 - **Blocage résolu ou restant :**
 
 ## Capture

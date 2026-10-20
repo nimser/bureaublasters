@@ -37,11 +37,11 @@ BureauBlasters vend aussi les **munitions de remplacement** et les **bouteilles 
 
 La Happiness Team doit pouvoir consulter les produits, retrouver les équipements et recharges compatibles, estimer une commande et conserver ses favoris pendant sa session.
 
-Tu travailles sur les données et les fonctions. L’interface Streamlit prend en charge l’affichage, les messages d’erreur et l’état de la session. Tu peux vérifier tes fonctions indépendamment grâce à l’aperçu terminal et aux tests.
+Tu travailles sur les données et les fonctions. L’interface Streamlit prend en charge l’affichage et l’état de la session. Vérifie tes résultats dans l’interface, avec l’aperçu terminal ou avec les vérifications fournies.
 
-**Couverture :** listes et dictionnaires, sets, fonctions avec paramètres et retours, mutation, exceptions, tests avec `assert`.
+**Couverture :** types et conversions, conditions, boucles, listes, dictionnaires, sets, fonctions avec paramètres et retours, mutation et partage des objets.
 
-**Prérequis :** tu sais lancer un script, utiliser des variables, des conditions et des boucles ; tu as pratiqué les dictionnaires et les premières fonctions.
+**Prérequis :** tu sais lancer un script et utiliser des variables, des conditions et des boucles ; tu as pratiqué les collections, les fonctions et la mutation d’un dictionnaire.
 
 **Durée indicative :** environ 6 heures, selon ton rythme et les extensions choisies.
 
@@ -54,14 +54,14 @@ catalogue_source.txt         Les 16 fiches produits de référence
 catalogue.py                 Les données Python à corriger et compléter
 fonctions.py                 Les quatre fonctions à compléter
 tests_catalogue.py           Les vérifications fournies et leur lancement
-tests_perso.py               Tes propres tests
+tests_perso.py               Tes propres tests, en bonus
 app.py                       L’interface Streamlit
 apercu_terminal.py           L’aperçu utilisable sans Streamlit
 images/                      Les visuels des produits
 requirements.txt             Les dépendances du projet
 ```
 
-Le catalogue comprend **8 équipements et 8 références de munitions ou recharges**. Tu modifies `catalogue.py`, `fonctions.py` et `tests_perso.py`. Lis les autres fichiers autant que tu veux : ils montrent comment tes fonctions sont utilisées.
+Le catalogue comprend **8 équipements et 8 références de munitions ou recharges**. Tu modifies `catalogue.py` et `fonctions.py`, puis `tests_perso.py` si tu choisis le bonus tests. Lis les autres fichiers autant que tu veux : ils montrent comment tes fonctions sont utilisées.
 
 ## Ouvre ton environnement
 
@@ -132,7 +132,7 @@ Utilise `None` pour une caractéristique non applicable et une liste vide pour l
 python tests_catalogue.py donnees
 ```
 
-Chaque test vérifie une règle. En cas d’échec, le message indique le produit concerné et la ligne de l’assertion : ouvre `tests_catalogue.py` à cette ligne, lis la règle vérifiée, compare la valeur obtenue avec la fiche source, corrige, puis relance le groupe.
+Chaque vérification affiche `OK`, `ÉCHEC`, `ERREUR` ou `À COMPLÉTER`. En cas d’échec, utilise le produit, le champ et la valeur indiqués dans le message pour comparer avec la fiche source. Corrige, puis relance le groupe. `À COMPLÉTER` désigne une fonction que tu dois encore écrire.
 
 ### Résous les problèmes signalés par la Happiness Team
 
@@ -246,11 +246,10 @@ La liste filtrée est nouvelle, mais elle contient les dictionnaires du catalogu
 
 Complète `calculer_budget(produit, quantite)` :
 
-- reçois un dictionnaire produit et une quantité entière ;
+- reçois un dictionnaire produit et une quantité entière positive ou nulle ;
 - multiplie `prix_euros` par cette quantité ;
-- retourne un nombre arrondi à deux décimales ;
-- accepte zéro pour un budget nul ;
-- lève `ValueError` avec un message explicite si la quantité est négative.
+- retourne un nombre arrondi à deux décimales avec `round(montant, 2)` ;
+- accepte zéro pour un budget nul.
 
 La quantité désigne des **conditionnements** : deux lots de quatre mini-requins représentent huit mini-requins, facturés au prix de deux lots. Trois bouteilles de 100 ml représentent 300 ml de liquide, pas trois utilisations. La capacité des réservoirs et la consommation par utilisation ne sont pas chiffrées : ne déduis pas un nombre d’utilisations.
 
@@ -260,9 +259,9 @@ Ce calcul porte sur **une seule référence**. Le budget d’un lanceur n’incl
 python tests_catalogue.py budget
 ```
 
-**Points de contrôle :** deux Rafales de Post-it à 39,50 € coûtent 79 €. Deux lots de mini-requins à 59,90 € coûtent 119,80 €. Trois bouteilles de Brume girofle-agrumes à 6,90 € coûtent 20,70 €, sans décimales parasites. Une quantité nulle donne zéro ; `-1` provoque `ValueError`.
+**Points de contrôle :** deux Rafales de Post-it à 39,50 € coûtent 79 €. Deux lots de mini-requins à 59,90 € coûtent 119,80 €. Trois bouteilles de Brume girofle-agrumes à 6,90 € coûtent 20,70 €, sans décimales parasites. Une quantité nulle donne zéro.
 
-Retourne le montant et laisse l’interface le présenter. Conserve le produit inchangé. L’interface intercepte l’exception pour afficher son message : saisis une quantité négative pour le vérifier.
+Retourne le montant et laisse l’interface le présenter. Conserve le produit inchangé.
 
 ## 4. Prépare les favoris de la Happiness Team
 
@@ -279,31 +278,45 @@ python tests_catalogue.py favoris
 
 **Points de contrôle :** active puis désactive un favori dans l’interface et observe la liste des favoris. Explique la différence entre modifier `produit["favori"]` et réaffecter le nom local `produit` à un autre dictionnaire.
 
-L’interface conserve les favoris pendant ta session. Une nouvelle session repart des valeurs du catalogue ; la sauvegarde durable est une extension.
+L’interface conserve les favoris pendant ta session. Une nouvelle session repart des valeurs du catalogue.
 
-## 5. Mets tes fonctions à l’épreuve
+## Vérifie le catalogue terminé
 
-Écris tes propres tests dans `tests_perso.py`. Chaque test est une fonction sans paramètre dont le nom commence par `test_`, la convention reprise par l’outil de test `pytest`. Inspire-toi des tests fournis dans `tests_catalogue.py` : un petit jeu de données indépendant, un appel, des `assert` avec un message utile. Écris au moins **un test personnel par fonction**.
+```sh
+python tests_catalogue.py
+```
 
-| Fonction | Cas à couvrir dans l’ensemble des tests |
+**Résultat attendu :** les vérifications des données et des quatre fonctions affichent `OK`. Dans l’interface, retrouve les références associées à un code, calcule un budget et active puis désactive un favori. Explique une de tes fonctions et vérifie-la avec une entrée différente.
+
+## Bonus : mets tes fonctions à l’épreuve
+
+Choisis un ou deux comportements à vérifier dans `tests_perso.py`. Un test est une fonction sans paramètre dont le nom commence par `test_`. L’instruction `assert condition, "message"` vérifie que la condition est vraie ; sinon, le lanceur affiche un échec et le message.
+
+Par exemple, pour vérifier un budget nul :
+
+```python
+def test_budget_nul():
+    produit = {"prix_euros": 39.5}
+    montant = calculer_budget(produit, 0)
+    assert montant == 0, f"Budget nul attendu, obtenu : {montant}"
+```
+
+Choisis ensuite un autre cas :
+
+| Fonction | Idées de vérifications |
 | --- | --- |
 | `consommables_disponibles` | Doublons entre produits ; catalogue vide. |
-| `filtrer_par_consommable` | Plusieurs catégories compatibles ; aucun résultat ; données inchangées. |
-| `calculer_budget` | Prix d’un lot ; quantité nulle ; quantité négative. |
+| `filtrer_par_consommable` | Plusieurs produits compatibles ; aucun résultat ; données inchangées. |
+| `calculer_budget` | Prix de deux lots ; arrondi. |
 | `definir_favori` | Passage à `True`, puis à `False` ; autres champs inchangés. |
 
 Pour vérifier des données inchangées ou une mutation, compare avec une valeur attendue indépendante, plutôt qu’avec un deuxième nom vers le même dictionnaire.
 
-Pour le filtre, construis aussi un petit exemple où une munition utilise un liquide et où un appareil accepte deux liquides alternatifs. Vérifie qu’un produit sans le code demandé n’est pas ajouté par association indirecte. Les résultats doivent dépendre des codes, pas des noms ni des descriptions.
-
 ```sh
 python tests_catalogue.py perso
-python tests_catalogue.py
 ```
 
-**Point de contrôle :** provoque temporairement une erreur dans une fonction, constate qu’un de tes tests la détecte, puis rétablis le comportement attendu.
-
-**Explique la portée de tes tests :** quelle différence y a-t-il entre vérifier un type, retrouver les bonnes références, recopier fidèlement une fiche et disposer de toutes les informations pour préparer une commande ? Cite une règle testée et une information que tes tests ne permettent pas de déduire.
+**Point de contrôle :** provoque temporairement une erreur dans la fonction testée, constate que ton test la détecte, puis rétablis le comportement attendu.
 
 ## Reprends à une autre étape si tu bloques
 
@@ -313,9 +326,9 @@ Choisis un point de reprise avec le formateur. Chaque branche fournit les étape
 | --- | --- | --- |
 | `main` | Catalogue à corriger, interface, signatures et tests fournis. | 1 : données. |
 | `reprise/02-filtres` | Catalogue corrigé et complet. | 2 : sets et filtres. |
-| `reprise/03-budget` | Catalogue et fonctions de sélection. | 3 : budget et exception. |
+| `reprise/03-budget` | Catalogue et fonctions de sélection. | 3 : budget. |
 | `reprise/04-favoris` | Étapes précédentes et budget. | 4 : mutation. |
-| `reprise/05-tests` | Catalogue et quatre fonctions complètes. | 5 : tests personnels. |
+| `reprise/05-tests` | Catalogue et quatre fonctions complètes. | Bonus : tests personnels. |
 
 Enregistre tes fichiers, publie ton travail en cours (voir [Publie ton travail](#publie-ton-travail)) et arrête Streamlit avec **Ctrl+C**. Pour reprendre à l’étape 2, exécute les commandes une par une :
 
@@ -364,12 +377,12 @@ Le formateur crée pour toi une branche de rendu `rendu/<ton-pseudo-github>` dan
 1. Sur ton fork, ouvre **Pull requests → New pull request**.
 2. Choisis comme **base repository** `SIMPLON-DIST-DEVIA-P1-199833/bureaublasters` et comme **base** ta branche `rendu/<ton-pseudo-github>`.
 3. Choisis comme **head repository** ton fork et comme **compare** la branche sur laquelle tu as terminé.
-4. Clique sur **Create pull request**, puis complète la description proposée : branche de départ, parties réalisées personnellement, tests ajoutés, blocage résolu ou restant. Glisse dans la description une capture de l’interface montrant une sélection compatible et un budget.
+4. Clique sur **Create pull request**, puis complète la description proposée : branche de départ, parties réalisées personnellement, vérifications effectuées, bonus réalisés et blocage résolu ou restant. Glisse dans la description une capture de l’interface montrant une sélection compatible et un budget.
 5. Transmets le lien de la pull request au formateur par Discord en MP.
 
 Tu peux encore publier des commits dans ton fork après l’ouverture : ils s’ajoutent automatiquement à la pull request jusqu’à sa clôture.
 
-Prépare une démonstration courte : un comportement réussi, un test pertinent et une modification expliquée. Si tu as utilisé une branche de reprise, distingue le code fourni de ton travail personnel.
+Prépare une démonstration courte : un comportement réussi et une modification expliquée. Si tu as utilisé une branche de reprise, distingue le code fourni de ton travail personnel. Si tu as écrit un test en bonus, montre le comportement qu’il vérifie.
 
 ## Vérifie les critères de réussite
 
@@ -377,9 +390,9 @@ Prépare une démonstration courte : un comportement réussi, un test pertinent 
 - Tes fonctions utilisent leurs paramètres, sans dépendre d’un catalogue global ni coder les réponses en dur.
 - Ton set élimine les doublons et ton filtre conserve l’ordre des produits, dans toutes les catégories et sans ajouter de correspondance indirecte.
 - Tu distingues une référence produit, un code de consommable, une alternative de recharge et une commande complète.
-- Ton budget est correct ; une quantité négative provoque l’exception attendue.
+- Ton budget est correct pour une quantité positive ou nulle, avec un montant arrondi à deux décimales.
 - Ta fonction de favoris modifie l’objet reçu ; tes autres fonctions conservent leurs entrées inchangées.
-- Tes tests contrôlent des valeurs, des limites et l’exception.
+- Tu vérifies les résultats avec les fiches source, l’interface et les vérifications fournies.
 - Tes noms rendent le code lisible et tes commentaires éclairent les choix qui en ont besoin.
 - Tu peux expliquer une fonction et adapter son comportement.
 
@@ -390,9 +403,9 @@ Après vérification du socle, choisis une extension :
 1. **Bureaux minuscules :** filtre par poids et longueur maximaux. Vérifie le cas exactement à la limite.
 2. **Comptabilité exigeante :** trie une sélection par prix sans modifier le catalogue initial.
 3. **Commande collective :** calcule un panier de plusieurs références et quantités en réutilisant le calcul existant. Puis propose les munitions ou liquides adaptés à un produit et laisse la personne choisir lesquels ajouter : ne commande pas automatiquement les deux liquides alternatifs. Teste un panier vide et un panier associant un équipement, un lot de munitions et un liquide. Ne calcule pas les quantités de liquide nécessaires sans capacité de réservoir ni consommation documentées.
-4. **Favoris durables :** découvre le format JSON, puis ajoute chargement et sauvegarde. Réutilise les fonctions de sélection et traite un fichier absent ou un JSON invalide.
+4. **Quantité invalide, bonus exceptions :** fais évoluer `calculer_budget` pour lever `ValueError` avec un message indiquant la quantité reçue si elle est négative. Une exception signale que l’appel ne peut pas produire le résultat demandé ; `raise ValueError("message")` permet de la déclencher. Vérifie ce bonus avec `python tests_catalogue.py exceptions`. Les quantités positives ou nulles gardent le même comportement.
 5. **Service qualité :** ajoute des tests qui détectent plusieurs erreurs plausibles et démontre leur utilité. Distingue validation des types, cohérence des codes et fidélité aux fiches. Garde un exemple de valeur incorrecte qui passe un test de type, puis ajoute une vérification adaptée.
-6. **Références lisibles :** affiche les noms et identifiants des produits associés à un code en les retrouvant dans le catalogue, sans recopier ces noms dans une table de correspondance. Distingue cet affichage d’une recommandation d’achat. Pour automatiser ensuite une commande, propose des champs séparant ce qu’un produit fournit de ce qu’il utilise et représentant les alternatives, puis justifie ce modèle avant de coder.
+6. **Références lisibles :** affiche les noms et identifiants des produits associés à un code en les retrouvant dans le catalogue, sans recopier ces noms dans une table de correspondance. Distingue cet affichage d’une recommandation d’achat.
 
 ## Consulte les ressources utiles
 
