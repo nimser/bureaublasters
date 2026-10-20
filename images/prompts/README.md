@@ -43,7 +43,7 @@ Quatre personnes reviennent dans le catalogue, chacune ancrée sur une photo val
 | Camille : trentaine, cheveux bruns bouclés en chignon lâche, pull bleu marine | Requin Arêtes | BB-04, BB-02, RE-07, RE-08 |
 | Hélène : cinquantaine, cheveux argentés très courts, lunettes fines, chemise bleu marine | Gantelets du Sprint | BB-03, RE-03, BB-08, RE-06 |
 | Inès : métisse, cheveux bouclés aux épaules, t-shirt rayé et salopette en jean | Sulfateuse à Relances | BB-01, BB-06, RE-01 |
-| Ravi : soixantaine, d’origine indienne, cheveux et moustache blancs, lunettes, cardigan beige | Catapulte à Croissants | BB-07, BB-05, RE-04, RE-05 |
+| Ravi : soixantaine, d’origine indienne, cheveux mi-longs et moustache blancs, sans lunettes, cardigan beige | Catapulte à Croissants | BB-07, BB-05, RE-04, RE-05 |
 
 Les Mini-requins fumigènes (RE-02) montrent un autre collègue. Une personne non nommée dans un prompt reprend sinon le visage de la référence de style.
 
