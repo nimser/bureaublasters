@@ -6,15 +6,15 @@ Ces opérations sont réservées à l’équipe pédagogique. Elles ne font pas 
 
 Le socle réinvestit les acquis de semaine 1 et du lundi/mardi de semaine 2 : données, collections, fonctions, budget et mutation des favoris. Les tests personnels et les exceptions sont des bonus indépendants. Traceback et JSON relèvent de la séance du jeudi.
 
-`correction` contient les données et les quatre fonctions corrigées, ainsi que des exemples de tests personnels facultatifs. `main` et les branches `reprise/*` conservent les mêmes consignes, fiches source, tests fournis, interface et visuels. Leur catalogue Python et leurs fonctions reflètent l’étape à pratiquer.
+`correction` contient les données et les quatre fonctions corrigées, ainsi que des exemples de tests personnels facultatifs. `main` et les branches `etape/*` conservent les mêmes consignes, fiches source, tests fournis, interface et visuels. Leur catalogue Python et leurs fonctions reflètent l’étape à pratiquer.
 
 | Branche | Catalogue Python | Fonctions à compléter | Tests personnels |
 | --- | --- | --- | --- |
 | `main` | Trois fiches absentes et cinq erreurs intentionnelles. | Les quatre. | À écrire. |
-| `reprise/02-filtres` | Complet et corrigé. | Les quatre. | À écrire. |
-| `reprise/03-budget` | Complet et corrigé. | Budget et favoris. | À écrire. |
-| `reprise/04-favoris` | Complet et corrigé. | Favoris. | À écrire. |
-| `reprise/05-tests` | Complet et corrigé. | Aucune. | Bonus à écrire. |
+| `etape/02-filtres` | Complet et corrigé. | Les quatre. | À écrire. |
+| `etape/03-budget` | Complet et corrigé. | Budget et favoris. | À écrire. |
+| `etape/04-favoris` | Complet et corrigé. | Favoris. | À écrire. |
+| `etape/05-tests` | Complet et corrigé. | Aucune. | Bonus à écrire. |
 | `correction` | Complet et corrigé. | Aucune. | Exemples fournis. |
 
 Ne pas fusionner `correction` dans les branches pédagogiques : cela distribuerait les réponses. Ne pas remplacer leurs fichiers `fonctions.py` ou `tests_perso.py` par ceux du corrigé.
@@ -22,7 +22,7 @@ Ne pas fusionner `correction` dans les branches pédagogiques : cela distribuera
 ## Mettre à jour une spécification
 
 1. Modifier les fiches, le catalogue corrigé, les consignes, l’interface et les tests concernés sur `correction`. Distinguer les tests de comportement sur de petits catalogues indépendants et les tests de transcription des fiches. Ne pas utiliser les descriptions commerciales pour calculer les compatibilités.
-2. Reporter les fichiers communs sur `main` et toutes les reprises. Les catalogues des reprises sont identiques au corrigé. Dans `main`, actualiser seulement les informations de référence sans résoudre les fiches manquantes et les erreurs intentionnelles. Préserver les fonctions et les tests personnels de chaque étape.
+2. Reporter tous les fichiers suivis communs sur `main` et les branches `etape/*`, y compris les outils de maintenance, les dépendances et les médias. Seuls `catalogue.py`, `fonctions.py` et `tests_perso.py` varient selon l’étape. Les catalogues des reprises sont identiques au corrigé. Dans `main`, actualiser seulement les informations de référence sans résoudre les fiches manquantes et les erreurs intentionnelles. Préserver les fonctions et les tests personnels de chaque étape.
 3. Synchroniser aussi les images et leurs prompts, sans confondre les références de génération d’images avec les dépendances des produits vendus. Le répertoire `images/tools/` est un outil de maintenance indépendant, pas un prérequis de l’atelier.
 4. Vérifier les tests sur chaque branche avant de créer ses commits. Les échecs de données de `main` et les `NotImplementedError` des fonctions à écrire sont attendus ; les autres groupes déjà fournis doivent passer.
 5. Une fois les commits préparés sur les six branches, vérifier les références locales avec la commande ci-dessous, puis publier toutes les branches. Ne pas annoncer une mise à jour terminée si une publication est bloquée.
