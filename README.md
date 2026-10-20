@@ -22,7 +22,7 @@ Tu récupères le prototype avant la première commande. À toi de rendre le cat
 
 ### La gamme BureauBlasters
 
-- **Rafale de Post-it** : blaster compact à fléchettes en mousse, chargeur de 12 fléchettes, LED orange et bruit de tampon administratif à chaque tir.
+- **Sulfateuse à Relances** : sulfateuse compacte à fléchettes en mousse, barillet rotatif à six canons, chargeur de 12 fléchettes, LED orange et crépitement de notifications de relance à chaque tir.
 - **Requin Arêtes** : le modèle phare. Un lance-requins de 1,18 m à porter à deux mains, gueule dentée, yeux lumineux et graffitis roses et bleus. Il propulse à l’air comprimé les **Mini-requins fumigènes (RE-02)**, qui zigzaguent en diffusant une brume ultrasonique par plusieurs trous, éclairée en rose et bleu par des LED voisines, dans un éclat de rire enregistré. Les liquides **RE-07 ou RE-08** remplissent les mini-requins, jamais le lanceur ; la senteur dépend du liquide choisi.
 - **Gantelets du Sprint** : paire de gantelets lance-disques, LED violettes et jingle de montée de niveau.
 - **Fumigène à ultrason** : grenade-jouet de poche de **4 × 4 × 6 cm**, à enveloppe en **silicone mat amortissant** ; trois exemplaires tiennent dans une main. Étanche, indice **IP68**, elle diffuse pendant 20 secondes une brume d’eau produite par ultrasons à travers plusieurs trous, avec des LED roses à proximité de chaque sortie. Son petit réservoir intégré se recharge par un **clapet à charnière souple**, appareil éteint, en y versant un liquide à base d’eau : **Brume neutre (RE-07)** sans parfum ou **Brume girofle-agrumes (RE-08)** parfumé. Ces liquides sont vendus séparément en petites bouteilles de **100 ml**, pour plusieurs remplissages.
@@ -274,7 +274,7 @@ Ce calcul porte sur **une seule référence**. Le budget d’un lanceur n’incl
 python tests_catalogue.py budget
 ```
 
-**Points de contrôle :** deux Rafales de Post-it à 39,50 € coûtent 79 €. Deux lots de mini-requins à 59,90 € coûtent 119,80 €. Trois bouteilles de Brume girofle-agrumes à 6,90 € coûtent 20,70 €, sans décimales parasites. Une quantité nulle donne zéro.
+**Points de contrôle :** deux Sulfateuses à Relances à 39,50 € coûtent 79 €. Deux lots de mini-requins à 59,90 € coûtent 119,80 €. Trois bouteilles de Brume girofle-agrumes à 6,90 € coûtent 20,70 €, sans décimales parasites. Une quantité nulle donne zéro.
 
 Retourne le montant et laisse l’interface le présenter. Conserve le produit inchangé.
 
