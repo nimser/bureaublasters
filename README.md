@@ -61,7 +61,7 @@ images/                      Les visuels des produits
 requirements.txt             Les dépendances du projet
 ```
 
-Le catalogue comprend **8 équipements et 8 références de munitions ou recharges**. Tu modifies `catalogue.py` et `fonctions.py`, puis `tests_perso.py` si tu choisis le bonus tests. Lis les autres fichiers autant que tu veux : ils montrent comment tes fonctions sont utilisées.
+Le catalogue comprend **8 équipements et 8 références de munitions ou recharges**. Tu modifies `catalogue.py` et `fonctions.py`, puis `tests_perso.py` si tu choisis le bonus tests. Les commentaires `Étape` repèrent les parties du code ; `À compléter` indique les fiches à insérer et les corps de fonctions à écrire selon ta branche. Le commentaire `Bonus` indique où ajouter tes tests. Lis les autres fichiers autant que tu veux : ils montrent comment tes fonctions sont utilisées.
 
 ## Ouvre ton environnement
 
@@ -106,7 +106,8 @@ python -m streamlit run app.py
 | `description` | `str` | Description commerciale. |
 | `prix_euros` | `int` ou `float` | Prix du conditionnement vendu. |
 | `conditionnement` | `str` | Par exemple : `1 blaster`, `lot de 4 mini-requins`, `1 bouteille de 100 ml`. |
-| `consommables` | `list[str]` | Codes des munitions ou liquides utilisés ou fournis par ce produit, quelle que soit sa catégorie. |
+| `consommables_utilises` | `list[str]` | Codes des munitions ou liquides que ce produit utilise ; `[]` s’il n’en utilise aucun. |
+| `consommables_fournis` | `list[str]` | Codes des munitions ou liquides que cette référence fournit à d’autres produits ; `[]` si elle n’en fournit aucun. |
 | `portee_m` | `int` ou `None` | Portée ; `None` si elle ne s’applique pas. |
 | `cadence_tirs_min` | `int` ou `None` | Cadence ; `None` si elle ne s’applique pas. |
 | `poids_g` | `int` | Poids du conditionnement vendu. |
@@ -118,13 +119,21 @@ python -m streamlit run app.py
 
 Un **identifiant produit**, comme `RE-07`, désigne une référence vendue. Un **code de consommable**, comme `brume-neutre`, regroupe les produits associés au même liquide ou à la même munition. Le nom commercial et la description servent à la lecture ; tes fonctions sélectionnent les produits à partir des codes, sans analyser ces textes.
 
-Une munition peut elle-même utiliser une recharge : les Mini-requins fumigènes sont fournis sous le code `requin-mousse` et utilisent les liquides `brume-neutre` ou `brume-girofle-agrumes`. Leur liste contient donc trois codes. Leur catégorie reste `munition`.
+Une munition peut elle-même utiliser une recharge. Les deux listes distinguent ce qu’un produit utilise de ce qu’il fournit :
+
+| Produit | `consommables_utilises` | `consommables_fournis` |
+| --- | --- | --- |
+| Requin Arêtes (BB-02) | `["requin-mousse"]` | `[]` |
+| Mini-requins fumigènes (RE-02) | `["brume-neutre", "brume-girofle-agrumes"]` | `["requin-mousse"]` |
+| Brume neutre (RE-07) | `[]` | `["brume-neutre"]` |
+
+Les mini-requins utilisent l’un des deux liquides, pas d’autres mini-requins. Leur catégorie reste `munition`. Un code dans `consommables_fournis` décrit la munition ou le liquide vendu sous cette référence, pas un cadeau inclus avec un équipement.
 
 ### Complète les fiches manquantes
 
 Ajoute **BB-02 Requin Arêtes**, **BB-04 Fumigène à ultrason** et **RE-08 Brume girofle-agrumes** à partir de leurs fiches. Conserve l’ordre des références : équipements BB-01 à BB-08, puis munitions et recharges RE-01 à RE-08.
 
-Utilise `None` pour une caractéristique non applicable et une liste vide pour l’absence d’effets.
+Utilise `None` pour une caractéristique non applicable et une liste vide pour l’absence d’effets ou de consommables utilisés ou fournis.
 
 ### Lance les vérifications des données
 
@@ -164,7 +173,7 @@ Le code de consommable relie un équipement à ses munitions. Python compare les
 <details>
 <summary>Indice 2</summary>
 
-Affiche les codes du lanceur et du lot de mini-requins avec `print(repr(...))` et compare leurs séparateurs.
+Affiche `consommables_utilises` du lanceur et `consommables_fournis` du lot de mini-requins avec `print(repr(...))` et compare leurs séparateurs.
 
 </details>
 
@@ -201,10 +210,10 @@ Complète deux fonctions de `fonctions.py` :
 
 | Fonction | Résultat attendu |
 | --- | --- |
-| `consommables_disponibles(catalogue)` | Un `set` des codes de consommables présents, sans doublons. |
-| `filtrer_par_consommable(catalogue, code)` | Une nouvelle liste de tous les produits contenant ce code dans `consommables`, dans l’ordre du catalogue. |
+| `consommables_disponibles(catalogue)` | Un `set` des codes présents dans `consommables_utilises` ou `consommables_fournis`, sans doublons. |
+| `filtrer_par_consommable(catalogue, code)` | Une nouvelle liste de tous les produits qui utilisent ou fournissent ce code, dans l’ordre du catalogue. |
 
-Parcours les produits et leurs listes de codes. Conserve les données reçues inchangées et retourne une collection vide si rien ne correspond.
+Parcours les produits et leurs deux listes de codes. Un produit ne doit apparaître qu’une fois, même si le code figure dans les deux listes. Conserve les données reçues inchangées et retourne une collection vide si rien ne correspond.
 
 ### Prédis une sélection, puis vérifie-la
 
@@ -216,7 +225,7 @@ Avant de coder, relève dans les fiches les identifiants que doit retourner chaq
 | `flechette-mousse` | Deux lanceurs partagent les mêmes fléchettes. |
 | `brume-girofle-agrumes` | Un accessoire et une munition utilisent le même liquide vendu en recharge. |
 
-Le filtre porte sur **toutes les catégories** et examine seulement la présence du code demandé. Il ne suit pas les liens de proche en proche : le Requin Arêtes utilise les mini-requins, mais ne reçoit pas de liquide. Il ne doit donc pas apparaître dans la sélection `brume-girofle-agrumes`.
+Le filtre porte sur **toutes les catégories** et examine seulement la présence du code demandé dans l’une des deux listes. Il ne suit pas les liens de proche en proche : le Requin Arêtes utilise les mini-requins, mais ne reçoit pas de liquide. Il ne doit donc pas apparaître dans la sélection `brume-girofle-agrumes`.
 
 <details>
 <summary>Vérifie tes prévisions après avoir cherché</summary>
@@ -230,7 +239,7 @@ Le filtre porte sur **toutes les catégories** et examine seulement la présence
 
 ### Compatibilité et commande complète ne sont pas synonymes
 
-Le filtre regroupe les produits associés à un code ; il ne dit pas lesquels acheter ensemble. Deux lanceurs partageant les mêmes fléchettes ne s’utilisent pas l’un dans l’autre. RE-07 et RE-08 sont deux liquides **alternatifs**, pas deux achats obligatoires. Les codes ne précisent pas si un produit fournit une munition ou consomme un liquide ; les descriptions expliquent ces rôles.
+Le filtre regroupe les produits associés à un code ; il ne dit pas lesquels acheter ensemble. Deux lanceurs partageant les mêmes fléchettes ne s’utilisent pas l’un dans l’autre. RE-07 et RE-08 sont deux liquides **alternatifs**, pas deux achats obligatoires. Les deux champs précisent qui utilise ou fournit chaque consommable, mais ne disent pas si plusieurs codes utilisés sont des alternatives ou des besoins cumulés ; les descriptions précisent ce choix.
 
 Le filtre ne remplit pas un panier et n’ajoute aucune recharge au budget. Dans le socle de l’atelier, tu retrouves les produits ; la préparation d’une commande complète est une extension.
 
@@ -389,7 +398,7 @@ Prépare une démonstration courte : un comportement réussi et une modification
 - Tes données respectent la source, les types, les unités et le conditionnement vendu.
 - Tes fonctions utilisent leurs paramètres, sans dépendre d’un catalogue global ni coder les réponses en dur.
 - Ton set élimine les doublons et ton filtre conserve l’ordre des produits, dans toutes les catégories et sans ajouter de correspondance indirecte.
-- Tu distingues une référence produit, un code de consommable, une alternative de recharge et une commande complète.
+- Tu distingues une référence produit, un consommable utilisé ou fourni, une alternative de recharge et une commande complète.
 - Ton budget est correct pour une quantité positive ou nulle, avec un montant arrondi à deux décimales.
 - Ta fonction de favoris modifie l’objet reçu ; tes autres fonctions conservent leurs entrées inchangées.
 - Tu vérifies les résultats avec les fiches source, l’interface et les vérifications fournies.
