@@ -61,7 +61,7 @@ images/                      Les visuels des produits
 requirements.txt             Les dépendances du projet
 ```
 
-Le catalogue comprend **8 équipements et 8 références de munitions ou recharges**. Tu modifies `catalogue.py` et `fonctions.py`, puis `tests_perso.py` si tu choisis le bonus tests. Lis les autres fichiers autant que tu veux : ils montrent comment tes fonctions sont utilisées.
+Le catalogue comprend **8 équipements et 8 références de munitions ou recharges**. Tu modifies `catalogue.py` et `fonctions.py`, puis `tests_perso.py` si tu choisis le bonus tests. Le bonus sonore te fait aussi modifier `app.py` et utiliser les extraits audio de `sounds/`. Lis les autres fichiers autant que tu veux : ils montrent comment tes fonctions sont utilisées.
 
 ## Ouvre ton environnement
 
@@ -318,6 +318,60 @@ python tests_catalogue.py perso
 
 **Point de contrôle :** provoque temporairement une erreur dans la fonction testée, constate que ton test la détecte, puis rétablis le comportement attendu.
 
+## Bonus : écoute les effets sonores
+
+La Happiness Team souhaite écouter les effets sonores avant de choisir ses équipements.
+
+**Objectif :** associer un extrait audio à un produit et proposer sa lecture dans sa carte du catalogue.
+
+**Prérequis :** ton catalogue est complet et les vérifications du socle passent. Tu sais lire une valeur dans un dictionnaire et utiliser une condition.
+
+**Durée indicative :** 30 à 45 minutes.
+
+### Associe les extraits aux produits
+
+1. Parcours les fichiers audio de `sounds/` et les effets décrits dans `catalogue_source.txt`. Identifie les produits qui émettent un son.
+2. Dans `catalogue.py`, ajoute une clé `son` à chacun des 16 dictionnaires. Sa valeur est le chemin de l’extrait depuis la racine du projet, sous la forme `"sounds/nom-du-fichier.mp3"`, ou `None` pour un produit silencieux. Reprends le nom et l’extension du fichier choisi.
+3. Associe le même extrait de coin-coin au **Coin-Coin de Crise** et aux **Canards de soutien**. Distingue le rire du **Requin Arêtes** du sifflement des **Mini-requins fumigènes**.
+
+<details>
+<summary>Indice : chemin ou absence de son ?</summary>
+
+Le champ `image` montre comment conserver un chemin dans un dictionnaire. Pour un produit silencieux, utilise la valeur Python `None`, comme pour une portée non applicable. La liste `effets` reste la description des effets du produit.
+
+</details>
+
+### Ajoute le lecteur à la carte produit
+
+Dans `app.py`, repère la fonction `afficher_produit`, puis ajoute le lecteur sous la description :
+
+1. Lis la valeur du champ `son` du produit reçu par la fonction.
+2. Si elle contient un chemin, construis le chemin complet à partir de `DOSSIER`, comme pour l’image.
+3. Vérifie que le fichier existe avec `.is_file()`. S’il existe, affiche le lecteur avec `st.audio`. Sinon, affiche « Extrait sonore indisponible. » dans la carte avec `st.caption`.
+4. Indique le format adapté au fichier : `format="audio/mpeg"` pour un MP3 ou `format="audio/wav"` pour un WAV. Utilise `autoplay=False` et `loop=False` pour laisser la personne lancer chaque écoute.
+5. Pour une valeur `None`, conserve la carte sans lecteur sonore.
+
+Consulte [la documentation de `st.audio`](https://docs.streamlit.io/develop/api-reference/media/st.audio), notamment les paramètres `data`, `format`, `autoplay` et `loop`, ainsi que l’exemple de lecture d’un fichier local.
+
+<details>
+<summary>Indice : dans quel ordre vérifier ?</summary>
+
+Vérifie d’abord si le produit possède un chemin sonore, puis construis le chemin complet et teste son existence. Le code de l’image montre l’utilisation de `DOSSIER` et de `.is_file()` ; `st.audio` remplace ensuite l’affichage de l’image par celui d’un lecteur.
+
+</details>
+
+### Vérifie l’écoute et le reste du catalogue
+
+Lance l’application avec `python -m streamlit run app.py`. Après avoir ajouté le champ `son`, recharge la page du navigateur pour ouvrir une nouvelle session et charger la nouvelle structure du catalogue.
+
+- Lance puis mets en pause le son de deux équipements. Vérifie que chaque extrait correspond à l’effet décrit dans sa fiche et que les lecteurs restent à l’arrêt à l’ouverture du catalogue.
+- Écoute le rire du Requin Arêtes, puis le sifflement des Mini-requins fumigènes. Vérifie aussi le coin-coin commun au canon et aux canards.
+- Consulte les **Fléchettes de rappel** et les deux recharges liquides : leurs cartes s’affichent sans lecteur sonore.
+- Remplace temporairement un chemin sonore par un nom de fichier inexistant. Vérifie que la carte affiche « Extrait sonore indisponible. » et que le catalogue reste utilisable, puis rétablis le bon chemin.
+- Filtre par `requin-mousse`, calcule un budget et active puis désactive un favori. Relance `python tests_catalogue.py` pour vérifier le socle.
+
+**Résultat attendu :** les huit équipements et les deux munitions sonores disposent d’un extrait jouable à la demande. Les six autres références restent sans lecteur. Présente un produit sonore et un produit silencieux, puis explique le rôle de la condition et de `None` dans ton code.
+
 ## Reprends à une autre étape si tu bloques
 
 Choisis un point de reprise avec le formateur. Chaque branche fournit les étapes précédentes terminées. Toutes les branches utilisent les mêmes fiches de référence et les mêmes consignes ; seules les erreurs à corriger, les fonctions à compléter et les tests personnels fournis diffèrent.
@@ -417,3 +471,4 @@ Après vérification du socle, choisis une extension :
 - [GitHub : créer une pull request depuis un fork](https://docs.github.com/fr/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork).
 - [Git : sauvegardes avec `stash`](https://git-scm.com/docs/git-stash).
 - [Streamlit : lancement](https://docs.streamlit.io/develop/concepts/architecture/run-your-app).
+- [Streamlit : lecteur audio](https://docs.streamlit.io/develop/api-reference/media/st.audio).
