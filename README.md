@@ -37,7 +37,7 @@ BureauBlasters vend aussi les **munitions de remplacement** et les **bouteilles 
 
 La Happiness Team doit pouvoir consulter les produits, retrouver les équipements et recharges compatibles, estimer une commande et conserver ses favoris pendant sa session.
 
-Tu travailles sur les données et les fonctions. L’interface Streamlit prend en charge l’affichage et l’état de la session. Vérifie tes résultats dans l’interface, avec l’aperçu terminal ou avec les vérifications fournies.
+Tu travailles sur les données et les quatre fonctions du catalogue. L’interface Streamlit affiche les fiches produits, propose les filtres de compatibilité, présente le budget et conserve les favoris pendant la session. Vérifie ces quatre usages dans l’interface, avec l’aperçu terminal ou avec les vérifications fournies.
 
 **Couverture :** types et conversions, conditions, boucles, listes, dictionnaires, sets, fonctions avec paramètres et retours, mutation et partage des objets.
 
