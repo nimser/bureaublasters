@@ -49,7 +49,7 @@ def afficher_produit(produit, cle):
         with st.expander("Caractéristiques"):
             dimensions = produit["dimensions_cm"]
             st.markdown(
-                f"- Consommables : {', '.join(produit['consommables'])}\n"
+                f"- Codes de consommables : {', '.join(produit['consommables'])}\n"
                 f"- Portée : {format_mesure(produit['portee_m'], 'm')}\n"
                 f"- Cadence : {format_mesure(produit['cadence_tirs_min'], 'tirs/minute')}\n"
                 f"- Poids : {produit['poids_g']} g\n"
@@ -83,7 +83,7 @@ with st.sidebar:
     except NotImplementedError as erreur:
         codes = []
         st.info(f"À compléter : {erreur}")
-    code_choisi = st.selectbox("Afficher les produits compatibles avec", [TOUS] + codes)
+    code_choisi = st.selectbox("Afficher les produits associés au code", [TOUS] + codes)
 
     st.header("Favoris")
     if "favori_a_completer" in st.session_state:
@@ -99,6 +99,7 @@ if code_choisi != TOUS:
         st.info(f"À compléter : {erreur}")
 
 st.header("Budget")
+st.caption("Une seule référence : les munitions et liquides vendus séparément ne sont pas ajoutés au calcul.")
 colonne_produit, colonne_quantite = st.columns([3, 1])
 with colonne_produit:
     index_produit = st.selectbox(
@@ -118,7 +119,7 @@ if st.button("Calculer le budget") and index_produit is not None:
     else:
         st.success(f"Budget : {format_euros(montant)}")
 
-st.header("Catalogue" if code_choisi == TOUS else f"Compatibles avec {code_choisi}")
+st.header("Catalogue" if code_choisi == TOUS else f"Produits associés à {code_choisi}")
 if not selection:
     st.write("Aucun produit.")
 positions = {id(produit): index for index, produit in enumerate(catalogue)}
