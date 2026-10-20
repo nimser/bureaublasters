@@ -42,6 +42,8 @@ Le Fumigène à ultrason est une grenade-jouet rose de poche : corps ovoïde d�
 
 Les recharges RE-07 et RE-08 sont **des petites bouteilles de liquide de 100 ml à verser dans le petit réservoir intégré**, pas des cartouches à insérer. Les 100 ml désignent la bouteille, qui permet plusieurs remplissages, pas la capacité du fumigène. La neutre est sans parfum ; la girofle-agrumes est parfumée. La bouteille n’émet aucune brume. La photo de recharge montre le fumigène éteint, son clapet relevé et toujours attaché : un mince filet franchit le rebord et disparaît au centre de l’orifice ouvert, sans couler sur la coque. Distinguer clairement la bouteille vendue du dispositif de démonstration, plus petit qu’elle.
 
+Les mêmes liquides RE-07 ou RE-08 remplissent les Mini-requins fumigènes RE-02, appareil éteint, par leur petit bouchon de réservoir. La brume est sans parfum avec RE-07 ou parfumée girofle-agrumes avec RE-08. Le liquide ne se verse jamais dans le Requin Arêtes BB-02. Les photos de RE-07 et RE-08 montrent seulement le remplissage du fumigène ; ne pas ajouter de mini-requin ni de bouteille supplémentaire pour illustrer les autres compatibilités.
+
 ## Références de génération et continuité
 
 Chaque prompt produit contient le même bloc de prise de vue pour rester utilisable seul. Le lire avec cette charte ; le texte d’un chemin de fichier ne remplace jamais une image jointe.
