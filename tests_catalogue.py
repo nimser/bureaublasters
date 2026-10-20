@@ -127,15 +127,19 @@ def test_donnees_compatibilites():
 def test_donnees_brume():
     brumes = [produit for produit in CATALOGUE if produit["id"] == "BB-04"]
     assert brumes, "BB-04 est absent du catalogue"
-    assert brumes[0]["nom"] == "Fumigène à ultrason"
+    assert brumes[0]["nom"] == "Fumigène à ultrason", f"BB-04 : nom obtenu {brumes[0]['nom']!r}"
     assert brumes[0]["indice_protection"] == "IP68", f"BB-04 : indice_protection vaut {brumes[0]['indice_protection']!r}"
-    assert brumes[0]["dimensions_cm"] == {"longueur": 4, "largeur": 4, "hauteur": 6}
+    assert brumes[0]["dimensions_cm"] == {"longueur": 4, "largeur": 4, "hauteur": 6}, (
+        f"BB-04 : dimensions obtenues {brumes[0]['dimensions_cm']}"
+    )
 
 
 def test_donnees_mini_requins_rechargeables():
     produits = {produit["id"]: produit for produit in CATALOGUE}
-    assert produits["RE-02"]["categorie"] == "munition"
-    assert produits["RE-02"]["consommables"] == ["requin-mousse", "brume-neutre", "brume-girofle-agrumes"]
+    assert produits["RE-02"]["categorie"] == "munition", "RE-02 : catégorie munition attendue"
+    assert produits["RE-02"]["consommables"] == ["requin-mousse", "brume-neutre", "brume-girofle-agrumes"], (
+        f"RE-02 : codes obtenus {produits['RE-02']['consommables']}"
+    )
     assert produits["BB-02"]["consommables"] == ["requin-mousse"], "Le lanceur ne reçoit pas de liquide"
 
 
