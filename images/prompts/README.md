@@ -30,7 +30,7 @@ Des démonstrations de jouets haut de gamme par des collègues adultes photoréa
 
 ## Distance avec les accessoires d’Arcane
 
-Retenir l’énergie des graphismes de Jinx et les volumes mécaniques des gantelets de Vi, sans transférer leurs formes identifiables. Le Requin Arêtes reçoit une gueule courte et large, un corps ventru à panneaux décalés et deux poignées inférieures ; les Gantelets du Sprint sont des manchettes lance-disques ouvertes, sans gros poing fermé ni joyau central. Les motifs sont inventés pour BureauBlasters, pas recopiés ou décalqués.
+Retenir l’énergie des graphismes de Jinx et les volumes mécaniques des gantelets de Vi, sans transférer leurs formes identifiables. Le Requin Arêtes reçoit une gueule courte et large, un corps ventru à panneaux décalés et deux poignées inférieures ; les Gantelets du Sprint reprennent des gantelets de Vi les gros poings fermés, les pistons latéraux et les jointures massives, mais en ABS violet et bleu pétrole avec jointures en mousse, une fente lance-disques sur le dos du poing, sans laiton, cristal, joyau central ni ornement Hextech. Les motifs sont inventés pour BureauBlasters, pas recopiés ou décalqués.
 
 Ne pas demander « une réplique de Fishbones », « les gantelets de Vi » ou une reproduction d’un photogramme. Ne pas transférer de personnage, de tatouage, d’emblème, de rune Hextech, de silhouette exacte ou de disposition d’ornements. Une simple recoloration ne suffit pas à créer un objet distinct. Ces consignes de conception ne constituent pas une validation juridique.
 
