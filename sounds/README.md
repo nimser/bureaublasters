@@ -10,7 +10,7 @@ Un LLM de texte peut aider à rédiger un prompt, mais ne produit pas lui-même 
 - **Enregistrement, banque de sons ou synthèse déterministe** : préférables pour un bruit réel précis, une mélodie ou un nombre de notes strict, ou une synchronisation exacte. Importer le fichier obtenu avec sa licence. Un prompt ne garantit pas que le jingle du fumigène contiendra exactement trois notes.
 - **Approche hybride** : générer les textures originales et importer les signaux précis, puis préparer, contrôler et publier tous les fichiers avec le même outil.
 
-La recette initiale propose neuf effets audio génératifs, **pas neuf sons déjà validés**. `coin-coin` est partagé par BB-05 et RE-04 : le son vient de la puce du canard. Les produits sans effet sonore déclaré n’ont pas de fichier. Le jingle du fumigène n’est pas une bande-son de vingt secondes ; les ultrasons ne sont pas artificiellement rendus audibles.
+Les neuf effets configurés sont synthétisés localement par `sounds/tools/synth.ts` (voir `sounds/sources/synthese.md`) : aucun appel payant ni droit fournisseur n’intervient. Leurs prompts restent la description de référence de chaque son. `coin-coin` est partagé par BB-05 et RE-04 : le son vient de la puce du canard. Les produits sans effet sonore déclaré n’ont pas de fichier. Le jingle du fumigène n’est pas une bande-son de vingt secondes ; les ultrasons ne sont pas artificiellement rendus audibles.
 
 ## Installation et aperçu sans appel payant
 
@@ -31,7 +31,7 @@ Provisionner FFmpeg avec l’outillage partagé mise/Nix de la machine. Les test
 - `sounds/prompts/<effet>.md` : intention, timbre, déroulement et exclusions propres à l’effet. Tout le fichier est envoyé comme prompt, avec le style et la durée.
 - `sounds/tools/effects.json` : nom stable de l’effet, identifiants des produits associés, durée demandée entre 0,5 et 30 secondes, boucle, influence du prompt et source.
 
-Pour faire évoluer le Requin Arêtes, modifier `sounds/prompts/rire-requin.md`, puis régénérer `rire-requin`. Une modification du prompt invalide son ancienne validation, pas celles des autres effets. Une modification du style commun invalide toute la série. L’outil ne modifie pas les fiches commerciales : conserver les prompts et `catalogue_source.txt` cohérents.
+Pour un effet synthétisé, modifier sa recette dans `sounds/tools/synth.ts`, reconstruire les sources, puis régénérer l’effet ; modifier seulement son prompt n’en change pas le son. Pour un effet génératif, modifier par exemple `sounds/prompts/rire-requin.md`, puis régénérer `rire-requin`. Une modification du prompt invalide son ancienne validation, pas celles des autres effets. Une modification du style commun invalide toute la série. L’outil ne modifie pas les fiches commerciales : conserver les prompts et `catalogue_source.txt` cohérents.
 
 Pour un nouveau produit, ajouter une entrée à `effects.json` et le fichier de prompt portant le même nom. Aucun changement du script n’est nécessaire. Pour partager un bruitage, ajouter plusieurs identifiants dans `products`. Un produit peut aussi être associé à plusieurs effets : leur mixage ou leur séquençage reste à définir dans l’application utilisatrice.
 
@@ -47,7 +47,7 @@ bun run sounds/tools/generate.ts --generate all
 
 **Chaque effet manquant ou modifié peut entraîner un appel facturé.** Commencer par un seul effet. Aucun appel n’a lieu pour les sorties à jour ; aucun appel n’est relancé automatiquement, notamment après une erreur de quota ou de réseau. `all` est une sélection explicite de toute la configuration. Les requêtes sont séquentielles, avec un délai maximal de deux minutes par requête.
 
-L’API reçoit `text`, `model_id`, `duration_seconds`, `prompt_influence` et `loop`. Le MP3 `mp3_44100_128` évite de demander le WAV 44,1 kHz réservé par le fournisseur à certaines offres ; le WAV de livraison est décodé depuis ce MP3, sans restaurer l’information perdue par la compression. Le script n’annonce ni coût fixe ni droit commercial automatique : ils dépendent de l’offre souscrite. Les conditions d’utilisation et de conservation du fournisseur s’appliquent aux prompts envoyés.
+L’API reçoit `text`, `model_id`, `duration_seconds`, `prompt_influence` et `loop`. Le MP3 `mp3_44100_128` évite de demander le WAV 44,1 kHz réservé par le fournisseur à certaines offres ; le WAV de livraison est décodé depuis ce MP3, sans restaurer l’information perdue par la compression. Le script n’annonce ni coût fixe ni droit commercial automatique : ils dépendent de l’offre souscrite. L’offre gratuite exclut l’usage commercial et impose l’attribution à ElevenLabs. Les [conditions Sound Effects](https://elevenlabs.io/creative-terms) n’autorisent l’usage des sons qu’intégrés à d’autres contenus et interdisent de les mettre à disposition comme fichiers isolés ou dans une bibliothèque d’effets ; vérifier leur compatibilité avec `sounds/library/` avant toute génération. Les conditions d’utilisation et de conservation du fournisseur s’appliquent aux prompts envoyés.
 
 La génération reste aléatoire ; une procédure et des empreintes identiques ne garantissent pas des échantillons identiques. Pour rejouer un essai non approuvé :
 
@@ -58,6 +58,13 @@ bun run sounds/tools/generate.ts --retry rire-requin
 Après approbation, modifier sa fiche et utiliser `--generate` pour créer une nouvelle version. `--retry` refuse les sons approuvés.
 
 ## Partir d’un son existant ou synthétisé
+
+Les sources synthétisées se reconstruisent sans réseau ; `--check` vérifie qu’elles correspondent à leur recette :
+
+```sh
+bun run sounds/tools/synth.ts
+bun run sounds/tools/synth.ts --check
+```
 
 Placer le fichier dans `sounds/sources/`, puis remplacer la source de l’effet dans `effects.json` :
 
