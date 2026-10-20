@@ -1,6 +1,6 @@
 ## Bilan
 
-- **Branche de départ utilisée :** main / reprise/…
+- **Branche de départ utilisée :** main / etape/…
 - **Parties réalisées personnellement :**
 - **Vérifications effectuées :**
 - **Bonus réalisés (tests personnels, extensions) :**

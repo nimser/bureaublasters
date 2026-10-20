@@ -48,8 +48,19 @@ class VerificationBranchesTests(unittest.TestCase):
     def test_progression_coherente(self):
         self.assertEqual(self.verifier(), [])
 
+    def test_tous_les_fichiers_suivis_hors_variantes_sont_communs(self):
+        chemins = controle.VARIANTES | {
+            "requirements.txt", ".devcontainer/devcontainer.json",
+            "images/tools/generate.ts", "sounds/sources/coin-coin.wav",
+        }
+        with patch.object(controle, "git", return_value="\n".join(chemins).encode()):
+            self.assertEqual(
+                controle.fichiers_communs("correction"),
+                controle.COMMUNS | (chemins - controle.VARIANTES),
+            )
+
     def test_documentation_desynchronisee(self):
-        self.contenus["reprise/02-filtres", "README.md"] = b"ancienne consigne"
+        self.contenus["etape/02-filtres", "README.md"] = b"ancienne consigne"
         self.assertTrue(any("README.md" in e for e in self.verifier()))
 
     def test_catalogue_main_corrige_par_erreur(self):
@@ -63,17 +74,17 @@ class VerificationBranchesTests(unittest.TestCase):
         self.assertTrue(any("main : catalogue" in e for e in self.verifier()))
 
     def test_reponse_distribuee_trop_tot(self):
-        self.definitions["reprise/03-budget"]["calculer_budget"] = self.definitions["correction"]["calculer_budget"]
+        self.definitions["etape/03-budget"]["calculer_budget"] = self.definitions["correction"]["calculer_budget"]
         self.assertTrue(any("calculer_budget doit rester à compléter" in e for e in self.verifier()))
 
     def test_fonction_fournie_incorrecte(self):
-        self.definitions["reprise/04-favoris"]["calculer_budget"] = ast.parse(
+        self.definitions["etape/04-favoris"]["calculer_budget"] = ast.parse(
             "def calculer_budget(produit):\n    return 0\n"
         ).body[0]
         self.assertTrue(any("calculer_budget doit être fourni et corrigé" in e for e in self.verifier()))
 
     def test_tests_personnels_distribues_trop_tot(self):
-        self.contenus["reprise/05-tests", "tests_perso.py"] = b"def test_exemple():\n    assert True\n"
+        self.contenus["etape/05-tests", "tests_perso.py"] = b"def test_exemple():\n    assert True\n"
         self.assertTrue(any("tests personnels doivent rester à écrire" in e for e in self.verifier()))
 
     def test_correction_incomplete(self):
