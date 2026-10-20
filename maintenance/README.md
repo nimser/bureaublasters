@@ -4,7 +4,9 @@ Ces opérations sont réservées à l’équipe pédagogique. Elles ne font pas 
 
 ## Une spécification commune, plusieurs points de départ
 
-`correction` contient les données et les quatre fonctions corrigées, ainsi que des exemples de tests personnels. `main` et les branches `reprise/*` conservent les mêmes consignes, fiches source, tests fournis, interface et visuels. Leur catalogue Python et leurs fonctions reflètent l’étape à pratiquer.
+Le socle réinvestit les acquis de semaine 1 et du lundi/mardi de semaine 2 : données, collections, fonctions, budget et mutation des favoris. Les tests personnels et les exceptions sont des bonus indépendants. Traceback et JSON relèvent de la séance du jeudi.
+
+`correction` contient les données et les quatre fonctions corrigées, ainsi que des exemples de tests personnels facultatifs. `main` et les branches `reprise/*` conservent les mêmes consignes, fiches source, tests fournis, interface et visuels. Leur catalogue Python et leurs fonctions reflètent l’étape à pratiquer.
 
 | Branche | Catalogue Python | Fonctions à compléter | Tests personnels |
 | --- | --- | --- | --- |
@@ -12,7 +14,7 @@ Ces opérations sont réservées à l’équipe pédagogique. Elles ne font pas 
 | `reprise/02-filtres` | Complet et corrigé. | Les quatre. | À écrire. |
 | `reprise/03-budget` | Complet et corrigé. | Budget et favoris. | À écrire. |
 | `reprise/04-favoris` | Complet et corrigé. | Favoris. | À écrire. |
-| `reprise/05-tests` | Complet et corrigé. | Aucune. | À écrire. |
+| `reprise/05-tests` | Complet et corrigé. | Aucune. | Bonus à écrire. |
 | `correction` | Complet et corrigé. | Aucune. | Exemples fournis. |
 
 Ne pas fusionner `correction` dans les branches pédagogiques : cela distribuerait les réponses. Ne pas remplacer leurs fichiers `fonctions.py` ou `tests_perso.py` par ceux du corrigé.
@@ -47,6 +49,8 @@ python -m unittest discover -s maintenance -v
 ```
 
 ## Garder la portée pédagogique des tests
+
+`python tests_catalogue.py` vérifie le socle et les tests personnels présents. Le groupe `exceptions` est lancé uniquement sur demande explicite ; il échoue tant que le bonus n’est pas réalisé, y compris sur le corrigé du socle. Le champ quantité de l’interface est limité aux entiers positifs ou nuls. Vérifier le bonus par appel de fonction, sans modifier l’interface.
 
 Les vérifications de transcription couvrent les noms, descriptions, conditionnements, effets et codes. Elles ne comparent pas tous les prix aux fiches : une valeur numérique positive mais commercialement incorrecte doit encore être trouvée par lecture et comparaison. Ne pas supprimer cette limite sans revoir les consignes de l’étape 1.
 
