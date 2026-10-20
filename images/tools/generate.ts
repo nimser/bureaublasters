@@ -46,7 +46,7 @@ export const PRODUCTS: Product[] = [
   { name: "croissants-reserve", references: [style, objectPerson("catapulte-croissants")] },
   { name: "balles-decompression", references: [style, objectPerson("orbe-decompression")] },
   { name: "brume-neutre", references: [object("brume-bonne-humeur"), person("requin-aretes")] },
-  { name: "brume-girofle-agrumes", references: [object("brume-bonne-humeur"), object("brume-neutre"), person("requin-aretes")] },
+  { name: "brume-girofle-agrumes", references: [object("mini-requins"), object("brume-neutre"), person("requin-aretes")] },
 ];
 
 export const sha256 = (data: string | Uint8Array): string => createHash("sha256").update(data).digest("hex");
