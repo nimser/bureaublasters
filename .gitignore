@@ -1,2 +1,4 @@
 __pycache__/
 .venv/
+sounds/sources/*.wav
+sounds/library/
