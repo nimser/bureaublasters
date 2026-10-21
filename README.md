@@ -683,6 +683,13 @@ Comment rendrais-tu le catalogue plus agréable à consulter et plus simple à u
 
 Choisis et réalise une amélioration dans `app.py`. Par exemple, fais apparaître les premières fiches du catalogue dès l’ouverture de la page, sans avoir à faire défiler l’écran, tout en gardant la recherche et les filtres faciles à trouver.
 
+Utilise la documentation officielle de Streamlit pour choisir les composants adaptés à ton idée et comprendre leurs paramètres :
+
+- [`st.columns` : disposition en colonnes](https://docs.streamlit.io/develop/api-reference/layout/st.columns), pour explorer la répartition des éléments et les proportions des colonnes.
+- [`st.sidebar` : barre latérale](https://docs.streamlit.io/develop/api-reference/layout/st.sidebar), pour découvrir une autre zone d’organisation des éléments de l’interface.
+
+Pour guider tes choix visuels, consulte aussi les [conseils de conception accessible du W3C](https://www.w3.org/WAI/tips/designing/). Concentre-toi sur les contrastes, les titres et les espacements qui regroupent les informations liées.
+
 Vérifie le résultat sur une fenêtre d’ordinateur puis une fenêtre plus étroite. Teste la recherche, les filtres, les favoris et le devis pour confirmer qu’ils restent utilisables.
 
 Ajoute une capture avant/après à ta pull request et explique brièvement le problème résolu et ton choix.
