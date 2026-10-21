@@ -58,32 +58,44 @@ def consommables_sans_offre(catalogue):
 # Étape 4 : transformer chaque demande en une ligne de commande indépendante.
 def trouver_produit(catalogue, identifiant):
     """Retourne la fiche d'identifiant exact, ou None si elle est absente."""
-    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
-    raise NotImplementedError("trouver_produit est à compléter.")
+    for produit in catalogue:
+        if produit["id"] == identifiant:
+            return produit
+    return None
 
 
 def lire_demande(texte):
     """Retourne un dictionnaire id/quantite depuis une ligne « identifiant ; entier »."""
-    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
-    raise NotImplementedError("lire_demande est à compléter.")
+    champs = texte.split(";")
+    return {"id": champs[0].strip().upper(), "quantite": int(champs[1].strip())}
 
 
 def calculer_budget(produit, quantite):
     """Retourne le prix de quantite conditionnements, entière positive ou nulle, arrondi à deux décimales."""
-    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
-    raise NotImplementedError("calculer_budget est à compléter.")
+    return round(produit["prix_euros"] * quantite, 2)
 
 
 def preparer_ligne(produit, quantite):
     """Retourne une copie superficielle de la fiche avec quantite et sous_total_euros."""
-    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
-    raise NotImplementedError("preparer_ligne est à compléter.")
+    ligne = produit.copy()
+    ligne["quantite"] = quantite
+    ligne["sous_total_euros"] = calculer_budget(produit, quantite)
+    return ligne
 
 
 def preparer_commande(catalogue, demandes):
     """Retourne un dictionnaire lignes/inconnues en ignorant les demandes blanches."""
-    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
-    raise NotImplementedError("preparer_commande est à compléter.")
+    lignes = []
+    inconnues = []
+    for texte in demandes:
+        if texte.strip():
+            demande = lire_demande(texte)
+            produit = trouver_produit(catalogue, demande["id"])
+            if produit is None:
+                inconnues.append(demande["id"])
+            else:
+                lignes.append(preparer_ligne(produit, demande["quantite"]))
+    return {"lignes": lignes, "inconnues": inconnues}
 
 
 # Étape 5 : réutiliser les résultats et choisir les effets sur les données.

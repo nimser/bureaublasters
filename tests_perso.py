@@ -60,14 +60,19 @@ def test_consommable_sans_fournisseur():
 # Étape 4 : contrôler la conversion et la copie d'une fiche.
 def test_lecture_demande():
     """« l1 ; 2 » doit donner {"id": "L1", "quantite": 2}, avec une quantité entière."""
-    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
-    raise NotImplementedError("test_lecture_demande est à compléter.")
+    demande = lire_demande(" l1 ; 2 ")
+    assert demande == {"id": "L1", "quantite": 2}, f"Obtenu : {demande}"
+    assert isinstance(demande["quantite"], int)
 
 
 def test_ligne_independante():
     """Deux L1 coûtent 40 € ; la ligne est un autre dictionnaire et la fiche reste inchangée."""
-    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
-    raise NotImplementedError("test_ligne_independante est à compléter.")
+    produit = catalogue_essai()[0]
+    ligne = preparer_ligne(produit, 2)
+    assert ligne is not produit
+    assert ligne["quantite"] == 2
+    assert ligne["sous_total_euros"] == 40
+    assert produit == catalogue_essai()[0], f"Fiche modifiée : {produit}"
 
 
 # Étape 5 : vérifier les cumuls, le paramètre par défaut et la mutation choisie.
