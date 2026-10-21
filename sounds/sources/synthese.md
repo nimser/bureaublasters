@@ -1,6 +1,8 @@
 # Sources synthétisées
 
-Les neuf sources WAV de ce répertoire sont calculées par `sounds/tools/synth.ts`, une synthèse procédurale déterministe : oscillateurs, partiels amortis, filtres et bruit pseudo-aléatoire à graine fixe. Aucun enregistrement, échantillon de banque, modèle génératif ni service en ligne n’intervient. L’auteur et chaque modification de la recette figurent dans l’historique Git de `sounds/tools/synth.ts`.
+Les neuf sources WAV se reconstruisent localement avec `sounds/tools/synth.ts`, une synthèse procédurale déterministe : oscillateurs, partiels amortis, filtres et bruit pseudo-aléatoire à graine fixe. Aucun enregistrement, échantillon de banque, modèle génératif ni service en ligne n’intervient. L’auteur et chaque modification de la recette figurent dans l’historique Git de `sounds/tools/synth.ts`.
+
+Les WAV reconstruits restent ignorés par Git. La distribution aux apprenants se fait sur Discord ; ils ajoutent leurs fichiers dans `sons/` pour réaliser l’extension audio.
 
 ## Droits
 

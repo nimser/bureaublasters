@@ -2,10 +2,10 @@
 
 - **Branche de départ utilisée :** main / etape/…
 - **Parties réalisées personnellement :**
-- **Vérifications effectuées :**
-- **Bonus réalisés (tests personnels, extensions) :**
+- **Vérifications effectuées, dont les dix tests obligatoires :**
+- **Bonus audio réalisé :**
 - **Blocage résolu ou restant :**
 
 ## Capture
 
-Glisse ici une capture de l’interface montrant une sélection compatible et un budget.
+Glisse ici une capture de l’interface montrant une sélection et le devis calculé. Pour le bonus audio, ajoute une carte avec son lecteur.

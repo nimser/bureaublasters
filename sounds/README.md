@@ -1,6 +1,6 @@
 # Bruitages BureauBlasters
 
-Outil de maintenance réservé à l’équipe pédagogique, indépendant de l’exercice Python et du générateur d’images. Les sons ne sont pas encore lus par `app.py`. Aucun compte audio, Bun ou FFmpeg n’est nécessaire pour suivre l’atelier.
+Outil de maintenance réservé à l’équipe pédagogique, indépendant de l’exercice Python et du générateur d’images. Les WAV sont transmis séparément sur Discord. Les apprenants les ajoutent dans `sons/` et intègrent les lecteurs dans `app.py` ; `correction` fournit cette intégration. Aucun compte audio, Bun ou FFmpeg n’est nécessaire pour suivre l’atelier.
 
 ## Quel type de génération ?
 
@@ -19,6 +19,7 @@ Depuis la racine du dépôt, avec Bun et FFmpeg accessibles dans `PATH` :
 ```sh
 bun install --cwd sounds/tools --frozen-lockfile
 bun run --cwd sounds/tools typecheck
+bun run sounds/tools/synth.ts
 bun run --cwd sounds/tools test
 bun run sounds/tools/generate.ts --plan
 ```
@@ -86,7 +87,7 @@ bun run sounds/tools/generate.ts --generate ding-reunion
 
 Aucune clé ni connexion n’est nécessaire pour une série composée uniquement de sources `file`. WAV, MP3, OGG, FLAC, AIFF et M4A sont acceptés. Un import réutilise ses octets : **modifier son prompt ne transforme pas le son**. Pour changer son timbre ou son contenu, remplacer le fichier, le retraiter avec son outil d’origine ou repasser sa source à `{ "kind": "elevenlabs" }`. La durée demandée et `loop` ne raccourcissent ni ne rendent automatiquement bouclable un import.
 
-Versionner uniquement les sources autorisées à être redistribuées avec le dépôt. Les chemins d’import doivent rester sous `sounds/sources/`.
+Conserver les WAV reconstruits ou importés hors des fichiers suivis de l’atelier ; distribuer les extraits autorisés sur Discord. Les chemins d’import doivent rester sous `sounds/sources/`.
 
 ## Écouter, approuver, publier
 
@@ -107,7 +108,7 @@ bun run sounds/tools/generate.ts --publish
 
 Le journal publié conserve modèle, paramètres, effets et produits associés, droits/attributions, empreintes du prompt, de la source native et du WAV, version de FFmpeg, durée réelle et dates de préparation/approbation. La clé de cache intègre aussi le verrou des dépendances. Ni clé API ni corps d’erreur du fournisseur n’est enregistré. Pour les imports, les octets de la source participent à l’invalidation du cache.
 
-Le script ne crée pas de commit. Les WAV publiés et leur journal peuvent être versionnés après contrôle, puis utilisés par l’application. L’interface Streamlit et les branches pédagogiques ne sont pas modifiées par ces commandes.
+Le script ne crée pas de commit. Les WAV préparés restent locaux et sont distribués séparément après contrôle. L’interface Streamlit et les branches pédagogiques ne sont pas modifiées par ces commandes.
 
 ## Reprise après interruption
 

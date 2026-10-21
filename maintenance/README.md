@@ -1,81 +1,84 @@
 # Maintenance des branches de l’atelier
 
-Ces opérations sont réservées à l’équipe pédagogique. Elles ne font pas partie du travail demandé aux apprenants.
+Ces outils sont réservés à l’équipe pédagogique.
 
-## Une spécification commune, plusieurs points de départ
+## Contrat pédagogique
 
-Le socle réinvestit les acquis de semaine 1 et du lundi/mardi de semaine 2 : données, collections, fonctions, budget et mutation des favoris. Les tests personnels et les exceptions sont des bonus indépendants. Traceback et JSON relèvent de la séance du jeudi.
+Le socle vise environ 4 h de réinvestissement des acquis de semaine 1 et du lundi/mardi de semaine 2. Il comprend données, recherche, sélection multicritère, compatibilités, lecture de demandes, copies de fiches, commande, devis, frais paramétrables et favoris. Dix tests guidés sont obligatoires et répartis dans les étapes. JSON et exceptions ne sont pas requis.
 
-`correction` contient les données et les quatre fonctions corrigées, ainsi que des exemples de tests personnels facultatifs. `main` et les branches `etape/*` conservent les mêmes consignes, extrait source, tests fournis, interface et visuels. Leur catalogue Python et leurs fonctions reflètent l’étape à pratiquer.
+Le seul bonus est l’audio. Nicolas transmet les neuf WAV sur Discord en cours de matinée. Les apprenants les ajoutent dans `sons/`, écrivent les associations et la fonction de recherche, puis intègrent eux-mêmes les lecteurs dans les cartes. Les commentaires de `app.py` et la documentation Streamlit orientent l’intégration. Aucun fichier audio n’est fourni dans les arbres Git des huit branches actives, y compris `correction`.
 
-`catalogue_source.txt` contient uniquement BB-02, BB-04 et RE-08, les trois fiches non migrées au départ. Les treize autres références se lisent directement dans `catalogue.py` ; ne pas dupliquer leurs fiches dans l’extrait. La note de relecture de l’énoncé donne les informations nécessaires aux erreurs d’unité et de prix.
+Les recettes de synthèse et les outils internes restent dans `sounds/`. Leurs sorties sont locales et ignorées par Git. Les anciens commits peuvent contenir des WAV ; la préparation d’une publication pédagogique doit exporter l’arbre, pas importer cet historique.
 
-| Branche | Catalogue Python | Fonctions à compléter | Tests personnels |
-| --- | --- | --- | --- |
-| `main` | Trois fiches absentes et cinq erreurs intentionnelles. | Les quatre. | À écrire. |
-| `etape/02-filtres` | Complet et corrigé. | Les quatre. | À écrire. |
-| `etape/03-budget` | Complet et corrigé. | Budget et favoris. | À écrire. |
-| `etape/04-favoris` | Complet et corrigé. | Favoris. | À écrire. |
-| `etape/05-tests` | Complet et corrigé. | Aucune. | Bonus à écrire. |
-| `correction` | Complet et corrigé. | Aucune. | Exemples fournis. |
+## Points de reprise
 
-Les commentaires `À compléter` signalent uniquement les fiches manquantes et les fonctions à écrire dans chaque branche. Les erreurs intentionnelles du catalogue restent à identifier à partir des consignes et des fiches ; ne pas les marquer une par une.
+| Branche | Étapes terminées | Travail restant à partir de ce point |
+| --- | --- | --- |
+| `main` | Aucune. | Données : trois fiches et cinq erreurs intentionnelles. |
+| `etape/02-recherche` | 1. | Recherche et sélection, deux tests. |
+| `etape/03-compatibilites` | 1–2. | Compatibilités, différence de sets et un test. |
+| `etape/04-commande` | 1–3. | Lecture, recherche de référence, budget, copies, commande et deux tests. |
+| `etape/05-devis` | 1–4. | Cumuls, frais, récapitulatif, favoris et quatre tests. |
+| `etape/06-tests` | 1–5. | Test du parcours complet et recette. |
+| `etape/07-audio` | 1–6. | Ajout des fichiers reçus, associations, fonction audio et lecteurs. |
+| `correction` | Socle et bonus. | Fichiers sonores à ajouter pour écouter. |
 
-Ne pas fusionner `correction` dans les branches pédagogiques : cela distribuerait les réponses. Ne pas remplacer leurs fichiers `fonctions.py` ou `tests_perso.py` par ceux du corrigé.
+Les anciennes branches `etape/02-filtres`, `etape/03-budget`, `etape/04-favoris` et `etape/05-tests` ne sont plus des reprises de ce parcours. Elles ne doivent pas être sélectionnées pour une nouvelle publication.
 
-## Mettre à jour une spécification
+## Fichiers et variantes
 
-1. Modifier les fiches, le catalogue corrigé, les consignes, l’interface et les tests concernés sur `correction`. Distinguer les tests de comportement sur de petits catalogues indépendants et les tests de transcription des fiches. Ne pas utiliser les descriptions commerciales pour calculer les compatibilités.
-2. Reporter tous les fichiers suivis communs sur `main` et les branches `etape/*`, y compris les outils de maintenance, les dépendances et les médias. Seuls `catalogue.py`, `fonctions.py` et `tests_perso.py` varient selon l’étape. Les catalogues des reprises sont identiques au corrigé. Dans `main`, actualiser seulement les informations de référence sans résoudre les fiches manquantes et les erreurs intentionnelles. Préserver les fonctions et les tests personnels de chaque étape.
-3. Synchroniser aussi les images et leurs prompts, sans confondre les références de génération d’images avec les dépendances des produits vendus. Le répertoire `images/tools/` est un outil de maintenance indépendant, pas un prérequis de l’atelier.
-4. Vérifier les tests sur chaque branche avant de créer ses commits. Les échecs de données de `main` et les `NotImplementedError` des fonctions à écrire sont attendus ; les autres groupes déjà fournis doivent passer.
-5. Finaliser les commits et les fusions dans l’ordre `main → etape/02-filtres → etape/03-budget → etape/04-favoris → etape/05-tests → correction`. Chaque branche doit contenir le dernier commit de la précédente dans son historique, tout en conservant sa propre variante pédagogique. Répercuter les fichiers communs à l’identique ; une fusion ne doit pas remplacer les exercices par les réponses d’une étape ultérieure. Ne pas réécrire les branches publiées.
-6. Une fois les six branches finalisées, vérifier les références locales avec la commande ci-dessous, puis publier toutes les branches. Ne pas annoncer une mise à jour terminée si une publication est bloquée.
+Tous les fichiers suivis sont communs, sauf :
+
+- `catalogue.py` : incomplet et incorrect sur `main`, corrigé sur les reprises.
+- `fonctions.py` : fonctions des étapes précédentes fournies, autres corps à écrire.
+- `tests_perso.py` : tests des étapes précédentes fournis, autres tests guidés à écrire.
+- `sons.py` : associations à écrire avant la correction audio.
+- `app.py` : interface du socle et commentaires du bonus avant `correction` ; intégration audio sur `correction`.
+
+`maintenance/niveaux.py` décrit les étapes et produit les variantes depuis les sources corrigées. Il conserve les signatures et contrats, ainsi que le début du premier test guidé. Les dictionnaires de `catalogue_source.txt` restent limités aux trois références non migrées ; ne pas dupliquer les treize autres fiches.
+
+## Comparaisons GitHub
+
+Chaque branche doit descendre du dernier commit de la précédente. Les comparaisons à trois points montrent uniquement le travail effectué pour atteindre le point suivant :
+
+| Base | Comparaison | Fichiers modifiés |
+| --- | --- | --- |
+| `main` | `etape/02-recherche` | `catalogue.py` |
+| `etape/02-recherche` | `etape/03-compatibilites` | `fonctions.py`, `tests_perso.py` |
+| `etape/03-compatibilites` | `etape/04-commande` | `fonctions.py`, `tests_perso.py` |
+| `etape/04-commande` | `etape/05-devis` | `fonctions.py`, `tests_perso.py` |
+| `etape/05-devis` | `etape/06-tests` | `fonctions.py`, `tests_perso.py` |
+| `etape/06-tests` | `etape/07-audio` | `tests_perso.py` |
+| `etape/07-audio` | `correction` | `fonctions.py`, `sons.py`, `app.py` |
+
+Reporter les changements communs sur `main`, puis avancer dans cet ordre en préservant les variantes. Ne pas réécrire les branches publiées. La synchronisation des fichiers seule ne suffit pas : vérifier aussi l’ascendance, afin d’exclure les anciens changements des diffs GitHub.
 
 ```sh
 python maintenance/verifier_branches.py
-```
-
-Le script utilise uniquement la bibliothèque standard Python. Il lit les versions **commitées** des six branches, pas les modifications non commitées. Il ne change aucune branche, ne crée aucun commit et ne publie rien. Il compare les fichiers communs, les catalogues attendus et la progression des fonctions et des tests personnels. Il vérifie aussi l’ascendance des branches et les fichiers affichés dans les comparaisons GitHub à trois points. Une évolution délibérée des exercices exige d’adapter aussi ses attentes.
-
-Pour contrôler les références publiées après récupération depuis le dépôt concerné :
-
-```sh
 git fetch origin
 python maintenance/verifier_branches.py --remote origin
 ```
 
-Le contrôle distant utilise les références déjà récupérées ; il n’effectue aucun accès réseau lui-même.
+Le contrôleur lit les versions commitées, sans modifier les branches ni accéder au réseau. Il vérifie les fichiers communs, les variantes, les tests, l’absence d’audio livré et les sept diffs. Les références distantes doivent avoir été récupérées avant le second contrôle.
 
-Les tests du contrôleur n’utilisent ni accès réseau ni branches réelles :
+## Vérifications
 
 ```sh
+python tests_catalogue.py
+python tests_catalogue.py audio
 python -m unittest discover -s maintenance -v
 ```
 
-## Des comparaisons limitées au travail d’une étape
+Le socle comprend le groupe `perso` et échoue si un test reste à compléter ou est supprimé. `audio` est explicite et contrôle les associations sans exiger les fichiers distribués séparément. La recette de l’interface et l’écoute complètent ces tests.
 
-GitHub compare une branche à l’ancêtre commun avec sa base, pas seulement les deux contenus finaux. Des fichiers communs identiques ne suffisent donc pas : chaque point de reprise doit descendre du précédent.
+Sur un point de reprise, les fonctions et tests à écrire affichent `À COMPLÉTER` et le lanceur retourne un code d’échec. Seuls les groupes déjà terminés doivent réussir ; les erreurs intentionnelles de `main` sont attendues. Tester l’interface avec Streamlit 1.66.0, y compris une sélection vide et le parcours sans aucun WAV.
 
-| Base | Comparaison | Seul fichier modifié | Travail montré |
-| --- | --- | --- | --- |
-| `main` | `etape/02-filtres` | `catalogue.py` | Trois fiches ajoutées et cinq erreurs corrigées. |
-| `etape/02-filtres` | `etape/03-budget` | `fonctions.py` | Collecte des codes et filtre de compatibilité. |
-| `etape/03-budget` | `etape/04-favoris` | `fonctions.py` | Calcul du budget. |
-| `etape/04-favoris` | `etape/05-tests` | `fonctions.py` | Modification des favoris. |
-| `etape/05-tests` | `correction` | `tests_perso.py` | Exemples de tests personnels. |
+Pour l’audio, utiliser des fichiers temporaires hors du dépôt ou des WAV placés provisoirement dans `sons/`, puis les retirer avant le commit. Vérifier les lecteurs, le produit silencieux, le son partagé, le fichier manquant et l’absence de lecture automatique. Ne pas enregistrer une nouvelle validation humaine d’écoute à partir d’un simple test logiciel.
 
-Vérifier le même diff que GitHub, sans inclure les consignes, tests fournis ou médias :
+## Données et sémantique
 
-```sh
-git diff main...etape/02-filtres
-git diff etape/02-filtres...etape/03-budget
-```
+La transcription vérifie les trois fiches de l’extrait. Les autres données sont contrôlées par leurs types, unités et cohérence. Le prix de RE-06 exige toujours une comparaison avec la note de comptabilité ; un test de type ne le détecte pas.
 
-## Garder la portée pédagogique des tests
+Le filtre de compatibilité examine les codes utilisés et fournis, sans relation indirecte. `consommables_sans_offre` compare les deux rôles par différence d’ensembles. RE-07 et RE-08 restent des alternatives ; la préparation de commande ajoute seulement les références explicitement demandées.
 
-`python tests_catalogue.py` vérifie le socle et les tests personnels présents. Le groupe `exceptions` est lancé uniquement sur demande explicite ; il échoue tant que le bonus n’est pas réalisé, y compris sur le corrigé du socle. Le champ quantité de l’interface est limité aux entiers positifs ou nuls. Vérifier le bonus par appel de fonction, sans modifier l’interface.
-
-Les vérifications de transcription couvrent les noms, descriptions, conditionnements, effets et codes des trois fiches de l’extrait uniquement. Les autres références sont contrôlées par les tests de structure et de cohérence, pas par une deuxième copie du catalogue. Le prix incorrect de RE-06 doit encore être trouvé en comparant l’affichage à la note de la comptabilité dans l’énoncé. Ne pas supprimer cette limite sans revoir les consignes de l’étape 1.
-
-Les champs `consommables_utilises` et `consommables_fournis` distinguent les deux rôles ; une liste vide signifie qu’aucun code ne s’applique à ce rôle. Le filtre examine les deux listes, sans ajouter deux fois un produit. Les liquides RE-07 et RE-08 sont des alternatives pour BB-04 et RE-02. BB-02 utilise les mini-requins, mais ne reçoit aucun liquide : le filtre ne doit pas suivre cette relation indirecte. Une recommandation de commande doit aussi tenir compte des alternatives ; elle reste une extension.
+Les lignes copiées reçoivent les champs `quantite` et `sous_total_euros`. Les données imbriquées ne sont pas modifiées. Les quantités sont des nombres de conditionnements positifs ou nuls. Les demandes non vides respectent le format annoncé. Une ligne de quantité zéro reste présente et entraîne donc les frais d’une commande non vide.
