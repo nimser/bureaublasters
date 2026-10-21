@@ -53,8 +53,8 @@ def test_selection_seuil_inclus():
 # Étape 3 : comparer les besoins aux références fournies.
 def test_consommable_sans_fournisseur():
     """catalogue_essai() utilise « liquide » sans fournisseur ; seul ce code est attendu."""
-    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
-    raise NotImplementedError("test_consommable_sans_fournisseur est à compléter.")
+    resultat = consommables_sans_offre(catalogue_essai())
+    assert resultat == {"liquide"}, f"Obtenu : {resultat}"
 
 
 # Étape 4 : contrôler la conversion et la copie d'une fiche.

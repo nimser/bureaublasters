@@ -27,20 +27,32 @@ def selectionner_equipements(catalogue, prix_max, poids_max_g, longueur_max_cm):
 # Étape 3 : réunir les codes, filtrer les fiches et repérer une offre manquante.
 def consommables_disponibles(catalogue):
     """Retourne les codes utilisés ou fournis, sans doublons ni mutation."""
-    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
-    raise NotImplementedError("consommables_disponibles est à compléter.")
+    codes = set()
+    for produit in catalogue:
+        for code in produit["consommables_utilises"] + produit["consommables_fournis"]:
+            codes.add(code)
+    return codes
 
 
 def filtrer_par_consommable(catalogue, code):
     """Retourne une nouvelle liste des utilisateurs et fournisseurs du code, dans l'ordre."""
-    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
-    raise NotImplementedError("filtrer_par_consommable est à compléter.")
+    resultat = []
+    for produit in catalogue:
+        if code in produit["consommables_utilises"] or code in produit["consommables_fournis"]:
+            resultat.append(produit)
+    return resultat
 
 
 def consommables_sans_offre(catalogue):
     """Retourne les codes utilisés par un produit mais fournis par aucune référence."""
-    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
-    raise NotImplementedError("consommables_sans_offre est à compléter.")
+    utilises = set()
+    fournis = set()
+    for produit in catalogue:
+        for code in produit["consommables_utilises"]:
+            utilises.add(code)
+        for code in produit["consommables_fournis"]:
+            fournis.add(code)
+    return utilises - fournis
 
 
 # Étape 4 : transformer chaque demande en une ligne de commande indépendante.
