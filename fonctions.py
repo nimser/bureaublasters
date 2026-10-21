@@ -4,14 +4,24 @@
 # Étape 2 : nettoyer une recherche et combiner des critères.
 def rechercher_produits(catalogue, recherche):
     """Retourne les fiches dont le nom ou la description contient la recherche nettoyée."""
-    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
-    raise NotImplementedError("rechercher_produits est à compléter.")
+    recherche = recherche.strip().lower()
+    resultat = []
+    for produit in catalogue:
+        if recherche in produit["nom"].lower() or recherche in produit["description"].lower():
+            resultat.append(produit)
+    return resultat
 
 
 def selectionner_equipements(catalogue, prix_max, poids_max_g, longueur_max_cm):
     """Retourne les lanceurs et accessoires respectant les trois maxima inclusifs."""
-    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
-    raise NotImplementedError("selectionner_equipements est à compléter.")
+    resultat = []
+    for produit in catalogue:
+        if (produit["categorie"] in ["lanceur", "accessoire"]
+                and produit["prix_euros"] <= prix_max
+                and produit["poids_g"] <= poids_max_g
+                and produit["dimensions_cm"]["longueur"] <= longueur_max_cm):
+            resultat.append(produit)
+    return resultat
 
 
 # Étape 3 : réunir les codes, filtrer les fiches et repérer une offre manquante.
