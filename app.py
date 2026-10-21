@@ -118,8 +118,8 @@ selection = catalogue
 with st.sidebar:
     st.header("Recherche et sélection")
     recherche = st.text_input("Nom ou description", key="recherche")
-    bureaux = st.checkbox("Équipements adaptés aux petits bureaux", key="bureaux")
-    st.caption("Coche la case pour activer les trois maxima sur les lanceurs et accessoires.")
+    bureaux = st.checkbox("Activer les limites de prix, poids et longueur", key="bureaux")
+    st.caption("La sélection se limite alors aux lanceurs et accessoires.")
     prix_max = st.number_input(
         "Prix maximal (€)", min_value=0.0, step=1.0, disabled=not bureaux, key="prix_max",
     )
