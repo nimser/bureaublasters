@@ -133,5 +133,4 @@ def definir_favori(produit, favori):
 # Bonus audio : retrouver les chemins associés à une référence.
 def sons_pour_produit(identifiant, associations):
     """Retourne les chemins associés à l'identifiant, ou une liste vide."""
-    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
-    raise NotImplementedError("sons_pour_produit est à compléter.")
+    return associations.get(identifiant, [])
