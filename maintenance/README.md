@@ -71,6 +71,10 @@ python -m unittest discover -s maintenance -v
 
 Le socle comprend le groupe `perso` et échoue si un test reste à compléter ou est supprimé. `audio` est explicite et contrôle les associations sans exiger les fichiers distribués séparément. La recette de l’interface et l’écoute complètent ces tests.
 
+La recette automatisée de l’interface contrôle les trois maxima désactivés puis activés, leurs bornes inclusives, les filtres combinés, la réinitialisation, la sélection vide et le démarrage avec les images du catalogue. Elle vérifie aussi les demandes invalides, les quantités nulles, la conservation du budget et du devis lors d’un changement de favori, et leur invalidation lorsque leurs paramètres changent. Le contrôle du format et des quantités reste dans `app.py` ; les fonctions métier reçoivent les demandes valides prévues par le brief.
+
+Dans le navigateur, vérifier également la saisie des maxima avec Entrée et les boutons +/−, ainsi que les images et les lecteurs audio.
+
 Sur un point de reprise, les fonctions et tests à écrire affichent `À COMPLÉTER` et le lanceur retourne un code d’échec. Seuls les groupes déjà terminés doivent réussir ; les erreurs intentionnelles de `main` sont attendues. Tester l’interface avec Streamlit 1.66.0, y compris une sélection vide et le parcours sans aucun WAV.
 
 Pour l’audio, utiliser des fichiers temporaires hors du dépôt ou des WAV placés provisoirement dans `sons/`, puis les retirer avant le commit. Vérifier les lecteurs, le produit silencieux, le son partagé, le fichier manquant et l’absence de lecture automatique. Ne pas enregistrer une nouvelle validation humaine d’écoute à partir d’un simple test logiciel.
