@@ -1,16 +1,16 @@
-"""Aperçu du catalogue BureauBlasters dans le terminal.
-
-Lancement : python apercu_terminal.py
-"""
-
-import copy
+"""Aperçu sans Streamlit : python apercu_terminal.py."""
 
 from catalogue import CATALOGUE
+from demandes import DEMANDES
 from fonctions import (
-    calculer_budget,
     consommables_disponibles,
+    consommables_sans_offre,
     definir_favori,
     filtrer_par_consommable,
+    formater_devis,
+    preparer_commande,
+    rechercher_produits,
+    selectionner_equipements,
 )
 
 
@@ -20,6 +20,8 @@ def essayer(titre, action):
         action()
     except NotImplementedError as erreur:
         print(f"À compléter : {erreur}")
+    except (TypeError, KeyError) as erreur:
+        print(f"Vérifie les données et le retour de tes fonctions : {erreur}")
 
 
 def lister_produits():
@@ -27,36 +29,34 @@ def lister_produits():
         print(f"{produit['id']:6} {produit['nom']:28} {produit['prix_euros']!r:>8} €  {produit['conditionnement']}")
 
 
-def lister_consommables():
-    for code in sorted(consommables_disponibles(CATALOGUE)):
-        print(f"- {code}")
+def rechercher():
+    print([p["id"] for p in rechercher_produits(CATALOGUE, "  REQUIN  ")])
+    print([p["id"] for p in selectionner_equipements(CATALOGUE, 60, 800, 50)])
 
 
-def filtrer_requins():
-    for produit in filtrer_par_consommable(CATALOGUE, "requin-mousse"):
-        print(f"- {produit['id']} {produit['nom']}")
+def compatibilites():
+    print("Codes :", sorted(consommables_disponibles(CATALOGUE)))
+    print("Requins :", [p["id"] for p in filtrer_par_consommable(CATALOGUE, "requin-mousse")])
+    print("Sans offre :", consommables_sans_offre(CATALOGUE))
 
 
-def estimer_budgets():
-    for produit in CATALOGUE[:2]:
-        print(f"2 × {produit['nom']} : {calculer_budget(produit, 2)!r} €")
-    try:
-        calculer_budget(CATALOGUE[0], -1)
-    except ValueError as erreur:
-        print(f"Quantité -1 refusée : {erreur}")
+def devis():
+    commande = preparer_commande(CATALOGUE, DEMANDES)
+    print("Références inconnues :", commande["inconnues"])
+    print(formater_devis(commande["lignes"]))
 
 
-def basculer_favori():
-    produit = copy.deepcopy(CATALOGUE[0])
-    definir_favori(produit, True)
-    print(f"{produit['nom']} après activation : favori = {produit['favori']!r}")
+def favoris():
+    produit = CATALOGUE[0].copy()
+    retour = definir_favori(produit, True)
+    print("Favori :", produit["favori"], "Retour :", retour)
     definir_favori(produit, False)
-    print(f"{produit['nom']} après désactivation : favori = {produit['favori']!r}")
+    print("Après désactivation :", produit["favori"])
 
 
-print(f"{len(CATALOGUE)} produits dans le catalogue.")
-essayer("Produits", lister_produits)
-essayer("Consommables disponibles", lister_consommables)
-essayer("Compatibles avec requin-mousse", filtrer_requins)
-essayer("Budgets", estimer_budgets)
-essayer("Favori", basculer_favori)
+if __name__ == "__main__":
+    essayer("Produits", lister_produits)
+    essayer("Recherche et petits bureaux", rechercher)
+    essayer("Compatibilités", compatibilites)
+    essayer("Devis de la Happiness Team", devis)
+    essayer("Favoris", favoris)

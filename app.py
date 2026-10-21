@@ -1,7 +1,4 @@
-"""Interface Streamlit du catalogue BureauBlasters.
-
-Lancement : python -m streamlit run app.py
-"""
+"""Interface du catalogue : python -m streamlit run app.py."""
 
 import copy
 from pathlib import Path
@@ -9,12 +6,21 @@ from pathlib import Path
 import streamlit as st
 
 from catalogue import CATALOGUE
+from demandes import DEMANDES
 from fonctions import (
     calculer_budget,
+    calculer_total,
     consommables_disponibles,
+    consommables_sans_offre,
     definir_favori,
     filtrer_par_consommable,
+    formater_devis,
+    preparer_commande,
+    rechercher_produits,
+    selectionner_equipements,
+    total_avec_livraison,
 )
+# Bonus audio : importe SONS_PRODUITS et sons_pour_produit depuis leurs modules.
 
 DOSSIER = Path(__file__).parent
 TOUS = "Tous les produits"
@@ -58,54 +64,68 @@ def afficher_produit(produit, cle):
                 f"- Indice de protection : {produit['indice_protection'] or 'non applicable'}\n"
                 f"- Effets : {' ; '.join(produit['effets']) or 'aucun'}"
             )
+        # Bonus audio : parcours les chemins associés à produit["id"].
+        # Pour chaque fichier existant, ajoute st.audio dans cette carte ; sinon affiche son chemin manquant.
+        # Documentation : https://docs.streamlit.io/develop/api-reference/media/st.audio
         st.toggle(
-            "Favori",
-            value=bool(produit["favori"]),
-            key=cle,
-            on_change=basculer_favori,
-            args=(produit, cle),
+            "Favori", value=bool(produit["favori"]), key=cle,
+            on_change=basculer_favori, args=(produit, cle),
         )
 
 
 st.set_page_config(page_title="BureauBlasters", page_icon="🎯", layout="wide")
-
-# Les favoris vivent dans une copie propre à la session.
 if "catalogue" not in st.session_state:
     st.session_state.catalogue = copy.deepcopy(CATALOGUE)
 catalogue = st.session_state.catalogue
 
 st.title("BureauBlasters")
-st.caption("Équipements de bureau à projectiles en mousse")
-
+st.caption("Du catalogue à la commande de la Happiness Team")
+selection = catalogue
 with st.sidebar:
+    st.header("Recherche et sélection")
+    recherche = st.text_input("Nom ou description")
+    bureaux = st.checkbox("Équipements adaptés aux petits bureaux")
+    prix_max = st.number_input("Prix maximal (€)", min_value=0.0, value=60.0)
+    poids_max = st.number_input("Poids maximal (g)", min_value=0, value=800)
+    longueur_max = st.number_input("Longueur maximale (cm)", min_value=0, value=50)
     st.header("Consommables")
     try:
         codes = sorted(consommables_disponibles(catalogue))
     except NotImplementedError as erreur:
         codes = []
         st.info(f"À compléter : {erreur}")
-    code_choisi = st.selectbox("Afficher les produits associés au code", [TOUS] + codes)
-
+    code_choisi = st.selectbox("Code associé", [TOUS] + codes)
+    if st.button("Vérifier les consommables sans offre"):
+        try:
+            sans_offre = consommables_sans_offre(catalogue)
+        except NotImplementedError as erreur:
+            st.info(f"À compléter : {erreur}")
+        else:
+            st.write(sorted(sans_offre) if sans_offre else "Tous les codes utilisés ont un fournisseur.")
     st.header("Favoris")
     if "favori_a_completer" in st.session_state:
         st.info(f"À compléter : {st.session_state.favori_a_completer}")
-    favoris = [produit["nom"] for produit in catalogue if produit["favori"]]
+    favoris = [p["nom"] for p in catalogue if p["favori"]]
     st.write("\n".join(f"- {nom}" for nom in favoris) if favoris else "Aucun favori.")
 
-selection = catalogue
-if code_choisi != TOUS:
-    try:
-        selection = filtrer_par_consommable(catalogue, code_choisi)
-    except NotImplementedError as erreur:
-        st.info(f"À compléter : {erreur}")
+try:
+    if recherche:
+        selection = rechercher_produits(selection, recherche)
+    if bureaux:
+        selection = selectionner_equipements(selection, prix_max, poids_max, longueur_max)
+    if code_choisi != TOUS:
+        selection = filtrer_par_consommable(selection, code_choisi)
+except NotImplementedError as erreur:
+    st.info(f"À compléter : {erreur}")
+except TypeError:
+    st.error("Vérifie les types du catalogue avec python tests_catalogue.py donnees.")
 
-st.header("Budget")
-st.caption("Une seule référence : les munitions et liquides vendus séparément ne sont pas ajoutés au calcul.")
+st.header("Budget d'une référence")
+st.caption("La quantité compte les conditionnements ; munitions et liquides s'ajoutent séparément.")
 colonne_produit, colonne_quantite = st.columns([3, 1])
 with colonne_produit:
     index_produit = st.selectbox(
-        "Produit",
-        range(len(selection)),
+        "Produit", range(len(selection)),
         format_func=lambda i: f"{selection[i]['nom']} ({selection[i]['conditionnement']})",
     )
 with colonne_quantite:
@@ -113,12 +133,36 @@ with colonne_quantite:
 if st.button("Calculer le budget") and index_produit is not None:
     try:
         montant = calculer_budget(selection[index_produit], int(quantite))
-    except NotImplementedError:
-        st.warning("Faites confiance à votre intuition.")
-    except ValueError as erreur:
-        st.error(str(erreur))
+    except NotImplementedError as erreur:
+        st.info(f"À compléter : {erreur}")
+    except TypeError:
+        st.error("Vérifie le type des prix dans catalogue.py.")
     else:
         st.success(f"Budget : {format_euros(montant)}")
+
+st.header("Commande et devis")
+st.caption("Une ligne par référence : identifiant ; quantité entière positive ou nulle.")
+saisie = st.text_area("Demande de la Happiness Team", value="\n".join(DEMANDES))
+frais = st.number_input("Frais de livraison (€)", min_value=0.0, value=6.0)
+if st.button("Préparer le devis"):
+    try:
+        commande = preparer_commande(catalogue, saisie.splitlines())
+        lignes = commande["lignes"]
+        texte = formater_devis(lignes, frais)
+        hors_livraison = calculer_total(lignes)
+        total = total_avec_livraison(lignes, frais)
+    except NotImplementedError as erreur:
+        st.info(f"À compléter : {erreur}")
+    except (ValueError, IndexError):
+        st.error("Utilise le format BB-01 ; 2, avec une quantité entière positive ou nulle.")
+    except TypeError:
+        st.error("Vérifie les types des prix et les retours de tes fonctions.")
+    else:
+        if commande["inconnues"]:
+            st.write("Références inconnues : " + ", ".join(commande["inconnues"]))
+        st.code(texte, language=None)
+        st.write(f"Articles : {format_euros(hors_livraison)}")
+        st.success(f"Total livré : {format_euros(total)}")
 
 st.header("Catalogue" if code_choisi == TOUS else f"Produits associés à {code_choisi}")
 if not selection:
@@ -127,4 +171,4 @@ positions = {id(produit): index for index, produit in enumerate(catalogue)}
 colonnes = st.columns(3)
 for position, produit in enumerate(selection):
     with colonnes[position % 3]:
-        afficher_produit(produit, f"favori-{positions.get(id(produit), f'selection-{position}')}")
+        afficher_produit(produit, f"favori-{positions[id(produit)]}")
