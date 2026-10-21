@@ -113,5 +113,15 @@ def test_frais_parametres():
 # Étape 6 : vérifier plusieurs fonctions dans un même parcours.
 def test_parcours_complet():
     """Deux L1, une référence absente et trois M1 donnent 55 € avant frais et 61 € livrés."""
-    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
-    raise NotImplementedError("test_parcours_complet est à compléter.")
+    catalogue = catalogue_essai()
+    demandes = [" l1 ; 2 ", " absent ; 1 ", "m1;3", "   "]
+    commande = preparer_commande(catalogue, demandes)
+    assert commande["inconnues"] == ["ABSENT"]
+    assert [ligne["id"] for ligne in commande["lignes"]] == ["L1", "M1"]
+    assert calculer_total(commande["lignes"]) == 55
+    assert total_avec_livraison(commande["lignes"]) == 61
+    assert formater_devis(commande["lignes"]) == (
+        "L1 | 2 x Lanceur : 40.00 €\nM1 | 3 x Billes : 15.00 €\nTotal livré : 61.00 €"
+    )
+    assert catalogue == catalogue_essai()
+    assert demandes == [" l1 ; 2 ", " absent ; 1 ", "m1;3", "   "]
