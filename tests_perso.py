@@ -1,74 +1,101 @@
-"""Bonus : tes tests du catalogue BureauBlasters.
-
-Chaque fonction dont le nom commence par test_ est un test.
-Lancement : python tests_catalogue.py perso
-"""
+"""Tes tests obligatoires : python tests_catalogue.py perso."""
 
 from fonctions import (
-    calculer_budget,
-    consommables_disponibles,
+    calculer_total,
+    consommables_sans_offre,
     definir_favori,
-    filtrer_par_consommable,
+    formater_devis,
+    lire_demande,
+    preparer_commande,
+    preparer_ligne,
+    rechercher_produits,
+    selectionner_equipements,
+    total_avec_livraison,
 )
 
 
-# Bonus : ajouter des tests test_... sur de petits catalogues indépendants.
-def mini_catalogue():
+def catalogue_essai():
     return [
-        {"id": "L1", "categorie": "lanceur", "consommables_utilises": ["bille"],
-         "consommables_fournis": [], "prix_euros": 20, "favori": False},
-        {"id": "A1", "categorie": "accessoire", "consommables_utilises": ["brume"],
-         "consommables_fournis": [], "prix_euros": 15, "favori": False},
-        {"id": "M1", "categorie": "munition", "consommables_utilises": [],
-         "consommables_fournis": ["bille"], "prix_euros": 5, "favori": False},
-        {"id": "R1", "categorie": "recharge", "consommables_utilises": [],
-         "consommables_fournis": ["brume"], "prix_euros": 3, "favori": False},
+        {"id": "L1", "nom": "Lanceur", "description": "Propulse une bille.",
+         "categorie": "lanceur", "prix_euros": 20, "poids_g": 800,
+         "dimensions_cm": {"longueur": 50}, "favori": False,
+         "consommables_utilises": ["bille"], "consommables_fournis": []},
+        {"id": "A1", "nom": "Brume", "description": "Un accessoire de poche.",
+         "categorie": "accessoire", "prix_euros": 15, "poids_g": 801,
+         "dimensions_cm": {"longueur": 10}, "favori": False,
+         "consommables_utilises": ["liquide"], "consommables_fournis": []},
+        {"id": "M1", "nom": "Billes", "description": "Pour le lanceur.",
+         "categorie": "munition", "prix_euros": 5, "poids_g": 100,
+         "dimensions_cm": {"longueur": 10}, "favori": False,
+         "consommables_utilises": [], "consommables_fournis": ["bille"]},
     ]
 
 
-def test_codes_doublons_entre_produits():
-    codes = consommables_disponibles(mini_catalogue())
-    assert codes == {"bille", "brume"}, f"Obtenu : {codes!r}"
+# Étape 2 : comparer les références et vérifier une frontière.
+def test_recherche_normalisee():
+    """Avec catalogue_essai(), «  LANCEUR  » et « lanceur » doivent retrouver L1 et M1."""
+    catalogue = catalogue_essai()
+    resultat = rechercher_produits(catalogue, "  LANCEUR  ")
+    identifiants = []
+    for produit in resultat:
+        identifiants.append(produit["id"])
+    # À compléter : compare les identifiants et le résultat de la recherche normalisée.
+    raise NotImplementedError("test_recherche_normalisee est à compléter.")
 
 
-def test_codes_catalogue_vide():
-    codes = consommables_disponibles([])
-    assert codes == set(), f"Obtenu : {codes!r}"
+def test_selection_seuil_inclus():
+    """Avec les maxima 20 €, 800 g et 50 cm, seule L1 convient ; A1 dépasse le poids."""
+    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
+    raise NotImplementedError("test_selection_seuil_inclus est à compléter.")
 
 
-def test_filtre_accessoire_et_recharge():
-    identifiants = [produit["id"] for produit in filtrer_par_consommable(mini_catalogue(), "brume")]
-    assert identifiants == ["A1", "R1"], f"Obtenu : {identifiants}"
+# Étape 3 : comparer les besoins aux références fournies.
+def test_consommable_sans_fournisseur():
+    """catalogue_essai() utilise « liquide » sans fournisseur ; seul ce code est attendu."""
+    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
+    raise NotImplementedError("test_consommable_sans_fournisseur est à compléter.")
 
 
-def test_filtre_donnees_inchangees():
-    catalogue = mini_catalogue()
-    filtrer_par_consommable(catalogue, "bille")
-    assert catalogue == mini_catalogue(), "Le filtre a modifié le catalogue reçu"
+# Étape 4 : contrôler la conversion et la copie d'une fiche.
+def test_lecture_demande():
+    """« l1 ; 2 » doit donner {"id": "L1", "quantite": 2}, avec une quantité entière."""
+    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
+    raise NotImplementedError("test_lecture_demande est à compléter.")
 
 
-def test_filtre_renvoie_les_produits_du_catalogue():
-    catalogue = mini_catalogue()
-    resultat = filtrer_par_consommable(catalogue, "brume")
-    assert resultat is not catalogue, "Le filtre doit construire une nouvelle liste"
-    assert resultat[0] is catalogue[1], "Le filtre doit conserver les dictionnaires du catalogue"
+def test_ligne_independante():
+    """Deux L1 coûtent 40 € ; la ligne est un autre dictionnaire et la fiche reste inchangée."""
+    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
+    raise NotImplementedError("test_ligne_independante est à compléter.")
 
 
-def test_budget_lot():
-    montant = calculer_budget({"prix_euros": 59.9}, 2)
-    assert montant == 119.8, f"Obtenu : {montant!r}"
+# Étape 5 : vérifier les cumuls, le paramètre par défaut et la mutation choisie.
+def test_total_cumule():
+    """Deux lignes de sous-totaux 40 € et 15 € donnent 55 €, sans modifier les lignes."""
+    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
+    raise NotImplementedError("test_total_cumule est à compléter.")
 
 
-def test_budget_produit_inchange():
-    produit = {"id": "M1", "prix_euros": 5, "favori": False}
-    avant = {"id": "M1", "prix_euros": 5, "favori": False}
-    calculer_budget(produit, 3)
-    assert produit == avant, f"Produit modifié : {produit}"
+def test_commande_vide_sans_frais():
+    """Une commande vide donne zéro, même avec 10 € de frais demandés."""
+    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
+    raise NotImplementedError("test_commande_vide_sans_frais est à compléter.")
 
 
-def test_favori_autres_champs_inchanges():
-    produit = {"id": "L1", "categorie": "lanceur", "prix_euros": 20, "favori": False}
-    definir_favori(produit, True)
-    assert produit == {"id": "L1", "categorie": "lanceur", "prix_euros": 20, "favori": True}, f"Obtenu : {produit}"
-    definir_favori(produit, False)
-    assert produit["favori"] is False, f"Après désactivation : {produit['favori']!r}"
+def test_favori_autres_champs():
+    """Active puis désactive le favori de L1 ; les autres champs restent inchangés, retour None."""
+    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
+    raise NotImplementedError("test_favori_autres_champs est à compléter.")
+
+
+def test_frais_parametres():
+    """Deux lignes totalisant 55 € donnent 61 € par défaut, 55 € avec zéro et 65 € avec dix."""
+    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
+    raise NotImplementedError("test_frais_parametres est à compléter.")
+
+
+# Étape 6 : vérifier plusieurs fonctions dans un même parcours.
+def test_parcours_complet():
+    """Deux L1, une référence absente et trois M1 donnent 55 € avant frais et 61 € livrés."""
+    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
+    raise NotImplementedError("test_parcours_complet est à compléter.")
