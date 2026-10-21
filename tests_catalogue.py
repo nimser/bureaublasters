@@ -1,9 +1,7 @@
-"""Vérifications du catalogue BureauBlasters.
+"""Vérifications fournies et tests obligatoires : python tests_catalogue.py.
 
-Lance les vérifications du socle et les tests personnels : python tests_catalogue.py
-Lance un groupe : python tests_catalogue.py donnees
-Le groupe perso lance les tests facultatifs de tests_perso.py.
-Le bonus exceptions se lance séparément : python tests_catalogue.py exceptions
+Lance un groupe : python tests_catalogue.py recherche
+Le bonus audio se vérifie séparément : python tests_catalogue.py audio
 """
 
 import importlib
@@ -13,14 +11,21 @@ from pathlib import Path
 
 from catalogue import CATALOGUE
 from fonctions import (
-    calculer_budget,
-    consommables_disponibles,
-    definir_favori,
-    filtrer_par_consommable,
+    calculer_budget, calculer_total, consommables_disponibles, consommables_sans_offre,
+    definir_favori, filtrer_par_consommable, formater_devis, lire_demande,
+    preparer_commande, preparer_ligne, rechercher_produits, selectionner_equipements,
+    sons_pour_produit, total_avec_livraison, trouver_produit,
 )
+from sons import SONS_PRODUITS
 
-GROUPES = ["donnees", "filtres", "budget", "favoris", "perso"]
-BONUS = ["exceptions"]
+GROUPES = ["donnees", "recherche", "filtres", "budget", "commande", "devis", "favoris", "perso"]
+BONUS = ["audio"]
+TESTS_OBLIGATOIRES = {
+    "test_recherche_normalisee", "test_selection_seuil_inclus", "test_consommable_sans_fournisseur",
+    "test_lecture_demande", "test_ligne_independante", "test_total_cumule",
+    "test_commande_vide_sans_frais", "test_favori_autres_champs", "test_frais_parametres",
+    "test_parcours_complet",
+}
 
 CLES = {
     "id", "nom", "categorie", "description", "prix_euros", "conditionnement",
@@ -313,15 +318,6 @@ def test_budget_quantite_nulle():
     assert montant == 0, f"Obtenu : {montant!r}"
 
 
-def test_exceptions_quantite_negative():
-    try:
-        calculer_budget({"prix_euros": 10}, -1)
-    except ValueError as erreur:
-        assert "-1" in str(erreur), f"Le message doit indiquer la quantité reçue : {erreur}"
-        return
-    assert False, "calculer_budget(produit, -1) aurait dû lever ValueError"
-
-
 def test_favoris_activer_puis_desactiver():
     produit = {"id": "L1", "favori": False}
     resultat = definir_favori(produit, True)
@@ -331,6 +327,141 @@ def test_favoris_activer_puis_desactiver():
     assert produit["favori"] is False, f"Après désactivation : {produit['favori']!r}"
 
 
+# Recherche, commande et devis sur des données indépendantes.
+
+
+def catalogue_recherche():
+    return [
+        {"id": "L1", "nom": "Lanceur", "description": "Pour une bille.",
+         "categorie": "lanceur", "prix_euros": 20, "poids_g": 800,
+         "dimensions_cm": {"longueur": 50}, "favori": False},
+        {"id": "A1", "nom": "Brume", "description": "Accessoire de poche.",
+         "categorie": "accessoire", "prix_euros": 15, "poids_g": 300,
+         "dimensions_cm": {"longueur": 4}, "favori": False},
+        {"id": "M1", "nom": "Billes", "description": "Pour le LANCEUR.",
+         "categorie": "munition", "prix_euros": 5, "poids_g": 100,
+         "dimensions_cm": {"longueur": 10}, "favori": False},
+    ]
+
+
+def test_recherche_nom_description_casse_et_espaces():
+    catalogue = catalogue_recherche()
+    resultat = rechercher_produits(catalogue, "  LANCEUR  ")
+    assert [p["id"] for p in resultat] == ["L1", "M1"]
+    assert resultat is not catalogue
+    assert resultat[0] is catalogue[0]
+    assert catalogue == catalogue_recherche(), "La recherche a modifié les fiches"
+
+
+def test_recherche_vide_absente_et_source_vide():
+    catalogue = catalogue_recherche()
+    assert rechercher_produits(catalogue, "   ") == catalogue
+    assert rechercher_produits(catalogue, "introuvable") == []
+    assert rechercher_produits([], "lanceur") == []
+
+
+def test_recherche_selection_criteres_et_frontieres():
+    catalogue = catalogue_recherche()
+    assert selectionner_equipements(catalogue, 20, 800, 50) == catalogue[:2]
+    for maxima in [(19.99, 800, 50), (20, 799, 50), (20, 800, 49)]:
+        assert selectionner_equipements(catalogue, *maxima) == [catalogue[1]]
+    assert selectionner_equipements([], 20, 800, 50) == []
+    assert selectionner_equipements(catalogue, 0, 0, 0) == []
+    assert catalogue == catalogue_recherche()
+
+
+def test_filtres_sans_offre_difference_et_source_vide():
+    catalogue = petit_catalogue_liquides()
+    assert consommables_sans_offre(catalogue) == set()
+    assert consommables_sans_offre(catalogue[:-1]) == {"liquide-b"}
+    assert consommables_sans_offre([]) == set()
+    assert catalogue == petit_catalogue_liquides()
+
+
+def test_commande_retrouver_une_reference_ou_none():
+    catalogue = catalogue_recherche()
+    assert trouver_produit(catalogue, "M1") is catalogue[2]
+    assert trouver_produit(catalogue, "ABSENT") is None
+    assert trouver_produit([], "L1") is None
+
+
+def test_commande_nettoyer_et_convertir():
+    assert lire_demande(" l1 ; 2 ") == {"id": "L1", "quantite": 2}
+    assert lire_demande("M1;0") == {"id": "M1", "quantite": 0}
+    assert isinstance(lire_demande("L1;3")["quantite"], int)
+
+
+def test_commande_ligne_copie_et_reutilisation_budget():
+    produit = catalogue_recherche()[0]
+    ligne = preparer_ligne(produit, 2)
+    attendu = produit.copy()
+    attendu.update(quantite=2, sous_total_euros=40)
+    assert ligne == attendu
+    assert ligne is not produit
+    assert produit == catalogue_recherche()[0]
+    assert preparer_ligne(produit, 0)["sous_total_euros"] == 0
+
+
+def test_commande_connues_inconnues_blanches_et_ordre():
+    catalogue = catalogue_recherche()
+    demandes = [" m1;3 ", " absent;1", "  ", "L1;2", "x;0"]
+    commande = preparer_commande(catalogue, demandes)
+    assert [p["id"] for p in commande["lignes"]] == ["M1", "L1"]
+    assert [p["sous_total_euros"] for p in commande["lignes"]] == [15, 40]
+    assert commande["inconnues"] == ["ABSENT", "X"]
+    assert catalogue == catalogue_recherche()
+    assert demandes == [" m1;3 ", " absent;1", "  ", "L1;2", "x;0"]
+    assert preparer_commande(catalogue, ["  ", ""]) == {"lignes": [], "inconnues": []}
+    assert preparer_commande([], [" L1;2"]) == {"lignes": [], "inconnues": ["L1"]}
+    assert preparer_commande(catalogue, []) == {"lignes": [], "inconnues": []}
+
+
+def test_devis_total_arrondi_et_lignes_inchangees():
+    lignes = [{"sous_total_euros": 0.1}, {"sous_total_euros": 0.2}]
+    assert calculer_total(lignes) == 0.3
+    assert lignes == [{"sous_total_euros": 0.1}, {"sous_total_euros": 0.2}]
+    assert calculer_total([]) == 0
+
+
+def test_devis_frais_uniques_parametres_et_vide():
+    lignes = [{"sous_total_euros": 40}, {"sous_total_euros": 15}]
+    assert total_avec_livraison(lignes) == 61
+    assert total_avec_livraison(lignes, frais_euros=0) == 55
+    assert total_avec_livraison(lignes, frais_euros=10) == 65
+    assert total_avec_livraison([], frais_euros=10) == 0
+    assert lignes == [{"sous_total_euros": 40}, {"sous_total_euros": 15}]
+
+
+def test_devis_texte_exact_et_reutilisation_frais():
+    lignes = [
+        {"id": "L1", "nom": "Lanceur", "quantite": 2, "sous_total_euros": 40},
+        {"id": "M1", "nom": "Billes", "quantite": 3, "sous_total_euros": 15},
+    ]
+    debut = "L1 | 2 x Lanceur : 40.00 €\nM1 | 3 x Billes : 15.00 €\n"
+    assert formater_devis(lignes) == debut + "Total livré : 61.00 €"
+    assert formater_devis(lignes, frais_euros=0) == debut + "Total livré : 55.00 €"
+    assert formater_devis([]) == "Total livré : 0.00 €"
+
+
+def test_audio_reference_silencieuse_partage_et_plusieurs_sons():
+    associations = {"L1": ["sons/couac.wav"], "M1": ["sons/couac.wav", "sons/ding.wav"]}
+    assert sons_pour_produit("L1", associations) == ["sons/couac.wav"]
+    assert sons_pour_produit("M1", associations) == ["sons/couac.wav", "sons/ding.wav"]
+    assert sons_pour_produit("SILENCE", associations) == []
+    assert sons_pour_produit("L1", {}) == []
+    assert associations == {"L1": ["sons/couac.wav"], "M1": ["sons/couac.wav", "sons/ding.wav"]}
+
+
+def test_audio_associations_des_produits():
+    attendus = {
+        "BB-01": "tampon-administratif", "BB-02": "rire-requin", "BB-03": "montee-niveau",
+        "BB-04": "jingle-brume", "BB-05": "coin-coin", "BB-06": "ding-reunion",
+        "BB-07": "clochette-boulangerie", "BB-08": "bourdonnement-orbe",
+        "RE-02": "sifflement-mini-requin", "RE-04": "coin-coin",
+    }
+    assert SONS_PRODUITS == {identifiant: [f"sons/{nom}.wav"] for identifiant, nom in attendus.items()}
+
+
 # Lancement des tests
 
 
@@ -338,7 +469,11 @@ def tests_du_groupe(groupe):
     if groupe != "perso":
         return [fonction for nom, fonction in globals().items() if nom.startswith(f"test_{groupe}_")]
     module = importlib.import_module("tests_perso")
-    return [fonction for nom, fonction in vars(module).items() if nom.startswith("test_") and callable(fonction)]
+    tests = {nom: fonction for nom, fonction in vars(module).items() if nom.startswith("test_") and callable(fonction)}
+    manquants = TESTS_OBLIGATOIRES - tests.keys()
+    if manquants:
+        raise AssertionError(f"Tests obligatoires absents : {', '.join(sorted(manquants))}")
+    return list(tests.values())
 
 
 def lancer(groupe):
@@ -391,7 +526,7 @@ def main(arguments):
         for cle, valeur in lancer(groupe).items():
             total[cle] += valeur
     print(f"\nBilan : {total['ok']} OK, {total['echec']} en échec, {total['a_completer']} à compléter.")
-    return 1 if total["echec"] else 0
+    return 1 if total["echec"] or total["a_completer"] else 0
 
 
 if __name__ == "__main__":
