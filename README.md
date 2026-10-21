@@ -675,6 +675,18 @@ Ces vérifications contrôlent les associations et les fonctions. Termine par ce
 
 Publie les fichiers sonores ajoutés, les associations, la fonction et l’intégration du lecteur dans ton fork. Ajoute à ta pull request une capture d’une carte avec son lecteur.
 
+## Bonus : améliore le design et l’ergonomie du catalogue
+
+**Prérequis :** socle fonctionnel. **Durée indicative :** 20 à 30 minutes.
+
+Comment rendrais-tu le catalogue plus agréable à consulter et plus simple à utiliser ?
+
+Choisis et réalise une amélioration dans `app.py`. Par exemple, fais apparaître les premières fiches du catalogue dès l’ouverture de la page, sans avoir à faire défiler l’écran, tout en gardant la recherche et les filtres faciles à trouver.
+
+Vérifie le résultat sur une fenêtre d’ordinateur puis une fenêtre plus étroite. Teste la recherche, les filtres, les favoris et le devis pour confirmer qu’ils restent utilisables.
+
+Ajoute une capture avant/après à ta pull request et explique brièvement le problème résolu et ton choix.
+
 ## Consulte les ressources utiles
 
 - [Python 3.15 : listes, dictionnaires et ensembles](https://docs.python.org/3.15/tutorial/datastructures.html).
