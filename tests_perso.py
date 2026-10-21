@@ -78,26 +78,36 @@ def test_ligne_independante():
 # Étape 5 : vérifier les cumuls, le paramètre par défaut et la mutation choisie.
 def test_total_cumule():
     """Deux lignes de sous-totaux 40 € et 15 € donnent 55 €, sans modifier les lignes."""
-    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
-    raise NotImplementedError("test_total_cumule est à compléter.")
+    lignes = [{"sous_total_euros": 40}, {"sous_total_euros": 15}]
+    assert calculer_total(lignes) == 55
+    assert lignes == [{"sous_total_euros": 40}, {"sous_total_euros": 15}]
 
 
 def test_commande_vide_sans_frais():
     """Une commande vide donne zéro, même avec 10 € de frais demandés."""
-    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
-    raise NotImplementedError("test_commande_vide_sans_frais est à compléter.")
+    assert calculer_total([]) == 0
+    assert total_avec_livraison([]) == 0
+    assert total_avec_livraison([], 10) == 0
 
 
 def test_favori_autres_champs():
     """Active puis désactive le favori de L1 ; les autres champs restent inchangés, retour None."""
-    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
-    raise NotImplementedError("test_favori_autres_champs est à compléter.")
+    produit = catalogue_essai()[0]
+    retour = definir_favori(produit, True)
+    attendu = catalogue_essai()[0]
+    attendu["favori"] = True
+    assert retour is None
+    assert produit == attendu
+    definir_favori(produit, False)
+    assert produit == catalogue_essai()[0]
 
 
 def test_frais_parametres():
     """Deux lignes totalisant 55 € donnent 61 € par défaut, 55 € avec zéro et 65 € avec dix."""
-    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
-    raise NotImplementedError("test_frais_parametres est à compléter.")
+    lignes = [{"sous_total_euros": 40}, {"sous_total_euros": 15}]
+    assert total_avec_livraison(lignes) == 61
+    assert total_avec_livraison(lignes, frais_euros=0) == 55
+    assert total_avec_livraison(lignes, frais_euros=10) == 65
 
 
 # Étape 6 : vérifier plusieurs fonctions dans un même parcours.

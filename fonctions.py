@@ -101,26 +101,33 @@ def preparer_commande(catalogue, demandes):
 # Étape 5 : réutiliser les résultats et choisir les effets sur les données.
 def calculer_total(lignes):
     """Retourne la somme des sous-totaux arrondie à deux décimales, ou zéro."""
-    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
-    raise NotImplementedError("calculer_total est à compléter.")
+    total = 0
+    for ligne in lignes:
+        total += ligne["sous_total_euros"]
+    return round(total, 2)
 
 
 def total_avec_livraison(lignes, frais_euros=6):
     """Ajoute les frais une seule fois si les lignes ne sont pas vides, sinon retourne zéro."""
-    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
-    raise NotImplementedError("total_avec_livraison est à compléter.")
+    if not lignes:
+        return 0
+    return round(calculer_total(lignes) + frais_euros, 2)
 
 
 def formater_devis(lignes, frais_euros=6):
     """Retourne le récapitulatif textuel avec deux décimales et un total livré."""
-    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
-    raise NotImplementedError("formater_devis est à compléter.")
+    messages = []
+    for ligne in lignes:
+        messages.append(
+            f"{ligne['id']} | {ligne['quantite']} x {ligne['nom']} : {ligne['sous_total_euros']:.2f} €"
+        )
+    messages.append(f"Total livré : {total_avec_livraison(lignes, frais_euros):.2f} €")
+    return "\n".join(messages)
 
 
 def definir_favori(produit, favori):
     """Modifie uniquement favori dans le dictionnaire reçu et retourne None."""
-    # À compléter : suis le contrat et les vérifications de cette étape dans le README.
-    raise NotImplementedError("definir_favori est à compléter.")
+    produit["favori"] = favori
 
 
 # Bonus audio : retrouver les chemins associés à une référence.
