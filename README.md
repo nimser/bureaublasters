@@ -39,7 +39,7 @@ BureauBlasters vend aussi les **munitions de remplacement** et les **bouteilles 
 
 La Happiness Team t’envoie une demande peu soignée. Retrouve ses références, prépare une sélection adaptée aux petits bureaux et produis un devis sans modifier les fiches du catalogue. Conserve aussi les favoris pendant la session.
 
-À chaque étape, écris les fonctions demandées, complète les tests indiqués dans `tests_perso.py` et vérifie le résultat dans l’interface ou avec l’aperçu terminal. Tu peux traiter de petites données d’essai avant de travailler sur les 16 références.
+À chaque étape, écris les fonctions demandées, complète les tests indiqués dans `tests_perso.py` et vérifie le résultat dans l’interface ou avec l’aperçu terminal. Tu peux traiter de petites données d’essai avant de travailler sur les 16 références. Après chaque consigne complétée, [fais un commit et publie-le](#publie-ton-travail).
 
 **Couverture :** nettoyage et découpage des chaînes, conversions, f-strings, conditions combinées, boucles et cumuls, listes et dictionnaires imbriqués, sets et différence, fonctions avec paramètres, retours et valeur par défaut, portée, copie superficielle et mutation.
 
@@ -567,7 +567,9 @@ git show 'stash@{0}:fonctions.py'
 
 ## Publie ton travail
 
-À chaque étape terminée, publie ton travail dans ton fork : dans **Source Control** de VS Code, sélectionne tes fichiers modifiés, écris un message décrivant ce que tu as fait, puis utilise **Commit** et **Sync Changes**. Ouvre ensuite ton fork sur GitHub et vérifie que tes derniers fichiers y figurent.
+**Fais un commit après chaque consigne complétée.** Enregistre tes fichiers, puis, dans **Source Control** de VS Code, place les fichiers concernés dans **Staged Changes** avec le bouton **+**, écris un message décrivant la consigne réalisée et clique sur **Commit**. Utilise ensuite **Sync Changes** pour publier le commit dans ton fork. Ouvre ton fork sur GitHub et vérifie que tes derniers fichiers y figurent.
+
+**Si tu n’arrives pas à faire le commit ou à le publier depuis ton poste, appelle le formateur pour le faire avec lui.**
 
 Enregistrer un fichier dans Codespaces ne le publie pas.
 
