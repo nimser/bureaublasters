@@ -1,4 +1,4 @@
-"""Vérifie les références Git de l'atelier sans modifier les branches."""
+"""Vérifie les contenus commités, la progression et les comparaisons GitHub."""
 
 import argparse
 import ast
@@ -6,31 +6,12 @@ import copy
 import subprocess
 import sys
 
-BRANCHES = [
-    "main",
-    "etape/02-filtres",
-    "etape/03-budget",
-    "etape/04-favoris",
-    "etape/05-tests",
-    "correction",
-]
-FONCTIONS = [
-    "consommables_disponibles",
-    "filtrer_par_consommable",
-    "calculer_budget",
-    "definir_favori",
-]
-A_COMPLETER = [4, 4, 2, 1, 0, 0]
-FICHIERS_TRANSITIONS = ["catalogue.py", "fonctions.py", "fonctions.py", "fonctions.py", "tests_perso.py"]
-VARIANTES = {"catalogue.py", "fonctions.py", "tests_perso.py"}
-COMMUNS = {
-    "README.md",
-    "catalogue_source.txt",
-    "tests_catalogue.py",
-    "app.py",
-    "apercu_terminal.py",
-    ".github/pull_request_template.md",
-}
+from niveaux import (
+    BRANCHES, ETAPES_FONCTIONS, ETAPES_TESTS, FONCTIONS, TESTS, TRANSITIONS, VARIANTES,
+    app_sans_audio, definitions, sons_sans_associations, variante,
+)
+
+COMMUNS = {"README.md", "catalogue_source.txt", "tests_catalogue.py", "demandes.py", "apercu_terminal.py"}
 
 
 def git(*arguments):
@@ -51,25 +32,8 @@ def lire(reference, chemin):
 
 def catalogue(reference):
     arbre = ast.parse(lire(reference, "catalogue.py"))
-    for noeud in arbre.body:
-        if isinstance(noeud, ast.Assign) and any(
-            isinstance(cible, ast.Name) and cible.id == "CATALOGUE" for cible in noeud.targets
-        ):
-            return ast.literal_eval(noeud.value)
-    raise ValueError(f"{reference} : liste CATALOGUE absente")
-
-
-def fonctions(reference):
-    arbre = ast.parse(lire(reference, "fonctions.py"))
-    return {noeud.name: noeud for noeud in arbre.body if isinstance(noeud, ast.FunctionDef)}
-
-
-def est_a_completer(fonction):
-    return any(
-        isinstance(noeud, ast.Raise) and isinstance(noeud.exc, ast.Call)
-        and isinstance(noeud.exc.func, ast.Name) and noeud.exc.func.id == "NotImplementedError"
-        for noeud in ast.walk(fonction)
-    )
+    affectation = next(n for n in arbre.body if isinstance(n, ast.Assign))
+    return ast.literal_eval(affectation.value)
 
 
 def catalogue_depart(corrige):
@@ -85,7 +49,7 @@ def catalogue_depart(corrige):
 
 def verifier_comparaisons(references):
     erreurs = []
-    for avant, apres, chemin in zip(BRANCHES, BRANCHES[1:], FICHIERS_TRANSITIONS):
+    for avant, apres, chemins in zip(BRANCHES, BRANCHES[1:], TRANSITIONS):
         base, suite = references[avant], references[apres]
         transition = f"{avant} → {apres}"
         try:
@@ -94,31 +58,35 @@ def verifier_comparaisons(references):
             if ancetre != attendu:
                 erreurs.append(f"{transition} : la branche précédente doit être un ancêtre de la suivante")
                 continue
-            fichiers = git("diff", "--name-only", f"{base}...{suite}").decode().splitlines()
-            if fichiers != [chemin]:
-                erreurs.append(f"{transition} : comparaison attendue sur {chemin} seul, obtenu {fichiers}")
+            fichiers = set(git("diff", "--name-only", f"{base}...{suite}").decode().splitlines())
+            if fichiers != chemins:
+                erreurs.append(f"{transition} : fichiers attendus {sorted(chemins)}, obtenu {sorted(fichiers)}")
         except ValueError as erreur:
             erreurs.append(f"{transition} : {erreur}")
     return erreurs
 
 
-def verifier(remote):
+def verifier(remote=None):
     prefixe = f"refs/remotes/{remote}" if remote else "refs/heads"
     references = {branche: f"{prefixe}/{branche}" for branche in BRANCHES}
     correction = references["correction"]
     communs = fichiers_communs(correction)
     contenus = {chemin: lire(correction, chemin) for chemin in communs}
+    sources = {chemin: lire(correction, chemin).decode() for chemin in VARIANTES - {"catalogue.py"}}
     corrige = catalogue(correction)
-    fonctions_corrigees = fonctions(correction)
     identifiants = [f"BB-0{n}" for n in range(1, 9)] + [f"RE-0{n}" for n in range(1, 9)]
     if [p["id"] for p in corrige] != identifiants:
         raise ValueError("correction : les seize références doivent être présentes dans l’ordre")
-    if set(fonctions_corrigees) != set(FONCTIONS) or any(
-        est_a_completer(fonction) for fonction in fonctions_corrigees.values()
-    ):
-        raise ValueError("correction : les quatre fonctions doivent être implémentées")
+    for chemin, attendus in [("fonctions.py", FONCTIONS), ("tests_perso.py", TESTS)]:
+        noms = set(definitions(sources[chemin]))
+        if chemin == "tests_perso.py":
+            noms.discard("catalogue_essai")
+        if noms != set(attendus):
+            raise ValueError(f"correction : définitions de {chemin} différentes du contrat")
+        if "raise NotImplementedError" in sources[chemin]:
+            raise ValueError(f"correction : {chemin} doit être terminé")
     erreurs = verifier_comparaisons(references)
-    for branche, nombre in zip(BRANCHES, A_COMPLETER):
+    for niveau, branche in enumerate(BRANCHES):
         reference = references[branche]
         try:
             if fichiers_communs(reference) != communs:
@@ -126,25 +94,21 @@ def verifier(remote):
             for chemin, contenu in contenus.items():
                 if lire(reference, chemin) != contenu:
                     erreurs.append(f"{branche} : {chemin} diffère de correction")
-            attendu = catalogue_depart(corrige) if branche == "main" else corrige
+            attendu = catalogue_depart(corrige) if niveau == 0 else corrige
             if catalogue(reference) != attendu:
-                erreurs.append(f"{branche} : catalogue différent du niveau pédagogique attendu")
-            definitions = fonctions(reference)
-            if set(definitions) != set(FONCTIONS):
-                erreurs.append(f"{branche} : signatures des quatre fonctions attendues absentes")
-            for position, nom in enumerate(FONCTIONS):
-                fonction = definitions[nom]
-                if ast.dump(fonction.args) != ast.dump(fonctions_corrigees[nom].args):
-                    erreurs.append(f"{branche} : paramètres de {nom} différents")
-                if position >= len(FONCTIONS) - nombre:
-                    if not est_a_completer(fonction):
-                        erreurs.append(f"{branche} : {nom} doit rester à compléter")
-                elif ast.dump(fonction) != ast.dump(fonctions_corrigees[nom]):
-                    erreurs.append(f"{branche} : {nom} doit être fourni et corrigé")
-            if branche != "correction":
-                arbre = ast.parse(lire(reference, "tests_perso.py"))
-                if any(isinstance(n, ast.FunctionDef) and n.name.startswith("test_") for n in arbre.body):
-                    erreurs.append(f"{branche} : les tests personnels doivent rester à écrire")
+                erreurs.append(f"{branche} : catalogue différent du niveau attendu")
+            for chemin, etapes in [("fonctions.py", ETAPES_FONCTIONS), ("tests_perso.py", ETAPES_TESTS)]:
+                attendu = variante(sources[chemin], etapes, niveau)
+                if ast.dump(ast.parse(lire(reference, chemin))) != ast.dump(ast.parse(attendu)):
+                    erreurs.append(f"{branche} : progression de {chemin} incorrecte")
+            attendu_app = sources["app.py"] if niveau == 7 else app_sans_audio(sources["app.py"])
+            attendu_sons = sources["sons.py"] if niveau == 7 else sons_sans_associations(sources["sons.py"])
+            for chemin, attendu in [("app.py", attendu_app), ("sons.py", attendu_sons)]:
+                if lire(reference, chemin).decode() != attendu:
+                    erreurs.append(f"{branche} : {chemin} ne respecte pas le niveau audio attendu")
+            chemins = git("ls-tree", "-r", "--name-only", reference).decode().splitlines()
+            if any(p.lower().endswith((".wav", ".mp3", ".ogg", ".flac")) for p in chemins):
+                erreurs.append(f"{branche} : les fichiers audio doivent être ajoutés par les apprenants depuis Discord")
         except (ValueError, KeyError, SyntaxError) as erreur:
             erreurs.append(f"{branche} : {erreur}")
     return erreurs
@@ -152,19 +116,19 @@ def verifier(remote):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--remote", help="Vérifie les références distantes déjà récupérées, par exemple origin")
+    parser.add_argument("--remote", help="Références distantes déjà récupérées, par exemple origin")
     arguments = parser.parse_args()
     try:
         erreurs = verifier(arguments.remote)
-    except (ValueError, SyntaxError) as erreur:
+    except (ValueError, SyntaxError, KeyError) as erreur:
         erreurs = [str(erreur)]
     for erreur in erreurs:
         print(f"ÉCHEC : {erreur}", file=sys.stderr)
     if erreurs:
         return 1
-    print("OK : six branches cohérentes, cinq erreurs et trois fiches manquantes conservées sur main.")
-    print("OK : progression des fonctions et tests personnels à écrire préservés sur les reprises.")
-    print("OK : comparaisons GitHub limitées au travail attendu entre étapes consécutives.")
+    print("OK : huit branches cohérentes, trois fiches manquantes et cinq erreurs conservées sur main.")
+    print("OK : fonctions, dix tests et intégration audio progressent sans réponses anticipées.")
+    print("OK : sept comparaisons GitHub limitées au travail de chaque étape, sans audio fourni.")
     return 0
 
 
