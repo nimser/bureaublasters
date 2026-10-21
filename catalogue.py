@@ -1,14 +1,13 @@
 """Catalogue des produits BureauBlasters."""
 
 # Étape 1 : relire les données ; catalogue_source.txt contient les trois fiches à migrer.
-# À compléter : corriger les fiches existantes et insérer les trois fiches manquantes.
 CATALOGUE = [
     {
         "id": "BB-01",
         "nom": "Sulfateuse à Relances",
         "categorie": "lanceur",
         "description": "Sulfateuse compacte à fléchettes en mousse : barillet rotatif à six canons, chargeur de 12 fléchettes. Une main suffit. Munitions compatibles : Fléchettes de rappel (RE-01).",
-        "prix_euros": "39,50",
+        "prix_euros": 39.5,
         "conditionnement": "1 blaster",
         "consommables_utilises": [
             "flechette-mousse"
@@ -30,7 +29,36 @@ CATALOGUE = [
         "image": "images/sulfateuse-relances.jpg",
         "favori": False
     },
-    # À compléter : insérer la fiche BB-02 — Requin Arêtes.
+    {
+        "id": "BB-02",
+        "nom": "Requin Arêtes",
+        "categorie": "lanceur",
+        "description": "Lance-requins à porter à deux mains. Gueule dentée, yeux lumineux, graffitis roses et bleus. Propulse par air comprimé des mini-requins en mousse qui zigzaguent et diffusent par plusieurs trous une brume d’eau produite par ultrasons, éclairée en rose et bleu par des LED voisines. Un éclat de rire enregistré accompagne chaque tir. Le modèle phare de la gamme. Munitions compatibles : Mini-requins fumigènes (RE-02). Le liquide se verse dans les mini-requins, jamais dans le lanceur ; leur brume est sans parfum avec Brume neutre (RE-07) ou parfumée avec Brume girofle-agrumes (RE-08).",
+        "prix_euros": 489.0,
+        "conditionnement": "1 lanceur, 1 sangle d’épaule, 1 pompe",
+        "consommables_utilises": [
+            "requin-mousse"
+        ],
+        "consommables_fournis": [],
+        "portee_m": 12,
+        "cadence_tirs_min": 4,
+        "poids_g": 4800,
+        "dimensions_cm": {
+            "longueur": 118,
+            "largeur": 30,
+            "hauteur": 42
+        },
+        "indice_protection": None,
+        "effets": [
+            "trajectoire en zigzag des mini-requins",
+            "traînée de brume d’eau ultrasonique éclairée en rose et bleu",
+            "yeux et gueule à LED roses et bleues",
+            "éclat de rire enregistré au départ du tir",
+            "senteur selon le liquide de recharge"
+        ],
+        "image": "images/requin-aretes.jpg",
+        "favori": False
+    },
     {
         "id": "BB-03",
         "nom": "Gantelets du Sprint",
@@ -58,7 +86,36 @@ CATALOGUE = [
         "image": "images/gantelets-sprint.jpg",
         "favori": False
     },
-    # À compléter : insérer la fiche BB-04 — Fumigène à ultrason.
+    {
+        "id": "BB-04",
+        "nom": "Fumigène à ultrason",
+        "categorie": "accessoire",
+        "description": "Grenade-jouet fumigène de poche, lumineuse et étanche, à enveloppe en silicone mat amortissant et petit réservoir intégré. Trois exemplaires tiennent dans une main. Pendant 20 secondes, elle diffuse une brume d’eau produite par ultrasons à travers plusieurs trous, chacun accompagné d’une LED rose. Le réservoir se recharge par un clapet à charnière souple en y versant un liquide à base d’eau : Brume neutre (RE-07, sans parfum) ou Brume girofle-agrumes (RE-08, parfumé), vendu séparément en petites bouteilles de 100 ml pour plusieurs remplissages.",
+        "prix_euros": 29.9,
+        "conditionnement": "1 grenade de brume",
+        "consommables_utilises": [
+            "brume-neutre",
+            "brume-girofle-agrumes"
+        ],
+        "consommables_fournis": [],
+        "portee_m": None,
+        "cadence_tirs_min": None,
+        "poids_g": 300,
+        "dimensions_cm": {
+            "longueur": 4,
+            "largeur": 4,
+            "hauteur": 6
+        },
+        "indice_protection": "IP68",
+        "effets": [
+            "jets de brume d’eau ultrasonique par plusieurs trous éclairés en rose",
+            "pulsations de LED roses",
+            "jingle de trois notes",
+            "senteur selon le liquide de recharge"
+        ],
+        "image": "images/brume-bonne-humeur.jpg",
+        "favori": False
+    },
     {
         "id": "BB-05",
         "nom": "Coin-Coin de Crise",
@@ -128,7 +185,7 @@ CATALOGUE = [
         "cadence_tirs_min": 6,
         "poids_g": 1400,
         "dimensions_cm": {
-            "longueur": 480,
+            "longueur": 48,
             "largeur": 20,
             "hauteur": 30
         },
@@ -203,7 +260,7 @@ CATALOGUE = [
             "brume-girofle-agrumes"
         ],
         "consommables_fournis": [
-            "requin_mousse"
+            "requin-mousse"
         ],
         "portee_m": None,
         "cadence_tirs_min": None,
@@ -245,7 +302,7 @@ CATALOGUE = [
         "indice_protection": None,
         "effets": [],
         "image": "images/disques-livraison.jpg",
-        "favori": "False"
+        "favori": False
     },
     {
         "id": "RE-04",
@@ -304,7 +361,7 @@ CATALOGUE = [
         "nom": "Balles de décompression",
         "categorie": "munition",
         "description": "Balles en mousse pour l’Orbe de Décompression.",
-        "prix_euros": 890,
+        "prix_euros": 8.9,
         "conditionnement": "lot de 10 balles",
         "consommables_utilises": [],
         "consommables_fournis": [
@@ -349,5 +406,31 @@ CATALOGUE = [
         "image": "images/brume-neutre.jpg",
         "favori": False
     },
-    # À compléter : insérer la fiche RE-08 — Brume girofle-agrumes.
+    {
+        "id": "RE-08",
+        "nom": "Brume girofle-agrumes",
+        "categorie": "recharge",
+        "description": "Petite bouteille de 100 ml de liquide aqueux parfumé au clou de girofle et au zeste d’orange, à verser dans les réservoirs vides du Fumigène à ultrason (BB-04) ou des Mini-requins fumigènes (RE-02), appareils éteints. Ouvrir le clapet du fumigène ou le bouchon du mini-requin. Une bouteille permet plusieurs remplissages.",
+        "prix_euros": 6.9,
+        "conditionnement": "1 bouteille de 100 ml",
+        "consommables_utilises": [],
+        "consommables_fournis": [
+            "brume-girofle-agrumes"
+        ],
+        "portee_m": None,
+        "cadence_tirs_min": None,
+        "poids_g": 130,
+        "dimensions_cm": {
+            "longueur": 4,
+            "largeur": 4,
+            "hauteur": 12
+        },
+        "indice_protection": None,
+        "effets": [
+            "brume d’eau",
+            "senteur girofle et orange"
+        ],
+        "image": "images/brume-girofle-agrumes.jpg",
+        "favori": False
+    }
 ]
