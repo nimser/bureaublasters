@@ -242,6 +242,8 @@ Retourne les fiches de catégorie `lanceur` ou `accessoire` qui respectent **les
 
 **À vérifier :** pour 60 €, 800 g et 50 cm, les références attendues sont BB-01, BB-04, BB-06 et BB-08. Vérifie aussi une source vide et des maxima à zéro.
 
+Dans l’interface, coche **Équipements adaptés aux petits bureaux** pour activer les trois maxima. Ils sont grisés tant que la case est décochée. La recherche, les maxima actifs et le code de consommable se combinent automatiquement ; le nombre de produits affichés et les filtres appliqués indiquent le résultat. **Réinitialiser les filtres** rétablit le catalogue complet et conserve tes favoris.
+
 <details><summary>Indice</summary>
 
 Lis la longueur avec `produit["dimensions_cm"]["longueur"]`. Combine la catégorie et les trois comparaisons avec `and`. « Au maximum » inclut la limite : utilise `<=`.
@@ -591,20 +593,11 @@ Prépare une démonstration courte : un comportement réussi et une modification
 
 ## Vérifie les critères de réussite
 
-- Tes ajouts respectent l’extrait ; les données déjà migrées respectent les types, les unités, les signalements et le conditionnement vendu.
-- Tes fonctions utilisent leurs paramètres, sans dépendre d’un catalogue global ni coder les réponses en dur.
-- Ton set élimine les doublons et ton filtre conserve l’ordre des produits, dans toutes les catégories et sans ajouter de correspondance indirecte.
-- Tu distingues une référence produit, un consommable utilisé ou fourni, une alternative de recharge et une commande complète.
-- Ta recherche nettoie le texte ; ta sélection combine les critères et conserve les valeurs exactement à la limite.
-- Ta commande normalise les références, convertit les quantités, ignore les lignes blanches et distingue les références inconnues.
-- Tes lignes de commande sont des dictionnaires distincts des fiches du catalogue.
-- Ton devis cumule les sous-totaux, applique les frais une seule fois et affiche deux décimales.
-- Ton paramètre de frais fonctionne par défaut et avec une valeur explicite ; une commande vide donne zéro.
-- Ta fonction de favoris modifie l’objet reçu ; tes autres fonctions conservent leurs entrées inchangées.
-- Tes dix tests obligatoires passent et tu démontres qu’un test détecte une erreur ciblée.
-- Tu vérifies les ajouts avec l’extrait et les données existantes avec les signalements, l’interface et les vérifications fournies.
-- Tes noms rendent le code lisible et tes commentaires éclairent les choix qui en ont besoin.
-- Tu peux expliquer une fonction et adapter son comportement.
+- Ton catalogue est complet et conforme aux fiches et aux signalements.
+- Recherche, filtres, commande, devis et favoris fonctionnent selon les consignes.
+- Tes fonctions utilisent leurs paramètres et ne modifient que les données prévues.
+- Les vérifications fournies et tes dix tests passent ; tu montres qu’un test détecte une erreur.
+- Tu sais expliquer une fonction et le test qui la vérifie.
 
 ## Bonus : ajoute les effets sonores
 
