@@ -242,7 +242,7 @@ Retourne les fiches de catégorie `lanceur` ou `accessoire` qui respectent **les
 
 **À vérifier :** pour 60 €, 800 g et 50 cm, les références attendues sont BB-01, BB-04, BB-06 et BB-08. Vérifie aussi une source vide et des maxima à zéro.
 
-Dans l’interface, coche **Équipements adaptés aux petits bureaux** pour activer les trois maxima. Ils sont grisés tant que la case est décochée. La recherche, les maxima actifs et le code de consommable se combinent automatiquement ; le nombre de produits affichés et les filtres appliqués indiquent le résultat. **Réinitialiser les filtres** rétablit le catalogue complet et conserve tes favoris.
+Dans l’interface, coche **Activer les limites de prix, poids et longueur** pour activer les trois maxima. Ils sont grisés tant que la case est décochée. La recherche, les maxima actifs et le code de consommable se combinent automatiquement ; le nombre de produits affichés et les filtres appliqués indiquent le résultat. **Réinitialiser les filtres** rétablit le catalogue complet et conserve tes favoris.
 
 <details><summary>Indice</summary>
 
